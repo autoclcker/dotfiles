@@ -1,0 +1,9 @@
+kubectl 1.27.5
+k9s system
+golang 1.21.0
+golangci-lint 1.55.2
+helm 3.13.0
+helm-diff 3.8.1
+vim 9.0.1900
+python 3.11.5
+neovim 0.9.5
