@@ -362,13 +362,16 @@ set -g mouse on
 
 set -g prefix C-t                         # GNU-Screen compatible prefix
 bind C-t send-prefix
-unbind-key C-b
-unbind-key C-a
+unbind C-b
+unbind C-a
 
 # split current window horizontally
 bind -n M-s split-window -v
 # split current window vertically
 bind -n M-v split-window -h
+
+# destroy pane 
+bind -n M-x kill-pane
 
 # pane navigation
 bind h select-pane -L  # move left
@@ -382,21 +385,28 @@ bind -n M-Down resize-pane -D 2
 bind -n M-Up resize-pane -U 2
 bind -n M-Right resize-pane -R 2
 
-# create/destroy window
-bind-key t new-window
-bind-key -n C-q killp
+# pane synchronization
+bind -n M-p set-window-option synchronize-panes\; display-message "synchronize-panes is now #{?pane_synchronized,on,off}"
+
+# create/destroy  window
+bind -r t new-window
+bind -n M-q kill-window
 
 # switch windows using Alt-arrow without prefix
-bind-key -n C-j previous-window
-bind-key -n C-k next-window
-bind-key -n M-, swap-window -t -1\; select-window -t -1
-bind-key -n M-. swap-window -t +1\; select-window -t +1
+bind -n M-j previous-window
+bind -n M-k next-window
+bind -n M-, swap-window -t -1\; select-window -t -1
+bind -n M-. swap-window -t +1\; select-window -t +1
 
 # rename window
-bind-key -n M-r command-prompt -I "#W" "rename-window '%%'"
+bind -n M-r command-prompt -I "#W" "rename-window '%%'"
 
-# create session
+# create/destroy session
 bind -n C-s new-session
+bind -n C-q kill-session
+
+# rename session
+bind -n M-R command-prompt "rename-session '%%'"
 
 # find session
 bind -n C-f command-prompt -p find-session 'switch-client -t %%'
