@@ -31,9 +31,3 @@ font:
   normal:
     family: "DejaVuSansMono Nerd Font"
   size: 14
-shell:
-  program: /bin/zsh
-  args:
-    - -l
-    - -c
-    - "tmux attach || tmux"

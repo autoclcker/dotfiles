@@ -82,8 +82,10 @@ export ZSH="$HOME/.oh-my-zsh"
 plugins=(
 	aliases
 	asdf
+  ansible
 	copyfile
 	fd
+  fzf
 	git
 	git-commit
 	golang
@@ -100,24 +102,21 @@ plugins=(
 	zsh-autosuggestions
 )
 
+# Common aliases
+source ~/.profile
+
 source $ZSH/oh-my-zsh.sh
 
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#6e6e6e,bg=#000000,bold"
 bindkey '^ ' autosuggest-accept
+bindkey -r '\C-t'
 
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+export LANG=en_US.UTF-8
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -132,11 +131,5 @@ bindkey '^ ' autosuggest-accept
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 echo -en "\e[=2c"
 
-# Common aliases
-source ~/.profile
-
 # Generated for envman. Do not edit.
 # [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-bindkey '^ ' autosuggest-accept

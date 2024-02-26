@@ -7,3 +7,4 @@ helm-diff 3.8.1
 vim 9.0.1900
 python 3.11.5
 neovim 0.9.5
+tmux 3.4
