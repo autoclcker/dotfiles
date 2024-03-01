@@ -121,3 +121,7 @@ fi
 [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+# Asdf
+. "$HOME/.asdf/asdf.sh"
+. "$HOME/.asdf/completions/asdf.bash"
