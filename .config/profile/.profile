@@ -9,10 +9,6 @@ else
 	alias la='exa -a --color=always --icons'
 fi
 alias ip='ip -c=always'
-alias du='ncdu'
-alias bat='batcat'
-alias df='duf'
-alias fd='fdfind'
 alias http='http -v'
 alias wp='nmcli device wifi show-password'
 alias wtr='curl wttr.in/Petersburg'
@@ -31,7 +27,7 @@ export ZSH_TMUX_DEFAULT_SESSION_NAME="main"
 export EDITOR="nvim"
 
 # Manpager
-export MANPAGER="sh -c 'col -bx | batcat -l man -p'"
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 
 # Fzf
 export FZF_ALT_C_OPTS="--preview 'tree -C {}'"
