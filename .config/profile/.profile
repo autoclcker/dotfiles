@@ -8,6 +8,7 @@ else
 	alias ll='exa -lh --color=always --icons'
 	alias la='exa -a --color=always --icons'
 fi
+alias ctop='TERM="${TERM/#tmux/screen}" ctop'
 alias ip='ip -c=always'
 alias http='http -v'
 alias wp='nmcli device wifi show-password'

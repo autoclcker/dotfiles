@@ -18,3 +18,12 @@ fd 9.0.0
 fzf 0.46.1
 ripgrep 14.1.0
 starship 1.9.1
+git 2.44.0
+bat-extras 2024.02.12
+ctop 0.7.7
+jq 1.7.1
+lua 5.4.6
+haskell 9.8.2
+yamllint 0.1.0
+shellcheck 0.9.0
+docker-slim 1.40.9
