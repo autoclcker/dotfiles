@@ -11,7 +11,7 @@
 #   - true
 #   - false (default)
 #   - disabled (do not modify new-session bindings)
-tmux_conf_new_session_prompt=false
+tmux_conf_new_session_prompt=true
 
 # new session retains current path, possible values are:
 #   - true
@@ -44,7 +44,7 @@ tmux_conf_new_pane_retain_current_path=true
 #   - true
 #   - false (default)
 #   - disabled (do not modify split-window bindings)
-tmux_conf_new_pane_reconnect_ssh=false
+tmux_conf_new_pane_reconnect_ssh=true
 
 
 # -- display -------------------------------------------------------------------
@@ -360,10 +360,11 @@ tmux_conf_copy_to_os_clipboard=false
 
 set -g mouse on
 
-set -g prefix C-t                         # GNU-Screen compatible prefix
-bind C-t send-prefix
-unbind C-b
+set -gu prefix2
 unbind C-a
+unbind C-b
+set -g prefix C-a
+bind C-a send-prefix
 
 # split current window horizontally
 bind -n M-s split-window -v

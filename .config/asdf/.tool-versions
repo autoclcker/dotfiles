@@ -27,3 +27,4 @@ haskell 9.8.2
 yamllint 0.1.0
 shellcheck 0.9.0
 docker-slim 1.40.9
+kubeconform 0.6.4

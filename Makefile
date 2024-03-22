@@ -6,9 +6,11 @@ apply: ### Apply configurations
 	@cp -R .config/wireshark ~/.config | true
 	@cp -R .config/codium ~/.config | true
 	@cp -R .config/tmux ~/.config | true
+	@cp -R .config/ctop ~/.config | true
 	@cp -R .config/nvim ~/.config | true
 	@cp -R .config/htop ~/.config | true
 	@cp -R .config/git ~/.config | true
+	@cp -R .config/k9s ~/.config | true
 	@cp -R .config/asdf/.tool-versions ~/ | true
 	@cp -R .config/profile/.profile ~/ | true
 	@cp -R .config/bash/.bashrc ~/ | true
@@ -20,9 +22,11 @@ sync: ### Synchronize configurations
 	@cp -R ~/.config/alacritty .config | true
 	@cp -R ~/.config/codium .config | true
 	@cp -R ~/.config/tmux .config | true
+	@cp -R ~/.config/ctop .config | true
 	@cp -R ~/.config/nvim .config | true
 	@cp -R ~/.config/htop .config | true
 	@cp -R ~/.config/git .config | true
+	@cp -R ~/.config/k9s .config | true
 	@cp -R ~/.tool-versions .config/asdf | true
 	@cp -R ~/.profile .config/profile | true
 	@cp -R ~/.bashrc .config/bash | true
