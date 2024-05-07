@@ -44,7 +44,7 @@ tmux_conf_new_pane_retain_current_path=true
 #   - true
 #   - false (default)
 #   - disabled (do not modify split-window bindings)
-tmux_conf_new_pane_reconnect_ssh=true
+tmux_conf_new_pane_reconnect_ssh=false
 
 
 # -- display -------------------------------------------------------------------
@@ -405,9 +405,6 @@ bind -n M-r command-prompt -I "#W" "rename-window '%%'"
 # create/destroy session
 bind -n C-s new-session
 bind -n C-q kill-session
-
-# rename session
-bind -n M-R command-prompt "rename-session '%%'"
 
 # find session
 bind -n M-f command-prompt -p find-session 'switch-client -t %%'

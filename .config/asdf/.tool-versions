@@ -1,6 +1,6 @@
 kubectl 1.27.5
 k9s 0.31.9
-golang 1.21.0
+golang 1.22.0
 golangci-lint 1.55.2
 helm 3.13.0
 helm-diff 3.8.1
@@ -24,7 +24,8 @@ ctop 0.7.7
 jq 1.7.1
 lua 5.4.6
 haskell 9.8.2
-yamllint 0.1.0
+yamllint 1.35.1
 shellcheck 0.9.0
 docker-slim 1.40.9
 kubeconform 0.6.4
+yq 4.9.8
