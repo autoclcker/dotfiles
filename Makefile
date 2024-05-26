@@ -1,23 +1,30 @@
 all: help
 .PHONY: all
 
-CONFIG_ARR = "alacritty" "ctop" "htop" "keybindings" "kitty" "k9s" "nvim" "tmux" "wireshark/profiles"
-HOME_ARR   = ".autoclcker.code-profile" ".bashrc" ".gitconfig" ".profile" ".tool-versions" ".zshrc"
+CONFIG_ARR = "alacritty" "ctop" "htop" "keybindings" "kitty" "k9s" "nvim" "tmux" "VSCodium/User/profiles" "wireshark/profiles"
+HOME_ARR   = ".bashrc" ".gitconfig" ".profile" ".tool-versions" ".zshrc"
 
-define synchronize_configuration
+define synchronize_configuration_dir
 	@for i in ${3}; do \
-		cp --recursive ${1}/$${i} ${2}; \
+		rsync --archive --inplace --relative ${1}/$${i} ${2}; \
 	done
 endef
 
+define synchronize_configuration_file
+	@for i in ${3}; do \
+		rsync --archive --inplace ${1}/$${i} ${2}; \
+	done
+endef
+		#printf "%s %s %s\n" ${1} $${i} ${2}; \
+	
 apply: ### Apply configurations
-	$(call synchronize_configuration,.config,~/.config,${CONFIG_ARR})
-	$(call synchronize_configuration,.,~/,${HOME_ARR})
+	$(call synchronize_configuration_dir,.config,${HOME},${CONFIG_ARR})
+	$(call synchronize_configuration_file,${PWD},${HOME},${HOME_ARR})
 .PHONY: apply
 
 sync: ### Synchronize configurations
-	$(call synchronize_configuration,~/.config,.config,${CONFIG_ARR})
-	$(call synchronize_configuration,~/,.,${HOME_ARR})
+	$(call synchronize_configuration_dir,${HOME}/.config,.config,${CONFIG_ARR})
+	$(call synchronize_configuration_file,${HOME},${PWD},${HOME_ARR})
 .PHONY: sync
 
 help: ## Display this help screen

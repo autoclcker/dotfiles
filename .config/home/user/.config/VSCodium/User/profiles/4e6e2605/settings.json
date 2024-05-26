@@ -1,0 +1,142 @@
+{
+    "editor.minimap.enabled": false,
+    "workbench.editor.autoLockGroups": {},
+    "workbench.startupEditor": "none",
+    "editor.bracketPairColorization.enabled": true,
+    "editor.guides.bracketPairs": "active",
+    "workbench.iconTheme": "vscode-icons",
+    "vim.statusBarColors.normal": ["#000000", "#11fc00"],
+    "vim.useSystemClipboard": true,
+    "go.lintTool": "golangci-lint",
+    "go.lintFlags": [
+    "--fast"
+    ],
+    "go.useLanguageServer": true,
+    "go.toolsManagement.autoUpdate": true,
+    "go.alternateTools": {
+        "dlv": "~/go/bin/dlv"
+    },
+    "gopls": {
+        "ui.semanticTokens": true,
+        "formatting.gofumpt": true,
+    },
+    "editor.tabCompletion": "on",
+    "workbench.colorCustomizations": {
+        "activityBar.inactiveForeground": "#009961",
+        "sideBar.background": "#000000",
+        "statusBar.background": "#000000",
+        "statusBar.noFolderBackground": "#000000",
+        "statusBar.debuggingBackground": "#000000",
+        "statusBar.foreground": "#11fc00",
+        "statusBar.debuggingForeground": "#11fc00",
+        "tab.activeBorder": "#11fc00",
+        "terminal.background" : "#000000"
+    },
+    "workbench.editor.highlightModifiedTabs": true,
+    "vim.easymotionDimColor": "#00ff8c",
+    "vim.foldfix": true,
+    "terminal.integrated.defaultProfile.linux": "bash",
+    "terminal.integrated.cursorStyle": "underline",
+    "terminal.integrated.scrollback": 100000000,
+    "terminal.integrated.cursorBlinking": true,
+    "vsicons.dontShowNewVersionMessage": true,
+    "workbench.editor.enablePreview": false,
+    "redhat.telemetry.enabled": false,
+    "vs-kubernetes": {
+        "vscode-kubernetes.helm-path.linux": "/home/user/.local/state/vs-kubernetes/tools/helm/linux-amd64/helm",
+        "vscode-kubernetes.kubectl-path.linux": "/home/user/.local/state/vs-kubernetes/tools/kubectl/kubectl",
+        "vscode-kubernetes.minikube-path.linux": "/home/user/.local/state/vs-kubernetes/tools/minikube/linux-amd64/minikube",
+        "vs-kubernetes.crd-code-completion": "enabled",
+        "vscode-kubernetes.minikube-path-linux": "/home/user/.local/state/vs-kubernetes/tools/minikube/linux-amd64/minikube"
+    },
+    "[python]": {
+        "editor.formatOnType": true
+    },
+    "cmake.configureOnOpen": true,
+    "gitlens.mode.statusBar.enabled": false,
+    "gitlens.menus": {
+        "editor": {
+            "blame": false,
+            "clipboard": true,
+            "compare": true,
+            "history": false,
+            "remote": false
+        },
+        "editorGroup": {
+            "blame": true,
+            "compare": true
+        },
+        "editorTab": {
+            "clipboard": true,
+            "compare": true,
+            "history": true,
+            "remote": true
+        },
+        "explorer": {
+            "clipboard": true,
+            "compare": true,
+            "history": true,
+            "remote": true
+        },
+        "scm": {
+            "graph": true
+        },
+        "scmRepositoryInline": {
+            "graph": true
+        },
+        "scmRepository": {
+            "authors": true,
+            "graph": false
+        },
+        "scmGroupInline": {
+            "stash": true
+        },
+        "scmGroup": {
+            "compare": true,
+            "openClose": true,
+            "stash": true
+        },
+        "scmItemInline": {}
+    },
+    "gitlens.hovers.autolinks.enabled": false,
+    "gitlens.hovers.autolinks.enhanced": false,
+    "gitlens.views.commitDetails.autolinks.enhanced": false,
+    "gitlens.views.commitDetails.autolinks.enabled": false,
+    "gitlens.views.commitDetails.files.layout": "list",
+    "git.confirmSync": false,
+    "git.autofetch": true,
+    "explorer.confirmDelete": false,
+    "workbench.sideBar.location": "right",
+    "[ansible]": {
+        "gitlens.codeLens.scopes": [
+            "document"
+        ],
+        "editor.detectIndentation": true,
+        "editor.insertSpaces": true,
+        "editor.tabSize": 2,
+        "editor.quickSuggestions": {
+            "comments": true,
+            "other": true,
+            "strings": true
+        }
+    },
+    "gitlens.telemetry.enabled": false,
+    "diffEditor.experimental.showMoves": true,
+    "terminal.integrated.tabs.defaultIcon": "code",
+    "workbench.editor.empty.hint": "hidden",
+    "gitlens.graph.minimap.dataType": "lines",
+    "gitlens.graph.minimap.enabled": false,
+    "git.openRepositoryInParentFolders": "never",
+    "window.zoomLevel": 3,
+    "hediet.vscode-drawio.resizeImages": null,
+    "hadolint.hadolintPath": "/usr/bin/hadolint",
+    "[go]": {
+        "editor.insertSpaces": false,
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": "explicit"
+        }
+    },
+    "editor.linkedEditing": true,
+    "terminal.integrated.enableMultiLinePasteWarning": false,
+}

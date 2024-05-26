@@ -19,7 +19,6 @@ alias j='journalctl'
 alias z='zoxide'
 alias sem='docker run --rm -v "$(pwd):/$(pwd)" gittools/gitversion:5.12.0-alpine.3.14-6.0 /$(pwd) /showVariable FullSemVer'
 alias gol='golangci-lint run --enable-all'
-alias rd='rm -rf'
 
 # Tmux
 export ZSH_TMUX_AUTOSTART=true
