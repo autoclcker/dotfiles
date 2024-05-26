@@ -44,16 +44,20 @@ done
 
 pushd ${SEARCHPATH} >/dev/null
 for a in ${POSITIONAL_ARGS[*]}; do
-	if [ ! -e ${SEARCHPATH}/${a} ]; then
+	if [[ ! -e ${SEARCHPATH}/${a} ]]; then
 		log "$RED" "Path does not exists: ${SEARCHPATH}/${a}]\n"
 		continue
 	fi
-	if [ -d ${a} ]; then
+	if [[ -d ${a} ]]; then
 		rsync --archive --inplace --mkpath --relative ${a} ${DESTINATION}
 	else
 		rsync --archive --inplace ${a} ${DESTINATION}
 	fi
-	log "$GREEN" "${DESTINATION}/${a} updated\n"
+	updated=$(date --reference=${DESTINATION}/${a} "+%Y-%m-%d %H:%M")
+	current=$(date "+%Y-%m-%d %H:%M")
+	if [[ ${updated} == ${current} ]]; then
+		log "$GREEN" "${DESTINATION}/${a} updated\n"
+	fi
 done
 popd >/dev/null
 
