@@ -409,6 +409,10 @@ bind -n C-q kill-session
 # find session
 bind -n M-f command-prompt -p find-session 'switch-client -t %%'
 
+# copy mode
+bind v copy-mode # enter copy mode
+
+
 # -- tpm -----------------------------------------------------------------------
 
 # while I don't use tpm myself, many people requested official support so here

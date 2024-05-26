@@ -29,3 +29,8 @@ shellcheck 0.9.0
 docker-slim 1.40.9
 kubeconform 0.6.4
 yq 4.9.8
+kind 0.23.0
+minikube 1.33.1
+delta 0.17.0
+dust 1.0.0
+zoxide 0.9.4
