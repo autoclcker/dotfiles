@@ -1,8 +1,8 @@
 all: help
 .PHONY: all
 
-CONFIG_ARR = "alacritty" "codium" "ctop" "htop" "keybindings" "kitty" "k9s" "nvim" "tmux" "wireshark/profiles"
-HOME_ARR   = ".bashrc" ".gitconfig" ".profile" ".tool-versions" ".zshrc"
+CONFIG_ARR = "alacritty" "ctop" "htop" "keybindings" "kitty" "k9s" "nvim" "tmux" "wireshark/profiles"
+HOME_ARR   = ".autoclcker.code-profile" ".bashrc" ".gitconfig" ".profile" ".tool-versions" ".zshrc"
 
 define synchronize_configuration
 	@for i in ${3}; do \
