@@ -15,7 +15,6 @@ define synchronize_configuration_file
 		rsync --archive --inplace ${1}/$${i} ${2}; \
 	done
 endef
-		#printf "%s %s %s\n" ${1} $${i} ${2}; \
 	
 apply: ### Apply configurations
 	$(call synchronize_configuration_dir,.config,${HOME},${CONFIG_ARR})
