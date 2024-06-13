@@ -16,8 +16,6 @@ alias wtr='curl wttr.in/Petersburg'
 alias e='nvim'
 alias s='systemctl'
 alias j='journalctl'
-alias z='zoxide'
-alias sem='docker run --rm -v "$(pwd):/$(pwd)" gittools/gitversion:5.12.0-alpine.3.14-6.0 /$(pwd) /showVariable FullSemVer'
 alias gol='golangci-lint run --enable-all'
 
 # Tmux
@@ -37,6 +35,8 @@ export FZF_CTRL_R_OPTS="
   --preview 'echo {}' --preview-window up:3:hidden:wrap
   --bind 'ctrl-/:toggle-preview'"
 export FZF_DEFAULT_COMMAND="rg --files --hidden --follow --glob '!.git'"
-export FZF_DEFAULT_OPTS='-m --height 30% --layout=reverse --border --inline-info'
+export FZF_DEFAULT_OPTS="-m --height 30% --layout=reverse --border --inline-info"
+export ZOXIDE_CMD_OVERRIDE="cd"
 export GOBIN=~/go/bin/
 export PATH="$PATH:$GOBIN"
+export XDG_CONFIG_HOME="$HOME/.config"

@@ -99,6 +99,7 @@ plugins=(
 	systemadmin
 	tmux
 	ufw
+  zoxide
 	zsh-autosuggestions
 )
 

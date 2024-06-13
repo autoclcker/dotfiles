@@ -78,16 +78,6 @@
     "when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
 },
 {
-    "key": "alt+o",
-    "command": "workbench.action.output.toggleOutput",
-    "when": "workbench.panel.output.active && !inDebugMode"
-},
-{
-    "key": "ctrl+k ctrl+h",
-    "command": "-workbench.action.output.toggleOutput",
-    "when": "workbench.panel.output.active"
-},
-{
     "key": "alt+q",
     "command": "workbench.action.debug.stop",
     "when": "inDebugMode && !focusedSessionIsAttach"
@@ -343,6 +333,55 @@
 {
     "key": "ctrl+shift+j",
     "command": "workbench.action.moveEditorToBelowGroup",
+    "when": "editorFocus"
+},
+{
+    "key": "alt+o",
+    "command": "workbench.action.quickOpen",
+    "when": "!inDebugMode"
+},
+{
+    "key": "ctrl+p",
+    "command": "-workbench.action.quickOpen"
+},
+{
+    "key": "alt+[",
+    "command": "editor.fold",
+    "when": "editorTextFocus && foldingEnabled"
+},
+{
+    "key": "ctrl+shift+[",
+    "command": "-editor.fold",
+    "when": "editorTextFocus && foldingEnabled"
+},
+{
+    "key": "alt+]",
+    "command": "editor.unfold",
+    "when": "editorTextFocus && foldingEnabled"
+},
+{
+    "key": "ctrl+shift+]",
+    "command": "-editor.unfold",
+    "when": "editorTextFocus && foldingEnabled"
+},
+{
+    "key": "alt+j",
+    "command": "editor.action.marker.next",
+    "when": "editorFocus"
+},
+{
+    "key": "alt+f8",
+    "command": "-editor.action.marker.next",
+    "when": "editorFocus"
+},
+{
+    "key": "alt+k",
+    "command": "editor.action.marker.prev",
+    "when": "editorFocus"
+},
+{
+    "key": "shift+alt+f8",
+    "command": "-editor.action.marker.prev",
     "when": "editorFocus"
 }
 ]

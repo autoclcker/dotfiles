@@ -125,3 +125,5 @@ fi
 # Asdf
 . "$HOME/.asdf/asdf.sh"
 . "$HOME/.asdf/completions/asdf.bash"
+
+eval "$(zoxide init --cmd cd bash)"

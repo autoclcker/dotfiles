@@ -5,12 +5,12 @@ CONFIG_ARR = alacritty ctop dwm htop keybindings kitty k9s nvim tmux VSCodium/Us
 HOME_ARR   = .bashrc .gitconfig .profile .tool-versions .zshrc
 
 apply: ### Apply configurations
-	@./scripts/syncronize_configuration.sh --searchpath ${PWD}/.config --destination ${HOME}/.config ${CONFIG_ARR}
+	@./scripts/syncronize_configuration.sh --searchpath ${PWD}/.config --destination ${XDG_CONFIG_HOME} ${CONFIG_ARR}
 	@./scripts/syncronize_configuration.sh --searchpath ${PWD} --destination ${HOME} ${HOME_ARR}
 .PHONY: apply
 
 sync: ### Synchronize configurations
-	@./scripts/syncronize_configuration.sh --searchpath ${HOME}/.config --destination ${PWD}/.config ${CONFIG_ARR}
+	@./scripts/syncronize_configuration.sh --searchpath ${XDG_CONFIG_HOME} --destination ${PWD}/.config ${CONFIG_ARR}
 	@./scripts/syncronize_configuration.sh --searchpath ${HOME} --destination ${PWD} ${HOME_ARR}
 .PHONY: sync
 

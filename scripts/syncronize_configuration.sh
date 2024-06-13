@@ -5,6 +5,8 @@ GREEN="\x1B[32m"
 RED="\x1B[31m"
 RESET="\x1B[0m"
 
+SEARCHPATH=${SEARCHPATH:=''}
+DESTINATION=${DESTINATION:=''}
 POSITIONAL_ARGS=()
 
 set -o errexit  # abort on nonzero exitstatus
@@ -28,7 +30,7 @@ while [[ $# -gt 0 ]]; do
 		shift # past value
 		;;
 	-h | --help)
-		log "$CYAN" "USAGE:\n $0 -s sourcepath -d destination file_or_directory1 file_or_directory2"
+		log "$CYAN" "USAGE:\n $0 -s searchpath -d destination file_or_directory1 file_or_directory2"
 		exit 0
 		;;
 	-* | --*)
@@ -41,6 +43,15 @@ while [[ $# -gt 0 ]]; do
 		;;
 	esac
 done
+
+if [[ -z ${SEARCHPATH} ]]; then
+	log "$RED" "No searchpath provided\nUse (-s|--searchpath) flag to set the path"
+	exit 1
+fi
+if [[ -z ${DESTINATION} ]]; then
+	log "$RED" "No destination provided\nUse (-d|--destination) flag to set the path"
+	exit 1
+fi
 
 pushd ${SEARCHPATH} >/dev/null
 for a in ${POSITIONAL_ARGS[*]}; do

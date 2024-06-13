@@ -20,6 +20,7 @@
         "ui.semanticTokens": true,
         "formatting.gofumpt": true,
     },
+    "go.buildTags": "all",
     "editor.tabCompletion": "on",
     "workbench.colorCustomizations": {
         "activityBar.inactiveForeground": "#009961",
