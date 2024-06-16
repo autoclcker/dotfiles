@@ -4,6 +4,7 @@ CYAN="\x1B[36m"
 GREEN="\x1B[32m"
 RED="\x1B[31m"
 RESET="\x1B[0m"
+YELLOW="\x1B[33m"
 
 SEARCHPATH=${SEARCHPATH:=''}
 DESTINATION=${DESTINATION:=''}
@@ -53,22 +54,20 @@ if [[ -z ${DESTINATION} ]]; then
 	exit 1
 fi
 
+for a in ${POSITIONAL_ARGS[*]}; do
+	if [[ -e ${DESTINATION}/${a} ]] && [[ ! -L ${DESTINATION}/${a} ]]; then
+		rm --force --recursive ${DESTINATION}/${a}
+		log "$YELLOW" "Path was deleted: ${DESTINATION}/${a}]\n"
+	fi
+done
 pushd ${SEARCHPATH} >/dev/null
 for a in ${POSITIONAL_ARGS[*]}; do
-	if [[ ! -e ${SEARCHPATH}/${a} ]]; then
-		log "$RED" "Path does not exists: ${SEARCHPATH}/${a}]\n"
+	if [[ ! -e ${PWD}/${a} ]]; then
+		log "$RED" "Path does not exists: ${PWD}/${a}]\n"
 		continue
 	fi
-	if [[ -d ${a} ]]; then
-		rsync --archive --inplace --mkpath --relative ${a} ${DESTINATION}
-	else
-		rsync --archive --inplace ${a} ${DESTINATION}
-	fi
-	updated=$(date --reference=${DESTINATION}/${a} "+%Y-%m-%d %H:%M")
-	current=$(date "+%Y-%m-%d %H:%M")
-	if [[ ${updated} == ${current} ]]; then
-		log "$GREEN" "${DESTINATION}/${a} updated\n"
-	fi
+	ln --symbolic --force ${PWD}/${a} ${DESTINATION}
+	log "$GREEN" "${DESTINATION}/${a} updated\n"
 done
 popd >/dev/null
 

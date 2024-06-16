@@ -1,17 +1,16 @@
 all: help
 .PHONY: all
 
-CONFIG_ARR = alacritty ctop dwm htop keybindings kitty k9s nvim tmux VSCodium/User/profiles wireshark/profiles
+CONFIG_ARR = alacritty codium ctop dwm htop keybindings kitty k9s monkeytype nvim tmux wireshark/profiles
 HOME_ARR   = .bashrc .gitconfig .profile .tool-versions .zshrc
 
-apply: ### Apply configurations
-	@./scripts/syncronize_configuration.sh --searchpath ${PWD}/.config --destination ${XDG_CONFIG_HOME} ${CONFIG_ARR}
-	@./scripts/syncronize_configuration.sh --searchpath ${PWD} --destination ${HOME} ${HOME_ARR}
-.PHONY: apply
+git/stage: ### Stage configurations
+	@git add  */.*
+.PHONY: git/stage
 
 sync: ### Synchronize configurations
-	@./scripts/syncronize_configuration.sh --searchpath ${XDG_CONFIG_HOME} --destination ${PWD}/.config ${CONFIG_ARR}
-	@./scripts/syncronize_configuration.sh --searchpath ${HOME} --destination ${PWD} ${HOME_ARR}
+	@./scripts/syncronize_configuration.sh --searchpath ${PWD}/.config --destination ${XDG_CONFIG_HOME} ${CONFIG_ARR}
+	@./scripts/syncronize_configuration.sh --searchpath ${PWD} --destination ${HOME} ${HOME_ARR}
 .PHONY: sync
 
 	#$(call synchronize_configuration_file,${HOME},${PWD},${HOME_ARR})
