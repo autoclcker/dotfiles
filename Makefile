@@ -11,8 +11,8 @@ git/stage: ### Stage configurations
 sync: ### Synchronize configurations
 	@./scripts/syncronize_configuration.sh --searchpath ${PWD}/.config --destination ${XDG_CONFIG_HOME} ${CONFIG_ARR}
 	@./scripts/syncronize_configuration.sh --searchpath ${PWD} --destination ${HOME} ${HOME_ARR}
-	@gawk '{ print $$1 }' .tool-versions | xargs -I{} asdf plugin-add {}
-	@asdf install
+	@gawk '{ print $$1 }' .tool-versions | xargs -I{} asdf plugin-add {} >/dev/null
+	@asdf install | grep --invert-match 'already' || true
 .PHONY: sync
 
 help: ## Display this help screen
