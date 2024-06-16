@@ -17,8 +17,7 @@
   colorMoved = default
 
 [user]
-	name = mikhail.golovkov
-	email = mikhail.golovkov@myoffice.team
+	name = autoclcker
 
 [alias]
 	lo = log --pretty=oneline --abbrev-commit
