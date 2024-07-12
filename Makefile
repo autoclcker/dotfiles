@@ -1,16 +1,16 @@
 all: help
 .PHONY: all
 
-CONFIG_ARR = alacritty codium ctop dwm htop keybindings kitty k9s monkeytype nvim tmux wireshark/profiles
 HOME_ARR   = .bashrc .gitconfig .profile .tool-versions .zshrc
+CONFIG_ARR = alacritty codium ctop dwm htop keybindings kitty k9s lazygit monkeytype nvim ranger tmux wireshark/profiles
 
 git/stage: ### Stage configurations
 	@git add  */.*
 .PHONY: git/stage
 
 sync: ### Synchronize configurations
-	@./scripts/synchronize_configuration.sh --searchpath ${PWD}/.config --destination ${XDG_CONFIG_HOME} ${CONFIG_ARR}
 	@./scripts/synchronize_configuration.sh --searchpath ${PWD} --destination ${HOME} ${HOME_ARR}
+	@./scripts/synchronize_configuration.sh --searchpath ${PWD}/.config --destination ${XDG_CONFIG_HOME} ${CONFIG_ARR}
 	@gawk '{ print $$1 }' .tool-versions | xargs -I{} asdf plugin-add {} >/dev/null
 	@asdf install | grep --invert-match 'already' || true
 .PHONY: sync

@@ -1,5 +1,6 @@
+env:
+  TERM: alacritty
 colors:
-  # Default colors
   primary:
     background: '0x000000'
     foreground: '0xffffff'
@@ -24,9 +25,14 @@ colors:
     magenta: "#d670d6"
     cyan: "#29b8db"
     white: "#e5e5e5"
+  cursor:
+    cursor: '#00ffa6'
 cursor:
-  style:
-    blinking: Always
+   style:
+     shape: Beam
+     blinking: Always
+   vi_mode_style:
+     shape: Block
 font:
   normal:
     family: "DejaVuSansMono Nerd Font"

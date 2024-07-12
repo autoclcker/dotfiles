@@ -124,6 +124,5 @@ fi
 
 # Asdf
 . "$HOME/.asdf/asdf.sh"
+. "$HOME/.asdf/plugins/java/set-java-home.bash"
 . "$HOME/.asdf/completions/asdf.bash"
-
-eval "$(zoxide init --cmd cd bash)"

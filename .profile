@@ -36,7 +36,13 @@ export FZF_CTRL_R_OPTS="
   --bind 'ctrl-/:toggle-preview'"
 export FZF_DEFAULT_COMMAND="rg --files --hidden --follow --glob '!.git'"
 export FZF_DEFAULT_OPTS="-m --height 30% --layout=reverse --border --inline-info"
+
+# Zoxide
 export ZOXIDE_CMD_OVERRIDE="cd"
+
 export GOBIN=~/go/bin/
 export PATH="$PATH:$GOBIN"
 export XDG_CONFIG_HOME="$HOME/.config"
+
+# Lazygit
+export LG_CONFIG_FILE="$XDG_CONFIG_HOME/lazygit/config.yaml"

@@ -82,10 +82,10 @@ export ZSH="$HOME/.oh-my-zsh"
 plugins=(
 	aliases
 	asdf
-  ansible
+    ansible
 	copyfile
 	fd
-  fzf
+    fzf
 	git
 	git-commit
 	golang
@@ -99,7 +99,7 @@ plugins=(
 	systemadmin
 	tmux
 	ufw
-  zoxide
+    zoxide
 	zsh-autosuggestions
 )
 
@@ -114,6 +114,8 @@ bindkey '^ ' autosuggest-accept
 bindkey -r '\C-t'
 
 # User configuration
+. "$HOME/.asdf/plugins/java/set-java-home.zsh"
+. "$HOME/.asdf/plugins/golang/set-env.zsh"
 
 # export MANPATH="/usr/local/man:$MANPATH"
 

@@ -48,10 +48,11 @@ done
 if [[ -z ${SEARCHPATH} ]]; then
 	log "$RED" "No searchpath provided\nUse (-s|--searchpath) flag to set the path"
 	exit 1
-fi
-if [[ -z ${DESTINATION} ]]; then
+elif [[ -z ${DESTINATION} ]]; then
 	log "$RED" "No destination provided\nUse (-d|--destination) flag to set the path"
 	exit 1
+else
+	log "$CYAN" "Synchronization started (${SEARCHPATH} -> ${DESTINATION}):\n"
 fi
 
 for a in ${POSITIONAL_ARGS[*]}; do
@@ -70,5 +71,7 @@ for a in ${POSITIONAL_ARGS[*]}; do
 	log "$GREEN" "${DESTINATION}/${a} updated\n"
 done
 popd >/dev/null
+
+log "$CYAN" "Completed !\n"
 
 exit 0
