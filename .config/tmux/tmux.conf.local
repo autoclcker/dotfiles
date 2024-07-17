@@ -364,6 +364,8 @@ set -g mouse on
 set -gu prefix2
 unbind C-a
 unbind C-b
+unbind C-h
+unbind C-l
 unbind -n M-f
 unbind -n C-f
 set -g prefix C-a
