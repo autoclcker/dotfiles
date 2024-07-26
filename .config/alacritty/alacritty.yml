@@ -4,9 +4,6 @@ colors:
   primary:
     background: '0x000000'
     foreground: '0xffffff'
-  cursor:
-    text: "#1d1f21"
-    cursor: "#cccccc"
   normal:
     black: "#000000"
     red: "#cd3131"
@@ -28,11 +25,11 @@ colors:
   cursor:
     cursor: '#00ffa6'
 cursor:
-   style:
-     shape: Beam
-     blinking: Always
-   vi_mode_style:
-     shape: Block
+  style:
+    shape: Beam
+    blinking: Always
+  vi_mode_style:
+    shape: Block
 font:
   normal:
     family: "FiraCode Nerd Font"

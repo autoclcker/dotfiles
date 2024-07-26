@@ -1,10 +1,10 @@
 #set background
 # feh --bg-scale Images/main.webp
 # Display pct & system info
-#neofetch  --kitty ~/Images/vik.jpg --size 230px --loop --os_arch off --disable theme Packages Resolution WM Icons CPU GPU --color_blocks off  
+#neofetch  --kitty ~/Images/vik.jpg --size 230px --loop --os_arch off --disable theme Packages Resolution WM Icons CPU GPU --color_blocks off
 #funnys
 #xrandr | grep " connected" | cut -f1 -d " "
-#xrandr --output eDP-1 --rotate left 
+#xrandr --output eDP-1 --rotate left
 #xrandr --output eDP-1 --brightness 3.3
 
 # If you come from bash you might have to change your $PATH.
@@ -82,24 +82,25 @@ export ZSH="$HOME/.oh-my-zsh"
 plugins=(
 	aliases
 	asdf
-    ansible
+	ansible
 	copyfile
 	fd
-    fzf
+	fzf
 	git
 	git-commit
 	golang
 	helm
 	kubectl
+	mvn
+	nmap
 	pip
 	python
-	nmap
 	starship
 	sudo
 	systemadmin
 	tmux
 	ufw
-    zoxide
+	zoxide
 	zsh-autosuggestions
 )
 

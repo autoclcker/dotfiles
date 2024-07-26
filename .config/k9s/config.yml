@@ -23,8 +23,8 @@ k9s:
         active: all
         lockFavorites: false
         favorites:
-        - all
-        - default
+          - all
+          - default
       view:
         active: pod
       featureGates:
