@@ -19,7 +19,6 @@ fzf 0.53.0
 ripgrep 14.1.0
 starship 1.19.0
 git 2.44.0
-bat-extras 2024.02.12
 ctop 0.7.7
 jq 1.7.1
 lua 5.4.6
