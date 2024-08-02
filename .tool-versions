@@ -44,3 +44,5 @@ kubectx 0.9.5
 yamlfmt 0.13.0
 pnpm 9.6.0
 yarn 1.22.22
+cmake 3.30.1
+make 4.4.1

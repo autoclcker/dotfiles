@@ -84,7 +84,6 @@ plugins=(
 	asdf
 	ansible
 	copyfile
-	fd
 	fzf
 	git
 	git-commit
