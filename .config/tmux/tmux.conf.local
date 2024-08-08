@@ -354,22 +354,30 @@ tmux_conf_theme_clock_style="24"
 # on Linux, this requires xsel, xclip or wl-copy
 tmux_conf_copy_to_os_clipboard=true
 
+# -- urlscan -------------------------------------------------------------------
+
+# options passed to urlscan
+tmux_conf_urlscan_options="--compact --dedupe"
 
 # -- user customizations -------------------------------------------------------
 
 # this is the place to override or undo settings
 
 set -g mouse on
-
 set -gu prefix2
+
 unbind C-a
 unbind C-b
 unbind C-h
 unbind C-l
 unbind -n M-f
 unbind -n C-f
+unbind C-c
 set -g prefix C-a
 bind C-a send-prefix
+
+# maximize current pane
+bind c run "cut -c3- '#{TMUX_CONF}' | sh -s _maximize_pane '#{session_name}' '#D'"
 
 # split current window horizontally
 bind -n M-s split-window -v

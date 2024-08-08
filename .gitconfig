@@ -18,7 +18,7 @@
 
 [user]
 	name = autoclcker
-  email = "null"
+	email = "null"
 
 [alias]
 	lo = "log --pretty=oneline --abbrev-commit"
