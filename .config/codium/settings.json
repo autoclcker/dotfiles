@@ -1,0 +1,79 @@
+{
+    "window.menuBarVisibility": "toggle",
+    "vim.normalModeKeyBindings": [
+        {
+            "before": ["<leader>", "s"],
+            "after": ["<leader>", "<leader>", "s"]
+        },
+        {
+            "before": ["<leader>", "f"],
+            "after": ["<leader>", "<leader>", "f"]
+        },
+        {
+            "before": ["<leader>", "F"],
+            "after": ["<leader>", "<leader>", "F"]
+        },
+        {
+            "before": ["<leader>", "t"],
+            "after": ["<leader>", "<leader>", "t"]
+        },
+        {
+            "before": ["<leader>", "T"],
+            "after": ["<leader>", "<leader>", "T"]
+        },
+        {
+            "before": ["<leader>", "s"],
+            "after": ["<leader>", "<leader>", "s"]
+        },
+        {
+            "before": ["<leader>", "w"],
+            "after": ["<leader>", "<leader>", "w"]
+        },
+        {
+            "before": ["<leader>", "b"],
+            "after": ["<leader>", "<leader>", "b"]
+        },
+        {
+            "before": ["<leader>", "j"],
+            "after": ["<leader>", "<leader>", "j"]
+        },
+        {
+            "before": ["<leader>", "k"],
+            "after": ["<leader>", "<leader>", "k"]
+        },
+        {
+            "before": ["<leader>", "n"],
+            "commands": ["editor.action.marker.next"],
+            "silent": true,
+        },
+        {
+            "before": ["<leader>", "p"],
+            "commands": ["editor.action.marker.prev"],
+            "silent": true,
+        },
+        {
+            "before": ["g", "p", "d"],
+            "commands": ["editor.action.peekDefinition"]
+        },
+        {
+            "before": ["g", "h"],
+            "commands": ["editor.action.showDefinitionPreviewHover"]
+        },
+        {
+            "before": ["g", "i"],
+            "commands": ["editor.action.goToImplementation"]
+        },
+        {
+            "before": ["g", "p", "i"],
+            "commands": ["editor.action.peekImplementation"]
+        },
+        {
+            "before": ["g", "q"],
+            "commands": ["editor.action.quickFix"]
+        },
+        {
+            "before": ["g", "s"],
+            "commands": ["editor.action.referenceSearch.trigger"]
+        },
+    ]
+}

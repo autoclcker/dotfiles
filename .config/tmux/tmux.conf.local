@@ -403,7 +403,7 @@ bind -n M-Right resize-pane -R 2
 bind -n M-p set-window-option synchronize-panes\; display-message "synchronize-panes is now #{?pane_synchronized,on,off}"
 
 # create/destroy  window
-bind -r t new-window
+bind -n C-t new-window
 bind -n M-w kill-window
 
 # switch windows using Alt-arrow without prefix
