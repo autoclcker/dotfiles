@@ -1,0 +1,29 @@
+# supported options are "docker" and "podman"
+container-engine: docker
+# continue with analysis even if there are errors parsing the image archive
+ignore-errors: false
+log:
+  enabled: false
+
+# Note: you can specify multiple bindings by separating values with a comma.
+# Note: UI hinting is derived from the first binding
+keybinding:
+  # Global bindings
+  quit: ctrl+c
+  toggle-view: tab
+  filter-files: ctrl+/
+
+  # Layer view specific bindings
+  compare-all: A
+  compare-layer: L
+
+  # File view specific bindings
+  toggle-collapse-dir: space
+  toggle-collapse-all-dir: t
+  toggle-added-files: a
+  toggle-removed-files: r
+  toggle-modified-files: m
+  toggle-unmodified-files: u
+  toggle-filetree-attributes: b
+  page-up: ctrl+u
+  page-down: ctrl+d

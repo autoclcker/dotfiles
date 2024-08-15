@@ -1,12 +1,12 @@
 # MY ALIAS
 if [ "echo $0" = "bash" ]; then
-	alias ll='ls -l'
-	alias la='ls -a'
+  alias ll='ls -l'
+  alias la='ls -a'
 else
-	alias ls='exa --color=always --icons'
-	alias lt='exa -T --color=always --icons'
-	alias ll='exa -lh --color=always --icons'
-	alias la='exa -a --color=always --icons'
+  alias ls='exa --color=always --icons'
+  alias lt='exa -T --color=always --icons'
+  alias ll='exa -lh --color=always --icons'
+  alias la='exa -a --color=always --icons'
 fi
 alias ctop='TERM="${TERM/#tmux/screen}" ctop'
 alias ip='ip -c=always'
@@ -40,9 +40,13 @@ export FZF_DEFAULT_OPTS="-m --height 30% --layout=reverse --border --inline-info
 # Zoxide
 export ZOXIDE_CMD_OVERRIDE="cd"
 
+# PATH
 export GOBIN=~/go/bin/
 export PATH="$PATH:$GOBIN"
 export XDG_CONFIG_HOME="$HOME/.config"
 
 # Lazygit
 export LG_CONFIG_FILE="$XDG_CONFIG_HOME/lazygit/config.yaml"
+
+# Cheat
+export CHEAT_USE_FZF=true

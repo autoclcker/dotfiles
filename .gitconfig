@@ -18,7 +18,7 @@
 
 [user]
 	name = autoclcker
-	email = "null"
+	email = null
 
 [alias]
 	lo = "log --pretty=oneline --abbrev-commit"
@@ -41,4 +41,4 @@
 	wip = "!a() {\nlocal _scope _attention _message\nwhile [ $# -ne 0 ]; do\ncase $1 in\n  -s | --scope )\n    if [ -z $2 ]; then\n      echo \"Missing scope!\"\n      return 1\n    fi\n    _scope=\"$2\"\n    shift 2\n    ;;\n  -a | --attention )\n    _attention=\"!\"\n    shift 1\n    ;;\n  * )\n    _message=\"${_message} $1\"\n    shift 1\n    ;;\nesac\ndone\ngit commit -m \"wip${_scope:+(${_scope})}${_attention}:${_message}\"\n}; a"
 
 [oh-my-zsh]
-	git-commit-alias = 0f752036988f7acc25c3ac87e1f6e268bb15e742
+	git-commit-alias = 9ba6daa1b5d0b60c89525d679eb30fe3ed9947de

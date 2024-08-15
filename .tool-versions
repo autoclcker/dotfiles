@@ -41,7 +41,11 @@ tomcat 10.1.25
 ansible-base 2.10.17
 kubectx 0.9.5
 yamlfmt 0.13.0
-pnpm 9.6.0
+pnpm 9.7.0
 yarn 1.22.22
 cmake 3.30.1
 make 4.4.1
+cheat 4.4.2
+cabal 3.12.1.0
+ghc 9.10.1
+hadolint 2.12.0

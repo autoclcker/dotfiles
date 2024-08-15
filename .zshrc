@@ -83,6 +83,7 @@ plugins=(
 	aliases
 	asdf
 	ansible
+	command-not-found
 	copyfile
 	fzf
 	git
@@ -90,10 +91,13 @@ plugins=(
 	golang
 	helm
 	kubectl
-	mvn
 	nmap
+	npm
+	mvn
 	pip
 	python
+	rust
+	ssh
 	starship
 	sudo
 	systemadmin
