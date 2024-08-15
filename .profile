@@ -30,7 +30,6 @@ export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 
 # Fzf
 export FZF_ALT_C_OPTS="--preview 'tree -C {}'"
-export FZF_BASE=/opt/fzf
 export FZF_CTRL_R_OPTS="
 	--preview 'echo {}' --preview-window up:3:hidden:wrap
 	--bind 'ctrl-/:toggle-preview'"
