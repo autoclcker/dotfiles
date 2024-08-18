@@ -1,0 +1,14 @@
+# https://systemd.io/RESOLVED-VPNS/
+
+# Show DNS settings:
+resolvectl
+
+# Example use from a shell callout of your VPN software for a corporate VPN:
+resolvectl domain corporate0 '~corp-company.example' '~2.0.192.in-addr.arpa'
+resolvectl default-route corporate0 false
+resolvectl dns corporate0 192.0.2.1
+
+# Example use from a shell callout of your VPN software for a privacy VPN:
+resolvectl domain privacy0 '~.'
+resolvectl default-route privacy0 true
+resolvectl dns privacy0 8.8.8.8

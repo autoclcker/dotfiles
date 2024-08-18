@@ -1,0 +1,37 @@
+# client config
+[Interface]
+Address = {{private_ip}}/24
+ListenPort = 51821
+PrivateKey = {{key}}
+DNS = 1.1.1.1
+PostUp = ip rule add table 200 from {{public_ip}}
+PostUp = ip route add table 200 default via {{gateway_ip}}
+PreDown = ip rule delete table 200 from {{public_ip}}
+PreDown = ip route delete table 200 default via {{gateway_ip}}
+
+[Peer]
+PublicKey = {{key}}
+AllowedIPs = 0.0.0.0/0, ::/0
+Endpoint = {{public_ip}}:51820
+PersistentKeepalive = 25
+
+# server config
+[Interface]
+Address = {{private_ip}}/24
+SaveConfig = true
+PostUp = ufw route allow in on wg0 out on eth0
+PostUp = iptables -t nat -I POSTROUTING -o eth0 -j MASQUERADE
+PostUp = ip6tables -t nat -I POSTROUTING -o eth0 -j MASQUERADE
+PreDown = ufw route delete allow in on wg0 out on eth0
+PreDown = iptables -t nat -D POSTROUTING -o eth0 -j MASQUERADE
+PreDown = ip6tables -t nat -D POSTROUTING -o eth0 -j MASQUERADE
+ListenPort = 51820
+PrivateKey = {{key}}
+
+[Peer]
+PublicKey = {{key}}
+AllowedIPs = {{private_ip}}/32
+
+[Peer]
+PublicKey = {{key}}
+AllowedIPs = {{private_ip}}/32
