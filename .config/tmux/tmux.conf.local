@@ -362,8 +362,8 @@ tmux_conf_urlscan_options="--compact --dedupe"
 # -- user customizations -------------------------------------------------------
 
 # this is the place to override or undo settings
-
 set -g mouse on
+set -g cursor-style blinking-bar
 set -gu prefix2
 
 unbind C-a
@@ -424,7 +424,6 @@ bind -n M-o command-prompt -p find-session 'switch-client -t %%'
 
 # copy mode
 bind v copy-mode # enter copy mode
-
 
 # -- tpm -----------------------------------------------------------------------
 

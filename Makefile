@@ -1,7 +1,7 @@
 all: help
 .PHONY: all
 
-HOME_ARR   = .bashrc .gitconfig .profile .tool-versions .zshrc
+HOME_ARR   = .bashrc .gitconfig .profile .tool-versions .vimrc .zshrc
 CONFIG_ARR = alacritty ctop cheat codium dive htop keybindings k9s lazygit monkeytype nvim ranger tmux wireshark/profiles
 
 git/stage: ### Stage configurations

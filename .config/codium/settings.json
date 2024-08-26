@@ -40,12 +40,10 @@
         {
             "before": ["<leader>", "n"],
             "commands": ["editor.action.marker.next"],
-            "silent": true,
         },
         {
             "before": ["<leader>", "p"],
             "commands": ["editor.action.marker.prev"],
-            "silent": true,
         },
         {
             "before": ["g", "p", "d"],
@@ -56,20 +54,20 @@
             "commands": ["editor.action.showDefinitionPreviewHover"]
         },
         {
-            "before": ["g", "i"],
-            "commands": ["editor.action.goToImplementation"]
-        },
-        {
-            "before": ["g", "p", "i"],
-            "commands": ["editor.action.peekImplementation"]
-        },
-        {
             "before": ["g", "q"],
             "commands": ["editor.action.quickFix"]
         },
         {
             "before": ["g", "s"],
             "commands": ["editor.action.referenceSearch.trigger"]
+        },
+        {
+            "before": ["g", "i"],
+            "commands": ["editor.action.goToImplementation"]
+        },
+        {
+            "before": ["g", "p", "i"],
+            "commands": ["editor.action.peekImplementation"]
         },
         {
             "before": ["g", "t"],
@@ -80,12 +78,8 @@
             "commands": ["editor.action.peekTypeDefinition"]
         },
         {
-            "before": ["g", "p", "t"],
-            "commands": ["editor.action.peekTypeDefinition"]
-        },
-        {
             "before": ["leader", "q"],
             "after": ["@", "@"]
-        }
-    ]
+        },
+    ],
 }

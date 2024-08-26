@@ -26,8 +26,4 @@ colors:
     white: "#e5e5e5"
   cursor:
     cursor: '#00ffa6'
-cursor:
-  style:
-    shape: Beam
-    blinking: Always
 
