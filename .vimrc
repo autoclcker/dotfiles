@@ -1,5 +1,4 @@
 set relativenumber
-set cursorcolumn
 set cursorline
 set clipboard=unnamed
 let &t_ti.="\e[1 q"
