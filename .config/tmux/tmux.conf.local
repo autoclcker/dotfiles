@@ -425,6 +425,10 @@ bind -n M-o command-prompt -p find-session 'switch-client -t %%'
 # copy mode
 bind v copy-mode # enter copy mode
 
+# keys replacement
+bind -n C-k send M-k
+bind -n C-j send M-j
+
 # -- tpm -----------------------------------------------------------------------
 
 # while I don't use tpm myself, many people requested official support so here
