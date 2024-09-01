@@ -46,16 +46,16 @@
             "commands": ["editor.action.marker.prev"],
         },
         {
+            "before": ["leader", "q"],
+            "after": ["@", "@"]
+        },
+        {
             "before": ["g", "p", "d"],
             "commands": ["editor.action.peekDefinition"]
         },
         {
             "before": ["g", "h"],
             "commands": ["editor.action.showDefinitionPreviewHover"]
-        },
-        {
-            "before": ["g", "q"],
-            "commands": ["editor.action.quickFix"]
         },
         {
             "before": ["g", "s"],
@@ -77,9 +77,11 @@
             "before": ["g", "p", "t"],
             "commands": ["editor.action.peekTypeDefinition"]
         },
+    ],
+    "vim.visualModeKeyBindings": [
         {
-            "before": ["leader", "q"],
-            "after": ["@", "@"]
+            "before": ["leader", "h"],
+            "commands": ["codeium.explainCodeBlock"]
         },
     ],
 }
