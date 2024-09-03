@@ -38,6 +38,10 @@
             "after": ["<leader>", "<leader>", "k"]
         },
         {
+            "before": ["leader", "q"],
+            "after": ["@", "@"]
+        },
+        {
             "before": ["<leader>", "n"],
             "commands": ["editor.action.marker.next"],
         },
@@ -46,8 +50,16 @@
             "commands": ["editor.action.marker.prev"],
         },
         {
-            "before": ["leader", "q"],
-            "after": ["@", "@"]
+            "before": ["<leader>", ","],
+            "commands": ["editor.fold"],
+        },
+        {
+            "before": ["<leader>", "."],
+            "commands": ["editor.unfold"],
+        },
+        {
+            "before": ["leader", "v"],
+            "commands": ["codeium.pasteAndTranslate"]
         },
         {
             "before": ["g", "p", "d"],
@@ -82,6 +94,10 @@
         {
             "before": ["leader", "h"],
             "commands": ["codeium.explainCodeBlock"]
+        },
+        {
+            "before": ["leader", "r"],
+            "commands": ["codeium.refactorCodeBlock"]
         },
     ],
 }
