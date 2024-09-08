@@ -365,16 +365,20 @@ tmux_conf_urlscan_options="--compact --dedupe"
 set -g mouse on
 set -g cursor-style blinking-bar
 set -gu prefix2
+set -g display-panes-time 3000
 
 unbind C-a
 unbind C-b
 unbind C-h
 unbind C-l
+unbind C-o
 unbind -n M-f
 unbind -n C-f
-unbind C-c
 set -g prefix C-a
 bind C-a send-prefix
+
+# rotate panes
+bind o rotate-window
 
 # maximize current pane
 bind c run "cut -c3- '#{TMUX_CONF}' | sh -s _maximize_pane '#{session_name}' '#D'"
@@ -424,6 +428,7 @@ bind -n M-o command-prompt -p find-session 'switch-client -t %%'
 
 # copy mode
 bind v copy-mode # enter copy mode
+bind b choose-buffer
 
 # keys replacement
 bind -n C-k send M-k

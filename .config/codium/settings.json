@@ -100,4 +100,5 @@
             "commands": ["codeium.refactorCodeBlock"]
         },
     ],
+    "cmake.showOptionsMovedNotification": false,
 }

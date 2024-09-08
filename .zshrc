@@ -95,6 +95,7 @@ plugins=(
 	npm
 	mvn
 	pip
+	podman
 	python
 	rust
 	ssh
