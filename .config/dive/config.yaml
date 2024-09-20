@@ -9,9 +9,9 @@ log:
 # Note: UI hinting is derived from the first binding
 keybinding:
   # Global bindings
-  quit: ctrl+c
+  quit: q
   toggle-view: tab
-  filter-files: ctrl+/
+  filter-files: o
 
   # Layer view specific bindings
   compare-all: A
@@ -25,5 +25,5 @@ keybinding:
   toggle-modified-files: m
   toggle-unmodified-files: u
   toggle-filetree-attributes: b
-  page-up: ctrl+u
-  page-down: ctrl+d
+  page-up: ctrl+b
+  page-down: ctrl+f

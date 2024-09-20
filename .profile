@@ -1,4 +1,3 @@
-#!/usr/bin/env bash
 if [[ "$0" == "/usr/bin/bash" ]]; then
   alias ll='ls -l'
   alias la='ls -a'

@@ -170,7 +170,7 @@ tmux_conf_theme_status_attr="none"
 #     - #{hostname_full_ssh}
 #     - #{username}
 #     - #{username_ssh}
-tmux_conf_theme_terminal_title="#h  #S ● #I #W"
+tmux_conf_theme_terminal_title=" #S   #I #W"
 
 # window status style
 #   - built-in variables are:
@@ -207,7 +207,7 @@ tmux_conf_theme_window_status_current_format="#I #W#{?#{||:#{window_bell_flag},#
 #tmux_conf_theme_window_status_current_format="#I #W#{?#{||:#{window_bell_flag},#{window_zoomed_flag}}, ,}#{?window_bell_flag,🔔,}#{?window_zoomed_flag,🔍,}"
 
 # window activity status style
-tmux_conf_theme_window_status_activity_fg="default"
+tmux_conf_theme_window_status_activity_fg="$tmux_conf_theme_colour_13"
 tmux_conf_theme_window_status_activity_bg="default"
 tmux_conf_theme_window_status_activity_attr="underscore"
 
@@ -372,13 +372,21 @@ unbind C-b
 unbind C-h
 unbind C-l
 unbind C-o
+unbind Space
 unbind -n M-f
 unbind -n C-f
 set -g prefix C-a
 bind C-a send-prefix
 
+# select next layout
+bind -r C-o next-layout
+
 # rotate panes
-bind o rotate-window
+bind -r o rotate-window -D
+bind -r M-o rotate-window -U
+
+# switch to the previous pane
+bind -n M-o last-pane
 
 # maximize current pane
 bind c run "cut -c3- '#{TMUX_CONF}' | sh -s _maximize_pane '#{session_name}' '#D'"
@@ -413,6 +421,8 @@ bind -n M-w kill-window
 # switch windows using Alt-arrow without prefix
 bind -n M-j previous-window
 bind -n M-k next-window
+bind p previous-window -a
+bind n next-window -a
 bind -n M-, swap-window -t -1\; select-window -t -1
 bind -n M-. swap-window -t +1\; select-window -t +1
 
@@ -424,11 +434,11 @@ bind -n C-s new-session
 bind -n C-q kill-session
 
 # find session
-bind -n M-o command-prompt -p find-session 'switch-client -t %%'
+bind -n M-i command-prompt -p find-session 'switch-client -t %%'
 
 # copy mode
-bind v copy-mode # enter copy mode
-bind b choose-buffer
+bind -n M-e copy-mode # enter copy mode
+bind v choose-buffer
 
 # keys replacement
 bind -n C-k send M-k

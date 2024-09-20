@@ -38,10 +38,6 @@
             "after": ["<leader>", "<leader>", "k"]
         },
         {
-            "before": ["leader", "q"],
-            "after": ["@", "@"]
-        },
-        {
             "before": ["<leader>", "n"],
             "commands": ["editor.action.marker.next"],
         },
@@ -98,6 +94,10 @@
         {
             "before": ["leader", "r"],
             "commands": ["codeium.refactorCodeBlock"]
+        },
+        {
+            "before": ["<leader>", "y"],
+            "after": ["\"", "*", "y"]
         },
     ],
     "cmake.showOptionsMovedNotification": false,
