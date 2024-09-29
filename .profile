@@ -16,6 +16,11 @@ alias e='nvim'
 alias s='systemctl'
 alias j='journalctl'
 alias gol='golangci-lint run --enable-all'
+alias pgadmin='docker run --rm -p 5432:80 \
+    -e 'PGADMIN_DEFAULT_EMAIL=admin@gmail.com' \
+    -e 'PGADMIN_DEFAULT_PASSWORD=admin' \
+    -d dpage/pgadmin4
+'
 
 # Tmux
 export ZSH_TMUX_AUTOSTART=true
@@ -39,12 +44,8 @@ export FZF_DEFAULT_OPTS="-m --height 30% --layout=reverse --border --inline-info
 export ZOXIDE_CMD_OVERRIDE="cd"
 
 # PATH
-export GOBIN=~/go/bin/
-export PATH="$PATH:$GOBIN"
+export PATH="$HOME/.local/bin:$PATH"
 export XDG_CONFIG_HOME="$HOME/.config"
-
-# Lazygit
-export LG_CONFIG_FILE="$XDG_CONFIG_HOME/lazygit/config.yaml"
 
 # Cheat
 export CHEAT_USE_FZF=true

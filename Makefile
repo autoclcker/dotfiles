@@ -1,8 +1,8 @@
 all: help
 .PHONY: all
 
-HOME_ARR   = .bashrc .gitconfig .profile .tool-versions .vimrc .zshrc
-CONFIG_ARR = alacritty ctop cheat codium dive htop keybindings k9s lazygit monkeytype nvim procps ranger tmux wireshark/profiles
+HOME_ARR   = .bashrc .gitconfig .profile .vimrc .zshrc
+CONFIG_ARR = alacritty ctop cheat codium dive htop keybindings k9s lazygit mise monkeytype nvim procps ranger tmux wireshark/profiles
 
 git/stage: ### Stage configurations
 	@git add  */.*
@@ -11,8 +11,7 @@ git/stage: ### Stage configurations
 sync: ### Synchronize configurations
 	@./scripts/synchronize_configuration.sh --searchpath ${PWD} --destination ${HOME} ${HOME_ARR}
 	@./scripts/synchronize_configuration.sh --searchpath ${PWD}/.config --destination ${XDG_CONFIG_HOME} ${CONFIG_ARR}
-	@gawk '{ print $$1 }' .tool-versions | xargs -I{} asdf plugin-add {} >/dev/null
-	@asdf install | grep --invert-match 'already' || true
+	@mise install
 .PHONY: sync
 
 help: ## Display this help screen

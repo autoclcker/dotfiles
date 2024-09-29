@@ -120,9 +120,7 @@ fi
 # Generated for envman. Do not edit.
 [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
 
-# Asdf
-. "$HOME/.asdf/asdf.sh"
-. "$HOME/.asdf/plugins/java/set-java-home.bash"
-. "$HOME/.asdf/completions/asdf.bash"
+# Mise
+eval "$(~/.local/bin/mise activate bash)"
 
 eval "$(fzf --bash)"

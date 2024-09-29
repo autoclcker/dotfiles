@@ -81,7 +81,6 @@ export ZSH="$HOME/.oh-my-zsh"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
 	aliases
-	asdf
 	ansible
 	command-not-found
 	copyfile
@@ -91,9 +90,10 @@ plugins=(
 	golang
 	helm
 	kubectl
+	mise
+	mvn
 	nmap
 	npm
-	mvn
 	pip
 	podman
 	python
@@ -119,8 +119,6 @@ bindkey '^ ' autosuggest-accept
 bindkey -r '\C-t'
 
 # User configuration
-. "$HOME/.asdf/plugins/java/set-java-home.zsh"
-. "$HOME/.asdf/plugins/golang/set-env.zsh"
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -142,11 +140,3 @@ echo -en "\e[=2c"
 
 # Generated for envman. Do not edit.
 # [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
-
-# pnpm
-export PNPM_HOME="/home/autoclcker/.local/share/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
-# pnpm end
