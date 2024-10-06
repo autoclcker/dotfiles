@@ -15,6 +15,7 @@ alias wtr='curl wttr.in/Petersburg'
 alias e='nvim'
 alias s='systemctl'
 alias j='journalctl'
+alias p='printf'
 alias gol='golangci-lint run --enable-all'
 alias pgadmin='docker run --rm -p 5432:80 \
     -e 'PGADMIN_DEFAULT_EMAIL=admin@gmail.com' \

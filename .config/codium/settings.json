@@ -58,6 +58,10 @@
             "commands": ["codeium.pasteAndTranslate"]
         },
         {
+            "before": ["leader", "c"],
+            "commands": ["copyRelativeFilePath"]
+        },
+        {
             "before": ["g", "p", "d"],
             "commands": ["editor.action.peekDefinition"]
         },
