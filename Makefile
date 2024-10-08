@@ -4,9 +4,16 @@ all: help
 HOME_ARR   = .bashrc .gitconfig .profile .vimrc .zshrc
 CONFIG_ARR = alacritty cheat codium dive htop keybindings k9s lazygit mise monkeytype nvim procps ranger tmux wireshark/profiles
 
+download:
+	@./scripts/download.sh
+.PHONY: download
+
 git/stage: ### Stage configurations
 	@git add  */.*
 .PHONY: git/stage
+
+install: download sync ### Install setup
+.PHONY: install
 
 sync: ### Synchronize configurations
 	@./scripts/synchronize_configuration.sh --searchpath ${PWD} --destination ${HOME} ${HOME_ARR}
@@ -20,4 +27,3 @@ help: ## Display this help screen
 	/^##@/ { printf "\n\033[1m%s\033[0m\n", substr($$0, 5) }' \
 	${MAKEFILE_LIST}
 .PHONY: help
-

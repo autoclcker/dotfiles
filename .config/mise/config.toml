@@ -51,6 +51,7 @@ yq = "4.44.3"
 zoxide = "latest"
 usage = "latest"
 "go:github.com/jesseduffield/lazydocker" = "latest"
+"cargo:alacritty" = "latest"
 
 [settings]
 experimental = true
