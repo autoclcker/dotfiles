@@ -22,7 +22,7 @@ style = "Regular"
 
 [font.bold]
 family = "FiraCode Nerd Font"
-style = "Bold"
+style = "SemiBold"
 
 [font.glyph_offset]
 x = 0

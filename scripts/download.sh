@@ -26,3 +26,11 @@ wget -qO - https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/raw/master/pub.g
 echo 'deb [ signed-by=/usr/share/keyrings/vscodium-archive-keyring.gpg ] https://download.vscodium.com/debs vscodium main' \
     sudo tee /etc/apt/sources.list.d/vscodium.list
 sudo apt update && sudo apt install codium
+
+# Install Fonts
+sudo git clone --depth 1 https://github.com/ryanoasis/nerd-fonts.git /usr/local/share/fonts/nerd-fonts && pushd "{$_}"
+./install.sh Hack
+./install.sh FiraCode
+./install.sh DejaVuSansMono
+
+exit 0

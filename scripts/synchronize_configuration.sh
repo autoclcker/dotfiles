@@ -70,7 +70,6 @@ for a in "${POSITIONAL_ARGS[@]}"; do
 	ln --symbolic --force "${PWD}/${a}" "${DESTINATION}"
 	log "${GREEN}" "${DESTINATION}/${a} updated\n"
 done
-popd >/dev/null
 
 log "${CYAN}" "Completed !\n"
 
