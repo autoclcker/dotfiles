@@ -1,12 +1,36 @@
+[window]
+decorations     = "None"
+dynamic_padding = false
+dynamic_title   = true
+opacity         = 1.0
+startup_mode    = "Maximized"
+title           = "Alacritty"
+
+[window.dimensions]
+columns = 0
+lines   = 0
+
+[scrolling]
+history = 12000
+
 [font]
 size = 14
 
 [font.normal]
 family = "FiraCode Nerd Font"
+style = "Regular"
 
 [font.bold]
-family = "FiraCode Nerd Font Mono"
+family = "FiraCode Nerd Font"
 style = "Bold"
+
+[font.glyph_offset]
+x = 0
+y = 0
+
+[font.offset]
+x = 0
+y = 0
 
 [colors.primary]
 foreground = "#ffffff"
@@ -34,4 +58,7 @@ white = "#e5e5e5"
 
 [colors.cursor]
 cursor = "#00ffa6"
+
+[mouse]
+hide_when_typing = true
 

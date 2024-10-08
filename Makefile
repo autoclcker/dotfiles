@@ -2,7 +2,7 @@ all: help
 .PHONY: all
 
 HOME_ARR   = .bashrc .gitconfig .profile .vimrc .zshrc
-CONFIG_ARR = alacritty ctop cheat codium dive htop keybindings k9s lazygit mise monkeytype nvim procps ranger tmux wireshark/profiles
+CONFIG_ARR = alacritty cheat codium dive htop keybindings k9s lazygit mise monkeytype nvim procps ranger tmux wireshark/profiles
 
 git/stage: ### Stage configurations
 	@git add  */.*
