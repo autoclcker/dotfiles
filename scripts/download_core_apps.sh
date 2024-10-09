@@ -29,8 +29,8 @@ sudo apt update && sudo apt install codium
 
 # Install Fonts
 sudo git clone --depth 1 https://github.com/ryanoasis/nerd-fonts.git /usr/local/share/fonts/nerd-fonts && pushd "{$_}"
-./install.sh Hack
-./install.sh FiraCode
-./install.sh DejaVuSansMono
+for a in Hack FiraCode DejaVuSansMono; do
+    ./install.sh $a
+done
 
 exit 0

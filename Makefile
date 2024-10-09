@@ -5,7 +5,7 @@ HOME_ARR   = .bashrc .gitconfig .profile .vimrc .zshrc
 CONFIG_ARR = alacritty cheat codium dive htop keybindings k9s lazygit mise monkeytype nvim procps ranger tmux wireshark/profiles
 
 download:
-	@./scripts/download.sh
+	@./scripts/download_core_apps.sh
 .PHONY: download
 
 git/stage: ### Stage configurations
