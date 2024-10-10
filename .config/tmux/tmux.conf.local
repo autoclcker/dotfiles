@@ -438,7 +438,7 @@ bind -n C-q kill-session
 bind -n M-i command-prompt -p find-session 'switch-client -t %%'
 
 # search text
-bind-key -n M-/ copy-mode \; send-key /
+bind-key -n M-/ copy-mode \; send-key ?
 
 # copy mode
 bind -n M-e copy-mode # enter copy mode

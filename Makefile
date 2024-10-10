@@ -2,7 +2,7 @@ all: help
 .PHONY: all
 
 HOME_ARR   = .bashrc .gitconfig .profile .vimrc .zshrc
-CONFIG_ARR = alacritty cheat codium dive htop keybindings k9s lazygit mise monkeytype nvim procps ranger tmux wireshark/profiles
+CONFIG_ARR = alacritty cheat codium dive htop keybindings k9s lazygit mise monkeytype nvim procs procps ranger tmux wireshark/profiles
 
 download:
 	@./scripts/download_core_apps.sh
