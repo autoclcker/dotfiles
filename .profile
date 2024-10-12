@@ -7,7 +7,6 @@ else
   alias ll='exa -lh --color=always --icons'
   alias la='exa -a --color=always --icons'
 fi
-alias ctop='TERM="${TERM/#tmux/screen}" ctop'
 alias dog='doggo'
 alias ip='ip -c=always'
 alias http='xh'

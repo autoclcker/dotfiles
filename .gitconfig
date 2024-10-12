@@ -5,10 +5,20 @@
 	diffFilter = delta --color-only
 
 [delta]
+	true-color = always
+	features = decorations
 	navigate = true    # use n and N to move between diff sections
 	side-by-side = true
-	line-numbers = true
 	hyperlinks = true
+
+[delta "decorations"]
+	line-numbers = true
+	commit-decoration-style = bold yellow box ul
+	file-style = bold brightgreen
+	file-decoration-style = none
+	hunk-header-decoration-style = yellow box ul
+	line-numbers-left-style = blue
+	line-numbers-right-style = blue
 
 [merge]
 	conflictstyle = diff3
