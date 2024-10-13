@@ -1,4 +1,4 @@
-# ~/.bashrc: executed by bash(1) for non-login shells.
+# ~/.bashrc: executed by bash(2FZF_CTRL_R_OPTo) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
@@ -87,9 +87,9 @@ fi
 #export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
 # some more ls aliases
-#alias ll='ls -l'
-#alias la='ls -A'
-#alias l='ls -CF'
+alias ll='ls -l'
+alias la='ls -A'
+alias l='ls -CF'
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
@@ -111,16 +111,5 @@ if ! shopt -oq posix; then
   fi
 fi
 
-export PS1="\e[0;32m[\e[0;36m\W\e[0;32m]$ \e[0;37m"
-
-if [ -f ~/.profile ]; then
-  . ~/.profile
-fi
-
 # Generated for envman. Do not edit.
 [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
-
-# Mise
-eval "$(~/.local/bin/mise activate bash)"
-
-eval "$(fzf --bash)"

@@ -389,8 +389,9 @@ bind -r M-o rotate-window -U
 bind -n M-o last-pane
 bind -n M-n display-panes
 
-# maximize current pane
-bind c run "cut -c3- '#{TMUX_CONF}' | sh -s _maximize_pane '#{session_name}' '#D'"
+# zoom/maximize current pane
+bind c resize-pane -Z
+bind m run "cut -c3- '#{TMUX_CONF}' | sh -s _maximize_pane '#{session_name}' '#D'"
 
 # split current window horizontally
 bind -n M-s split-window -v

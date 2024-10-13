@@ -28,7 +28,8 @@ echo 'deb [ signed-by=/usr/share/keyrings/vscodium-archive-keyring.gpg ] https:/
 sudo apt update && sudo apt install codium
 
 # Install Fonts
-sudo git clone --depth 1 https://github.com/ryanoasis/nerd-fonts.git /usr/local/share/fonts/nerd-fonts && pushd "{$_}"
+sudo git clone --depth 1 https://github.com/ryanoasis/nerd-fonts.git /usr/local/share/fonts/nerd-fonts
+pushd "$_" || exit 1
 for a in Hack FiraCode DejaVuSansMono; do
     ./install.sh $a
 done
