@@ -118,6 +118,10 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#6e6e6e,bg=#000000,bold"
 PROMPT_EOL_MARK=''
 bindkey '^ ' autosuggest-accept
 bindkey -r '\C-t'
+bindkey -M menuselect 'h' vi-backward-char
+bindkey -M menuselect 'k' vi-up-line-or-history
+bindkey -M menuselect 'l' vi-forward-char
+bindkey -M menuselect 'j' vi-down-line-or-history
 
 # User configuration
 

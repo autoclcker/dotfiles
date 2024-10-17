@@ -26,7 +26,7 @@ style = "SemiBold"
 
 [font.italic]
 family = "Hack Nerd Font"
-style = "Bold"
+style = "Italic"
 
 [font.bold_italic]
 family = "Hack Nerd Font"
@@ -69,4 +69,3 @@ cursor = "#00ffa6"
 
 [mouse]
 hide_when_typing = true
-

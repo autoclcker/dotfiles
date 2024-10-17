@@ -1,4 +1,5 @@
 [tools]
+ant = "1.10.13"
 ansible-base = "latest"
 bat = "latest"
 cabal = "latest"

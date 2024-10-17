@@ -1,3 +1,8 @@
 LICENSE
+**/copyq/*
+!copyq_tabs.ini
+!copyq-commands.ini
+!copyq-filter.ini
+!copyq.conf
 lazy-lock.json
 **/community/
