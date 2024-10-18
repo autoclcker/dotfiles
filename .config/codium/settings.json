@@ -46,20 +46,92 @@
             "commands": ["editor.action.marker.prev"],
         },
         {
-            "before": ["<leader>", ","],
-            "commands": ["editor.fold"],
-        },
-        {
-            "before": ["<leader>", "."],
-            "commands": ["editor.unfold"],
-        },
-        {
             "before": ["leader", "v"],
             "commands": ["codeium.pasteAndTranslate"]
         },
         {
             "before": ["leader", "c"],
-            "commands": ["copyRelativeFilePath"]
+            "commands": ["copyRelativeFilePath"],
+            "silent": true
+        },
+        {
+            "before": ["<leader>", "m"],
+            "commands": [ "bookmarks.toggle" ],
+            "silent": true
+        },
+        {
+            "before": ["<leader>", "'"],
+            "commands": [
+                "bookmarks.listFromAllFiles"
+            ]
+        },
+        {
+            "before": ["<leader>", ","],
+            "commands": ["editor.fold"],
+            "silent": true
+        },
+        {
+            "before": ["<leader>", "."],
+            "commands": ["editor.unfold"],
+            "silent": true
+        },
+        {
+            "before": ["<leader>", "1"],
+            "commands": ["editor.foldLevel1"],
+            "silent": true
+        },
+        {
+            "before": ["<leader>", "2"],
+            "commands": ["editor.foldLevel2"],
+            "silent": true
+        },
+        {
+            "before": ["<leader>", "3"],
+            "commands": ["editor.foldLevel3"],
+            "silent": true
+        },
+        {
+            "before": ["<leader>", "4"],
+            "commands": ["editor.foldLevel4"],
+            "silent": true
+        },
+        {
+            "before": ["<leader>", "5"],
+            "commands": ["editor.foldLevel5"],
+            "silent": true
+        },
+        {
+            "before": ["<leader>", "6"],
+            "commands": ["editor.foldLevel6"],
+            "silent": true
+        },
+        {
+            "before": ["<leader>", "7"],
+            "commands": ["editor.foldLevel7"],
+            "silent": true
+        },
+        {
+            "before": ["<leader>", "0"],
+            "commands": ["editor.unfoldAll"],
+            "silent": true
+        },
+        {
+            "before": [
+                ">"
+            ],
+            "commands": [
+                "editor.action.indentLines"
+            ],
+            "silent": true
+        },
+        {
+            "before": [
+                "<"
+            ],
+            "commands": [
+                "editor.action.outdentLines"
+            ],
+            "silent": true
         },
         {
             "before": ["g", "p", "d"],
@@ -88,6 +160,14 @@
         {
             "before": ["g", "p", "t"],
             "commands": ["editor.action.peekTypeDefinition"]
+        },
+        {
+            "before": ["C-b"],
+            "commands": ["cursorPageUp"]
+        },
+        {
+            "before": ["C-f"],
+            "commands": ["cursorPageDown"]
         },
     ],
     "vim.visualModeKeyBindings": [
