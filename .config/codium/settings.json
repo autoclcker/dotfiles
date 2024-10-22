@@ -163,11 +163,13 @@
         },
         {
             "before": ["C-b"],
-            "commands": ["cursorPageUp"]
+            "commands": ["cursorPageUp"],
+            "silent": true
         },
         {
             "before": ["C-f"],
-            "commands": ["cursorPageDown"]
+            "commands": ["cursorPageDown"],
+            "silent": true
         },
     ],
     "vim.visualModeKeyBindings": [
