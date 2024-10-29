@@ -443,6 +443,8 @@ bind-key -n M-/ copy-mode \; send-key ?
 
 # copy mode
 bind -n M-e copy-mode # enter copy mode
+bind-key -T copy-mode-vi 'C-v' send -X begin-selection \; send -X rectangle-toggle
+bind-key -T copy-mode-vi 'C-c' send -X clear-selection
 bind v choose-buffer
 
 # keys replacement
