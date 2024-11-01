@@ -4,11 +4,11 @@ if [ -f "$HOME/.profile" ]; then
     . "$HOME/.profile"
 fi
 
-# Zoxide
-eval "$(zoxide init bash)"
-
 # Mise
 eval "$(~/.local/bin/mise activate bash)"
+
+# Zoxide
+eval "$(zoxide init bash)"
 
 # Fzf
 eval "$(fzf --bash)"
