@@ -1,0 +1,5 @@
+# Official linux kernel tracing tool (mainly used for educational purposes)
+# look at the Readme: /sys/kernel/debug/tracing/README
+
+# use the https://kernelshark.org/ for visualization
+
