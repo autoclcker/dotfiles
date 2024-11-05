@@ -367,7 +367,6 @@ set -g cursor-style blinking-bar
 set -gu prefix2
 set -g display-panes-time 3000
 
-unbind C-a
 unbind C-b
 unbind C-h
 unbind C-l
@@ -375,8 +374,8 @@ unbind C-o
 unbind Space
 unbind -n M-f
 unbind -n C-f
-set -g prefix C-a
-bind C-a send-prefix
+set -g prefix M-a
+bind M-a send-prefix
 
 # select next layout
 bind -n M-= next-layout

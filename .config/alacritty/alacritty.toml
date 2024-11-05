@@ -69,3 +69,8 @@ cursor = "#00ffa6"
 
 [mouse]
 hide_when_typing = true
+
+[[keyboard.bindings]]
+chars = 'printf "\e[1;96m%s\e[0m\n" $'
+key = "d"
+mods = "Alt"
