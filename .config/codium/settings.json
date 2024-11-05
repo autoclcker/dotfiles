@@ -174,15 +174,15 @@
     ],
     "vim.visualModeKeyBindings": [
         {
-            "before": ["leader", "h"],
+            "before": ["<leader>", "h"],
             "commands": ["codeium.explainCodeBlock"]
         },
         {
-            "before": ["leader", "r"],
+            "before": ["<leader>", "r"],
             "commands": ["codeium.refactorCodeBlock"]
         },
         {
-            "before": ["<leader>", "y"],
+            "before": ["Y"],
             "after": ["\"", "*", "y"]
         },
     ],

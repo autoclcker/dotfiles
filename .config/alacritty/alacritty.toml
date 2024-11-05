@@ -11,7 +11,7 @@ columns = 0
 lines   = 0
 
 [scrolling]
-history = 12000
+history = 100000
 
 [font]
 size = 14

@@ -42,3 +42,7 @@ export ZOXIDE_CMD_OVERRIDE="cd"
 
 # Cheat
 export CHEAT_USE_FZF=true
+
+# History
+export HISTSIZE=100000
+export SAVEHIST=100000
