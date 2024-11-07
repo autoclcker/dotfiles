@@ -419,9 +419,9 @@ bind -n M-p set-window-option synchronize-panes\; display-message "synchronize-p
 bind -n C-t new-window
 bind -n M-w kill-window
 
-# switch windows using Alt-arrow without prefix
-bind -n M-j previous-window
-bind -n M-k next-window
+# switch windows using Ctrl-arrow without prefix
+bind -n C-j previous-window
+bind -n C-k next-window
 bind p previous-window -a
 bind n next-window -a
 bind -n M-, swap-window -t -1\; select-window -t -1
@@ -445,10 +445,6 @@ bind -n M-e copy-mode # enter copy mode
 bind-key -T copy-mode-vi 'C-v' send -X begin-selection \; send -X rectangle-toggle
 bind-key -T copy-mode-vi 'C-c' send -X clear-selection
 bind v choose-buffer
-
-# keys replacement
-bind -n C-k send M-k
-bind -n C-j send M-j
 
 # -- tpm -----------------------------------------------------------------------
 
