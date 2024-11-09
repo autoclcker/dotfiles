@@ -67,6 +67,13 @@ white = "#e5e5e5"
 [colors.cursor]
 cursor = "#00ffa6"
 
+[colors.vi_mode_cursor]
+cursor = "#00ffa6"
+
+[cursor.vi_mode_style]
+shape = "block"
+blinking = "on"
+
 [mouse]
 hide_when_typing = true
 
@@ -74,3 +81,9 @@ hide_when_typing = true
 chars = 'printf "\e[1;96m%s\e[0m\n" $'
 key = "d"
 mods = "Alt"
+
+[[keyboard.bindings]]
+action = "ToggleViMode"
+key = "q"
+mode = "Vi"
+

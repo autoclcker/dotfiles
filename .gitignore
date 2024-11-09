@@ -1,7 +1,8 @@
-LICENSE
-**/copyq/*
 !copyq-commands.ini
 !copyq-filter.ini
 !copyq.conf
-lazy-lock.json
 **/community/
+**/copyq/*
+**/tmux/plugins
+lazy-lock.json
+LICENSE

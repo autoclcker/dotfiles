@@ -361,11 +361,18 @@ tmux_conf_urlscan_options="--compact --dedupe"
 
 # -- user customizations -------------------------------------------------------
 
+# plugins
+set -g @plugin 'tmux-plugins/tmux-resurrect'
+
+set -g @resurrect-save 'S'
+set -g @resurrect-restore 'R'
+
 # this is the place to override or undo settings
 set -g mouse on
 set -g cursor-style blinking-bar
 set -gu prefix2
 set -g display-panes-time 3000
+set -g history-limit 100000
 
 unbind C-b
 unbind C-h
@@ -374,6 +381,7 @@ unbind C-o
 unbind Space
 unbind -n M-f
 unbind -n C-f
+unbind -n C-l
 set -g prefix M-a
 bind M-a send-prefix
 
@@ -397,7 +405,7 @@ bind -n M-s split-window -v
 # split current window vertically
 bind -n M-v split-window -h
 
-# destroy pane 
+# destroy pane
 bind -n M-x kill-pane
 
 # pane navigation
@@ -445,6 +453,9 @@ bind -n M-e copy-mode # enter copy mode
 bind-key -T copy-mode-vi 'C-v' send -X begin-selection \; send -X rectangle-toggle
 bind-key -T copy-mode-vi 'C-c' send -X clear-selection
 bind v choose-buffer
+
+# clear both screen and history
+bind -n M-l send-keys C-l \; run 'sleep 0.2' \; clear-history
 
 # -- tpm -----------------------------------------------------------------------
 

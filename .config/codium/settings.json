@@ -171,6 +171,16 @@
             "commands": ["cursorPageDown"],
             "silent": true
         },
+        {
+            "before": ["C-y"],
+            "commands": ["scrollLineUp", "scrollLineUp", "cursorUp"],
+            "silent": true
+        },
+        {
+            "before": ["C-e"],
+            "commands": ["scrollLineDown", "scrollLineDown", "cursorDown"],
+            "silent": true
+        },
     ],
     "vim.visualModeKeyBindings": [
         {

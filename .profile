@@ -1,7 +1,6 @@
 alias dog='doggo'
 alias ip='ip -c=always'
 alias less='bat -p'
-alias http='xh'
 alias wp='nmcli device wifi show-password'
 alias wtr='curl wttr.in/Petersburg'
 alias e='nvim'
