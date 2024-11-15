@@ -361,13 +361,8 @@ tmux_conf_urlscan_options="--compact --dedupe"
 
 # -- user customizations -------------------------------------------------------
 
-# plugins
-set -g @plugin 'tmux-plugins/tmux-resurrect'
-
-set -g @resurrect-save 'S'
-set -g @resurrect-restore 'R'
-
 # this is the place to override or undo settings
+
 set -g mouse on
 set -g cursor-style blinking-bar
 set -gu prefix2

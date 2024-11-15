@@ -20,6 +20,20 @@ nonnumeric_search = false
 align = "Left"
 
 [[columns]]
+kind = "State"
+style = "ByState"
+numeric_search = false
+nonnumeric_search = true
+align = "Left"
+
+[[columns]]
+kind = "Nice"
+style = "BrightMagenta|Black"
+numeric_search = true
+nonnumeric_search = false
+align = "Left"
+
+[[columns]]
 kind = "Tty"
 style = "BrightWhite|Black"
 numeric_search = false
@@ -41,11 +55,32 @@ nonnumeric_search = false
 align = "Right"
 
 [[columns]]
-kind = "CpuTime"
-style = "BrightCyan|Cyan"
+kind = "MultiSlot"
+style = "ByUnit"
 numeric_search = false
 nonnumeric_search = false
-align = "Left"
+align = "Right"
+
+[[columns]]
+kind = "VmSwap"
+style = "ByUnit"
+numeric_search = false
+nonnumeric_search = false
+align = "Right"
+
+[[columns]]
+kind = "VmPeak"
+style = "ByUnit"
+numeric_search = false
+nonnumeric_search = false
+align = "Right"
+
+[[columns]]
+kind = "VmRss"
+style = "ByUnit"
+numeric_search = false
+nonnumeric_search = false
+align = "Right"
 
 [[columns]]
 kind = "MultiSlot"
@@ -53,6 +88,41 @@ style = "ByUnit"
 numeric_search = false
 nonnumeric_search = false
 align = "Right"
+
+[[columns]]
+kind = "TcpPort"
+style = "BrightCyan|Black"
+numeric_search = false
+nonnumeric_search = false
+align = "Center"
+
+[[columns]]
+kind = "UdpPort"
+style = "BrightCyan|Black"
+numeric_search = false
+nonnumeric_search = false
+align = "Center"
+
+[[columns]]
+kind = "Separator"
+style = "White|BrightBlack"
+numeric_search = false
+nonnumeric_search = false
+align = "Left"
+
+[[columns]]
+kind = "CpuTime"
+style = "BrightGreen|Black"
+numeric_search = false
+nonnumeric_search = false
+align = "Left"
+
+[[columns]]
+kind = "StartTime"
+style = "BrightBlue|Black"
+numeric_search = false
+nonnumeric_search = false
+align = "Center"
 
 [[columns]]
 kind = "Separator"
