@@ -34,8 +34,7 @@ export FZF_DEFAULT_OPTS="-m --height 30% --layout=reverse --border --inline-info
 export ZSH_TMUX_AUTOSTART=true
 export ZSH_TMUX_DEFAULT_SESSION_NAME="main"
 
-# PATH
-export PATH="$HOME/.local/bin:$PATH"
+# XDG
 export XDG_CONFIG_HOME="$HOME/.config"
 
 # Zoxide
