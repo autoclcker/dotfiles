@@ -37,6 +37,9 @@ export ZSH_TMUX_DEFAULT_SESSION_NAME="main"
 # XDG
 export XDG_CONFIG_HOME="$HOME/.config"
 
+# PATH
+export PATH="$HOME/.local/bin:$PATH"
+
 # Zoxide
 export ZOXIDE_CMD_OVERRIDE="cd"
 
