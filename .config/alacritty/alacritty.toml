@@ -82,8 +82,3 @@ chars = 'printf "\e[1;96m%s\e[0m\n" $'
 key = "d"
 mods = "Alt"
 
-[[keyboard.bindings]]
-action = "ToggleViMode"
-key = "q"
-mode = "Vi"
-

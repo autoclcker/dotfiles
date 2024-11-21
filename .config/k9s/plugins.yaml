@@ -1,0 +1,36 @@
+plugins:
+  clear-namespace:
+    shortCut: Ctrl-L
+    override: false
+    overwriteOutput: false
+    confirm: true
+    dangerous: false
+    description: Clear namespace
+    scopes:
+    - all
+    command: sh
+    background: true
+    args:
+    - -c
+    - >-
+      kubectl --context $CONTEXT
+      delete --namespace $NAMESPACE all,configmaps,secrets,ingresses --all
+  copy-ingress-hosts:
+    shortCut: c
+    override: true
+    overwriteOutput: true
+    confirm: false
+    dangerous: false
+    description: Copy ingress hosts
+    scopes:
+      - ingresses
+    command: sh
+    background: true
+    args:
+      - -c
+      - >-
+        kubectl --context $CONTEXT
+        get ingress --namespace $NAMESPACE $NAME
+        --output go-template='{{range .spec.rules}}{{.host}} {{end}}' | xsel --clipboard --input
+        && printf "Successfully copied hosts"
+

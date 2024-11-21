@@ -162,6 +162,10 @@
             "commands": ["editor.action.peekTypeDefinition"]
         },
         {
+            "before": ["Y"],
+            "after": ["y", "$"]
+        },
+        {
             "before": ["C-b"],
             "commands": ["cursorPageUp"],
             "silent": true
@@ -197,4 +201,5 @@
         },
     ],
     "cmake.showOptionsMovedNotification": false,
+    "window.newWindowProfile": "autoclcker",
 }
