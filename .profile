@@ -1,20 +1,21 @@
+alias copy='xsel --input --clipboard'
 alias dog='doggo'
-alias ip='ip -c=always'
-alias less='bat -p'
-alias wp='nmcli device wifi show-password'
-alias wtr='curl wttr.in/Petersburg'
 alias e='nvim'
-alias s='systemctl'
-alias j='journalctl'
-alias p='printf'
 alias gol='golangci-lint run --enable-all'
-alias procsi='procs --watch --watch-interval 2'
-alias procst='procs --tree'
+alias ip='ip -c=always'
+alias j='journalctl'
+alias less='bat -p'
+alias p='printf'
 alias pgadmin='docker run --rm -p 5432:80 \
     -e "PGADMIN_DEFAULT_EMAIL=admin@gmail.com" \
     -e "PGADMIN_DEFAULT_PASSWORD=admin" \
     -d dpage/pgadmin4
 '
+alias procsi='procs --watch --watch-interval 2'
+alias procst='procs --tree'
+alias s='systemctl'
+alias wp='nmcli device wifi show-password'
+alias wtr='curl wttr.in/Petersburg'
 
 # Editor
 export EDITOR="nvim"

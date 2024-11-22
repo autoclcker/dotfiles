@@ -365,11 +365,9 @@ tmux_conf_urlscan_options="--compact --dedupe"
 
 set -g mouse on
 set -g cursor-style blinking-bar
-set -gu prefix2
 set -g display-panes-time 3000
 set -g history-limit 100000
 
-unbind C-b
 unbind C-h
 unbind C-l
 unbind C-o
@@ -377,8 +375,6 @@ unbind Space
 unbind -n M-f
 unbind -n C-f
 unbind -n C-l
-set -g prefix M-a
-bind M-a send-prefix
 
 # select next layout
 bind -n M-= next-layout
