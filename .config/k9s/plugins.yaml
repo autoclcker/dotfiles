@@ -1,4 +1,18 @@
 plugins:
+  apply-manifest:
+    shortCut: Shift-E
+    confirm: false
+    background: false
+    description: Apply from editor
+    scopes:
+      - all
+    command: sh
+    args:
+      - -c
+      - >-
+        nvim /tmp/k9s.yaml &&
+        ([ -s /tmp/k9s.yaml ] && cat /tmp/k9s.yaml | kubectl --namespace $NAMESPACE --context $CONTEXT apply -f -) && rm /tmp/k9s.yaml ||
+        exit 0
   clear-namespace:
     shortCut: Ctrl-L
     override: false

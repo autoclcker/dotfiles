@@ -103,6 +103,7 @@ plugins=(
 	starship
 	sudo
 	systemadmin
+	thefuck
 	tmux
 	ufw
 	zoxide
@@ -122,6 +123,9 @@ bindkey -M menuselect 'h' vi-backward-char
 bindkey -M menuselect 'k' vi-up-line-or-history
 bindkey -M menuselect 'l' vi-forward-char
 bindkey -M menuselect 'j' vi-down-line-or-history
+bindkey -M emacs '^H' sudo-command-line
+bindkey -M vicmd '^H' sudo-command-line
+bindkey -M viins '^H' sudo-command-line
 
 # User configuration
 

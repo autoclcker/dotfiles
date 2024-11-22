@@ -16,7 +16,7 @@
 "pipx:httpie" = "latest"
 "pipx:ipython" = "latest"
 "pipx:ranger-fm" = "latest"
-"pipx:thefuck" = "latest"
+"pipx:thefuck" = { version = "latest", extras = "distutils" }
 ant = "1.10.13"
 bat = "latest"
 cabal = "latest"
