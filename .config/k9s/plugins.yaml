@@ -11,8 +11,8 @@ plugins:
       - -c
       - >-
         nvim /tmp/k9s.yaml &&
-        ([ -s /tmp/k9s.yaml ] && cat /tmp/k9s.yaml | kubectl --namespace $NAMESPACE --context $CONTEXT apply -f -) && rm /tmp/k9s.yaml ||
-        exit 0
+        (test -s $_ && cat /tmp/k9s.yaml | kubectl --namespace $NAMESPACE --context $CONTEXT apply --filename -) &&
+        rm /tmp/k9s.yaml || exit 0
   clear-namespace:
     shortCut: Ctrl-L
     override: false
@@ -21,14 +21,18 @@ plugins:
     dangerous: false
     description: Clear namespace
     scopes:
-    - all
+      - pods
+      - deployments
+      - configmaps
+      - secrets
+      - ingresses
     command: sh
     background: true
     args:
-    - -c
-    - >-
-      kubectl --context $CONTEXT
-      delete --namespace $NAMESPACE all,configmaps,secrets,ingresses --all
+      - -c
+      - >-
+        kubectl --context $CONTEXT
+        delete --namespace $NAMESPACE all,configmaps,secrets,ingresses --all
   copy-ingress-hosts:
     shortCut: c
     override: true
@@ -45,6 +49,5 @@ plugins:
       - >-
         kubectl --context $CONTEXT
         get ingress --namespace $NAMESPACE $NAME
-        --output go-template='{{range .spec.rules}}{{.host}} {{end}}' | xsel --clipboard --input
-        && printf "Successfully copied hosts"
-
+        --output go-template='{{range .spec.rules}}{{.host}} {{end}}' | xsel --clipboard --input &&
+        printf "Successfully copied hosts"
