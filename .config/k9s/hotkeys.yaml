@@ -9,25 +9,33 @@ hotKeys:
     command: pods
   shift-2:
     shortCut: Shift-2
-    description: View ReplicaSets
-    command: replicasets
+    description: View Jobs
+    command: jobs
   shift-3:
     shortCut: Shift-3
-    description: Xray Deployments
-    command: xray deployments
+    description: View CronJobs
+    command: cronjobs
   shift-4:
     shortCut: Shift-4
-    description: Xray StatefulSets
-    command: xray statefulsets
+    description: View ReplicaSets
+    command: replicasets
   shift-5:
     shortCut: Shift-5
-    description: View Services
-    command: services
+    description: Xray Deployments
+    command: xray deployments
   shift-6:
     shortCut: Shift-6
-    description: View Ingresses
-    command: ingresses
+    description: Xray StatefulSets
+    command: xray statefulsets
   shift-7:
     shortCut: Shift-7
-    description: View PersistentVolumeClaims
-    command: persistentvolumeclaims
+    description: View Services
+    command: services
+  shift-8:
+    shortCut: Shift-8
+    description: View Ingresses
+    command: ingresses
+  shift-9:
+    shortCut: Shift-9
+    description: View RoleBindings
+    command: rolebindings

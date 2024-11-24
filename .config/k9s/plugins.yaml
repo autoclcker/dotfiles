@@ -31,8 +31,8 @@ plugins:
     args:
       - -c
       - >-
-        kubectl --context $CONTEXT
-        delete --namespace $NAMESPACE all,configmaps,secrets,ingresses --all
+        kubectl --namespace $NAMESPACE --context $CONTEXT
+        delete all,configmaps,secrets,ingresses --all
   copy-ingress-hosts:
     shortCut: c
     override: true
@@ -47,7 +47,6 @@ plugins:
     args:
       - -c
       - >-
-        kubectl --context $CONTEXT
-        get ingress --namespace $NAMESPACE $NAME
-        --output go-template='{{range .spec.rules}}{{.host}} {{end}}' | xsel --clipboard --input &&
-        printf "Successfully copied hosts"
+        kubectl --namespace $NAMESPACE --context $CONTEXT
+        get ingress $NAME --output go-template='{{range .spec.rules}}{{.host}} {{end}}' |
+        xsel --clipboard --input && printf "Successfully copied hosts"
