@@ -38,6 +38,10 @@
             "after": ["<leader>", "<leader>", "k"]
         },
         {
+            "before": ["<leader>", "V"],
+            "after": ["g", "g", "V", "G"]
+        },
+        {
             "before": ["<leader>", "n"],
             "commands": ["editor.action.marker.next"],
         },

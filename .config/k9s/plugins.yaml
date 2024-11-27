@@ -33,6 +33,42 @@ plugins:
       - >-
         kubectl --namespace $NAMESPACE --context $CONTEXT
         delete all,configmaps,secrets,ingresses --all
+  scale-reset:
+    shortCut: Shift-S
+    override: false
+    overwriteOutput: false
+    confirm: true
+    dangerous: false
+    description: Scale all pods to 0
+    scopes:
+      - deployments
+      - replicasets
+      - statefulsets
+    command: sh
+    background: true
+    args:
+      - -c
+      - >-
+        kubectl --namespace $NAMESPACE --context $CONTEXT
+        scale statefulset,deployment --all --replicas=0
+  scale-up:
+    shortCut: u
+    override: false
+    overwriteOutput: false
+    confirm: true
+    dangerous: false
+    description: Scale all pods to 1
+    scopes:
+      - deployments
+      - replicasets
+      - statefulsets
+    command: sh
+    background: true
+    args:
+      - -c
+      - >-
+        kubectl --namespace $NAMESPACE --context $CONTEXT
+        scale statefulset,deployment --all --replicas=1
   copy-ingress-hosts:
     shortCut: c
     override: true

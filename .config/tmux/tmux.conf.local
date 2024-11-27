@@ -364,6 +364,9 @@ tmux_conf_urlscan_options="--compact --dedupe"
 # this is the place to override or undo settings
 
 set -g mouse on
+set -g prefix None
+set -g prefix2 C-q
+bind C-q send-prefix -2
 set -g cursor-style blinking-bar
 set -g display-panes-time 3000
 set -g history-limit 100000
@@ -431,7 +434,7 @@ bind -n M-r command-prompt -I "#W" "rename-window '%%'"
 
 # create/destroy session
 bind -n C-s new-session
-bind -n C-q kill-session
+bind -n M-q kill-session
 
 # find session
 bind -n M-i command-prompt -p find-session 'switch-client -t %%'
@@ -447,6 +450,9 @@ bind v choose-buffer
 
 # clear both screen and history
 bind -n M-l send-keys C-l \; run 'sleep 0.2' \; clear-history
+
+# gracefull shutdown
+bind-key x kill-server
 
 # -- tpm -----------------------------------------------------------------------
 
