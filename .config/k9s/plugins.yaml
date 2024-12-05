@@ -19,6 +19,7 @@ plugins:
     overwriteOutput: false
     confirm: true
     dangerous: false
+    background: true
     description: Clear namespace
     scopes:
       - pods
@@ -27,40 +28,39 @@ plugins:
       - secrets
       - ingresses
     command: sh
-    background: true
     args:
       - -c
       - >-
         kubectl --namespace $NAMESPACE --context $CONTEXT
         delete all,configmaps,secrets,ingresses --all
   scale-reset:
-    shortCut: Shift-S
+    shortCut: Shift-X
     override: false
     overwriteOutput: false
     confirm: true
     dangerous: false
+    background: true
     description: Scale all pods to 0
     scopes:
-      - deployments
       - replicasets
+      - deployments
       - statefulsets
     command: sh
-    background: true
     args:
       - -c
       - >-
         kubectl --namespace $NAMESPACE --context $CONTEXT
         scale statefulset,deployment --all --replicas=0
   scale-up:
-    shortCut: u
+    shortCut: Shift-S
     override: false
     overwriteOutput: false
     confirm: true
     dangerous: false
     description: Scale all pods to 1
     scopes:
-      - deployments
       - replicasets
+      - deployments
       - statefulsets
     command: sh
     background: true
@@ -69,6 +69,42 @@ plugins:
       - >-
         kubectl --namespace $NAMESPACE --context $CONTEXT
         scale statefulset,deployment --all --replicas=1
+  increase-replicas:
+    shortCut: a
+    override: false
+    overwriteOutput: true
+    confirm: false
+    dangerous: false
+    description: Increase replicas count by 1
+    scopes:
+      - deployments
+      - statefulsets
+    command: sh
+    background: true
+    args:
+      - -c
+      - >-
+        count=$(test "$COL-UP-TO-DATE" = true && printf 1 || printf $COL-UP-TO-DATE) &&
+        kubectl --namespace $NAMESPACE --context $CONTEXT
+        scale deployment $NAME --replicas=$(($count+1))
+  decrease-replicas:
+    shortCut: x
+    override: false
+    overwriteOutput: true
+    confirm: false
+    dangerous: false
+    description: Decrease replicas count by 1
+    scopes:
+      - deployments
+      - statefulsets
+    command: sh
+    background: true
+    args:
+      - -c
+      - >-
+        count=$(test "$COL-UP-TO-DATE" = true && printf 1 || printf $COL-UP-TO-DATE) &&
+        kubectl --namespace $NAMESPACE --context $CONTEXT
+        scale deployment $NAME --replicas=$(($count-1))
   copy-ingress-hosts:
     shortCut: c
     override: true
