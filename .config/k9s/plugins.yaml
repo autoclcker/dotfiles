@@ -86,7 +86,7 @@ plugins:
       - >-
         count=$(test "$COL-UP-TO-DATE" = true && printf 1 || printf $COL-UP-TO-DATE) &&
         kubectl --namespace $NAMESPACE --context $CONTEXT
-        scale deployment $NAME --replicas=$(($count+1))
+        scale $RESOURCE_NAME $NAME --replicas=$(($count+1))
   decrease-replicas:
     shortCut: x
     override: false
@@ -104,7 +104,7 @@ plugins:
       - >-
         count=$(test "$COL-UP-TO-DATE" = true && printf 1 || printf $COL-UP-TO-DATE) &&
         kubectl --namespace $NAMESPACE --context $CONTEXT
-        scale deployment $NAME --replicas=$(($count-1))
+        scale $RESOURCE_NAME $NAME --replicas=$(($count-1))
   copy-ingress-hosts:
     shortCut: c
     override: true

@@ -1,0 +1,12 @@
+{
+  "float": [
+    {
+      "class": "copyq"
+    },
+    {
+      "class": "Gnome-calculator"
+    }
+  ],
+  "skiptaskbarhidden": [],
+  "log_on_focus": false
+}
