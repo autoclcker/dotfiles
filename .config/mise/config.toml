@@ -16,10 +16,9 @@
 "pipx:httpie" = "latest"
 "pipx:ipython" = "latest"
 "pipx:ranger-fm" = "latest"
-"pipx:thefuck" = { version = "latest", extras = "distutils" }
+"pipx:thefuck" = { version = "latest", pipx_args = "--fetch-missing-python --python 3.11" }
 ant = "1.10.13"
 bat = "latest"
-cabal = "latest"
 cheat = "latest"
 cmake = "latest"
 delta = "latest"
@@ -29,9 +28,6 @@ duf = "latest"
 dust = "latest"
 fd = "latest"
 fzf = "latest"
-ghc = "latest"
-git = "latest"
-golang = "1.23.1"
 golangci-lint = "1.61.0"
 hadolint = "latest"
 haskell = "9.10.1"
@@ -52,11 +48,9 @@ maven = "3.6.3"
 minikube = "latest"
 neovim = "latest"
 nodejs = "22.9.0"
-pipx = "latest"
 pnpm = "latest"
 python = "3.12.6"
 ripgrep = "latest"
-rust = "1.81.0"
 shellcheck = "latest"
 starship = "latest"
 tmux = "latest"
@@ -70,5 +64,6 @@ yq = "latest"
 zoxide = "latest"
 
 [settings]
-experimental = true
 disable_hints = ["registry"]
+experimental = true
+not_found_auto_install = false

@@ -1,0 +1,26 @@
+FROM debian:stable-slim@sha256:4d63ef53faef7bd35c92fbefb1e9e2e7b6777e3cbec6c34f640e96b925e430eb
+
+ARG UID=65533
+ARG GID=65533
+ARG USER=nonroot
+ARG GROUP=nonroot
+ARG HOME=/home/${USER}
+
+ENV INSTALL_DOCKER=false
+
+WORKDIR ${HOME}/build
+
+RUN <<EOF
+apt-get update
+apt-get install apt-utils build-essential curl git jq make sudo unzip wget --yes
+mkdir --parents ${HOME}/.config
+addgroup --gid ${GID} ${GROUP}
+adduser --disabled-password --gecos '' --home ${HOME} --shell /bin/bash --uid ${UID} --gid ${GID} ${USER}
+echo "${USER} ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/${USER}
+chown --recursive ${UID}:${GID} ${HOME}
+EOF
+
+USER ${UID}:${GID}
+
+RUN --mount=type=bind,target=.,readwrite=true \
+    make install

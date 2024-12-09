@@ -127,3 +127,7 @@ key = "Key9"
 mods = "Control"
 chars = "\u001b[57;5u"
 
+[[keyboard.bindings]]
+key = "'"
+mods = "Alt"
+chars = "\uE000"

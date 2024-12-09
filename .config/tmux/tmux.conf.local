@@ -387,7 +387,7 @@ bind -r o rotate-window -D
 bind -r M-o rotate-window -U
 
 # switch to the previous pane
-bind -n M-o last-pane
+bind -n \uE000 last-pane
 bind -n M-n display-panes
 bind -n M-1 select-pane -t 1
 bind -n M-2 select-pane -t 2
