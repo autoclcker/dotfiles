@@ -61,7 +61,7 @@ for a in "${POSITIONAL_ARGS[@]}"; do
 		log "$YELLOW" "Path was deleted: ${DESTINATION}/${a}]\n"
 	fi
 done
-pushd "${SEARCHPATH}" >/dev/null
+pushd "${SEARCHPATH}"
 for a in "${POSITIONAL_ARGS[@]}"; do
 	if [[ ! -e ${PWD}/${a} ]]; then
 		log "${RED}" "Path does not exists: ${PWD}/${a}]\n"

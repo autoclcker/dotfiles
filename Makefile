@@ -4,7 +4,8 @@ all: help
 HOME_ARR   = .bash_aliases .bashrc .gitconfig .profile .vimrc .zlogin .zshrc
 CONFIG_ARR = alacritty cheat copyq dive htop k9s lazydocker lazygit mise nvim pop-shell procps procs ranger tmux wireshark/profiles
 
-XDG_CONFIG_HOME := "${HOME}/.config"
+CONFIG_DIR = ${PWD}/.config
+XDG_CONFIG_HOME = ${HOME}/.config
 
 download:
 	@./scripts/download_core_apps.sh ${PWD}/deps/packages.txt
@@ -19,13 +20,13 @@ install: download sync ### Install setup
 .PHONY: install
 
 regress: ### Validate Setup integrity
-	@docker buildx build --file Dockerfile.regress . --progress=plain
+	@docker buildx build --progress=plain --tag regress --file Dockerfile.regress .
 .PHONY: regress
 
 sync: ### Synchronize configurations
 	@./scripts/synchronize_configuration.sh --searchpath ${PWD} --destination ${HOME} ${HOME_ARR}
-	@./scripts/synchronize_configuration.sh --searchpath ${PWD}/.config --destination ${XDG_CONFIG_HOME} ${CONFIG_ARR}
-	@XDG_CONFIG_HOME=${XDG_CONFIG_HOME} ./scripts/install_tools.sh
+	@./scripts/synchronize_configuration.sh --searchpath ${CONFIG_DIR} --destination ${XDG_CONFIG_HOME} ${CONFIG_ARR}
+	@./scripts/install_tools.sh
 .PHONY: sync
 
 help: ## Display this help screen

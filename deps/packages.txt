@@ -7,12 +7,10 @@ libfreetype6-dev
 libgmp-dev
 libgmp10
 libncurses-dev
-libncurses5
 libopencv-dev
 libsixel-dev
 libssl-dev
 libtbb-dev
-libtinfo5
 libvips-dev
 libxcb-image0-dev
 libxcb-res0-dev

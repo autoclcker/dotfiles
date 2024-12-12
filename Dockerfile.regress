@@ -1,26 +1,45 @@
-FROM debian:stable-slim@sha256:4d63ef53faef7bd35c92fbefb1e9e2e7b6777e3cbec6c34f640e96b925e430eb
+# syntax=docker/dockerfile:1
 
-ARG UID=65533
-ARG GID=65533
+ARG REGISTRY=docker.io/library
+
+FROM --platform=${BUILDPLATFORM} ${REGISTRY}/ubuntu:22.04@sha256:0e5e4a57c2499249aafc3b40fcd541e9a456aab7296681a3994d631587203f97
+
+ARG UID=59999
+ARG GID=59999
 ARG USER=nonroot
 ARG GROUP=nonroot
 ARG HOME=/home/${USER}
 
+ENV DEBIAN_FRONTEND=noninteractive
 ENV INSTALL_DOCKER=false
-
-WORKDIR ${HOME}/build
+ENV TZ=Europe/Moscow
 
 RUN <<EOF
-apt-get update
-apt-get install apt-utils build-essential curl git jq make sudo unzip wget --yes
-mkdir --parents ${HOME}/.config
 addgroup --gid ${GID} ${GROUP}
 adduser --disabled-password --gecos '' --home ${HOME} --shell /bin/bash --uid ${UID} --gid ${GID} ${USER}
-echo "${USER} ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/${USER}
-chown --recursive ${UID}:${GID} ${HOME}
 EOF
 
+RUN apt-get update && apt-get install --yes --no-install-recommends \
+        apt-utils=2.4.13 \
+        build-essential=12.9ubuntu3 \
+        curl=7.81.0-1ubuntu1.19 \
+        g++=4:11.2.0-1ubuntu1 \
+        git=1:2.34.1-1ubuntu1.11 \
+        jq=1.6-2.1ubuntu3 \
+        make=4.3-4.1build1 \
+        sudo=1.9.9-1ubuntu2.4 \
+        tzdata=2024a-0ubuntu0.22.04.1 \
+        unzip=6.0-26ubuntu3.2 \
+        wget=1.21.2-2ubuntu1.1 \
+        xdg-user-dirs=0.17-2ubuntu4 \
+        && \
+    runuser --login - ${USER} /bin/bash -c "xdg-user-dirs-update --force" && \
+    echo "${USER} ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers.d/${USER} && \
+    rm --recursive --force /var/lib/apt/lists/*
+
 USER ${UID}:${GID}
+
+WORKDIR ${HOME}/dotfiles
 
 RUN --mount=type=bind,target=.,readwrite=true \
     make install

@@ -1,4 +1,5 @@
 .git
 .gitignore
+.vscode
+Dockerfile.regress
 README.md
-Dockerfile.validate
