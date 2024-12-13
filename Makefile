@@ -8,7 +8,7 @@ CONFIG_DIR = ${PWD}/.config
 XDG_CONFIG_HOME = ${HOME}/.config
 
 download:
-	@./scripts/download_core_apps.sh ${PWD}/deps/packages.txt
+	@./scripts/download_core_apps.sh --packages ${PWD}/deps/packages.txt
 .PHONY: download
 
 git/stage: ### Stage configurations
@@ -20,7 +20,8 @@ install: download sync ### Install setup
 .PHONY: install
 
 regress: ### Validate Setup integrity
-	@docker buildx build --progress=plain --tag regress --file Dockerfile.regress .
+	@docker buildx build --tag regress --file Dockerfile.regress .
+	@docker rmi regress:latest
 .PHONY: regress
 
 sync: ### Synchronize configurations

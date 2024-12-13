@@ -1,5 +1,6 @@
 bison
 cmake
+galculator
 libchafa-dev
 libffi-dev
 libfontconfig1-dev

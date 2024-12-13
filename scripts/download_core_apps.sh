@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+PACKAGES=${PACKAGES:=''}
+
 INSTALL_DOCKER=${INSTALL_DOCKER:-true}
 
 DOCKER_SBOM_URL=${DOCKER_SBOM_URL:-"https://raw.githubusercontent.com/docker/sbom-cli-plugin/main/install.sh"}
@@ -14,13 +16,20 @@ set -o errexit  # abort on nonzero exitstatus
 set -o nounset  # abort on unbound variable
 set -o pipefail # don't hide errors within pipes
 
-if [ $# -ne 1 ]; then
-  printf "Error: Invalid number of arguments"
-  exit 1
-fi
+while [[ $# -gt 0 ]]; do
+	case ${1} in
+	-p | --packages)
+		PACKAGES=${2}
+		shift # past argument
+		shift # past value
+		;;
+	esac
+done
 
 sudo apt-get update
-xargs --arg-file "$1" sudo apt-get install --yes
+if [[ -z $PACKAGES ]]; then
+  xargs --arg-file "$PACKAGES" sudo apt-get install --yes
+fi
 
 # Install Docker
 if [[ ! -f /etc/apt/sources.list.d/docker.list ]] && [[ "$INSTALL_DOCKER" == true ]]; then

@@ -1,41 +1,51 @@
 hotKeys:
   shift-0:
     shortCut: Shift-0
-    description: Viewing Workloads
-    command: workloads
+    description: View Xray
+    command: "xray $RESOURCE_NAME $NAMESPACE"
   shift-1:
     shortCut: Shift-1
-    description: Viewing Pods
-    command: pods
+    description: View Pods
+    command: pod
+    keepHistory: true
   shift-2:
     shortCut: Shift-2
     description: View Jobs
-    command: jobs
+    command: job
+    keepHistory: true
   shift-3:
     shortCut: Shift-3
-    description: View CronJobs
-    command: cronjobs
+    description: View Deployments
+    command: deployment
   shift-4:
     shortCut: Shift-4
-    description: View ReplicaSets
-    command: replicasets
+    description: View StatefulSets
+    command: statefulset
   shift-5:
     shortCut: Shift-5
-    description: Xray Deployments
-    command: xray deployments
+    description: View Secrets
+    command: secret
   shift-6:
     shortCut: Shift-6
-    description: Xray StatefulSets
-    command: xray statefulsets
+    description: View PersistentVolumeClaims
+    command: persistentvolumeclaim
   shift-7:
     shortCut: Shift-7
     description: View Services
-    command: services
+    command: service
   shift-8:
     shortCut: Shift-8
     description: View Ingresses
-    command: ingresses
+    command: ingress
   shift-9:
     shortCut: Shift-9
     description: View RoleBindings
-    command: rolebindings
+    command: rolebinding
+  h:
+    shortCut: h
+    description: View Helm
+    command: helm
+  m:
+    shortCut: m
+    description: View ConfigMaps
+    command: configmap

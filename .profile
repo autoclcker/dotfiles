@@ -2,14 +2,14 @@ alias copy='xsel --input --clipboard'
 alias dog='doggo'
 alias e='nvim'
 alias gol='golangci-lint run --enable-all'
-alias ip='ip -c=always'
+alias ip='ip -color=always'
 alias j='journalctl'
 alias less='bat -p'
 alias p='printf'
 alias pgadmin='docker run --rm -p 5432:80 \
-    -e "PGADMIN_DEFAULT_EMAIL=admin@gmail.com" \
-    -e "PGADMIN_DEFAULT_PASSWORD=admin" \
-    -d dpage/pgadmin4
+    --env "PGADMIN_DEFAULT_EMAIL=admin@gmail.com" \
+    --env "PGADMIN_DEFAULT_PASSWORD=admin" \
+    --detach dpage/pgadmin4
 '
 alias procsi='procs --watch --watch-interval 2'
 alias procst='procs --tree'

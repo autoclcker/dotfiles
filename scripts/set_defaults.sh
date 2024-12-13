@@ -16,10 +16,13 @@ set -o nounset  # abort on unbound variable
 set -o pipefail # don't hide errors within pipes
 
 # Alacritty
-alacritty=$(which alacritty)
-sudo update-alternatives --install /usr/bin/x-terminal-emulator x-terminal-emulator "$alacritty" 50
-sudo update-alternatives --set x-terminal-emulator "$alacritty"
-printf "\e[1;96m%s\e[0m\n" "Default terminal set to alacritty"
+if realpath x-terminal-emulator | grep --quiet --invert-match "alacritty"; then
+    alacritty=$(which alacritty)
+    sudo update-alternatives --install /usr/bin/x-terminal-emulator x-terminal-emulator "$alacritty" 50
+    sudo update-alternatives --set x-terminal-emulator "$alacritty"
+else
+    printf "\e[1;96m%s\e[0m\n" "Alacritty is already default terminal"
+fi
 
 # Cheat
 if [[ ! -d "${XDG_CONFIG_HOME}/cheat/cheatsheets/community" ]]; then
@@ -43,11 +46,20 @@ fi
 if env | grep --quiet "XDG_CURRENT_DESKTOP=.*GNOME"; then
     gsettings set org.gnome.mutter dynamic-workspaces false
     gsettings set org.gnome.desktop.wm.preferences num-workspaces "$WORKSPACES_COUNT"
+    gsettings set org.gnome.desktop.wm.keybindings toggle-maximized "['<Super>z']"
+    gsettings set org.gnome.settings-daemon.plugins.media-keys control-center "['<Super>comma']"
+    gsettings set org.gnome.desktop.wm.keybindings switch-windows "['<Alt>Tab']"
+    gsettings set org.gnome.desktop.wm.keybindings switch-windows-backward "['<Shift><Alt>Tab']"
+    gsettings set org.gnome.desktop.wm.keybindings toggle-on-all-workspaces "['<Super>m']"
+    gsettings set org.gnome.desktop.wm.keybindings switch-group "['<Super>grave', '<Super>asciitilde', '<Super>apostrophe']"
+    gsettings set org.gnome.desktop.wm.keybindings switch-group-backward "['<Shift><Super>grave', '<Shift><Super>asciitilde', '<Shift><Super>apostrophe']"
+    gsettings set org.gnome.settings-daemon.plugins.media-keys terminal "['<Super>t']"
     for ((i=1; i <= "$WORKSPACES_COUNT"; i++)); do
         gsettings set org.gnome.mutter workspaces-only-on-primary false
         gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-"$i" "['<Super>$i']"
         gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-"$i" "['<Super><Shift>$i']"
     done
+    sudo ln --symbolic --force /usr/bin/galculator /usr/bin/gnome-calculator
     printf "\e[1;96m%s\e[0m\n" "GNOME is configured"
 fi
 
