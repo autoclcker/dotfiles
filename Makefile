@@ -2,7 +2,7 @@ all: help
 .PHONY: all
 
 HOME_ARR   = .bash_aliases .bashrc .gitconfig .profile .vimrc .zlogin .zshrc
-CONFIG_ARR = alacritty cheat copyq dive htop k9s lazydocker lazygit mise nvim pop-shell procps procs ranger tmux wireshark/profiles
+CONFIG_ARR = alacritty cheat copyq dive k9s lazydocker lazygit mise nvim pop-shell procps procs ranger tmux wireshark/profiles
 
 CONFIG_DIR = ${PWD}/.config
 XDG_CONFIG_HOME = ${HOME}/.config

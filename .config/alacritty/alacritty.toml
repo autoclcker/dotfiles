@@ -83,6 +83,11 @@ mods = "Alt"
 chars = 'printf "\e[1;96m%s\e[0m\n" $'
 
 [[keyboard.bindings]]
+key = "g"
+mods = "Alt"
+chars = ' | grep '
+
+[[keyboard.bindings]]
 key = "Key1"
 mods = "Control"
 chars = "\u001b[49;5u"

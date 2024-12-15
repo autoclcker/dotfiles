@@ -6,13 +6,12 @@ hotKeys:
   shift-1:
     shortCut: Shift-1
     description: View Pods
-    command: pod
+    command: pod /$FILTER
     keepHistory: true
   shift-2:
     shortCut: Shift-2
     description: View Jobs
     command: job
-    keepHistory: true
   shift-3:
     shortCut: Shift-3
     description: View Deployments
@@ -24,7 +23,8 @@ hotKeys:
   shift-5:
     shortCut: Shift-5
     description: View Secrets
-    command: secret
+    command: secret /$FILTER
+    keepHistory: true
   shift-6:
     shortCut: Shift-6
     description: View PersistentVolumeClaims
@@ -32,11 +32,13 @@ hotKeys:
   shift-7:
     shortCut: Shift-7
     description: View Services
-    command: service
+    command: service /$FILTER
+    keepHistory: true
   shift-8:
     shortCut: Shift-8
     description: View Ingresses
-    command: ingress
+    command: ingress /$FILTER
+    keepHistory: true
   shift-9:
     shortCut: Shift-9
     description: View RoleBindings
@@ -48,4 +50,9 @@ hotKeys:
   m:
     shortCut: m
     description: View ConfigMaps
-    command: configmap
+    command: configmap /$FILTER
+    keepHistory: true
+  q:
+    shortCut: q
+    description: Clear current history and filter
+    command: $RESOURCE_NAME $NAMESPACE

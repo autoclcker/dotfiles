@@ -1,7 +1,7 @@
 alias lt='eza -T --color=always --icons=always'
 
 if [ -f "$HOME/.profile" ]; then
-  . "$HOME/.profile"
+  source "$HOME/.profile"
 fi
 
 # Mise
@@ -14,6 +14,6 @@ eval "$(zoxide init bash)"
 eval "$(fzf --bash)"
 
 # Thefuck
-eval $(thefuck --alias)
+eval "$(thefuck --alias)"
 
 export PS1="\[\033[01;32m\]\W\[\033[00;37m\] "

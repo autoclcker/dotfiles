@@ -27,7 +27,7 @@ while [[ $# -gt 0 ]]; do
 done
 
 sudo apt-get update
-if [[ -z $PACKAGES ]]; then
+if [[ "$PACKAGES" ]]; then
   xargs --arg-file "$PACKAGES" sudo apt-get install --yes
 fi
 
