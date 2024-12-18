@@ -462,8 +462,8 @@ bind-key -n M-/ copy-mode \; send-key ?
 
 # copy mode
 bind -n M-e copy-mode # enter copy mode
-bind-key -T copy-mode-vi 'C-v' send -X begin-selection \; send -X rectangle-toggle
-bind-key -T copy-mode-vi 'C-c' send -X clear-selection
+bind -T copy-mode-vi 'C-v' send -X begin-selection \; send -X rectangle-toggle
+bind -T copy-mode-vi 'C-c' if-shell -F '#{selection_present}' 'send-keys -X clear-selection' 'send-keys -X cancel'
 bind v choose-buffer
 
 # clear both screen and history

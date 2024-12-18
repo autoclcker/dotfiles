@@ -1,0 +1,6 @@
+[tools]
+golangci-lint = "latest"
+hadolint = "latest"
+kubeconform = "latest"
+shellcheck = "latest"
+yamllint = "latest"

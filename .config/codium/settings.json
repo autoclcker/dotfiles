@@ -43,11 +43,11 @@
         },
         {
             "before": ["<leader>", "n"],
-            "commands": ["editor.action.marker.next"],
+            "commands": ["editor.action.marker.next"]
         },
         {
             "before": ["<leader>", "p"],
-            "commands": ["editor.action.marker.prev"],
+            "commands": ["editor.action.marker.prev"]
         },
         {
             "before": ["leader", "v"],
@@ -178,17 +178,7 @@
             "before": ["C-f"],
             "commands": ["cursorPageDown"],
             "silent": true
-        },
-        {
-            "before": ["C-y"],
-            "commands": ["scrollLineUp", "scrollLineUp", "cursorUp"],
-            "silent": true
-        },
-        {
-            "before": ["C-e"],
-            "commands": ["scrollLineDown", "scrollLineDown", "cursorDown"],
-            "silent": true
-        },
+        }
     ],
     "vim.visualModeKeyBindings": [
         {
@@ -202,8 +192,8 @@
         {
             "before": ["Y"],
             "after": ["\"", "*", "y"]
-        },
+        }
     ],
     "cmake.showOptionsMovedNotification": false,
-    "window.newWindowProfile": "autoclcker",
+    "window.newWindowProfile": "autoclcker"
 }

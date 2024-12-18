@@ -1,0 +1,6 @@
+[tools]
+helm = "latest"
+npm = "latest"
+pipx = "latest"
+pnpm = "latest"
+yarn = "latest"

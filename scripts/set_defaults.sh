@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-XDG_CONFIG_HOME=${XDG_CONFIG_HOME:-$HOME/.config}
+XDG_CONFIG_HOME=${XDG_CONFIG_HOME:-"$HOME/.config"}
 
 CHEATSHEETS_REPO=${CHEATSHEETS_REPO:-"https://github.com/cheat/cheatsheets.git"}
 NERD_FONTS_REPO=${NERD_FONTS_REPO:-"https://github.com/ryanoasis/nerd-fonts.git"}
@@ -48,21 +48,21 @@ fi
 
 # GNOME
 if env | grep --quiet "XDG_CURRENT_DESKTOP=.*GNOME"; then
-  gsettings set org.gnome.mutter dynamic-workspaces false
-  gsettings set org.gnome.desktop.wm.preferences num-workspaces "$WORKSPACES_COUNT"
-  gsettings set org.gnome.desktop.wm.keybindings toggle-maximized "['<Super>z']"
-  gsettings set org.gnome.settings-daemon.plugins.media-keys control-center "['<Shift><Super>comma']"
-  gsettings set org.gnome.desktop.wm.keybindings switch-windows "['<Alt>Tab']"
-  gsettings set org.gnome.desktop.wm.keybindings switch-windows-backward "['<Shift><Alt>Tab']"
-  gsettings set org.gnome.desktop.wm.keybindings toggle-on-all-workspaces "['<Super>m']"
-  gsettings set org.gnome.desktop.wm.keybindings switch-group "['<Super>period']"
-  gsettings set org.gnome.desktop.wm.keybindings switch-group-backward "['<Super>comma']"
-  gsettings set org.gnome.settings-daemon.plugins.media-keys terminal "['<Super>t']"
   gsettings set org.gnome.desktop.wm.keybindings always-on-top "['<Super>u']"
   gsettings set org.gnome.desktop.wm.keybindings cycle-group "['<Super>apostrophe']"
   gsettings set org.gnome.desktop.wm.keybindings cycle-group-backward "['<Shift><Super>apostrophe']"
+  gsettings set org.gnome.desktop.wm.keybindings switch-group "['<Super>period']"
+  gsettings set org.gnome.desktop.wm.keybindings switch-group-backward "['<Super>comma']"
+  gsettings set org.gnome.desktop.wm.keybindings switch-windows "['<Super>bracketright']"
+  gsettings set org.gnome.desktop.wm.keybindings switch-windows-backward "['<Super>bracketleft']"
+  gsettings set org.gnome.desktop.wm.keybindings toggle-maximized "['<Super>z']"
+  gsettings set org.gnome.desktop.wm.keybindings toggle-on-all-workspaces "['<Super>m']"
+  gsettings set org.gnome.desktop.wm.preferences num-workspaces "$WORKSPACES_COUNT"
+  gsettings set org.gnome.mutter dynamic-workspaces false
+  gsettings set org.gnome.mutter workspaces-only-on-primary false
+  gsettings set org.gnome.settings-daemon.plugins.media-keys control-center "['<Shift><Super>comma']"
+  gsettings set org.gnome.settings-daemon.plugins.media-keys terminal "['<Super>t']"
   for ((i = 1; i <= "$WORKSPACES_COUNT"; i++)); do
-    gsettings set org.gnome.mutter workspaces-only-on-primary false
     gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-"$i" "['<Super>$i']"
     gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-"$i" "['<Super><Shift>$i']"
   done

@@ -133,6 +133,11 @@ mods = "Control"
 chars = "\u001b[57;5u"
 
 [[keyboard.bindings]]
-key = "'"
-mods = "Alt"
+key = "Tab"
+mods = "Control"
 chars = "\uE000"
+
+[[keyboard.bindings]]
+key = "Insert"
+mods = "Shift"
+action = "Paste"
