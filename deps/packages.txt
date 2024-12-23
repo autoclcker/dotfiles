@@ -1,5 +1,6 @@
 bison
 cmake
+ffmpeg
 galculator
 libchafa-dev
 libffi-dev

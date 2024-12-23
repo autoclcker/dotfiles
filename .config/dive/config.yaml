@@ -4,7 +4,7 @@ ignore-errors: false
 log:
   enabled: false
 keybinding:
-  quit: q
+  quit: q,ctrl+c
   toggle-view: tab
   filter-files: o
   compare-all: A

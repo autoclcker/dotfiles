@@ -1,13 +1,24 @@
 [tools]
 "cargo:alacritty" = "latest"
+"cargo:bat" = "latest"
+"cargo:du-dust" = "latest"
 "cargo:eza" = "latest"
+"cargo:fd-find" = "latest"
+"cargo:git-delta" = "latest"
 "cargo:gping" = "latest"
+"cargo:hyperfine" = "latest"
 "cargo:onefetch" = "latest"
 "cargo:procs" = "latest"
+"cargo:ripgrep_all" = "latest"
+"cargo:ripgrep" = "latest"
 "cargo:sd" = "latest"
 "cargo:tealdeer" = "latest"
+"cargo:zoxide" = "latest"
 "go:github.com/go-delve/delve/cmd/dlv" = "latest"
+"go:github.com/google/yamlfmt/cmd/yamlfmt" = "latest"
 "go:github.com/jesseduffield/lazydocker" = "latest"
+"go:github.com/jesseduffield/lazygit" = "latest"
+"go:github.com/mikefarah/yq/v4" = "latest"
 "go:github.com/mr-karan/doggo/cmd/doggo" = "latest"
 "npm:@angular/cli" = "latest"
 "pipx:ansible-core" = "latest"
@@ -17,10 +28,20 @@
 "pipx:httpie" = "latest"
 "pipx:ipython" = "latest"
 "pipx:ranger-fm" = "latest"
-"pipx:thefuck" = { version = "latest", pipx_args = "--fetch-missing-python --python 3.11" }
+"pipx:thefuck" = { version = "latest", pipx_args = "--python 3.11.9" }
+"ubi:jgm/pandoc" = "latest"
+"ubi:jqlang/jq" = "latest"
+"ubi:junegunn/fzf" = "latest"
+"ubi:muesli/duf" = "latest"
+cheat = "latest"
+neovim = "latest"
+starship = "latest"
+tmux = "latest"
 tomcat = "9.0.68"
 usage = "latest"
+vim = "latest"
 
 [settings]
 disable_hints = ["registry"]
 experimental = true
+not_found_auto_install = false

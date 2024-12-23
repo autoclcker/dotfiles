@@ -5,6 +5,9 @@
     },
     {
       "class": "Gnome-calculator"
+    },
+    {
+      "class": "TelegramDesktop"
     }
   ],
   "skiptaskbarhidden": [],

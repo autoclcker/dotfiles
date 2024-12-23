@@ -19,10 +19,12 @@ addgroup --gid ${GID} ${GROUP}
 adduser --disabled-password --gecos '' --home ${HOME} --shell /bin/bash --uid ${UID} --gid ${GID} ${USER}
 EOF
 
-RUN apt-get update && apt-get install --yes --no-install-recommends \
+RUN --mount=type=cache,target=/var/lib/apt,sharing=locked \
+    --mount=type=cache,target=/var/cache/apt,sharing=locked \
+    apt-get update && apt-get install --no-install-recommends --yes \
         apt-utils=2.4.13 \
         build-essential=12.9ubuntu3 \
-        curl=7.81.0-1ubuntu1.19 \
+        curl=7.81.0-1ubuntu1.20 \
         g++=4:11.2.0-1ubuntu1 \
         git=1:2.34.1-1ubuntu1.11 \
         jq=1.6-2.1ubuntu3 \
@@ -34,12 +36,13 @@ RUN apt-get update && apt-get install --yes --no-install-recommends \
         xdg-user-dirs=0.17-2ubuntu4 \
         && \
     printf '%s ALL=(ALL) NOPASSWD:ALL\n' "${USER}" >> /etc/sudoers.d/${USER} && \
-    runuser --login - ${USER} /bin/bash -c "xdg-user-dirs-update --force" && \
-    rm --recursive --force /var/lib/apt/lists/*
+    runuser --login - ${USER} /bin/bash -c "xdg-user-dirs-update --force"
 
 USER ${UID}:${GID}
 
 WORKDIR ${HOME}/dotfiles
 
 RUN --mount=type=bind,target=.,readwrite=true \
+    --mount=type=cache,target=/var/lib/apt,sharing=locked \
+    --mount=type=cache,target=/var/cache/apt,sharing=locked \
     make install

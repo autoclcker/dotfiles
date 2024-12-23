@@ -84,6 +84,7 @@ plugins=(
 	ansible
 	command-not-found
 	copyfile
+	fancy-ctrl-z
 	fzf
 	git
 	git-commit
