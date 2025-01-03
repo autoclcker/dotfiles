@@ -85,6 +85,9 @@ else
   printf "\e[1;96m%s\e[0m\n" "Ueberzugpp is already installed"
 fi
 
+# YAZI
+ya pack --install
+
 # ZSH
 if [[ ! -d "${HOME}/.oh-my-zsh/custom/plugins/zsh-autosuggestions" ]]; then
   git clone --depth 1 "${ZSH_AUTOSUGGESTIONS_REPO}" "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-autosuggestions"
