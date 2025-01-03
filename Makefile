@@ -2,10 +2,12 @@ all: help
 .PHONY: all
 
 HOME_ARR   = .bash_aliases .bashrc .gitconfig .profile .vimrc .zlogin .zshrc
-CONFIG_ARR = alacritty cheat copyq dive k9s lazydocker lazygit mise nvim pop-shell procps procs ranger tmux wireshark/profiles
+CONFIG_ARR = alacritty cheat copyq dive k9s lazydocker lazygit mise nvim pop-shell procps procs tmux wireshark/profiles yazi
 
 CONFIG_DIR = ${PWD}/.config
 XDG_CONFIG_HOME = ${HOME}/.config
+
+GITHUB_TOKEN := ${GITHUB_TOKEN}
 
 download:
 	@./scripts/download_core_apps.sh --packages ${PWD}/deps/packages.txt
@@ -20,7 +22,7 @@ install: download sync ### Install setup
 .PHONY: install
 
 regress: ### Validate Setup integrity
-	@docker buildx build --tag regress --file Dockerfile.regress .
+	@docker buildx build --secret id=GITHUB_TOKEN --tag regress --file Dockerfile.regress .
 	@docker rmi regress:latest
 .PHONY: regress
 

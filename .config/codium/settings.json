@@ -22,24 +22,12 @@
             "after": ["<leader>", "<leader>", "T"]
         },
         {
-            "before": ["<leader>", "w"],
-            "after": ["<leader>", "<leader>", "w"]
-        },
-        {
-            "before": ["<leader>", "b"],
-            "after": ["<leader>", "<leader>", "b"]
-        },
-        {
             "before": ["<leader>", "j"],
             "after": ["<leader>", "<leader>", "j"]
         },
         {
             "before": ["<leader>", "k"],
             "after": ["<leader>", "<leader>", "k"]
-        },
-        {
-            "before": ["<leader>", "V"],
-            "after": ["g", "g", "V", "G"]
         },
         {
             "before": ["<leader>", "n"],
@@ -115,6 +103,10 @@
             "silent": true
         },
         {
+            "before": ["<leader>", "8"],
+            "after": ["\"", "*"]
+        },
+        {
             "before": ["<leader>", "0"],
             "commands": ["editor.unfoldAll"],
             "silent": true
@@ -143,7 +135,7 @@
         },
         {
             "before": ["g", "h"],
-            "commands": ["editor.action.showDefinitionPreviewHover"]
+            "commands": ["editor.action.showHover"]
         },
         {
             "before": ["g", "s"],
@@ -188,10 +180,6 @@
         {
             "before": ["<leader>", "r"],
             "commands": ["codeium.refactorCodeBlock"]
-        },
-        {
-            "before": ["Y"],
-            "after": ["\"", "*", "y"]
         }
     ],
     "cmake.showOptionsMovedNotification": false,

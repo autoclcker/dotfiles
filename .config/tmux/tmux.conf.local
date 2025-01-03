@@ -382,6 +382,9 @@ bind C-q send-prefix -2
 set -g cursor-style blinking-bar
 set -g display-panes-time 3000
 set -g history-limit 100000
+set -g allow-passthrough on
+set -ga update-environment TERM
+set -ga update-environment TERM_PROGRAM
 
 unbind C-h
 unbind C-l
@@ -467,7 +470,7 @@ bind -n C-s new-session
 bind -n M-q kill-session
 
 # find session
-bind -n C-o command-prompt -p find-session 'switch-client -t %%'
+bind -n M-o command-prompt -p find-session 'switch-client -t %%'
 
 # search text
 bind-key -n M-/ copy-mode \; send-key ?

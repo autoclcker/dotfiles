@@ -45,4 +45,5 @@ WORKDIR ${HOME}/dotfiles
 RUN --mount=type=bind,target=.,readwrite=true \
     --mount=type=cache,target=/var/lib/apt,sharing=locked \
     --mount=type=cache,target=/var/cache/apt,sharing=locked \
+    --mount=type=secret,id=GITHUB_TOKEN,env=GITHUB_TOKEN,required=false \
     make install

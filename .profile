@@ -18,6 +18,32 @@ alias s='systemctl'
 alias wp='nmcli device wifi show-password'
 alias wtr='curl wttr.in/Petersburg'
 
+rga-fzf() {
+  RG_PREFIX="rga --files-with-matches"
+  local file
+  file="$(
+    FZF_DEFAULT_COMMAND="$RG_PREFIX '$1'" \
+      fzf --sort --preview="[[ ! -z {} ]] && rga --pretty --context 5 {q} {}" \
+      --phony -q "$1" \
+      --bind "change:reload:$RG_PREFIX {q}" \
+      --preview-window="70%:wrap"
+  )" &&
+    printf "opening %s" "$file" &&
+    xdg-open "$file"
+}
+
+y() {
+  local tmp
+  tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
+  local cwd=$tmp
+  yazi "$@" --cwd-file="$tmp"
+  printf "\x1b[\x35 q" # change cursor to steady bar
+  if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+    pushd -- "$cwd" || exit 1
+  fi
+  rm -f -- "$tmp"
+}
+
 # Editor
 export EDITOR="nvim"
 
@@ -28,9 +54,9 @@ export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 export FZF_ALT_C_OPTS="--preview 'tree -C {}'"
 export FZF_CTRL_R_OPTS="
 	--preview 'echo {}' --preview-window up:3:hidden:wrap
-  --bind 'ctrl-y:execute-silent(echo -n {2..} | xsel --input --clipboard)+abort'
+	--bind 'ctrl-y:execute-silent(echo -n {2..} | xsel --input --clipboard)+abort'
 	--bind 'ctrl-/:toggle-preview'
-  --color header:italic"
+	--color header:italic"
 export FZF_DEFAULT_COMMAND="rg --files --hidden --follow --glob '!.git'"
 export FZF_DEFAULT_OPTS="-m --height 30% --layout=reverse --border --inline-info"
 
