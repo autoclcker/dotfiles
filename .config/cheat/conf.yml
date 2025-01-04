@@ -63,7 +63,6 @@ cheatpaths:
     path: /home/autoclcker/.config/cheat/cheatsheets/personal
     tags: [personal]
     readonly: false
-
 # While it requires no configuration here, it's also worth noting that
 # cheat will automatically append directories named '.cheat' within the
 # current working directory to the 'cheatpath'. This can be very useful if

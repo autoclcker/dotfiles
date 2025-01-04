@@ -4,6 +4,7 @@ XDG_CONFIG_HOME=${XDG_CONFIG_HOME:-"$HOME/.config"}
 
 CHEATSHEETS_REPO=${CHEATSHEETS_REPO:-"https://github.com/cheat/cheatsheets.git"}
 NERD_FONTS_REPO=${NERD_FONTS_REPO:-"https://github.com/ryanoasis/nerd-fonts.git"}
+OUCH_REPO=${OUCH_REPO:-"https://github.com/ndtoan96/ouch.yazi.git"}
 UEBERZUGPP_REPO=${UEBERZUGPP_REPO:-"https://github.com/jstkdng/ueberzugpp.git"}
 ZSH_AUTOSUGGESTIONS_REPO=${ZSH_AUTOSUGGESTIONS_REPO:-"https://github.com/zsh-users/zsh-autosuggestions.git"}
 
@@ -87,6 +88,10 @@ fi
 
 # YAZI
 ya pack --install
+if [[ ! -d "${XDG_CONFIG_HOME}/yazi/plugins/ouch.yazi" ]]; then
+  git clone --depth 1 "${OUCH_REPO}" "${XDG_CONFIG_HOME}/yazi/plugins/ouch.yazi"
+fi
+printf "\e[1;96m%s\e[0m" "Yazi is configured"
 
 # ZSH
 if [[ ! -d "${HOME}/.oh-my-zsh/custom/plugins/zsh-autosuggestions" ]]; then

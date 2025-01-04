@@ -8,6 +8,7 @@
 "cargo:gping" = "latest"
 "cargo:hyperfine" = "latest"
 "cargo:onefetch" = "latest"
+"cargo:ouch" = "latest"
 "cargo:procs" = "latest"
 "cargo:ripgrep_all" = "latest"
 "cargo:ripgrep" = "latest"

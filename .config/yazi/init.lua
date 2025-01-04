@@ -33,3 +33,12 @@ Status:children_add(function()
 		" ",
 	})
 end, 500, Status.RIGHT)
+
+require("git"):setup()
+
+require("starship"):setup()
+
+require("copy-file-contents"):setup({
+	append_char = "\n",
+	notification = true,
+})

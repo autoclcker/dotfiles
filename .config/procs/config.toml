@@ -90,20 +90,6 @@ nonnumeric_search = false
 align = "Right"
 
 [[columns]]
-kind = "TcpPort"
-style = "BrightCyan|Black"
-numeric_search = false
-nonnumeric_search = false
-align = "Center"
-
-[[columns]]
-kind = "UdpPort"
-style = "BrightCyan|Black"
-numeric_search = false
-nonnumeric_search = false
-align = "Center"
-
-[[columns]]
 kind = "Separator"
 style = "White|BrightBlack"
 numeric_search = false
@@ -207,4 +193,3 @@ path = "unix:///var/run/docker.sock"
 mode = "Auto"
 detect_width = false
 use_builtin = false
-
