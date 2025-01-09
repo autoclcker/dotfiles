@@ -7,6 +7,15 @@ CONFIG_ARR = alacritty cheat copyq dive k9s lazydocker lazygit mise nvim pop-she
 CONFIG_DIR = ${PWD}/.config
 XDG_CONFIG_HOME = ${HOME}/.config
 
+docker/debug: ### Build debug image
+	@docker buildx build --tag debug-$(shell git rev-parse --short HEAD) --target debug --file Dockerfile.regress .
+.PHONY: docker/debug
+
+docker/regress: export GITHUB_TOKEN ?= "STUB"
+docker/regress: ### Validate Setup integrity
+	@docker buildx build --secret id=GITHUB_TOKEN --tag regress --file Dockerfile.regress .
+.PHONY: docker/regress
+
 download:
 	@./scripts/download_core_apps.sh --packages ${PWD}/deps/packages.txt
 .PHONY: download
@@ -18,12 +27,6 @@ git/stage: ### Stage configurations
 install: download sync ### Install setup
 	@./scripts/set_defaults.sh
 .PHONY: install
-
-regress: export GITHUB_TOKEN ?= "STUB"
-regress: ### Validate Setup integrity
-	@docker buildx build --secret id=GITHUB_TOKEN --tag regress --file Dockerfile.regress .
-	@docker rmi regress:latest
-.PHONY: regress
 
 sync: ### Synchronize configurations
 	@./scripts/synchronize_configuration.sh --searchpath ${PWD} --destination ${HOME} ${HOME_ARR}

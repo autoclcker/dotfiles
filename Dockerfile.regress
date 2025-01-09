@@ -4,7 +4,8 @@ ARG REGISTRY=docker.io/library
 ARG OS_BASE=ubuntu
 ARG OS_VERSION=22.04@sha256:0e5e4a57c2499249aafc3b40fcd541e9a456aab7296681a3994d631587203f97
 
-FROM --platform=${BUILDPLATFORM} ${REGISTRY}/${OS_BASE}:${OS_VERSION}
+# Download dependencies
+FROM --platform=${BUILDPLATFORM} ${REGISTRY}/${OS_BASE}:${OS_VERSION} AS base
 
 ARG UID=59999
 ARG GID=59999
@@ -39,6 +40,16 @@ RUN --mount=type=cache,target=/var/lib/apt,sharing=locked \
         && \
     printf '%s ALL=(ALL) NOPASSWD:ALL\n' "${USER}" >> /etc/sudoers.d/${USER} && \
     runuser --login - ${USER} /bin/bash -c "xdg-user-dirs-update --force"
+
+# DEBUG
+FROM base AS debug
+
+COPY --link --chown=${UID}:${GID} . ${HOME}/dotfiles
+
+ENTRYPOINT ["/bin/bash"]
+
+# Final
+FROM base AS final
 
 USER ${UID}:${GID}
 

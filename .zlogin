@@ -1,3 +1,4 @@
+alias grep='rg'
 alias ls='eza --color=always --icons=always'
 alias lt='eza -T --color=always --icons=always'
 alias ll='eza -lh --color=always --icons=always'

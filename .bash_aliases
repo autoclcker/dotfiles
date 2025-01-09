@@ -1,3 +1,4 @@
+alias grep='rg'
 alias lt='eza -T --color=always --icons=always'
 
 if [ -f "$HOME/.profile" ]; then

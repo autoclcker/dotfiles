@@ -1,0 +1,13 @@
+# Accessing Docker images
+# To access Docker images that are not pushed to a registry, prepend docker:// to the image name:
+docker build -t foo ~/foo
+docker build -t bar ~/bar
+diffoci diff docker://foo docker://bar
+
+# Accessing Podman images
+# To access Podman images that are not pushed to a registry, prepend podman:// to the image name.
+# See the docker:// example above, and read docker as podman.
+
+# Accessing private images
+# To access private images, create a credential file as ~/.docker/config.json using docker login.
+

@@ -17,13 +17,13 @@ set -o nounset  # abort on unbound variable
 set -o pipefail # don't hide errors within pipes
 
 while [[ $# -gt 0 ]]; do
-	case ${1} in
-	-p | --packages)
-		PACKAGES=${2}
-		shift # past argument
-		shift # past value
-		;;
-	esac
+  case ${1} in
+  -p | --packages)
+    PACKAGES=${2}
+    shift # past argument
+    shift # past value
+    ;;
+  esac
 done
 
 sudo apt-get update
@@ -35,6 +35,14 @@ fi
 if [[ ! -f /etc/apt/sources.list.d/docker.list ]] && [[ "$INSTALL_DOCKER" == true ]]; then
   curl --silent "$DOCKER_URL" | sh
   sudo usermod --append --groups docker "${USER}" && newgrp docker
+  sudo setfacl -m "u:${USER}:rwx" /etc/docker/daemon.json
+  cat <<EOF >>/etc/docker/daemon.json
+{
+  "features": {
+    "containerd-snapshotter": true
+  }
+}
+EOF
   sudo systemctl enable docker.service
   sudo systemctl enable containerd.service
   curl --silent --location --fail --show-error "$DOCKER_SBOM_URL" | sh --silent -- # install the docker-sbom plugin
