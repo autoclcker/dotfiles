@@ -41,19 +41,19 @@ RUN --mount=type=cache,target=/var/lib/apt,sharing=locked \
     printf '%s ALL=(ALL) NOPASSWD:ALL\n' "${USER}" >> /etc/sudoers.d/${USER} && \
     runuser --login - ${USER} /bin/bash -c "xdg-user-dirs-update --force"
 
+USER ${UID}:${GID}
+
+WORKDIR ${HOME}/dotfiles
+
 # DEBUG
 FROM base AS debug
 
-COPY --link --chown=${UID}:${GID} . ${HOME}/dotfiles
+COPY --link --chown=${UID}:${GID} . .
 
 ENTRYPOINT ["/bin/bash"]
 
 # Final
 FROM base AS final
-
-USER ${UID}:${GID}
-
-WORKDIR ${HOME}/dotfiles
 
 RUN --mount=type=bind,target=.,readwrite=true \
     --mount=type=cache,target=/var/lib/apt,sharing=locked \
