@@ -39,6 +39,7 @@ if [[ ! -f /etc/apt/sources.list.d/docker.list ]] && [[ "$INSTALL_DOCKER" == tru
   cat <<EOF >>/etc/docker/daemon.json
 {
   "features": {
+    "cdi": true,
     "containerd-snapshotter": true
   }
 }

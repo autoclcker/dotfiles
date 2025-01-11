@@ -150,11 +150,11 @@
             "commands": ["editor.action.peekImplementation"]
         },
         {
-            "before": ["g", "t"],
+            "before": ["g", "y"],
             "commands": ["editor.action.goToTypeDefinition"]
         },
         {
-            "before": ["g", "p", "t"],
+            "before": ["g", "p", "y"],
             "commands": ["editor.action.peekTypeDefinition"]
         },
         {

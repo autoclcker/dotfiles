@@ -48,13 +48,14 @@ WORKDIR ${HOME}/dotfiles
 # DEBUG
 FROM base AS debug
 
+RUN printf 'make help' >> ${HOME}/.bashrc
+
 COPY --link --chown=${UID}:${GID} . .
 
 ENTRYPOINT ["/bin/bash"]
 
 # Final
 FROM base AS final
-
 RUN --mount=type=bind,target=.,readwrite=true \
     --mount=type=cache,target=/var/lib/apt,sharing=locked \
     --mount=type=cache,target=/var/cache/apt,sharing=locked \

@@ -7,12 +7,14 @@ CONFIG_ARR = alacritty cheat copyq dive k9s lazydocker lazygit mise nvim pop-she
 CONFIG_DIR = ${PWD}/.config
 XDG_CONFIG_HOME = ${HOME}/.config
 
+SHORT_COMMIT=$(shell git rev-parse --short HEAD)
+
 docker/build-debug:
-	@docker buildx build --tag debug-$(shell git rev-parse --short HEAD) --target debug --file Dockerfile.regress .
+	@docker buildx build --quiet --tag debug-${SHORT_COMMIT} --target debug --file Dockerfile.regress .
 .PHONY: docker/build-debug
 
 docker/debug: docker/build-debug ### Debug in Docker
-	@docker run --rm --interactive --tty debug-$(shell git rev-parse --short HEAD)
+	@docker run --rm --interactive --tty debug-${SHORT_COMMIT}
 .PHONY: docker/debug
 
 docker/regress: export GITHUB_TOKEN ?= "STUB"
