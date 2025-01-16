@@ -1,0 +1,2 @@
+map <C-g> :marks<CR>
+map <C-h> :registers<CR>

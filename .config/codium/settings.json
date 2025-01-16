@@ -1,114 +1,237 @@
 {
-    "window.menuBarVisibility": "toggle",
+    "cmake.showOptionsMovedNotification": false,
     "vim.normalModeKeyBindings": [
         {
-            "before": ["<leader>", "/"],
-            "after": ["<leader>", "<leader>", "s"]
+            "after": [
+                "<leader>",
+                "<leader>",
+                "s"
+            ],
+            "before": [
+                "<leader>",
+                "/"
+            ]
         },
         {
-            "before": ["<leader>", "f"],
-            "after": ["<leader>", "<leader>", "f"]
+            "after": [
+                "<leader>",
+                "<leader>",
+                "f"
+            ],
+            "before": [
+                "<leader>",
+                "f"
+            ]
         },
         {
-            "before": ["<leader>", "F"],
-            "after": ["<leader>", "<leader>", "F"]
+            "after": [
+                "<leader>",
+                "<leader>",
+                "F"
+            ],
+            "before": [
+                "<leader>",
+                "F"
+            ]
         },
         {
-            "before": ["<leader>", "t"],
-            "after": ["<leader>", "<leader>", "t"]
+            "after": [
+                "<leader>",
+                "<leader>",
+                "t"
+            ],
+            "before": [
+                "<leader>",
+                "t"
+            ]
         },
         {
-            "before": ["<leader>", "T"],
-            "after": ["<leader>", "<leader>", "T"]
+            "after": [
+                "<leader>",
+                "<leader>",
+                "T"
+            ],
+            "before": [
+                "<leader>",
+                "T"
+            ]
         },
         {
-            "before": ["<leader>", "j"],
-            "after": ["<leader>", "<leader>", "j"]
+            "after": [
+                "<leader>",
+                "<leader>",
+                "j"
+            ],
+            "before": [
+                "<leader>",
+                "j"
+            ]
         },
         {
-            "before": ["<leader>", "k"],
-            "after": ["<leader>", "<leader>", "k"]
+            "after": [
+                "<leader>",
+                "<leader>",
+                "k"
+            ],
+            "before": [
+                "<leader>",
+                "k"
+            ]
         },
         {
-            "before": ["<leader>", "n"],
-            "commands": ["editor.action.marker.next"]
+            "before": [
+                "<leader>",
+                "n"
+            ],
+            "commands": [
+                "editor.action.marker.next"
+            ]
         },
         {
-            "before": ["<leader>", "p"],
-            "commands": ["editor.action.marker.prev"]
+            "before": [
+                "<leader>",
+                "p"
+            ],
+            "commands": [
+                "editor.action.marker.prev"
+            ]
         },
         {
-            "before": ["leader", "v"],
-            "commands": ["codeium.pasteAndTranslate"]
+            "before": [
+                "leader",
+                "v"
+            ],
+            "commands": [
+                "codeium.pasteAndTranslate"
+            ]
         },
         {
-            "before": ["leader", "c"],
-            "commands": ["copyRelativeFilePath"],
+            "before": [
+                "leader",
+                "c"
+            ],
+            "commands": [
+                "copyRelativeFilePath"
+            ],
             "silent": true
         },
         {
-            "before": ["<leader>", "m"],
-            "commands": [ "bookmarks.toggle" ],
+            "before": [
+                "<leader>",
+                "m"
+            ],
+            "commands": [
+                "bookmarks.toggle"
+            ],
             "silent": true
         },
         {
-            "before": ["<leader>", "'"],
+            "before": [
+                "<leader>",
+                "'"
+            ],
             "commands": [
                 "bookmarks.listFromAllFiles"
             ]
         },
         {
-            "before": ["<leader>", ","],
-            "commands": ["editor.fold"],
+            "before": [
+                "<leader>",
+                "a"
+            ],
+            "commands": [
+                "json.sort"
+            ],
             "silent": true
         },
         {
-            "before": ["<leader>", "."],
-            "commands": ["editor.unfold"],
+            "before": [
+                "z",
+                "1"
+            ],
+            "commands": [
+                "editor.foldLevel1"
+            ],
             "silent": true
         },
         {
-            "before": ["<leader>", "1"],
-            "commands": ["editor.foldLevel1"],
+            "before": [
+                "z",
+                "2"
+            ],
+            "commands": [
+                "editor.foldLevel2"
+            ],
             "silent": true
         },
         {
-            "before": ["<leader>", "2"],
-            "commands": ["editor.foldLevel2"],
+            "before": [
+                "z",
+                "3"
+            ],
+            "commands": [
+                "editor.foldLevel3"
+            ],
             "silent": true
         },
         {
-            "before": ["<leader>", "3"],
-            "commands": ["editor.foldLevel3"],
+            "before": [
+                "z",
+                "4"
+            ],
+            "commands": [
+                "editor.foldLevel4"
+            ],
             "silent": true
         },
         {
-            "before": ["<leader>", "4"],
-            "commands": ["editor.foldLevel4"],
+            "before": [
+                "z",
+                "5"
+            ],
+            "commands": [
+                "editor.foldLevel5"
+            ],
             "silent": true
         },
         {
-            "before": ["<leader>", "5"],
-            "commands": ["editor.foldLevel5"],
+            "before": [
+                "z",
+                "6"
+            ],
+            "commands": [
+                "editor.foldLevel6"
+            ],
             "silent": true
         },
         {
-            "before": ["<leader>", "6"],
-            "commands": ["editor.foldLevel6"],
+            "before": [
+                "z",
+                "7"
+            ],
+            "commands": [
+                "editor.foldLevel7"
+            ],
             "silent": true
         },
         {
-            "before": ["<leader>", "7"],
-            "commands": ["editor.foldLevel7"],
-            "silent": true
+            "after": [
+                "\"",
+                "*"
+            ],
+            "before": [
+                "<leader>",
+                "8"
+            ]
         },
         {
-            "before": ["<leader>", "8"],
-            "after": ["\"", "*"]
-        },
-        {
-            "before": ["<leader>", "0"],
-            "commands": ["editor.unfoldAll"],
+            "before": [
+                "z",
+                "0"
+            ],
+            "commands": [
+                "editor.unfoldAll"
+            ],
             "silent": true
         },
         {
@@ -130,58 +253,158 @@
             "silent": true
         },
         {
-            "before": ["g", "p", "d"],
-            "commands": ["editor.action.peekDefinition"]
+            "before": [
+                "g",
+                "p",
+                "d"
+            ],
+            "commands": [
+                "editor.action.peekDefinition"
+            ]
         },
         {
-            "before": ["g", "h"],
-            "commands": ["editor.action.showHover"]
+            "before": [
+                "g",
+                "h"
+            ],
+            "commands": [
+                "editor.action.showHover"
+            ]
         },
         {
-            "before": ["g", "s"],
-            "commands": ["editor.action.referenceSearch.trigger"]
+            "before": [
+                "g",
+                "s"
+            ],
+            "commands": [
+                "editor.action.referenceSearch.trigger"
+            ]
         },
         {
-            "before": ["g", "i"],
-            "commands": ["editor.action.goToImplementation"]
+            "before": [
+                "g",
+                "i"
+            ],
+            "commands": [
+                "editor.action.goToImplementation"
+            ]
         },
         {
-            "before": ["g", "p", "i"],
-            "commands": ["editor.action.peekImplementation"]
+            "before": [
+                "g",
+                "p",
+                "i"
+            ],
+            "commands": [
+                "editor.action.peekImplementation"
+            ]
         },
         {
-            "before": ["g", "y"],
-            "commands": ["editor.action.goToTypeDefinition"]
+            "before": [
+                "g",
+                "y"
+            ],
+            "commands": [
+                "editor.action.goToTypeDefinition"
+            ]
         },
         {
-            "before": ["g", "p", "y"],
-            "commands": ["editor.action.peekTypeDefinition"]
+            "before": [
+                "<leader>",
+                "b"
+            ],
+            "commands": [
+                "editor.action.debug.toggleBreakpoint"
+            ]
         },
         {
-            "before": ["Y"],
-            "after": ["y", "$"]
+            "before": [
+                "g",
+                "p",
+                "y"
+            ],
+            "commands": [
+                "editor.action.peekTypeDefinition"
+            ]
         },
         {
-            "before": ["C-b"],
-            "commands": ["cursorPageUp"],
+            "after": [
+                "y",
+                "$"
+            ],
+            "before": [
+                "Y"
+            ]
+        },
+        {
+            "before": [
+                "C-b"
+            ],
+            "commands": [
+                "cursorPageUp"
+            ],
             "silent": true
         },
         {
-            "before": ["C-f"],
-            "commands": ["cursorPageDown"],
+            "before": [
+                "C-f"
+            ],
+            "commands": [
+                "cursorPageDown"
+            ],
             "silent": true
         }
     ],
     "vim.visualModeKeyBindings": [
         {
-            "before": ["<leader>", "h"],
-            "commands": ["codeium.explainCodeBlock"]
+            "after": [
+                "\"",
+                "*"
+            ],
+            "before": [
+                "<leader>",
+                "8"
+            ]
         },
         {
-            "before": ["<leader>", "r"],
-            "commands": ["codeium.refactorCodeBlock"]
+            "before": [
+                "<leader>",
+                "h"
+            ],
+            "commands": [
+                "codeium.explainCodeBlock"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "a"
+            ],
+            "commands": [
+                "editor.action.sortLinesAscending"
+            ],
+            "silent": true
+        },
+        {
+            "before": [
+                "<leader>",
+                "d"
+            ],
+            "commands": [
+                "editor.action.sortLinesDescending"
+            ],
+            "silent": true
+        },
+        {
+            "before": [
+                "<leader>",
+                "r"
+            ],
+            "commands": [
+                "codeium.refactorCodeBlock"
+            ]
         }
     ],
-    "cmake.showOptionsMovedNotification": false,
+    "window.menuBarVisibility": "toggle",
     "window.newWindowProfile": "autoclcker"
 }

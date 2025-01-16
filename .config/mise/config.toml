@@ -34,6 +34,7 @@
 "pipx:httpie" = "latest"
 "pipx:ipython" = "latest"
 "pipx:thefuck" = { version = "latest", pipx_args = "--python 3.11.9" }
+"ubi:clangd/clangd" = "latest"
 "ubi:jgm/pandoc" = "latest"
 "ubi:jqlang/jq" = "latest"
 "ubi:junegunn/fzf" = "latest"
@@ -43,7 +44,6 @@ neovim = "latest"
 starship = "latest"
 tmux = "latest"
 tomcat = "9.0.68"
-usage = "latest"
 vim = "latest"
 
 [settings]

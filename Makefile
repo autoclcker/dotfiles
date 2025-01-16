@@ -1,7 +1,7 @@
 all: help
 .PHONY: all
 
-HOME_ARR   = .bash_aliases .bashrc .gitconfig .profile .vimrc .zlogin .zshrc
+HOME_ARR   = .bash_aliases .bashrc .gitconfig .profile .vimrc .vscodevimrc .zlogin .zshrc
 CONFIG_ARR = alacritty cheat copyq dive k9s lazydocker lazygit mise nvim pop-shell procps procs tmux wireshark/profiles yazi
 
 CONFIG_DIR = ${PWD}/.config

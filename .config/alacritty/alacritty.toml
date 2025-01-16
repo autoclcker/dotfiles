@@ -141,3 +141,4 @@ chars = "\uE000"
 key = "Insert"
 mods = "Shift"
 action = "Paste"
+
