@@ -9,7 +9,9 @@ deps = [
     { use = "yazi-rs/plugins:smart-filter", rev = "600614a" },
     { use = "Lil-Dank/lazygit", rev = "c82794f" },
     { use = "Rolv-Apneseth/starship", rev = "9c37d37" },
-    { use = "pirafrank/what-size", rev = "b23e3a4" }, { use = "AnirudhG07/plugins-yazi:copy-file-contents", rev = "11167e1" },
+    { use = "pirafrank/what-size", rev = "b23e3a4" },
+    { use = "AnirudhG07/plugins-yazi:copy-file-contents", rev = "11167e1" },
+    { use = "ahkohd/eza-preview", rev = "5ef05bc" },
 ]
 
 [flavor]

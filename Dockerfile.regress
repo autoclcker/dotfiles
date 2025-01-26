@@ -30,7 +30,7 @@ RUN --mount=type=cache,target=/var/lib/apt,sharing=locked \
         build-essential=12.9ubuntu3 \
         curl=7.81.0-1ubuntu1.20 \
         g++=4:11.2.0-1ubuntu1 \
-        git=1:2.34.1-1ubuntu1.11 \
+        git=1:2.34.1-1ubuntu1.12 \
         jq=1.6-2.1ubuntu3 \
         make=4.3-4.1build1 \
         sudo=1.9.9-1ubuntu2.4 \

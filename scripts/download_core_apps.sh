@@ -5,6 +5,7 @@ PACKAGES=${PACKAGES:=''}
 INSTALL_DOCKER=${INSTALL_DOCKER:-true}
 
 DOCKER_SBOM_URL=${DOCKER_SBOM_URL:-"https://raw.githubusercontent.com/docker/sbom-cli-plugin/main/install.sh"}
+DOCKER_SLIM_URL=${DOCKER_SLIM_URL:-"https://raw.githubusercontent.com/slimtoolkit/slim/master/scripts/install-slim.sh"}
 DOCKER_URL=${DOCKER_URL:-"https://get.docker.com/"}
 MISE_URL=${MISE_URL:-"https://mise.run"}
 VSCODIUM_URL=${VSCODIUM_URL:-"https://download.vscodium.com"}
@@ -47,6 +48,7 @@ EOF
   sudo systemctl enable docker.service
   sudo systemctl enable containerd.service
   curl --silent --location --fail --show-error "$DOCKER_SBOM_URL" | sh --silent -- # install the docker-sbom plugin
+  curl --silent --location "$DOCKER_SLIM_URL" | sudo --preserve-env sh - # install the docker-slim
 else
   printf "\e[1;96m%s\e[0m\n" "Docker isn't needed"
 fi

@@ -1,9 +1,17 @@
 alias grep='rg'
-alias lt='eza -T --color=always --icons=always'
+alias lt='eza --tree --color=always --icons=always'
 
 if [ -f "$HOME/.profile" ]; then
   source "$HOME/.profile"
 fi
+
+d() {
+  if [[ -n $1 ]]; then
+    dirs "$@"
+  else
+    dirs -v | head -n 10
+  fi
+}
 
 # Mise
 eval "$(~/.local/bin/mise activate bash)"

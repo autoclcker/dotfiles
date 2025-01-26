@@ -41,12 +41,12 @@ commandTemplates:
   serviceTop: '{{ .DockerCompose }} top {{ .Service.Name }}'
 customCommands:
   containers:
-    - name: debug
-      attach: true
-      command: 'docker run --rm -it --net container:{{ .Container.ID }} nicolaka/netshoot'
     - name: shell
       attach: true
       command: 'docker exec -it {{ .Container.ID }} /bin/sh'
+    - name: debug
+      attach: true
+      command: 'docker run --rm -it --net container:{{ .Container.ID }} nicolaka/netshoot'
 bulkCommands:
   services:
     - name: up

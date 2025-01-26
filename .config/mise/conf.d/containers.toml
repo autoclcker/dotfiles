@@ -1,7 +1,7 @@
 [tools]
 dive = "latest"
-docker-slim = "latest"
 helm-diff = "latest"
+k3d = "latest"
 k9s = "latest"
 kind = "latest"
 kubectl = "latest"

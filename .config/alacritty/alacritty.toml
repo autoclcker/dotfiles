@@ -138,6 +138,16 @@ mods = "Control"
 chars = "\uE000"
 
 [[keyboard.bindings]]
+key= "Back"
+mods= "Control"
+chars= "\uE001"
+
+[[keyboard.bindings]]
+key= "Enter"
+mods= "Control"
+chars= "\uE002"
+
+[[keyboard.bindings]]
 key = "Insert"
 mods = "Shift"
 action = "Paste"

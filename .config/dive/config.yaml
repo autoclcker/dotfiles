@@ -10,7 +10,7 @@ keybinding:
   compare-all: A
   compare-layer: L
   toggle-collapse-dir: space
-  toggle-collapse-all-dir: t
+  toggle-collapse-all-dir: T
   toggle-added-files: a
   toggle-removed-files: r
   toggle-modified-files: m
