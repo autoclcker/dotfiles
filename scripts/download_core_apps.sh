@@ -37,7 +37,7 @@ if [[ ! -f /etc/apt/sources.list.d/docker.list ]] && [[ "$INSTALL_DOCKER" == tru
   curl --silent "$DOCKER_URL" | sh
   sudo usermod --append --groups docker "${USER}" && newgrp docker
   sudo setfacl -m "u:${USER}:rwx" /etc/docker/daemon.json
-  cat <<EOF >>/etc/docker/daemon.json
+  cat <<EOF >/etc/docker/daemon.json
 {
   "features": {
     "cdi": true,
@@ -48,7 +48,7 @@ EOF
   sudo systemctl enable docker.service
   sudo systemctl enable containerd.service
   curl --silent --location --fail --show-error "$DOCKER_SBOM_URL" | sh --silent -- # install the docker-sbom plugin
-  curl --silent --location "$DOCKER_SLIM_URL" | sudo --preserve-env sh - # install the docker-slim
+  curl --silent --location "$DOCKER_SLIM_URL" | sudo --preserve-env sh -           # install the docker-slim
 else
   printf "\e[1;96m%s\e[0m\n" "Docker isn't needed"
 fi

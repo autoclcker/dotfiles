@@ -1,6 +1,5 @@
 k9s:
   liveViewAutoRefresh: false
-  screenDumpDir: /home/user/.local/state/k9s/screen-dumps
   refreshRate: 2
   maxConnRetry: 5
   readOnly: false
@@ -12,8 +11,7 @@ k9s:
     crumbsless: false
     reactive: false
     noIcons: false
-    defaultsToFullScreen: false
-  skipLatestRevCheck: false
+  skipLatestRevCheck: true
   disablePodCounting: false
   shellPod:
     image: nicolaka/netshoot:v0.13

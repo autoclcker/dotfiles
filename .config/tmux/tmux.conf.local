@@ -410,7 +410,6 @@ bind -r M-o rotate-window -U
 
 # switch to the previous pane
 bind -n \uE000 last-pane
-bind -n M-n display-panes
 bind -n M-1 select-pane -t 1
 bind -n M-2 select-pane -t 2
 bind -n M-3 select-pane -t 3
@@ -473,7 +472,7 @@ bind -n M-. swap-window -t +1\; select-window -t +1
 bind -n M-r command-prompt -I "#W" "rename-window '%%'"
 
 # create/destroy session
-bind -n C-s new-session
+bind -n M-n new-session
 bind -n M-q kill-session
 
 # find session

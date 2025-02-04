@@ -1,0 +1,8 @@
+# Mount a remote filesystem using SFTP
+mkdir /mnt/[mountpoint]
+sshfs [user@]hostname:[directory] /mnt/[mountpoint]
+
+# Clean
+umount /mnt/[mountpoint]
+rm -rf /mnt/[mountpoint]
+

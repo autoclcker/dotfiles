@@ -122,3 +122,19 @@ plugins:
         kubectl --namespace $NAMESPACE --context $CONTEXT
         get ingress $NAME --output go-template='{{range .spec.rules}}{{.host}} {{end}}' |
         xsel --clipboard --input && printf "Successfully copied hosts"
+  kill-resource:
+    shortCut: Shift-D
+    override: false
+    overwriteOutput: true
+    confirm: false
+    dangerous: false
+    description: Destroy resource
+    scopes:
+      - all
+    command: sh
+    background: true
+    args:
+      - -c
+      - >-
+        kubectl --namespace $NAMESPACE --context $CONTEXT
+        delete --now $RESOURCE_NAME $NAME

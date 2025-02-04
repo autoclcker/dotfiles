@@ -5,6 +5,7 @@ alias e='nvim'
 alias gol='golangci-lint run --enable-all'
 alias ip='ip -color=always'
 alias j='journalctl'
+alias kc='kubectx'
 alias less='bat -p'
 alias p='printf'
 alias pgadmin='docker run --rm -p 5432:80 \

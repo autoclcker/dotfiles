@@ -40,7 +40,7 @@
 "ubi:junegunn/fzf" = "latest"
 "ubi:muesli/duf" = "latest"
 cheat = "latest"
-neovim = "latest"
+neovim = "0.10.3"
 starship = "latest"
 tmux = "latest"
 tomcat = "9.0.68"

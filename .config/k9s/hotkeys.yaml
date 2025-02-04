@@ -43,6 +43,14 @@ hotKeys:
     shortCut: Shift-9
     description: View RoleBindings
     command: rolebinding
+  shift-h:
+    shortCut: Shift-H
+    description: View Pulse
+    command: pulse
+  shift-q:
+    shortCut: Shift-Q
+    description: View Namespaces
+    command: namespace
   h:
     shortCut: h
     description: View Helm

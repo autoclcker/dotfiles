@@ -13,6 +13,8 @@ FONTS_PATH=${FONTS_PATH:-"$HOME/.local/share/fonts/nerd-fonts"}
 
 WORKSPACES_COUNT=${WORKSPACES_COUNT:-9}
 
+YAZI_SMART_PASTE_PATH=${YAZI_SMART_PASTE_PATH:-"$XDG_CONFIG_HOME/yazi/plugins/smart-paste.yazi"}
+
 export PATH="$HOME/.local/share/mise/shims:$PATH"
 
 set -o errexit  # abort on nonzero exitstatus
@@ -90,6 +92,22 @@ fi
 ya pack --install
 if [[ ! -d "${XDG_CONFIG_HOME}/yazi/plugins/ouch.yazi" ]]; then
   git clone --depth 1 "${OUCH_REPO}" "${XDG_CONFIG_HOME}/yazi/plugins/ouch.yazi"
+  mkdir --parents "${YAZI_SMART_PASTE_PATH}"
+  cat <<EOF >"$YAZI_SMART_PASTE_PATH/init.lua"
+--- @sync entry
+return {
+	entry = function()
+		local h = cx.active.current.hovered
+		if h and h.cha.is_dir then
+			ya.manager_emit("enter", {})
+			ya.manager_emit("paste", {})
+			ya.manager_emit("leave", {})
+		else
+			ya.manager_emit("paste", {})
+		end
+	end,
+}
+EOF
 fi
 printf "\e[1;96m%s\e[0m" "Yazi is configured"
 
