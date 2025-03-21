@@ -1,8 +1,3 @@
-bison
-cmake
-ffmpeg
-galculator
-imagemagick
 libchafa-dev
 libffi-dev
 libfontconfig1-dev
@@ -19,8 +14,3 @@ libxcb-image0-dev
 libxcb-res0-dev
 libxcb-xfixes0-dev
 libxkbcommon-dev
-p7zip-full
-pkg-config
-python3-launchpadlib
-software-properties-common
-xsel

@@ -65,6 +65,10 @@ if env | grep --quiet "XDG_CURRENT_DESKTOP=.*GNOME"; then
   gsettings set org.gnome.mutter workspaces-only-on-primary false
   gsettings set org.gnome.settings-daemon.plugins.media-keys control-center "['<Shift><Super>comma']"
   gsettings set org.gnome.settings-daemon.plugins.media-keys terminal "['<Super>t']"
+  gsettings set org.gnome.settings-daemon.plugins.media-keys www "['<Super>f']"
+  gsettings set org.gnome.shell.extensions.pop-cosmic overlay-key-action 'LAUNCHER'
+  gsettings set org.gnome.shell.keybindings toggle-message-tray ['<Super>d']
+  gsettings set org.gnome.shell.keybindings toggle-overview "['<Super>BackSpace']"
   for ((i = 1; i <= "$WORKSPACES_COUNT"; i++)); do
     gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-"$i" "['<Super>$i']"
     gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-"$i" "['<Super><Shift>$i']"

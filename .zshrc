@@ -82,6 +82,8 @@ export ZSH="$HOME/.oh-my-zsh"
 plugins=(
 	aliases
 	ansible
+	ant
+	bazel
 	command-not-found
 	copyfile
 	fancy-ctrl-z
@@ -104,9 +106,10 @@ plugins=(
 	starship
 	sudo
 	systemadmin
+	systemd
 	thefuck
+	tldr
 	tmux
-	ufw
 	zoxide
 	zsh-autosuggestions
 )

@@ -1,18 +1,77 @@
-[plugin]
-deps = [
-    { use = "yazi-rs/plugins:full-border", rev = "600614a" },
-    { use = "yazi-rs/plugins:smart-enter", rev = "600614a" },
-    { use = "yazi-rs/plugins:max-preview", rev = "600614a" },
-    { use = "Reledia/glow", rev = "5ce76dc" },
-    { use = "dedukun/bookmarks", rev = "35da107" },
-    { use = "yazi-rs/plugins:git", rev = "600614a" },
-    { use = "yazi-rs/plugins:smart-filter", rev = "600614a" },
-    { use = "Lil-Dank/lazygit", rev = "c82794f" },
-    { use = "Rolv-Apneseth/starship", rev = "9c37d37" },
-    { use = "pirafrank/what-size", rev = "b23e3a4" },
-    { use = "AnirudhG07/plugins-yazi:copy-file-contents", rev = "11167e1" },
-    { use = "ahkohd/eza-preview", rev = "5ef05bc" },
-]
+[[plugin.deps]]
+use = "yazi-rs/plugins:full-border"
+rev = "2730199"
+hash = "1f3dad061209081a6b04dd6ff2cb06c7"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:smart-enter"
+rev = "2730199"
+hash = "7918aab6a71caf31b58411f789195677"
+
+[[plugin.deps]]
+use = "Reledia/glow"
+rev = "c76bf4f"
+hash = "a6b78bf9af5390e3a85a6951fbb7b93"
+
+[[plugin.deps]]
+use = "dedukun/bookmarks"
+rev = "95b2c58"
+hash = "17a094653b7d0db4ac68ed531d2e1412"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:git"
+rev = "2730199"
+hash = "e0d2c8d7e7afe5b82270367098d1a821"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:smart-filter"
+rev = "2730199"
+hash = "f0c4b41b5d19a3144958383333eff6e7"
+
+[[plugin.deps]]
+use = "Lil-Dank/lazygit"
+rev = "9f924e3"
+hash = "2b0c33928986f126d5c5a4cac31a6b46"
+
+[[plugin.deps]]
+use = "Rolv-Apneseth/starship"
+rev = "6c639b4"
+hash = "5614c46d5de76623c283d415bfac8025"
+
+[[plugin.deps]]
+use = "pirafrank/what-size"
+rev = "b23e3a4"
+hash = "98e5f5af3efd3ba8bc2db0720187cc83"
+
+[[plugin.deps]]
+use = "AnirudhG07/plugins-yazi:copy-file-contents"
+rev = "524c52c"
+hash = "27c50e6bc15c09096505b805b238ade0"
+
+[[plugin.deps]]
+use = "ahkohd/eza-preview"
+rev = "6575a9a"
+hash = "72355a6c8b7c8de6ed4dda0f98f86fee"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:toggle-pane"
+rev = "2730199"
+hash = "5c9dda1a587b8f5b6f63e3d5375bda88"
+
+[[plugin.deps]]
+use = "Reledia/miller"
+rev = "40e0265"
+hash = "2d6d77583162aaf0a599e7a3091b5878"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:chmod"
+rev = "2730199"
+hash = "2f1053f89d1a301a648ab181d0948e38"
+
+[[plugin.deps]]
+use = "KKV9/compress"
+rev = "60b24af"
+hash = "ee025be766240cc98e671754ac836da3"
 
 [flavor]
 deps = []

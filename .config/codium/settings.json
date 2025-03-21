@@ -226,16 +226,6 @@
         },
         {
             "before": [
-                "z",
-                "0"
-            ],
-            "commands": [
-                "editor.unfoldAll"
-            ],
-            "silent": true
-        },
-        {
-            "before": [
                 ">"
             ],
             "commands": [
@@ -283,7 +273,7 @@
         {
             "before": [
                 "g",
-                "i"
+                "k"
             ],
             "commands": [
                 "editor.action.goToImplementation"
@@ -293,7 +283,7 @@
             "before": [
                 "g",
                 "p",
-                "i"
+                "k"
             ],
             "commands": [
                 "editor.action.peekImplementation"
@@ -302,7 +292,7 @@
         {
             "before": [
                 "g",
-                "y"
+                "j"
             ],
             "commands": [
                 "editor.action.goToTypeDefinition"
@@ -310,18 +300,9 @@
         },
         {
             "before": [
-                "<leader>",
-                "b"
-            ],
-            "commands": [
-                "editor.action.debug.toggleBreakpoint"
-            ]
-        },
-        {
-            "before": [
                 "g",
                 "p",
-                "y"
+                "j"
             ],
             "commands": [
                 "editor.action.peekTypeDefinition"
@@ -406,5 +387,6 @@
         }
     ],
     "window.menuBarVisibility": "toggle",
-    "window.newWindowProfile": "autoclcker"
+    "window.newWindowProfile": "autoclcker",
+    "window.customTitleBarVisibility": "windowed"
 }

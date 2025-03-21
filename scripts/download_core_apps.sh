@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-PACKAGES=${PACKAGES:=''}
+PACKAGES=()
 
 INSTALL_DOCKER=${INSTALL_DOCKER:-true}
 
@@ -20,16 +20,24 @@ set -o pipefail # don't hide errors within pipes
 while [[ $# -gt 0 ]]; do
   case ${1} in
   -p | --packages)
-    PACKAGES=${2}
+    PACKAGES+=("${2}")
     shift # past argument
     shift # past value
+    while [[ $# -gt 0 ]] && [[ ! "${1}" =~ ^-.* ]]; do
+      PACKAGES+=("${1}")
+      shift
+    done
+    ;;
+  -*)
+    printf "%b %s\n" "\x1B[31mIllegal argument:\x1B[0m" "${1}"
+    exit 1
     ;;
   esac
 done
 
 sudo apt-get update
-if [[ "$PACKAGES" ]]; then
-  xargs --arg-file "$PACKAGES" sudo apt-get install --yes
+if [[ ${#PACKAGES[@]} -gt 0 ]]; then
+  sudo apt-get install --yes "${PACKAGES[@]}"
 fi
 
 # Install Docker
@@ -57,19 +65,19 @@ fi
 curl "$MISE_URL" | sh
 
 # Install VSCodium
-if [[ ! -f /etc/apt/sources.list.d/vscodium.list ]]; then
-  wget -qO - "$VSCODIUM_REPO/raw/master/pub.gpg" |
-    gpg --dearmor |
-    sudo dd of=/usr/share/keyrings/vscodium-archive-keyring.gpg
-  echo "deb [ signed-by=/usr/share/keyrings/vscodium-archive-keyring.gpg ] $VSCODIUM_URL/debs vscodium main" |
-    sudo tee /etc/apt/sources.list.d/vscodium.list
+if [[ ! -f /etc/apt/sources.list.d/vscodium.list ]] && [[ "$INSTALL_DOCKER" == true ]]; then
+  wget -qO - "$VSCODIUM_REPO/raw/master/pub.gpg" \
+    | gpg --dearmor \
+    | sudo dd of=/usr/share/keyrings/vscodium-archive-keyring.gpg
+  echo "deb [arch=amd64,arm64 signed-by=/usr/share/keyrings/vscodium-archive-keyring.gpg] $VSCODIUM_URL/debs vscodium main" \
+    | sudo tee /etc/apt/sources.list.d/vscodium.list
   sudo apt-get update && sudo apt install codium --yes
 else
   printf "\e[1;96m%s\e[0m\n" "VSCodium is already installed"
 fi
 
 # Install CopyQ
-if [[ ! -f /etc/apt/sources.list.d/hluk-ubuntu-copyq-jammy.list ]]; then
+if [[ ! -f /etc/apt/sources.list.d/hluk-ubuntu-copyq-jammy.list ]] && [[ "$INSTALL_DOCKER" == true ]]; then
   sudo add-apt-repository ppa:hluk/copyq
   sudo apt-get update && sudo apt install copyq --yes
 else

@@ -1,6 +1,5 @@
 # A TOML linter such as https://taplo.tamasfe.dev/ can use this schema to validate your config.
 # If you encounter any issues, please make an issue at https://github.com/yazi-rs/schemas.
-"$schema" = "https://yazi-rs.github.io/schemas/keymap.json"
 
 [manager]
 
@@ -32,8 +31,8 @@ keymap = [
 	{ on = [
 		"g",
 		"g",
-	], run = "arrow -99999999", desc = "Move cursor to the top" },
-	{ on = "G", run = "arrow 99999999", desc = "Move cursor to the bottom" },
+	], run = "arrow top", desc = "Move cursor to the top" },
+	{ on = "G", run = "arrow bot", desc = "Move cursor to the bottom" },
 
 	# Navigation
 	{ on = "h", run = "leave", desc = "Go back to the parent directory" },
@@ -488,8 +487,8 @@ desc = "Enter the child directory, or open the file"
 
 [[manager.prepend_keymap]]
 on = "s"
-run = "plugin max-preview"
-desc = "Maximize or restore preview"
+run  = "plugin toggle-pane max-preview"
+desc = "Show or hide the preview pane"
 
 [[manager.prepend_keymap]]
 on = ["g", "r"]
@@ -498,22 +497,22 @@ run = '''
 '''
 [[manager.prepend_keymap]]
 on = ["m"]
-run = "plugin bookmarks --args=save"
+run = "plugin bookmarks save"
 desc = "Save current position as a bookmark"
 
 [[manager.prepend_keymap]]
 on = ["'"]
-run = "plugin bookmarks --args=jump"
+run = "plugin bookmarks jump"
 desc = "Jump to a bookmark"
 
 [[manager.prepend_keymap]]
 on = ["b", "d"]
-run = "plugin bookmarks --args=delete"
+run = "plugin bookmarks delete"
 desc = "Delete a bookmark"
 
 [[manager.prepend_keymap]]
 on = ["b", "D"]
-run = "plugin bookmarks --args=delete_all"
+run = "plugin bookmarks delete_all"
 desc = "Delete all bookmarks"
 
 [[manager.prepend_keymap]]
@@ -543,7 +542,7 @@ desc = "Calc size of selection or cwd"
 
 [[manager.prepend_keymap]]
 on = ["C"]
-run = "plugin ouch --args=zip"
+run = "plugin ouch zip"
 desc = "Compress with ouch"
 
 [[manager.prepend_keymap]]
@@ -558,15 +557,25 @@ desc = "Toggle tree/list dir preview"
 
 [[manager.prepend_keymap]]
 on = [ "+" ]
-run = "plugin eza-preview --args='--inc-level'"
+run = "plugin eza-preview '--inc-level'"
 desc = "Increment tree level"
 
 [[manager.prepend_keymap]]
 on = [ "_" ]
-run = "plugin eza-preview --args='--dec-level'"
+run = "plugin eza-preview '--dec-level'"
 desc = "Decrement tree level"
 
 [[manager.prepend_keymap]]
 on = [ "$" ]
-run = "plugin eza-preview --args='--toggle-follow-symlinks'"
+run = "plugin eza-preview '--toggle-follow-symlinks'"
 desc = "Toggle tree follow symlinks"
+
+[[manager.prepend_keymap]]
+on   = [ "c", "m" ]
+run  = "plugin chmod"
+desc = "Chmod on selected files"
+
+[[manager.prepend_keymap]]
+on   = [ "c", "a" ]
+run  = "plugin compress"
+desc = "Archive selected files"

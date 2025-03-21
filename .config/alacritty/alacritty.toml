@@ -88,6 +88,11 @@ mods = "Alt"
 chars = ' | grep '
 
 [[keyboard.bindings]]
+key = "i"
+mods = "Alt"
+chars = 'ip -brief address'
+
+[[keyboard.bindings]]
 key = "Key1"
 mods = "Control"
 chars = "\u001b[49;5u"

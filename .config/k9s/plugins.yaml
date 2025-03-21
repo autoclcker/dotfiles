@@ -138,3 +138,13 @@ plugins:
       - >-
         kubectl --namespace $NAMESPACE --context $CONTEXT
         delete --now $RESOURCE_NAME $NAME
+  dive:
+    shortCut: d
+    confirm: false
+    description: Dive image
+    scopes:
+      - containers
+    command: dive
+    background: false
+    args:
+      - $COL-IMAGE

@@ -22,6 +22,7 @@
 "go:github.com/google/yamlfmt/cmd/yamlfmt" = "latest"
 "go:github.com/jesseduffield/lazydocker" = "latest"
 "go:github.com/jesseduffield/lazygit" = "latest"
+"go:github.com/johnkerl/miller/v6/cmd/mlr" = "latest"
 "go:github.com/mikefarah/yq/v4" = "latest"
 "go:github.com/mr-karan/doggo/cmd/doggo" = "latest"
 "go:github.com/reproducible-containers/diffoci/cmd/diffoci" = "latest"
@@ -33,17 +34,20 @@
 "pipx:ansible-lint" = "latest"
 "pipx:httpie" = "latest"
 "pipx:ipython" = "latest"
+"pipx:s-tui" = "latest"
 "pipx:thefuck" = { version = "latest", pipx_args = "--python 3.11.9" }
 "ubi:clangd/clangd" = "latest"
 "ubi:jgm/pandoc" = "latest"
 "ubi:jqlang/jq" = "latest"
 "ubi:junegunn/fzf" = "latest"
 "ubi:muesli/duf" = "latest"
+btop = "latest"
 cheat = "latest"
 neovim = "0.10.3"
 starship = "latest"
 tmux = "latest"
 tomcat = "9.0.68"
+usage = "latest"
 vim = "latest"
 
 [settings]
