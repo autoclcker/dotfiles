@@ -34,7 +34,7 @@ RUN --mount=type=cache,target=/var/lib/apt,sharing=locked \
         jq=1.6-2.1ubuntu3 \
         make=4.3-4.1build1 \
         sudo=1.9.9-1ubuntu2.4 \
-        tzdata=2024b-0ubuntu0.22.04 \
+        tzdata=2024b-0ubuntu0.22.04.1 \
         unzip=6.0-26ubuntu3.2 \
         wget=1.21.2-2ubuntu1.1 \
         xdg-user-dirs=0.17-2ubuntu4 \
