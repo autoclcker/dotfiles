@@ -69,7 +69,7 @@ if [[ ! -f /etc/apt/sources.list.d/vscodium.list ]] && [[ "$INSTALL_DOCKER" == t
   wget -qO - "$VSCODIUM_REPO/raw/master/pub.gpg" \
     | gpg --dearmor \
     | sudo dd of=/usr/share/keyrings/vscodium-archive-keyring.gpg
-  echo "deb [arch=amd64,arm64 signed-by=/usr/share/keyrings/vscodium-archive-keyring.gpg] $VSCODIUM_URL/debs vscodium main" \
+  printf "deb [arch=amd64,arm64 signed-by=/usr/share/keyrings/vscodium-archive-keyring.gpg] %s/debs vscodium main" "$VSCODIUM_URL" \
     | sudo tee /etc/apt/sources.list.d/vscodium.list
   sudo apt-get update && sudo apt install codium --yes
 else

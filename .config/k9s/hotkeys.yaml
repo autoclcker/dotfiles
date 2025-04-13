@@ -51,6 +51,11 @@ hotKeys:
     shortCut: Shift-Q
     description: View Namespaces
     command: namespace
+  ctrl-q:
+    shortCut: Ctrl-Q
+    description: View Context
+    override: true
+    command: ctx
   h:
     shortCut: h
     description: View Helm

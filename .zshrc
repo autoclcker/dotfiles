@@ -112,6 +112,7 @@ plugins=(
 	tmux
 	zoxide
 	zsh-autosuggestions
+	zsh-syntax-highlighting
 )
 
 # Common aliases

@@ -7,6 +7,7 @@ NERD_FONTS_REPO=${NERD_FONTS_REPO:-"https://github.com/ryanoasis/nerd-fonts.git"
 OUCH_REPO=${OUCH_REPO:-"https://github.com/ndtoan96/ouch.yazi.git"}
 UEBERZUGPP_REPO=${UEBERZUGPP_REPO:-"https://github.com/jstkdng/ueberzugpp.git"}
 ZSH_AUTOSUGGESTIONS_REPO=${ZSH_AUTOSUGGESTIONS_REPO:-"https://github.com/zsh-users/zsh-autosuggestions.git"}
+ZSH_SYNTAX_HIGHLIGHTING_REPO=${ZSH_SYNTAX_HIGHLIGHTING_REPO:-"https://github.com/zsh-users/zsh-syntax-highlighting.git"}
 
 FONTS=("DejaVuSansMono" "FiraCode" "Hack")
 FONTS_PATH=${FONTS_PATH:-"$HOME/.local/share/fonts/nerd-fonts"}
@@ -67,7 +68,7 @@ if env | grep --quiet "XDG_CURRENT_DESKTOP=.*GNOME"; then
   gsettings set org.gnome.settings-daemon.plugins.media-keys terminal "['<Super>t']"
   gsettings set org.gnome.settings-daemon.plugins.media-keys www "['<Super>f']"
   gsettings set org.gnome.shell.extensions.pop-cosmic overlay-key-action 'LAUNCHER'
-  gsettings set org.gnome.shell.keybindings toggle-message-tray ['<Super>d']
+  gsettings set org.gnome.shell.keybindings toggle-message-tray "['<Super>d']"
   gsettings set org.gnome.shell.keybindings toggle-overview "['<Super>BackSpace']"
   for ((i = 1; i <= "$WORKSPACES_COUNT"; i++)); do
     gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-"$i" "['<Super>$i']"
@@ -118,6 +119,7 @@ printf "\e[1;96m%s\e[0m" "Yazi is configured"
 # ZSH
 if [[ ! -d "${HOME}/.oh-my-zsh/custom/plugins/zsh-autosuggestions" ]]; then
   git clone --depth 1 "${ZSH_AUTOSUGGESTIONS_REPO}" "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-autosuggestions"
+  git clone --depth 1 "${ZSH_SYNTAX_HIGHLIGHTING_REPO}" "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting"
 else
   printf "\e[1;96m%s\e[0m\n" "ZSH-autosuggestions are already installed"
 fi

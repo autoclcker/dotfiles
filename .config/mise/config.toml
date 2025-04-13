@@ -43,12 +43,13 @@
 "ubi:muesli/duf" = "latest"
 btop = "latest"
 cheat = "latest"
-neovim = "0.10.3"
+neovim = "0.10.4"
 starship = "latest"
 tmux = "latest"
 tomcat = "9.0.68"
 usage = "latest"
 vim = "latest"
+helm = "latest"
 
 [settings]
 disable_hints = ["registry"]

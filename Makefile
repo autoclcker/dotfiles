@@ -9,15 +9,16 @@ XDG_CONFIG_HOME = ${HOME}/.config
 
 SHORT_COMMIT=$(shell git rev-parse --short HEAD)
 
+docker%: export GITHUB_TOKEN ?= "STUB"
+
 docker/build-debug:
 	@docker buildx build --quiet --tag debug-${SHORT_COMMIT} --target debug --file Dockerfile.regress .
 .PHONY: docker/build-debug
 
 docker/debug: docker/build-debug ### Debug in Docker
-	@docker run --rm --interactive --tty debug-${SHORT_COMMIT}
+	@docker run --rm --interactive --tty --env GITHUB_TOKEN=${GITHUB_TOKEN} debug-${SHORT_COMMIT}
 .PHONY: docker/debug
 
-docker/regress: export GITHUB_TOKEN ?= "STUB"
 docker/regress: ### Validate Setup integrity
 	@docker buildx build --secret id=GITHUB_TOKEN --tag regress --file Dockerfile.regress .
 	@docker rmi regress:latest

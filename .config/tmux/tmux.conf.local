@@ -389,8 +389,6 @@ set -g history-limit 100000
 set -g mouse on
 set -g prefix \uE001
 set -g status-position top
-set -ga update-environment TERM
-set -ga update-environment TERM_PROGRAM
 set -gu prefix2
 
 unbind -n C-f
