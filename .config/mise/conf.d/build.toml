@@ -2,6 +2,6 @@
 ant = "1.10.13"
 cmake = "latest"
 make = "latest"
-maven = "3.9.6"
+maven = ["3.6.3", "3.8.5"]
 meson = "latest"
 ninja = "latest"

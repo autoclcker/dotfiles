@@ -369,7 +369,7 @@
         {
             "before": [
                 "<leader>",
-                "d"
+                "A"
             ],
             "commands": [
                 "editor.action.sortLinesDescending"

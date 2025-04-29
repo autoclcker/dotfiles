@@ -146,7 +146,17 @@ plugins:
     dangerous: false
     description: Destroy resource
     scopes:
-      - all
+      - pods
+      - jobs
+      - deployments
+      - statefulsets
+      - configmaps
+      - secrets
+      - persistentvolumeclaims
+      - rolebindings
+      - services
+      - ingresses
+      - screendumps
     command: sh
     background: true
     args:

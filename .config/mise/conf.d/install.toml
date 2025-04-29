@@ -1,4 +1,5 @@
 [tools]
+cargo-binstall = "latest"
 helm = "latest"
 pipx = "latest"
 pnpm = "latest"

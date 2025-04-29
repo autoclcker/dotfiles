@@ -4,7 +4,6 @@ XDG_CONFIG_HOME=${XDG_CONFIG_HOME:-"$HOME/.config"}
 
 CHEATSHEETS_REPO=${CHEATSHEETS_REPO:-"https://github.com/cheat/cheatsheets.git"}
 NERD_FONTS_REPO=${NERD_FONTS_REPO:-"https://github.com/ryanoasis/nerd-fonts.git"}
-OUCH_REPO=${OUCH_REPO:-"https://github.com/ndtoan96/ouch.yazi.git"}
 UEBERZUGPP_REPO=${UEBERZUGPP_REPO:-"https://github.com/jstkdng/ueberzugpp.git"}
 ZSH_AUTOSUGGESTIONS_REPO=${ZSH_AUTOSUGGESTIONS_REPO:-"https://github.com/zsh-users/zsh-autosuggestions.git"}
 ZSH_SYNTAX_HIGHLIGHTING_REPO=${ZSH_SYNTAX_HIGHLIGHTING_REPO:-"https://github.com/zsh-users/zsh-syntax-highlighting.git"}
@@ -95,10 +94,9 @@ fi
 
 # YAZI
 ya pack --install
-if [[ ! -d "${XDG_CONFIG_HOME}/yazi/plugins/ouch.yazi" ]]; then
-  git clone --depth 1 "${OUCH_REPO}" "${XDG_CONFIG_HOME}/yazi/plugins/ouch.yazi"
+if [[ ! -d "${YAZI_SMART_PASTE_PATH}" ]]; then
   mkdir --parents "${YAZI_SMART_PASTE_PATH}"
-  cat <<EOF >"$YAZI_SMART_PASTE_PATH/init.lua"
+  cat <<EOF >"$YAZI_SMART_PASTE_PATH/main.lua"
 --- @sync entry
 return {
 	entry = function()

@@ -11,11 +11,13 @@ alias p='printf'
 alias pgadmin='docker run --rm -p 5432:80 \
     --env "PGADMIN_DEFAULT_EMAIL=admin@gmail.com" \
     --env "PGADMIN_DEFAULT_PASSWORD=admin" \
+    --name pgadmin4 \
     --detach dpage/pgadmin4
 '
 alias procsi='procs --watch --watch-interval 2'
 alias procst='procs --tree'
 alias s='systemctl'
+alias ungron="gron --ungron"
 alias wp='nmcli device wifi show-password'
 alias wtr='curl wttr.in/Petersburg'
 
@@ -43,6 +45,10 @@ y() {
     pushd -- "$cwd" || exit 1
   fi
   rm -f -- "$tmp"
+}
+
+djwt() {
+  printf "$@" | jq --raw-input 'split(".") | .[0],.[1] | @base64d | fromjson'
 }
 
 # Editor

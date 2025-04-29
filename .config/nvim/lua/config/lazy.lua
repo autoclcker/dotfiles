@@ -15,7 +15,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 vim.api.nvim_create_autocmd("ExitPre", {
   group = vim.api.nvim_create_augroup("Exit", { clear = true }),
-  command = "set guicursor=a:ver90",
+  command = "set guicursor=a:ver90,a:blinkon100",
   desc = "Set cursor back to beam when leaving Neovim.",
 })
 

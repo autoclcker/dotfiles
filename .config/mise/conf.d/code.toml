@@ -1,6 +1,6 @@
 [tools]
-golang = "1.23.1"
-java = ["adoptopenjdk-8.0.192+12", "openjdk-11.0.2"]
+golang = "1.24.2"
+java = ["openjdk-11.0.2", "adoptopenjdk-8.0.192+12", "openjdk-17.0.2"]
 lua = "latest"
 node = "23.4.0"
 python = ["3.11.9", "3.13.1"]

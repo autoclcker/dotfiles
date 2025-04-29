@@ -138,7 +138,7 @@ mods = "Control"
 chars = "\u001b[57;5u"
 
 [[keyboard.bindings]]
-key = "Tab"
+key = "'"
 mods = "Control"
 chars = "\uE000"
 

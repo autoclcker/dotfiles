@@ -1,6 +1,7 @@
 !copyq-commands.ini
 !copyq.conf
 .vscode
+**/*/.gitignore
 **/community/
 **/copyq/*
 **/tmux/plugins
