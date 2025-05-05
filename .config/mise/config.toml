@@ -38,6 +38,7 @@
 "pipx:ipython" = "latest"
 "pipx:s-tui" = "latest"
 "pipx:thefuck" = { version = "latest", pipx_args = "--python 3.11.9" }
+"pipx:trash-cli" = "latest"
 "ubi:clangd/clangd" = "latest"
 "ubi:jgm/pandoc" = "latest"
 "ubi:jqlang/jq" = "latest"
@@ -45,6 +46,7 @@
 "ubi:muesli/duf" = "latest"
 btop = "latest"
 cheat = "latest"
+imagemagick = "latest"
 neovim = "0.10.4"
 starship = "latest"
 tmux = "latest"

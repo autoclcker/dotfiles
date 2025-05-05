@@ -2,7 +2,6 @@ bison
 cmake
 ffmpeg
 galculator
-imagemagick
 iptraf-ng
 p7zip-full
 pkg-config
