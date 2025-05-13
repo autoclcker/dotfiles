@@ -73,5 +73,10 @@ use = "boydaihungst/restore"
 rev = "539aad5"
 hash = "fd162085ec09fef4b4060c92bba31994"
 
+[[plugin.deps]]
+use = "yazi-rs/plugins:smart-paste"
+rev = "864a021"
+hash = "104fa2ce07d8890b07fcff68b0aaf923"
+
 [flavor]
 deps = []

@@ -480,7 +480,7 @@ bind -n M-o command-prompt -p find-session 'switch-client -t %%'
 bind-key -n M-/ copy-mode \; send-key ?
 
 # copy mode
-bind -n C-v copy-mode # enter copy mode
+bind -n M-] copy-mode # enter copy mode
 bind -T copy-mode-vi 'C-v' send -X begin-selection \; send -X rectangle-toggle
 bind -T copy-mode-vi 'C-c' if-shell -F '#{selection_present}' 'send-keys -X clear-selection' 'send-keys -X cancel'
 bind v choose-buffer

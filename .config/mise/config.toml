@@ -47,7 +47,7 @@
 btop = "latest"
 cheat = "latest"
 imagemagick = "latest"
-neovim = "0.10.4"
+neovim = "latest"
 starship = "latest"
 tmux = "latest"
 tomcat = "9.0.68"

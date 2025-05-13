@@ -119,7 +119,7 @@ if [[ ! -d "${HOME}/.oh-my-zsh/custom/plugins/zsh-autosuggestions" ]]; then
   git clone --depth 1 "${ZSH_AUTOSUGGESTIONS_REPO}" "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-autosuggestions"
   git clone --depth 1 "${ZSH_SYNTAX_HIGHLIGHTING_REPO}" "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting"
 else
-  printf "\e[1;96m%s\e[0m\n" "ZSH-autosuggestions are already installed"
+  printf "\e[1;96m%s\e[0m\n" "ZSH plugins are already installed"
 fi
 
 exit 0

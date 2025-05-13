@@ -1,4 +1,4 @@
-plugins:
+oplugins:
   apply-manifest:
     shortCut: Shift-E
     confirm: false
@@ -22,11 +22,11 @@ plugins:
     background: true
     description: Clear namespace
     scopes:
-      - pods
-      - deployments
       - configmaps
-      - secrets
+      - deployments
       - ingresses
+      - pods
+      - secrets
     command: sh
     args:
       - -c
@@ -42,8 +42,8 @@ plugins:
     background: true
     description: Scale all pods to 0
     scopes:
-      - replicasets
       - deployments
+      - replicasets
       - statefulsets
     command: sh
     args:
@@ -146,17 +146,17 @@ plugins:
     dangerous: false
     description: Destroy resource
     scopes:
-      - pods
-      - jobs
-      - deployments
-      - statefulsets
       - configmaps
-      - secrets
-      - persistentvolumeclaims
-      - rolebindings
-      - services
+      - deployments
       - ingresses
+      - jobs
+      - persistentvolumeclaims
+      - pods
+      - rolebindings
       - screendumps
+      - secrets
+      - services
+      - statefulsets
     command: sh
     background: true
     args:
