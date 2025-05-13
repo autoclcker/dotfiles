@@ -1,4 +1,4 @@
-oplugins:
+plugins:
   apply-manifest:
     shortCut: Shift-E
     confirm: false
