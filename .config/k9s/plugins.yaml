@@ -1,6 +1,20 @@
 plugins:
+  debug-pod:
+    shortCut: c
+    override: true
+    confirm: true
+    background: false
+    description: Debug
+    scopes:
+      - pod
+    command: sh
+    args:
+      - -c
+      - >-
+        kubectl --namespace $NAMESPACE --context $CONTEXT debug $NAME --stdin --tty --image nicolaka/netshoot
   apply-manifest:
     shortCut: Shift-E
+    override: false
     confirm: false
     background: false
     description: Apply from editor
@@ -174,3 +188,30 @@ plugins:
     background: false
     args:
       - $COL-IMAGE
+  helm-diff-previous:
+    shortCut: Shift-J
+    confirm: false
+    description: Diff with Previous Revision
+    scopes:
+      - helm
+    command: bash
+    background: false
+    args:
+      - -c
+      - >-
+        LAST_REVISION=$(($COL-REVISION-1));
+        helm diff revision $COL-NAME $COL-REVISION $LAST_REVISION --kube-context $CONTEXT --namespace $NAMESPACE --color | less
+  helm-diff-current:
+    shortCut: Shift-J
+    confirm: false
+    description: Diff with Current Revision
+    scopes:
+      - history
+    command: bash
+    background: false
+    args:
+      - -c
+      - >-
+        RELEASE_NAME=$(printf $NAME | cut -d':' -f1);
+        LATEST_REVISION=$(helm history --namespace $NAMESPACE --kube-context $CONTEXT $RELEASE_NAME | grep deployed | cut -d$'\t' -f1 | tr -d ' \t');
+        helm diff revision $RELEASE_NAME $LATEST_REVISION $COL-REVISION --kube-context $CONTEXT --namespace $NAMESPACE --color | less

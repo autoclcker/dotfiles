@@ -3,6 +3,7 @@
 XDG_CONFIG_HOME=${XDG_CONFIG_HOME:-"$HOME/.config"}
 
 CHEATSHEETS_REPO=${CHEATSHEETS_REPO:-"https://github.com/cheat/cheatsheets.git"}
+HELM_DIFF_REPO=${HELM_DIFF_REPO:-"https://github.com/databus23/helm-diff"}
 NERD_FONTS_REPO=${NERD_FONTS_REPO:-"https://github.com/ryanoasis/nerd-fonts.git"}
 UEBERZUGPP_REPO=${UEBERZUGPP_REPO:-"https://github.com/jstkdng/ueberzugpp.git"}
 ZSH_AUTOSUGGESTIONS_REPO=${ZSH_AUTOSUGGESTIONS_REPO:-"https://github.com/zsh-users/zsh-autosuggestions.git"}
@@ -49,6 +50,13 @@ else
   printf "\e[1;96m%s\e[0m\n" "Fonts are already installed"
 fi
 
+# Helm
+if [[ ! $(helm diff version) ]]; then
+  helm plugin install "${HELM_DIFF_REPO}"
+else
+  printf "\e[1;96m%s\e[0m\n" "Helm diff is already installed"
+fi
+
 # GNOME
 if env | grep --quiet "XDG_CURRENT_DESKTOP=.*GNOME"; then
   gsettings set org.gnome.desktop.wm.keybindings always-on-top "['<Super>u']"
@@ -82,7 +90,7 @@ printf "\e[1;96m%s\e[0m" "Tealdeer "
 tldr --update
 
 # Ueberzugpp
-if [[ -z $(ueberzug --version) ]]; then
+if [[ ! $(ueberzug --version) ]]; then
   git clone --depth 1 "${UEBERZUGPP_REPO}" /tmp/ueberzugpp && mkdir "$_/build"
   pushd "$_" || exit 1
   cmake -DCMAKE_BUILD_TYPE=Release -DENABLE_TURBOBASE64=ON ..
@@ -92,7 +100,7 @@ else
   printf "\e[1;96m%s\e[0m\n" "Ueberzugpp is already installed"
 fi
 
-# YAZI
+# Yazi
 ya pack --install
 if [[ ! -d "${YAZI_SMART_PASTE_PATH}" ]]; then
   mkdir --parents "${YAZI_SMART_PASTE_PATH}"
@@ -112,7 +120,7 @@ return {
 }
 EOF
 fi
-printf "\e[1;96m%s\e[0m" "Yazi is configured"
+printf "\e[1;96m%s\e[0m\n" "Yazi is configured"
 
 # ZSH
 if [[ ! -d "${HOME}/.oh-my-zsh/custom/plugins/zsh-autosuggestions" ]]; then

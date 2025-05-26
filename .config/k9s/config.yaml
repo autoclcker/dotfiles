@@ -14,7 +14,7 @@ k9s:
   skipLatestRevCheck: true
   disablePodCounting: false
   shellPod:
-    image: nicolaka/netshoot:v0.13
+    image: nicolaka/netshoot
     namespace: default
     limits:
       cpu: 100m

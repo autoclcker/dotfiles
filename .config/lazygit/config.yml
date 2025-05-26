@@ -153,7 +153,7 @@ promptToReturnFromSubprocess: true
 keybinding:
   universal:
     quit: q
-    quit-alt1: q
+    quit-alt1: <esc>
     return: <c-c>
     quitWithoutChangingDirectory: Q
     togglePanel: <tab>
@@ -161,8 +161,8 @@ keybinding:
     nextItem: <down>
     prevItem-alt: k
     nextItem-alt: j
-    prevPage: ','
-    nextPage: .
+    prevPage: <c-b>
+    nextPage: <c-f>
     scrollLeft: H
     scrollRight: L
     gotoTop: <
@@ -176,15 +176,15 @@ keybinding:
     nextBlock: <right>
     prevBlock-alt: h
     nextBlock-alt: l
-    nextBlock-alt2: <tab>
-    prevBlock-alt2: <backtab>
+    nextBlock-alt2: .
+    prevBlock-alt2: ','
     jumpToBlock:
       - "1"
       - "2"
       - "3"
       - "4"
       - "5"
-    focusMainView: "0"
+    focusMainView: <tab>
     nextMatch: "n"
     prevMatch: "N"
     startSearch: /
