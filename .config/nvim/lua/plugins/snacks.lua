@@ -5,8 +5,9 @@ return {
       sources = {
         explorer = {
           layout = { preset = "sidebar", layout = { position = "right" } },
-        }
-      }
-    }
+        },
+      },
+    },
   },
 }
+

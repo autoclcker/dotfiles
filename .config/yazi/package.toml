@@ -1,11 +1,11 @@
 [[plugin.deps]]
 use = "yazi-rs/plugins:full-border"
-rev = "864a021"
+rev = "ea38b47"
 hash = "1f3dad061209081a6b04dd6ff2cb06c7"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:smart-enter"
-rev = "864a021"
+rev = "ea38b47"
 hash = "7918aab6a71caf31b58411f789195677"
 
 [[plugin.deps]]
@@ -15,17 +15,17 @@ hash = "f9ee1436e3b853508d87f7d49dce56e6"
 
 [[plugin.deps]]
 use = "dedukun/bookmarks"
-rev = "a70648a"
-hash = "b836fb264381f35dec79930438a906d5"
+rev = "fbb7c00"
+hash = "1d231a808d3344546380df33daf43e91"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:git"
-rev = "864a021"
+rev = "ea38b47"
 hash = "e0ada736ea676c2bbb3ec705a49526ef"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:smart-filter"
-rev = "864a021"
+rev = "ea38b47"
 hash = "f0c4b41b5d19a3144958383333eff6e7"
 
 [[plugin.deps]]
@@ -55,12 +55,12 @@ hash = "72355a6c8b7c8de6ed4dda0f98f86fee"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:toggle-pane"
-rev = "864a021"
+rev = "ea38b47"
 hash = "f3853bbdd1da2fad09d059ab5464abfd"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:chmod"
-rev = "864a021"
+rev = "ea38b47"
 hash = "2f1053f89d1a301a648ab181d0948e38"
 
 [[plugin.deps]]
@@ -70,12 +70,12 @@ hash = "5b9dea47776a30946cfbf83232d18fb1"
 
 [[plugin.deps]]
 use = "boydaihungst/restore"
-rev = "539aad5"
-hash = "fd162085ec09fef4b4060c92bba31994"
+rev = "1bfd5f7"
+hash = "f61cea367316f9459590f5c1dc4fc"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:smart-paste"
-rev = "864a021"
+rev = "ea38b47"
 hash = "104fa2ce07d8890b07fcff68b0aaf923"
 
 [flavor]

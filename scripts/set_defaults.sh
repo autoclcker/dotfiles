@@ -59,6 +59,7 @@ fi
 
 # GNOME
 if env | grep --quiet "XDG_CURRENT_DESKTOP=.*GNOME"; then
+  gsettings set  org.gnome.shell.extensions.pop-shell tile-orientation "['<Super>r']"
   gsettings set org.gnome.desktop.wm.keybindings always-on-top "['<Super>u']"
   gsettings set org.gnome.desktop.wm.keybindings cycle-group "['<Super>apostrophe']"
   gsettings set org.gnome.desktop.wm.keybindings cycle-group-backward "['<Shift><Super>apostrophe']"

@@ -80,8 +80,8 @@
         },
         {
             "before": [
-                "<leader>",
-                "n"
+                "]",
+                "e"
             ],
             "commands": [
                 "editor.action.marker.next"
@@ -89,8 +89,8 @@
         },
         {
             "before": [
-                "<leader>",
-                "p"
+                "[",
+                "e"
             ],
             "commands": [
                 "editor.action.marker.prev"
@@ -386,7 +386,8 @@
             ]
         }
     ],
+    "window.customTitleBarVisibility": "windowed",
+    "window.enableMenuBarMnemonics": false,
     "window.menuBarVisibility": "toggle",
-    "window.newWindowProfile": "autoclcker",
-    "window.customTitleBarVisibility": "windowed"
+    "window.newWindowProfile": "autoclcker"
 }

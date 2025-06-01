@@ -403,8 +403,8 @@ unbind Space
 bind -n M-= next-layout
 
 # rotate panes
-bind -r o rotate-window -D
-bind -r M-o rotate-window -U
+bind -nr M-R rotate-window -D
+bind -nr M-r rotate-window -U
 
 # switch to the previous pane
 bind -n \uE000 last-pane
@@ -467,7 +467,7 @@ bind -n M-, swap-window -t -1\; select-window -t -1
 bind -n M-. swap-window -t +1\; select-window -t +1
 
 # rename window
-bind -n M-r command-prompt -I "#W" "rename-window '%%'"
+bind -n M-[ command-prompt -I "#W" "rename-window '%%'"
 
 # create/destroy session
 bind -n M-n new-session

@@ -166,6 +166,7 @@ plugins:
       - jobs
       - persistentvolumeclaims
       - pods
+      - roles
       - rolebindings
       - screendumps
       - secrets
@@ -194,7 +195,7 @@ plugins:
     description: Diff with Previous Revision
     scopes:
       - helm
-    command: bash
+    command: sh
     background: false
     args:
       - -c
@@ -207,7 +208,7 @@ plugins:
     description: Diff with Current Revision
     scopes:
       - history
-    command: bash
+    command: sh
     background: false
     args:
       - -c
@@ -215,3 +216,15 @@ plugins:
         RELEASE_NAME=$(printf $NAME | cut -d':' -f1);
         LATEST_REVISION=$(helm history --namespace $NAMESPACE --kube-context $CONTEXT $RELEASE_NAME | grep deployed | cut -d$'\t' -f1 | tr -d ' \t');
         helm diff revision $RELEASE_NAME $LATEST_REVISION $COL-REVISION --kube-context $CONTEXT --namespace $NAMESPACE --color | less
+  helm-uninstall:
+    shortCut: Shift-D
+    confirm: false
+    description: Uninstall Helm Release
+    scopes:
+      - helm
+    command: sh
+    background: true
+    args:
+      - -c
+      - >-
+        helm uninstall $NAME --kube-context $CONTEXT --namespace $NAMESPACE && printf "Successful chart uninstall"
