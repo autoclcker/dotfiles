@@ -1,6 +1,5 @@
 bison
 cmake
-ffmpeg
 galculator
 iptraf-ng
 p7zip-full
@@ -9,3 +8,4 @@ python3-launchpadlib
 software-properties-common
 stress-ng
 xsel
+zsh

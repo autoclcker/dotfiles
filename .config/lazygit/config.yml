@@ -165,7 +165,7 @@ keybinding:
     nextPage: <c-f>
     scrollLeft: H
     scrollRight: L
-    gotoTop: <
+    gotoTop: '<'
     gotoBottom: '>'
     gotoTop-alt: <home>
     gotoBottom-alt: <end>
@@ -184,14 +184,14 @@ keybinding:
       - "3"
       - "4"
       - "5"
-    focusMainView: <tab>
+    focusMainView: <enter>
     nextMatch: "n"
     prevMatch: "N"
     startSearch: /
     optionMenu: <disabled>
     optionMenu-alt1: '?'
     select: <space>
-    goInto: <enter>
+    goInto: <c-z>
     confirm: <enter>
     confirmInEditor: <a-enter>
     remove: d

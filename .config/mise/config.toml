@@ -46,6 +46,7 @@
 "ubi:muesli/duf" = "latest"
 btop = "latest"
 cheat = "latest"
+ffmpeg = "latest"
 imagemagick = "latest"
 neovim = "latest"
 starship = "latest"
@@ -58,6 +59,7 @@ vim = "latest"
 disable_hints = ["registry"]
 experimental = true
 not_found_auto_install = false
+plugin_autoupdate_last_check_duration = '0'
 
 [settings.cargo]
 binstall = true

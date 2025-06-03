@@ -2,6 +2,8 @@
 
 XDG_CONFIG_HOME=${XDG_CONFIG_HOME:-"$HOME/.config"}
 
+ZSH_OHMYZSH_URL=${ZSH_OHMYZSH_URL:-"https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh"}
+
 CHEATSHEETS_REPO=${CHEATSHEETS_REPO:-"https://github.com/cheat/cheatsheets.git"}
 HELM_DIFF_REPO=${HELM_DIFF_REPO:-"https://github.com/databus23/helm-diff"}
 NERD_FONTS_REPO=${NERD_FONTS_REPO:-"https://github.com/ryanoasis/nerd-fonts.git"}
@@ -76,8 +78,8 @@ if env | grep --quiet "XDG_CURRENT_DESKTOP=.*GNOME"; then
   gsettings set org.gnome.settings-daemon.plugins.media-keys terminal "['<Super>t']"
   gsettings set org.gnome.settings-daemon.plugins.media-keys www "['<Super>f']"
   gsettings set org.gnome.shell.extensions.pop-cosmic overlay-key-action 'LAUNCHER'
-  gsettings set org.gnome.shell.keybindings toggle-message-tray "['<Super>d']"
-  gsettings set org.gnome.shell.keybindings toggle-overview "['<Super>BackSpace']"
+  gsettings set org.gnome.shell.keybindings toggle-message-tray "['<Super>c']"
+  gsettings set org.gnome.shell.keybindings toggle-overview "['<Super>d']"
   for ((i = 1; i <= "$WORKSPACES_COUNT"; i++)); do
     gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-"$i" "['<Super>$i']"
     gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-"$i" "['<Super><Shift>$i']"
@@ -125,6 +127,7 @@ printf "\e[1;96m%s\e[0m\n" "Yazi is configured"
 
 # ZSH
 if [[ ! -d "${HOME}/.oh-my-zsh/custom/plugins/zsh-autosuggestions" ]]; then
+  sh -c "$(curl --fail --silent --show-error --location  "$ZSH_OHMYZSH_URL")"
   git clone --depth 1 "${ZSH_AUTOSUGGESTIONS_REPO}" "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-autosuggestions"
   git clone --depth 1 "${ZSH_SYNTAX_HIGHLIGHTING_REPO}" "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting"
 else
