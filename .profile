@@ -2,11 +2,13 @@ alias copy='xsel --input --clipboard'
 alias diffo='diffoci diff --semantic'
 alias dog='doggo'
 alias e='nvim'
+alias gi='lazygit'
+alias doc='lazydocker'
 alias gol='golangci-lint run --enable-all'
 alias ip='ip -color=always'
 alias j='journalctl'
 alias kc='kubectx'
-alias less='bat -p'
+alias less='bat --plain'
 alias p='printf'
 alias pgadmin='docker run --rm -p 5432:80 \
     --env "PGADMIN_DEFAULT_EMAIL=admin@gmail.com" \
@@ -48,7 +50,7 @@ y() {
 }
 
 djwt() {
-  printf "$@" | jq --raw-input 'split(".") | .[0],.[1] | @base64d | fromjson'
+  printf "%s" "$@" | jq --raw-input 'split(".") | .[0],.[1] | @base64d | fromjson'
 }
 
 # Editor
@@ -65,7 +67,7 @@ export FZF_CTRL_R_OPTS="
 	--bind 'ctrl-/:toggle-preview'
 	--color header:italic"
 export FZF_DEFAULT_COMMAND="rg --files --hidden --follow --glob '!.git'"
-export FZF_DEFAULT_OPTS="-m --height 30% --layout=reverse --border --inline-info"
+export FZF_DEFAULT_OPTS="--multi --height 30% --layout=reverse --border --inline-info"
 
 # Tmux
 export ZSH_TMUX_AUTOSTART=true

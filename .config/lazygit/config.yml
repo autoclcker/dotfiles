@@ -129,10 +129,10 @@ refresher:
 confirmOnQuit: false
 quitOnTopLevelReturn: false
 os:
-  edit: ""
-  editAtLine: ""
-  editAtLineAndWait: ""
-  editInTerminal: false
+  edit: "$EDITOR {{filename}}"
+  editAtLine: "$EDITOR --line={{line}} {{filename}}"
+  editAtLineAndWait: "$EDITOR --block --line={{line}} {{filename}}"
+  editInTerminal: true
   openDirInEditor: ""
   editPreset: ""
   open: ""
@@ -153,8 +153,8 @@ promptToReturnFromSubprocess: true
 keybinding:
   universal:
     quit: q
-    quit-alt1: <esc>
-    return: <c-c>
+    quit-alt1: <c-c>
+    return: <esc>
     quitWithoutChangingDirectory: Q
     togglePanel: <tab>
     prevItem: <up>

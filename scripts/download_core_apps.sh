@@ -8,6 +8,7 @@ DOCKER_SBOM_URL=${DOCKER_SBOM_URL:-"https://raw.githubusercontent.com/docker/sbo
 DOCKER_SLIM_URL=${DOCKER_SLIM_URL:-"https://raw.githubusercontent.com/slimtoolkit/slim/master/scripts/install-slim.sh"}
 DOCKER_URL=${DOCKER_URL:-"https://get.docker.com/"}
 MISE_URL=${MISE_URL:-"https://mise.run"}
+OH_MY_ZSH_URL=${OH_MY_ZSH_URL:-"https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh"}
 VSCODIUM_URL=${VSCODIUM_URL:-"https://download.vscodium.com"}
 
 VSCODIUM_REPO=${VSCODIUM_REPO:-"https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo"}
@@ -82,6 +83,13 @@ if [[ ! -f /etc/apt/sources.list.d/hluk-ubuntu-copyq-jammy.list ]] && [[ "$INSTA
   sudo apt-get update && sudo apt install copyq --yes
 else
   printf "\e[1;96m%s\e[0m\n" "CopyQ is already installed"
+fi
+
+# Install Oh My Zsh
+if [[ ! -d "${HOME}/.oh-my-zsh" ]]; then
+  sh -c "$(curl --fail --silent --show-error --location  "$OH_MY_ZSH_URL")"
+else
+  printf "\e[1;96m%s\e[0m\n" "Oh My Zsh is already installed"
 fi
 
 exit 0

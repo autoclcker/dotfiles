@@ -22,6 +22,9 @@ eval "$(zoxide init bash)"
 # Fzf
 eval "$(fzf --bash)"
 
+# Delta
+eval "$(delta --generate-completion bash)"
+
 # Thefuck
 eval "$(thefuck --alias)"
 

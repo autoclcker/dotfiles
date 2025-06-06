@@ -467,7 +467,7 @@ bind -n M-, swap-window -t -1\; select-window -t -1
 bind -n M-. swap-window -t +1\; select-window -t +1
 
 # rename window
-bind -n M-[ command-prompt -I "#W" "rename-window '%%'"
+bind 4 command-prompt -I "#W" "rename-window '%%'"
 
 # create/destroy session
 bind -n M-n new-session

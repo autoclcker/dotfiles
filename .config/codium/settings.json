@@ -19,8 +19,7 @@
                 "f"
             ],
             "before": [
-                "<leader>",
-                "f"
+                "End"
             ]
         },
         {
@@ -30,8 +29,7 @@
                 "F"
             ],
             "before": [
-                "<leader>",
-                "F"
+                "Home"
             ]
         },
         {
