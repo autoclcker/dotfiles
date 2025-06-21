@@ -1,7 +1,5 @@
 bison
 cmake
-galculator
-iptraf-ng
 p7zip-full
 pkg-config
 python3-launchpadlib

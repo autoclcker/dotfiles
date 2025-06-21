@@ -38,9 +38,9 @@ rga-fzf() {
 }
 
 y() {
-  local tmp
+  local tmp cwd
   tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
-  local cwd=$tmp
+  cwd="$tmp"
   yazi "$@" --cwd-file="$tmp"
   printf "\x1b[\x35 q" # change cursor to steady bar
   if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then

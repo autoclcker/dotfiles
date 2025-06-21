@@ -86,6 +86,7 @@ plugins=(
 	bazel
 	command-not-found
 	copyfile
+	dircycle
 	fancy-ctrl-z
 	fzf
 	git
@@ -154,4 +155,3 @@ echo -en "\e[=2c"
 
 # Generated for envman. Do not edit.
 # [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
-

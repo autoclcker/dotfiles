@@ -59,12 +59,13 @@ fi
 
 # GNOME
 if env | grep --quiet "XDG_CURRENT_DESKTOP=.*GNOME"; then
-  gsettings set  org.gnome.shell.extensions.pop-shell tile-orientation "['<Super>r']"
   gsettings set org.gnome.desktop.wm.keybindings always-on-top "['<Super>u']"
   gsettings set org.gnome.desktop.wm.keybindings cycle-group "['<Super>apostrophe']"
   gsettings set org.gnome.desktop.wm.keybindings cycle-group-backward "['<Shift><Super>apostrophe']"
   gsettings set org.gnome.desktop.wm.keybindings switch-group "['<Super>period']"
   gsettings set org.gnome.desktop.wm.keybindings switch-group-backward "['<Super>comma']"
+  gsettings set org.gnome.desktop.wm.keybindings switch-input-source "['<Super>space']"
+  gsettings set org.gnome.desktop.wm.keybindings switch-input-source-backward "['<Super>backspace']"
   gsettings set org.gnome.desktop.wm.keybindings switch-windows "['<Super>bracketright']"
   gsettings set org.gnome.desktop.wm.keybindings switch-windows-backward "['<Super>bracketleft']"
   gsettings set org.gnome.desktop.wm.keybindings toggle-maximized "['<Super>z']"
@@ -72,17 +73,17 @@ if env | grep --quiet "XDG_CURRENT_DESKTOP=.*GNOME"; then
   gsettings set org.gnome.desktop.wm.preferences num-workspaces "$WORKSPACES_COUNT"
   gsettings set org.gnome.mutter dynamic-workspaces false
   gsettings set org.gnome.mutter workspaces-only-on-primary false
-  gsettings set org.gnome.settings-daemon.plugins.media-keys control-center "['<Shift><Super>comma']"
+  gsettings set org.gnome.settings-daemon.plugins.media-keys control-center "['<Super>c']"
   gsettings set org.gnome.settings-daemon.plugins.media-keys terminal "['<Super>t']"
   gsettings set org.gnome.settings-daemon.plugins.media-keys www "['<Super>f']"
   gsettings set org.gnome.shell.extensions.pop-cosmic overlay-key-action 'LAUNCHER'
-  gsettings set org.gnome.shell.keybindings toggle-message-tray "['<Super>c']"
-  gsettings set org.gnome.shell.keybindings toggle-overview "['<Super>d']"
+  gsettings set org.gnome.shell.extensions.pop-shell tile-orientation "['<Super>r']"
+  gsettings set org.gnome.shell.keybindings toggle-message-tray "['Tools']"
+  gsettings set org.gnome.shell.keybindings toggle-overview "['LaunchA']"
   for ((i = 1; i <= "$WORKSPACES_COUNT"; i++)); do
     gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-"$i" "['<Super>$i']"
     gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-"$i" "['<Super><Shift>$i']"
   done
-  sudo ln --symbolic --force /usr/bin/galculator /usr/bin/gnome-calculator
   printf "\e[1;96m%s\e[0m\n" "GNOME is configured"
 fi
 

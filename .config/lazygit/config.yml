@@ -184,14 +184,14 @@ keybinding:
       - "3"
       - "4"
       - "5"
-    focusMainView: <enter>
+    focusMainView: <a-enter>
     nextMatch: "n"
     prevMatch: "N"
     startSearch: /
     optionMenu: <disabled>
     optionMenu-alt1: '?'
     select: <space>
-    goInto: <c-z>
+    goInto: <enter>
     confirm: <enter>
     confirmInEditor: <a-enter>
     remove: d
