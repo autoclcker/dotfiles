@@ -42,6 +42,14 @@ sync: ### Synchronize configurations
 	@./scripts/install_tools.sh
 .PHONY: sync
 
+upgrade: ### Upgrade setup
+	@mise upgrade
+	@nvim --headless "+Lazy! sync" +qa
+	@omz update
+	@tldr --update
+	@ya pkg upgrade
+.PHONY: upgrade
+
 help: ## Display this help screen
 	@awk 'BEGIN {FS = ":.*##"; printf "\nUsage:\n  make \033[36m<target>\033[0m\n"} \
 	/^[/a-zA-Z_-]+:.*?##/ { printf "  \033[36m%-15s\033[0m %s\n", $$1, $$2 } \

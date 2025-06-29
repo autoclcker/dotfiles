@@ -1,5 +1,6 @@
 [tools]
 "cargo:alacritty" = "latest"
+"cargo:bandwhich" = "latest"
 "cargo:bat" = "latest"
 "cargo:du-dust" = "latest"
 "cargo:eza" = "latest"
@@ -7,6 +8,7 @@
 "cargo:git-delta" = "latest"
 "cargo:gping" = "latest"
 "cargo:hyperfine" = "latest"
+"cargo:kmon" = "latest"
 "cargo:onefetch" = "latest"
 "cargo:ouch" = "latest"
 "cargo:procs" = "latest"
@@ -66,4 +68,3 @@ binstall = true
 
 [env]
 BINSTALL_DISABLE_TELEMETRY = true
-

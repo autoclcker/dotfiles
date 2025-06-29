@@ -78,7 +78,7 @@ if env | grep --quiet "XDG_CURRENT_DESKTOP=.*GNOME"; then
   gsettings set org.gnome.settings-daemon.plugins.media-keys www "['<Super>f']"
   gsettings set org.gnome.shell.extensions.pop-cosmic overlay-key-action 'LAUNCHER'
   gsettings set org.gnome.shell.extensions.pop-shell tile-orientation "['<Super>r']"
-  gsettings set org.gnome.shell.keybindings toggle-message-tray "['Tools']"
+  gsettings set org.gnome.shell.keybindings toggle-message-tray "['Help']"
   gsettings set org.gnome.shell.keybindings toggle-overview "['LaunchA']"
   for ((i = 1; i <= "$WORKSPACES_COUNT"; i++)); do
     gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-"$i" "['<Super>$i']"
@@ -103,7 +103,7 @@ else
 fi
 
 # Yazi
-ya pack --install
+ya pkg install
 if [[ ! -d "${YAZI_SMART_PASTE_PATH}" ]]; then
   mkdir --parents "${YAZI_SMART_PASTE_PATH}"
   cat <<EOF >"$YAZI_SMART_PASTE_PATH/main.lua"
@@ -126,6 +126,7 @@ printf "\e[1;96m%s\e[0m\n" "Yazi is configured"
 
 # ZSH
 if [[ ! -d "${HOME}/.oh-my-zsh/custom/plugins/zsh-autosuggestions" ]]; then
+  zstyle ':omz:update' mode disabled
   git clone --depth 1 "${ZSH_AUTOSUGGESTIONS_REPO}" "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-autosuggestions"
   git clone --depth 1 "${ZSH_SYNTAX_HIGHLIGHTING_REPO}" "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting"
 else

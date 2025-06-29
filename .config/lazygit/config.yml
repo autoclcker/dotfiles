@@ -130,8 +130,8 @@ confirmOnQuit: false
 quitOnTopLevelReturn: false
 os:
   edit: "$EDITOR {{filename}}"
-  editAtLine: "$EDITOR --line={{line}} {{filename}}"
-  editAtLineAndWait: "$EDITOR --block --line={{line}} {{filename}}"
+  editAtLine: "$EDITOR {{filename}}"
+  editAtLineAndWait: "$EDITOR {{filename}}"
   editInTerminal: true
   openDirInEditor: ""
   editPreset: ""

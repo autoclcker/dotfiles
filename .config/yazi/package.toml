@@ -1,17 +1,17 @@
 [[plugin.deps]]
 use = "yazi-rs/plugins:full-border"
-rev = "aeca767"
+rev = "2ad42fa"
 hash = "3996fc74044bc44144b323686f887e1"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:smart-enter"
-rev = "aeca767"
-hash = "a7ab702e1ef0c097defbc976ed34c186"
+rev = "2ad42fa"
+hash = "56fdabc96fc1f4d53c96eb884b02a5be"
 
 [[plugin.deps]]
 use = "Reledia/glow"
-rev = "2da96e3"
-hash = "f9ee1436e3b853508d87f7d49dce56e6"
+rev = "bd3eaa5"
+hash = "92b5c58159a51c567f82b618cee2b78"
 
 [[plugin.deps]]
 use = "dedukun/bookmarks"
@@ -20,13 +20,13 @@ hash = "1d231a808d3344546380df33daf43e91"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:git"
-rev = "aeca767"
-hash = "bf6f074cd41ee33c3360341d168f9733"
+rev = "2ad42fa"
+hash = "e01006bfb38951ea89031bd918b20dbb"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:smart-filter"
-rev = "aeca767"
-hash = "4d82cd9e7534d976f000edf9c0f68d8f"
+rev = "2ad42fa"
+hash = "a9d553bd19a3cd7f4eab3abaac5d67ff"
 
 [[plugin.deps]]
 use = "Lil-Dank/lazygit"
@@ -40,8 +40,8 @@ hash = "d5a74d95c2e8194ac352c5e10e81e64f"
 
 [[plugin.deps]]
 use = "pirafrank/what-size"
-rev = "0a4904c"
-hash = "fca231a128488a554823374f8f6d5241"
+rev = "d896656"
+hash = "62251f94eb67648d42cdfcfb8be0fad2"
 
 [[plugin.deps]]
 use = "AnirudhG07/plugins-yazi:copy-file-contents"
@@ -55,13 +55,13 @@ hash = "22e1bd3dd03894746a3540b5f3729d0c"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:toggle-pane"
-rev = "aeca767"
-hash = "d5d4f3527592da5fbe77fd6f51815f80"
+rev = "2ad42fa"
+hash = "d6f60c24d8c0cf57a855bf46115b2502"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:chmod"
-rev = "aeca767"
-hash = "d0ad0c1946b46a30c8489735fe8de41c"
+rev = "2ad42fa"
+hash = "1adc12c2b2b025411ab61eb8f0879574"
 
 [[plugin.deps]]
 use = "ndtoan96/ouch"
@@ -70,13 +70,13 @@ hash = "63679f3daf8551ff8755be38b5ced0f"
 
 [[plugin.deps]]
 use = "boydaihungst/restore"
-rev = "b7c3376"
-hash = "d9dbd61d8b814e74a5420dba1e4788c4"
+rev = "2c2802d"
+hash = "6513e9224b29ac1e2b3a7326ff648e81"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:smart-paste"
-rev = "aeca767"
-hash = "6fe47945aff6571d76f3beb65099ad7a"
+rev = "2ad42fa"
+hash = "a8050052e59f3952abe0b3e27a5843de"
 
 [flavor]
 deps = []
