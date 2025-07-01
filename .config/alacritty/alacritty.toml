@@ -157,6 +157,11 @@ mods= "Control"
 chars= "\uE002"
 
 [[keyboard.bindings]]
+key= "Tab"
+mods= "Control"
+chars= "\uE003"
+
+[[keyboard.bindings]]
 key = "Insert"
 mods = "Shift"
 action = "Paste"

@@ -125,8 +125,8 @@ fi
 printf "\e[1;96m%s\e[0m\n" "Yazi is configured"
 
 # ZSH
+zsh -c "zstyle ':omz:update' mode disabled"
 if [[ ! -d "${HOME}/.oh-my-zsh/custom/plugins/zsh-autosuggestions" ]]; then
-  zstyle ':omz:update' mode disabled
   git clone --depth 1 "${ZSH_AUTOSUGGESTIONS_REPO}" "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-autosuggestions"
   git clone --depth 1 "${ZSH_SYNTAX_HIGHLIGHTING_REPO}" "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting"
 else

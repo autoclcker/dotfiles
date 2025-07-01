@@ -6,6 +6,7 @@ CONFIG_ARR = alacritty btop cheat copyq dive k9s lazydocker lazygit mise nvim po
 
 CONFIG_DIR = ${PWD}/.config
 XDG_CONFIG_HOME = ${HOME}/.config
+ZSH = ${HOME}/.oh-my-zsh
 
 SHORT_COMMIT=$(shell git rev-parse --short HEAD)
 
@@ -43,9 +44,9 @@ sync: ### Synchronize configurations
 .PHONY: sync
 
 upgrade: ### Upgrade setup
+	@${ZSH}/tools/upgrade.sh
 	@mise upgrade
 	@nvim --headless "+Lazy! sync" +qa
-	@omz update
 	@tldr --update
 	@ya pkg upgrade
 .PHONY: upgrade

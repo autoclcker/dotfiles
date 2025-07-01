@@ -104,6 +104,7 @@ tmux_conf_theme_colour_15="#080808"   # dark gray
 tmux_conf_theme_colour_16="#d70000"   # red
 tmux_conf_theme_colour_17="#e4e4e4"   # white
 tmux_conf_theme_colour_18="#11fc00"   # bright green
+tmux_conf_theme_colour_19="#1a1818"   # inky
 
 # default theme (ansi)
 #tmux_conf_theme_colour_1="colour0"
@@ -194,8 +195,8 @@ tmux_conf_theme_terminal_title=" #S   #I #W"
 #     - #{hostname_full_ssh}
 #     - #{username}
 #     - #{username_ssh}
-tmux_conf_theme_window_status_fg="$tmux_conf_theme_colour_3"
-tmux_conf_theme_window_status_bg="$tmux_conf_theme_colour_1"
+tmux_conf_theme_window_status_fg="$tmux_conf_theme_colour_4"
+tmux_conf_theme_window_status_bg="$tmux_conf_theme_colour_19"
 tmux_conf_theme_window_status_attr="none"
 tmux_conf_theme_window_status_format="#I #W#{?#{||:#{window_bell_flag},#{window_zoomed_flag}}, ,}#{?window_bell_flag,!,}#{?window_zoomed_flag,Z,}"
 #tmux_conf_theme_window_status_format="#{circled_window_index} #W#{?#{||:#{window_bell_flag},#{window_zoomed_flag}}, ,}#{?window_bell_flag,!,}#{?window_zoomed_flag,Z,}"
@@ -219,9 +220,9 @@ tmux_conf_theme_window_status_current_format="#I #W#{?#{||:#{window_bell_flag},#
 #tmux_conf_theme_window_status_current_format="#I #W#{?#{||:#{window_bell_flag},#{window_zoomed_flag}}, ,}#{?window_bell_flag,🔔,}#{?window_zoomed_flag,🔍,}"
 
 # window activity status style
-tmux_conf_theme_window_status_activity_fg="$tmux_conf_theme_colour_13"
-tmux_conf_theme_window_status_activity_bg="default"
-tmux_conf_theme_window_status_activity_attr="underscore"
+tmux_conf_theme_window_status_activity_fg="$tmux_conf_theme_colour_11"
+tmux_conf_theme_window_status_activity_bg="$tmux_conf_theme_colour_19"
+tmux_conf_theme_window_status_activity_attr="bold"
 
 # window bell status style
 tmux_conf_theme_window_status_bell_fg="$tmux_conf_theme_colour_5"
@@ -229,9 +230,9 @@ tmux_conf_theme_window_status_bell_bg="default"
 tmux_conf_theme_window_status_bell_attr="blink,bold"
 
 # window last status style
-tmux_conf_theme_window_status_last_fg="$tmux_conf_theme_colour_4"
+tmux_conf_theme_window_status_last_fg="$tmux_conf_theme_colour_13"
 tmux_conf_theme_window_status_last_bg="$tmux_conf_theme_colour_2"
-tmux_conf_theme_window_status_last_attr="none"
+tmux_conf_theme_window_status_last_attr="bold"
 
 # status left/right sections separators
 # tmux_conf_theme_left_separator_main=""
@@ -408,6 +409,11 @@ bind -nr M-r rotate-window -U
 
 # switch to the previous pane
 bind -n \uE000 last-pane
+
+# switch to the previous window
+bind -n \uE003 last-window
+
+# switch to the N-th pane
 bind -n M-1 select-pane -t 1
 bind -n M-2 select-pane -t 2
 bind -n M-3 select-pane -t 3

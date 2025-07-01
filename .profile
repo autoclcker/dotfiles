@@ -9,6 +9,7 @@ alias ip='ip -color=always'
 alias j='journalctl'
 alias kc='kubectx'
 alias less='bat --plain'
+alias ntop='sudo $(command -v bandwhich)'
 alias p='printf'
 alias pgadmin='docker run --rm -p 5432:80 \
     --env "PGADMIN_DEFAULT_EMAIL=admin@gmail.com" \

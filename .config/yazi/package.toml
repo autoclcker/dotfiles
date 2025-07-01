@@ -50,8 +50,8 @@ hash = "f8530ee84fee95dbcc26bb1d8d8019c7"
 
 [[plugin.deps]]
 use = "ahkohd/eza-preview"
-rev = "7a93433"
-hash = "22e1bd3dd03894746a3540b5f3729d0c"
+rev = "b114b01"
+hash = "7676d7da18953f4351048004ab45f0f4"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:toggle-pane"
