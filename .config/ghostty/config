@@ -35,6 +35,7 @@ keybind = alt+8=unbind
 keybind = alt+9=unbind
 keybind = ctrl+shift+left=unbind
 keybind = ctrl+shift+right=unbind
+keybind = ctrl+enter=unbind
 
 keybind = ctrl+alt+k=goto_split:up
 keybind = ctrl+alt+j=goto_split:down
@@ -61,6 +62,8 @@ keybind = ctrl+alt+s=new_split:down
 keybind = ctrl+alt+v=new_split:right
 keybind = ctrl+alt+z=toggle_split_zoom
 keybind = ctrl+alt+x=close_surface
+keybind = ctrl+shift+z=toggle_fullscreen
+keybind = shift+insert=paste_from_clipboard
 
 keybind = ctrl+backspace=csi:127;5u
 keybind = ctrl+tab=csi:27;5;9~
@@ -76,4 +79,3 @@ keybind = ctrl+6=csi:54;5u
 keybind = ctrl+7=csi:55;5u
 keybind = ctrl+8=csi:56;5u
 keybind = ctrl+9=csi:57;5u
-
