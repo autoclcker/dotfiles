@@ -7,6 +7,7 @@ INSTALL_DOCKER=${INSTALL_DOCKER:-true}
 DOCKER_SBOM_URL=${DOCKER_SBOM_URL:-"https://raw.githubusercontent.com/docker/sbom-cli-plugin/main/install.sh"}
 DOCKER_SLIM_URL=${DOCKER_SLIM_URL:-"https://raw.githubusercontent.com/slimtoolkit/slim/master/scripts/install-slim.sh"}
 DOCKER_URL=${DOCKER_URL:-"https://get.docker.com/"}
+GHOSTTY_URL=${GHOSTTY_URL:-"https://raw.githubusercontent.com/mkasberg/ghostty-ubuntu/HEAD/install.sh"}
 MISE_URL=${MISE_URL:-"https://mise.run"}
 OH_MY_ZSH_URL=${OH_MY_ZSH_URL:-"https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh"}
 VSCODIUM_URL=${VSCODIUM_URL:-"https://download.vscodium.com"}
@@ -90,6 +91,13 @@ if [[ ! -d "${HOME}/.oh-my-zsh" ]]; then
   sh -c "$(curl --fail --silent --show-error --location  "$OH_MY_ZSH_URL")"
 else
   printf "\e[1;96m%s\e[0m\n" "Oh My Zsh is already installed"
+fi
+
+# Install Ghostty
+if [[ ! $(ghostty --version) ]]; then
+  sh -c "$(curl --fail --silent --show-error --location  "$GHOSTTY_URL")"
+else
+  printf "\e[1;96m%s\e[0m\n" "Ghostty is already installed"
 fi
 
 exit 0

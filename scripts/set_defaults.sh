@@ -22,13 +22,13 @@ set -o errexit  # abort on nonzero exitstatus
 set -o nounset  # abort on unbound variable
 set -o pipefail # don't hide errors within pipes
 
-# Alacritty
-if realpath x-terminal-emulator | grep --quiet --invert-match "alacritty"; then
-  alacritty=$(which alacritty)
-  sudo update-alternatives --install /usr/bin/x-terminal-emulator x-terminal-emulator "$alacritty" 50
-  sudo update-alternatives --set x-terminal-emulator "$alacritty"
+# Ghostty
+if realpath x-terminal-emulator | grep --quiet --invert-match "ghostty"; then
+  ghostty=$(which ghostty)
+  sudo update-alternatives --install /usr/bin/x-terminal-emulator x-terminal-emulator "$ghostty" 50
+  sudo update-alternatives --set x-terminal-emulator "$ghostty"
 else
-  printf "\e[1;96m%s\e[0m\n" "Alacritty is already default terminal"
+  printf "\e[1;96m%s\e[0m\n" "Ghostty is already default terminal"
 fi
 
 # Cheat

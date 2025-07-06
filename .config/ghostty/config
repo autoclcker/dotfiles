@@ -1,0 +1,79 @@
+# https://ghostty.org/docs/config
+font-size = 13
+font-family = "FiraCode Nerd Font"
+font-style = "Regular"
+font-family-bold = "FiraCode Nerd Font"
+font-style-bold = "SemiBold"
+font-family-italic = "Hack Nerd Font"
+font-style-italic = "Italic"
+font-family-bold-italic = "Hack Nerd Font"
+font-style-bold-italic = "BoldItalic"
+
+quick-terminal-animation-duration = 0
+
+foreground = #ffffff
+background = #000000
+cursor-color = #00ffa6
+
+theme = "Molokai"
+window-theme = dark
+
+window-decoration = server
+window-padding-x = 5,1
+confirm-close-surface = false
+
+shell-integration = detect
+
+keybind = alt+1=unbind
+keybind = alt+2=unbind
+keybind = alt+3=unbind
+keybind = alt+4=unbind
+keybind = alt+5=unbind
+keybind = alt+6=unbind
+keybind = alt+7=unbind
+keybind = alt+8=unbind
+keybind = alt+9=unbind
+keybind = ctrl+shift+left=unbind
+keybind = ctrl+shift+right=unbind
+
+keybind = ctrl+alt+k=goto_split:up
+keybind = ctrl+alt+j=goto_split:down
+keybind = ctrl+alt+l=goto_split:right
+keybind = ctrl+alt+h=goto_split:left
+
+keybind = ctrl+alt+up=resize_split:up,20
+keybind = ctrl+alt+down=resize_split:down,20
+keybind = ctrl+alt+right=resize_split:right,20
+keybind = ctrl+alt+left=resize_split:left,20
+keybind = ctrl+alt+\+=equalize_splits
+
+keybind = ctrl+shift+,=move_tab:-1
+keybind = ctrl+shift+.=move_tab:1
+
+keybind = ctrl+shift+j=previous_tab
+keybind = ctrl+shift+k=next_tab
+
+keybind = "alt+d=text:printf "\\e[1;96m%s\\e[0m\\n" $"
+keybind = "alt+g=text: | grep "
+keybind = "alt+i=text:ip -brief address"
+
+keybind = ctrl+alt+s=new_split:down
+keybind = ctrl+alt+v=new_split:right
+keybind = ctrl+alt+z=toggle_split_zoom
+keybind = ctrl+alt+x=close_surface
+
+keybind = ctrl+backspace=csi:127;5u
+keybind = ctrl+tab=csi:27;5;9~
+
+keybind = unconsumed:ctrl+shift+r=reload_config
+
+keybind = ctrl+1=csi:49;5u
+keybind = ctrl+2=csi:50;5u
+keybind = ctrl+3=csi:51;5u
+keybind = ctrl+4=csi:52;5u
+keybind = ctrl+5=csi:53;5u
+keybind = ctrl+6=csi:54;5u
+keybind = ctrl+7=csi:55;5u
+keybind = ctrl+8=csi:56;5u
+keybind = ctrl+9=csi:57;5u
+

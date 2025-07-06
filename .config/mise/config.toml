@@ -1,5 +1,4 @@
 [tools]
-"cargo:alacritty" = "latest"
 "cargo:bandwhich" = "latest"
 "cargo:bat" = "latest"
 "cargo:du-dust" = "latest"
@@ -53,7 +52,6 @@ imagemagick = "latest"
 neovim = "latest"
 starship = "latest"
 tmux = "latest"
-tomcat = "9.0.68"
 usage = "latest"
 vim = "latest"
 

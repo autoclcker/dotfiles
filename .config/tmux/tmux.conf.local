@@ -382,14 +382,15 @@ tmux_conf_urlscan_options="--compact --dedupe"
 
 # this is the place to override or undo settings
 
-bind \uE001 send-prefix
 set -g allow-passthrough on
 set -g cursor-style blinking-bar
 set -g display-panes-time 3000
 set -g history-limit 100000
 set -g mouse on
-set -g prefix \uE001
+set -g prefix C-BSpace
 set -g status-position top
+set -g default-terminal "tmux-253color"
+set -ag terminal-overrides ",xterm-256color:RGB"
 set -gu prefix2
 
 unbind -n C-f
@@ -408,10 +409,10 @@ bind -nr M-R rotate-window -D
 bind -nr M-r rotate-window -U
 
 # switch to the previous pane
-bind -n \uE000 last-pane
+bind -n "C-'" last-pane
 
 # switch to the previous window
-bind -n \uE003 last-window
+bind -n C-Tab last-window
 
 # switch to the N-th pane
 bind -n M-1 select-pane -t 1

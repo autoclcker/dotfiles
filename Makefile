@@ -2,7 +2,7 @@ all: help
 .PHONY: all
 
 HOME_ARR   = .bash_aliases .bashrc .gitconfig .profile .vimrc .vscodevimrc .zlogin .zshrc
-CONFIG_ARR = alacritty btop cheat copyq dive k9s lazydocker lazygit mise nvim pop-shell procps procs tmux wireshark/profiles yazi
+CONFIG_ARR = btop cheat copyq dive ghostty k9s lazydocker lazygit mise nvim pop-shell procps procs tmux wireshark/profiles yazi
 
 CONFIG_DIR = ${PWD}/.config
 XDG_CONFIG_HOME = ${HOME}/.config
@@ -45,6 +45,7 @@ sync: ### Synchronize configurations
 
 upgrade: ### Upgrade setup
 	@${ZSH}/tools/upgrade.sh
+	@yes | mise self-update
 	@mise upgrade
 	@nvim --headless "+Lazy! sync" +qa
 	@tldr --update
