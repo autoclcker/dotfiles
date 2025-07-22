@@ -1,0 +1,40 @@
+backgroundOpaque: &backgroundOpaque "#1a1818"
+green: &green "#a7e24c"
+mint: &mint "#00ffa6"
+purple: &purple "#ff0084"
+red: &red "#da291c"
+
+k9s:
+  body:
+    bgColor: default
+  prompt:
+    bgColor: default
+  info:
+    sectionColor: default
+  dialog:
+    bgColor: default
+  frame:
+    menu:
+      numKeyColor: *mint
+    crumbs:
+      bgColor: default
+    title:
+      bgColor: default
+      highlightColor: *green
+      counterColor: *purple
+  views:
+    charts:
+      bgColor: default
+    table:
+      bgColor: default
+      header:
+        bgColor: *backgroundOpaque
+        sorterColor: *red
+    xray:
+      bgColor: default
+    logs:
+      bgColor: default
+      indicator:
+        bgColor: default
+        toggleOnColor: default
+        toggleOffColor: default

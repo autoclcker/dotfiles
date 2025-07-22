@@ -15,7 +15,9 @@
 "cargo:ripgrep_all" = "latest"
 "cargo:ripgrep" = "latest"
 "cargo:sd" = "latest"
+"cargo:systemctl-tui" = "latest"
 "cargo:tealdeer" = "latest"
+"cargo:timr-tui" = "latest"
 "cargo:yazi-cli" = "latest"
 "cargo:yazi-fm" = "latest"
 "cargo:zoxide" = "latest"
@@ -24,6 +26,7 @@
 "go:github.com/google/yamlfmt/cmd/yamlfmt" = "latest"
 "go:github.com/jesseduffield/lazydocker" = "latest"
 "go:github.com/jesseduffield/lazygit" = "latest"
+"go:github.com/maaslalani/draw" = "latest"
 "go:github.com/mikefarah/yq/v4" = "latest"
 "go:github.com/mr-karan/doggo/cmd/doggo" = "latest"
 "go:github.com/reproducible-containers/diffoci/cmd/diffoci" = "latest"
@@ -37,7 +40,6 @@
 "pipx:ansible-navigator" = "latest"
 "pipx:httpie" = "latest"
 "pipx:ipython" = "latest"
-"pipx:s-tui" = "latest"
 "pipx:thefuck" = { version = "latest", pipx_args = "--python 3.11.9" }
 "pipx:trash-cli" = "latest"
 "ubi:clangd/clangd" = "latest"
@@ -66,3 +68,4 @@ binstall = true
 
 [env]
 BINSTALL_DISABLE_TELEMETRY = true
+

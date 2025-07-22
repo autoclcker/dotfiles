@@ -124,14 +124,13 @@ source $ZSH/oh-my-zsh.sh
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#6e6e6e,bg=#000000,bold"
 PROMPT_EOL_MARK=''
 bindkey '^ ' autosuggest-accept
-bindkey -r '\C-t'
 bindkey -M menuselect 'h' vi-backward-char
 bindkey -M menuselect 'k' vi-up-line-or-history
 bindkey -M menuselect 'l' vi-forward-char
 bindkey -M menuselect 'j' vi-down-line-or-history
-bindkey -M emacs '\uE002' sudo-command-line
-bindkey -M vicmd '\uE002' sudo-command-line
-bindkey -M viins '\uE002' sudo-command-line
+bindkey -M emacs '^[[28;5;9~' sudo-command-line
+bindkey -M vicmd '^[[28;5;9~' sudo-command-line
+bindkey -M viins '^[[28;5;9~' sudo-command-line
 
 # User configuration
 
@@ -151,7 +150,7 @@ export LANG=en_US.UTF-8
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-echo -en "\e[=2c"
+# echo -en "\e[=2c"
 
 # Generated for envman. Do not edit.
 # [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"

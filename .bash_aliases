@@ -1,5 +1,5 @@
 alias grep='rg'
-alias lt='eza --tree --color=always --icons=always'
+alias lR='eza --tree --color=always --icons=always'
 
 if [ -f "$HOME/.profile" ]; then
   source "$HOME/.profile"
