@@ -54,7 +54,7 @@ keybind = ctrl+shift+j=previous_tab
 keybind = ctrl+shift+k=next_tab
 
 keybind = "alt+d=text:printf "\\e[1;96m%s\\e[0m\\n" $"
-keybind = "alt+h=text:fc -l"
+keybind = "alt+h=text:IFS=$'\\n' arr=($(fc -l | cut --characters 1-55)); select i in "${arr[@]}"; do fc "${i%% *}"; break; done"
 keybind = "alt+g=text: | grep "
 keybind = "alt+i=text:ip -brief address"
 

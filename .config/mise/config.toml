@@ -1,12 +1,14 @@
 [tools]
 "cargo:bandwhich" = "latest"
 "cargo:bat" = "latest"
+"cargo:bluetui" = "latest"
 "cargo:du-dust" = "latest"
 "cargo:eza" = "latest"
 "cargo:fd-find" = "latest"
 "cargo:git-delta" = "latest"
 "cargo:gping" = "latest"
 "cargo:hyperfine" = "latest"
+"cargo:jwt-cli" = "latest"
 "cargo:kmon" = "latest"
 "cargo:onefetch" = "latest"
 "cargo:ouch" = "latest"
@@ -27,6 +29,7 @@
 "go:github.com/jesseduffield/lazydocker" = "latest"
 "go:github.com/jesseduffield/lazygit" = "latest"
 "go:github.com/maaslalani/draw" = "latest"
+"go:github.com/Macmod/godap" = "latest"
 "go:github.com/mikefarah/yq/v4" = "latest"
 "go:github.com/mr-karan/doggo/cmd/doggo" = "latest"
 "go:github.com/reproducible-containers/diffoci/cmd/diffoci" = "latest"
@@ -68,4 +71,3 @@ binstall = true
 
 [env]
 BINSTALL_DISABLE_TELEMETRY = true
-

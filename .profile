@@ -23,7 +23,7 @@ alias pgadmin='docker run --rm -p 5432:80 \
 alias procsi='procs --watch --watch-interval 2'
 alias procst='procs --tree'
 alias s='systemctl'
-alias stui='systemctl-tui'
+alias stui='sudo $(command -v systemctl-tui)'
 alias ttui='timr-tui'
 alias ungron="gron --ungron"
 alias wp='nmcli device wifi show-password'
@@ -53,10 +53,6 @@ y() {
     pushd -- "$cwd" || exit 1
   fi
   rm -f -- "$tmp"
-}
-
-djwt() {
-  printf "%s" "$@" | jq --raw-input 'split(".") | .[0],.[1] | @base64d | fromjson'
 }
 
 # Editor
