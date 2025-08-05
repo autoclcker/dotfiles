@@ -1,6 +1,7 @@
 [tools]
 "cargo:bandwhich" = "latest"
 "cargo:bat" = "latest"
+"cargo:binsider" = "latest"
 "cargo:bluetui" = "latest"
 "cargo:du-dust" = "latest"
 "cargo:eza" = "latest"

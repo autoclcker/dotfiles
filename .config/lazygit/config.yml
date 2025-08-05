@@ -184,7 +184,7 @@ keybinding:
       - "3"
       - "4"
       - "5"
-    focusMainView: <a-enter>
+    focusMainView: <c-v>
     nextMatch: "n"
     prevMatch: "N"
     startSearch: /
@@ -238,7 +238,7 @@ keybinding:
     commitChangesWithoutHook: w
     amendLastCommit: A
     commitChangesWithEditor: C
-    findBaseCommitForFixup: <c-f>
+    findBaseCommitForFixup: <c-o>
     confirmDiscard: x
     ignoreFile: i
     refreshFiles: r

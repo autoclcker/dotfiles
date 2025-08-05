@@ -16,8 +16,6 @@ k9s:
   frame:
     menu:
       numKeyColor: *mint
-    crumbs:
-      bgColor: default
     title:
       bgColor: default
       highlightColor: *green

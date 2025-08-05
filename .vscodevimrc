@@ -1,5 +1,7 @@
 cnoremap <C-a> <Home>
 cnoremap <C-e> <End>
+cnoremap <C-f> <Right>
+cnoremap <C-B> <Left>
 map <C-g> :marks<CR>
 map <C-h> :registers<CR>
 map <C-l> :nohlsearch<CR>
