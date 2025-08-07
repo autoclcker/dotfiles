@@ -30,8 +30,8 @@ hash = "e56b7abf3c06e8ce496eadcca168c093"
 
 [[plugin.deps]]
 use = "Lil-Dank/lazygit"
-rev = "7a08a09"
-hash = "a1fa2b3e1826c3a34804ea8c548e9f80"
+rev = "8f37dc5"
+hash = "ee71543790f0ce3951161045a3787abd"
 
 [[plugin.deps]]
 use = "Rolv-Apneseth/starship"

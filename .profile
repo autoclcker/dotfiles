@@ -24,6 +24,7 @@ alias procsi='procs --watch --watch-interval 2'
 alias procst='procs --tree'
 alias s='systemctl'
 alias stui='sudo $(command -v systemctl-tui)'
+alias sql='lazysql'
 alias ttui='timr-tui'
 alias ungron="gron --ungron"
 alias wp='nmcli device wifi show-password'
