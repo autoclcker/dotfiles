@@ -219,7 +219,7 @@ keybinding:
     filteringMenu: <c-s>
     diffingMenu: W
     diffingMenu-alt: <c-e>
-    copyToClipboard: y
+    copyToClipboard: Y
     openRecentRepos: <c-r>
     submitEditorText: <enter>
     extrasMenu: '@'
@@ -228,7 +228,7 @@ keybinding:
     decreaseContextInDiffView: '{'
     increaseRenameSimilarityThreshold: )
     decreaseRenameSimilarityThreshold: (
-    openDiffTool: <c-t>
+    openDiffTool: <a-enter>
   status:
     checkForUpdate: u
     recentRepos: <enter>
@@ -256,7 +256,7 @@ keybinding:
   branches:
     createPullRequest: o
     viewPullRequestOptions: O
-    copyPullRequestURL: <c-y>
+    copyPullRequestURL: "y"
     checkoutBranchByName: c
     forceCheckoutBranch: F
     rebaseBranch: r
