@@ -55,9 +55,9 @@ gui:
     show: true
   showListFooter: true
   showFileTree: true
-  showNumstatInFilesView: false
+  showNumstatInFilesView: true
   showRandomTip: false
-  showCommandLog: true
+  showCommandLog: false
   showBottomLine: false
   showPanelJumps: true
   nerdFontsVersion: "3"
@@ -165,8 +165,8 @@ keybinding:
     nextPage: <c-f>
     scrollLeft: H
     scrollRight: L
-    gotoTop: '<'
-    gotoBottom: '>'
+    gotoTop: "^"
+    gotoBottom: "$"
     gotoTop-alt: <home>
     gotoBottom-alt: <end>
     toggleRangeSelect: v
@@ -176,15 +176,15 @@ keybinding:
     nextBlock: <right>
     prevBlock-alt: h
     nextBlock-alt: l
-    nextBlock-alt2: .
-    prevBlock-alt2: ','
+    nextBlock-alt2: <disabled>
+    prevBlock-alt2: <disabled>
     jumpToBlock:
       - "1"
       - "2"
       - "3"
       - "4"
       - "5"
-    focusMainView: <c-v>
+    focusMainView: "6"
     nextMatch: "n"
     prevMatch: "N"
     startSearch: /
@@ -205,7 +205,7 @@ keybinding:
     scrollUpMain-alt2: <c-u>
     scrollDownMain-alt2: <c-d>
     executeShellCommand: ':'
-    createRebaseOptionsMenu: m
+    createRebaseOptionsMenu: <c-o>
     pushFiles: P
     pullFiles: p
     refresh: R
@@ -216,10 +216,10 @@ keybinding:
     prevScreenMode: _
     undo: z
     redo: <c-z>
-    filteringMenu: <c-s>
+    filteringMenu: "!"
     diffingMenu: W
     diffingMenu-alt: <c-e>
-    copyToClipboard: Y
+    copyToClipboard: <c-y>
     openRecentRepos: <c-r>
     submitEditorText: <enter>
     extrasMenu: '@'
@@ -238,7 +238,7 @@ keybinding:
     commitChangesWithoutHook: w
     amendLastCommit: A
     commitChangesWithEditor: C
-    findBaseCommitForFixup: <c-o>
+    findBaseCommitForFixup: b
     confirmDiscard: x
     ignoreFile: i
     refreshFiles: r
@@ -249,7 +249,7 @@ keybinding:
     fetch: f
     toggleTreeView: T
     openMergeTool: M
-    openStatusFilter: <c-b>
+    openStatusFilter: F
     copyFileInfoToClipboard: "y"
     collapseAll: '-'
     expandAll: =
@@ -258,18 +258,18 @@ keybinding:
     viewPullRequestOptions: O
     copyPullRequestURL: "y"
     checkoutBranchByName: c
-    forceCheckoutBranch: F
+    forceCheckoutBranch: f
     rebaseBranch: r
     renameBranch: R
     mergeIntoCurrentBranch: M
     moveCommitsToNewBranch: "N"
     viewGitFlowOptions: i
     fastForward: f
-    createTag: T
+    createTag: t
     pushTag: P
     setUpstream: u
-    fetchRemote: f
-    sortOrder: s
+    fetchRemote: F
+    sortOrder: ","
   worktrees:
     viewWorktreeOptions: w
   commits:
@@ -280,8 +280,8 @@ keybinding:
     markCommitAsFixup: f
     createFixupCommit: F
     squashAboveCommits: S
-    moveDownCommit: <c-j>
-    moveUpCommit: <c-k>
+    moveDownCommit: ">"
+    moveUpCommit: "<"
     amendToCommit: A
     resetCommitAuthor: a
     pickCommit: p
@@ -293,7 +293,7 @@ keybinding:
     checkoutCommit: <space>
     resetCherryPick: <c-R>
     copyCommitAttributeToClipboard: "y"
-    openLogMenu: <c-l>
+    openLogMenu: m
     openInBrowser: o
     viewBisectOptions: b
     startInteractiveRebase: i
@@ -303,7 +303,7 @@ keybinding:
     setAuthor: A
     addCoAuthor: c
   stash:
-    popStash: g
+    popStash: S
     renameStash: r
   commitFiles:
     checkoutCommitFile: c

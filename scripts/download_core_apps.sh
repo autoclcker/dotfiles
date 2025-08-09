@@ -88,14 +88,14 @@ fi
 
 # Install Oh My Zsh
 if [[ ! -d "${HOME}/.oh-my-zsh" ]]; then
-  sh -c "$(curl --fail --silent --show-error --location  "$OH_MY_ZSH_URL")"
+  sh -c "$(curl --fail --silent --show-error --location "$OH_MY_ZSH_URL")"
 else
   printf "\e[1;96m%s\e[0m\n" "Oh My Zsh is already installed"
 fi
 
 # Install Ghostty
 if [[ ! $(ghostty --version) ]]; then
-  sh -c "$(curl --fail --silent --show-error --location  "$GHOSTTY_URL")"
+  bash -c "$(curl --fail --silent --show-error --location "$GHOSTTY_URL")"
 else
   printf "\e[1;96m%s\e[0m\n" "Ghostty is already installed"
 fi
