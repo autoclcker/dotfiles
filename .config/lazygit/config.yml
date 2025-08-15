@@ -219,7 +219,7 @@ keybinding:
     filteringMenu: "!"
     diffingMenu: W
     diffingMenu-alt: <c-e>
-    copyToClipboard: <c-y>
+    copyToClipboard: Y
     openRecentRepos: <c-r>
     submitEditorText: <enter>
     extrasMenu: '@'

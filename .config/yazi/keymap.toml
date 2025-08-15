@@ -267,7 +267,6 @@ keymap = [
 	# Custom
 	{ on = "!", run = 'shell "$SHELL" --block', desc = "Open shell here" },
 	{ on = "'", run = "plugin bookmarks jump", desc = "Jump to a bookmark" },
-	{ on = "C", run = "plugin ouch zip", desc = "Compress with ouch" },
 	{ on = "F", run = "plugin smart-filter", desc = "Smart filter" },
 	{ on = "l", run = "plugin smart-enter", desc = "Enter the child directory, or open the file" },
 	{ on = "m", run = "plugin bookmarks save", desc = "Save current position as a bookmark" },
@@ -276,6 +275,10 @@ keymap = [
 	{ on = "S", run = "plugin toggle-pane max-parent", desc = "Show or hide the parent pane" },
 	{ on = "T", run = "plugin eza-preview", desc = "Toggle tree/list dir preview" },
 	{ on = "u", run = "plugin restore", desc = "Restore last deleted files/folders" },
+	{ on = [
+		"c",
+		"a",
+	], run = "plugin ouch zip", desc = "Compress with ouch" },
 	{ on = [
 		"c",
 		"m",
