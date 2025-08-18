@@ -78,5 +78,10 @@ use = "yazi-rs/plugins:smart-paste"
 rev = "e95c7b3"
 hash = "a8050052e59f3952abe0b3e27a5843de"
 
+[[plugin.deps]]
+use = "uhs-robert/sshfs"
+rev = "5010171"
+hash = "4a57605c3e788f9913f98c8b43f4b1de"
+
 [flavor]
 deps = []

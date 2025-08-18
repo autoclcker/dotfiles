@@ -1,3 +1,17 @@
+Status:children_add(function()
+	local h = cx.active.current.hovered
+	if h == nil or ya.target_family() ~= "unix" then
+		return ""
+	end
+
+	return ui.Line({
+		ui.Span(ya.user_name(h.cha.uid) or tostring(h.cha.uid)):fg("cyan"),
+		":",
+		ui.Span(ya.group_name(h.cha.gid) or tostring(h.cha.gid)):fg("cyan"),
+		" ",
+	})
+end, 500, Status.RIGHT)
+
 require("full-border"):setup()
 
 require("smart-enter"):setup({
@@ -20,20 +34,6 @@ require("bookmarks"):setup({
 	},
 })
 
-Status:children_add(function()
-	local h = cx.active.current.hovered
-	if h == nil or ya.target_family() ~= "unix" then
-		return ""
-	end
-
-	return ui.Line({
-		ui.Span(ya.user_name(h.cha.uid) or tostring(h.cha.uid)):fg("cyan"),
-		":",
-		ui.Span(ya.group_name(h.cha.gid) or tostring(h.cha.gid)):fg("cyan"),
-		" ",
-	})
-end, 500, Status.RIGHT)
-
 require("git"):setup()
 
 require("starship"):setup()
@@ -41,4 +41,15 @@ require("starship"):setup()
 require("copy-file-contents"):setup({
 	append_char = "\n",
 	notification = true,
+})
+
+require("sshfs"):setup({
+  sshfs_options = {
+    "reconnect",
+    "compression=yes",
+    "cache_timeout=300",
+    "ConnectTimeout=10",
+    "dir_cache=yes",
+    "dcache_timeout=600",
+  },
 })
