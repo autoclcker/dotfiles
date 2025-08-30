@@ -78,6 +78,15 @@
         },
         {
             "before": [
+                "<C-w>",
+                "n"
+            ],
+            "commands": [
+                "openEditors.newUntitledFile"
+            ]
+        },
+        {
+            "before": [
                 "]",
                 "e"
             ],
@@ -106,10 +115,20 @@
         {
             "before": [
                 "leader",
-                "c"
+                "C"
             ],
             "commands": [
                 "copyRelativeFilePath"
+            ],
+            "silent": true
+        },
+        {
+            "before": [
+                "leader",
+                "c"
+            ],
+            "commands": [
+                "copyFilePath"
             ],
             "silent": true
         },
@@ -221,7 +240,8 @@
                 "<leader>",
                 "0"
             ]
-        },        {
+        },
+        {
             "after": [
                 "\"",
                 "_"
@@ -290,7 +310,7 @@
         {
             "before": [
                 "g",
-                "k"
+                "l"
             ],
             "commands": [
                 "editor.action.goToImplementation"
@@ -300,7 +320,7 @@
             "before": [
                 "g",
                 "p",
-                "k"
+                "l"
             ],
             "commands": [
                 "editor.action.peekImplementation"
@@ -309,7 +329,7 @@
         {
             "before": [
                 "g",
-                "j"
+                "k"
             ],
             "commands": [
                 "editor.action.goToTypeDefinition"
@@ -319,7 +339,7 @@
             "before": [
                 "g",
                 "p",
-                "j"
+                "k"
             ],
             "commands": [
                 "editor.action.peekTypeDefinition"
@@ -353,6 +373,7 @@
             "silent": true
         }
     ],
+    "vim.normalModeKeyBindingsNonRecursive": [],
     "vim.visualModeKeyBindings": [
         {
             "after": [

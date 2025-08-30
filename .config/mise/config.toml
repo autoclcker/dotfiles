@@ -63,7 +63,7 @@ neovim = "latest"
 starship = "latest"
 tmux = "latest"
 usage = "latest"
-vim = "9.1"
+vim = "9.1.1680"
 
 [settings]
 disable_hints = ["registry"]

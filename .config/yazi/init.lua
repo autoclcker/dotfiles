@@ -44,12 +44,12 @@ require("copy-file-contents"):setup({
 })
 
 require("sshfs"):setup({
-  sshfs_options = {
-    "reconnect",
-    "compression=yes",
-    "cache_timeout=300",
-    "ConnectTimeout=10",
-    "dir_cache=yes",
-    "dcache_timeout=600",
-  },
+	sshfs_options = {
+		"reconnect",
+		"compression=yes",
+		"cache_timeout=10",
+		"ConnectTimeout=10",
+		"dir_cache=yes",
+		"dcache_timeout=20",
+	},
 })

@@ -57,6 +57,7 @@ keybind = "alt+d=text:printf "\\e[1;96m%s\\e[0m\\n" $"
 keybind = "alt+h=text:IFS=$'\\n' PS3='! '; select i in $(fc -l | cut --characters 1-55); do fc "${i%% *}"; break; done"
 keybind = "alt+g=text: | grep "
 keybind = "alt+i=text:ip -brief address"
+keybind = "alt+u=text:findmnt --tree --df"
 keybind = "alt+[=text: | sed G "
 
 keybind = ctrl+alt+s=new_split:down

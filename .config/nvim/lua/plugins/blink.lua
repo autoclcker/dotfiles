@@ -59,12 +59,10 @@ return {
     },
 
     keymap = {
-      preset = "enter",
+      preset = "super-tab",
       ["<C-y>"] = false,
-      ["<Tab>"] = { "select_and_accept" },
     },
   },
-  ---@param opts blink.cmp.Config | { sources: { compat: string[] } }
   config = function(_, opts)
     local enabled = opts.sources.default
     for _, source in ipairs(opts.sources.compat or {}) do
@@ -75,22 +73,6 @@ return {
       )
       if type(enabled) == "table" and not vim.tbl_contains(enabled, source) then
         table.insert(enabled, source)
-      end
-    end
-
-    -- add ai_accept to <Tab> key
-    if not opts.keymap["<Tab>"] then
-      if opts.keymap.preset == "super-tab" then -- super-tab
-        opts.keymap["<Tab>"] = {
-          require("blink.cmp.keymap.presets")["super-tab"]["<Tab>"][1],
-          LazyVim.cmp.map({ "snippet_forward", "ai_accept" }),
-          "fallback",
-        }
-      else -- other presets
-        opts.keymap["<Tab>"] = {
-          LazyVim.cmp.map({ "snippet_forward", "ai_accept" }),
-          "fallback",
-        }
       end
     end
 

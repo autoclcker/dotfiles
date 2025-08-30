@@ -1,0 +1,8 @@
+# Figure out the PID of the container you want to enter:
+PID=$(docker inspect --format {{.State.Pid}} <container_name_or_ID>)
+# Then enter the container:
+nsenter --target $PID --mount --uts --ipc --net --pid
+
+# You will get a shell inside the container. That’s it. If you want to run a specific script or program in an automated manner, add it as argument tonsenter.
+# It works a bit like chroot, except that it works with containers instead of plain directories.
+
