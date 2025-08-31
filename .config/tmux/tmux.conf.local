@@ -500,6 +500,10 @@ bind -n M-l send-keys C-l \; run 'sleep 0.2' \; clear-history
 # gracefull shutdown
 bind-key x kill-server
 
+# plugins
+set -g @easy-motion-default-motion "bd-f"
+run-shell $XDG_CONFIG_HOME/tmux/plugins/easymotion/easy_motion.tmux
+
 # -- tpm -----------------------------------------------------------------------
 
 # while I don't use tpm myself, many people requested official support so here
