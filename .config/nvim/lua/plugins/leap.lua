@@ -1,17 +1,12 @@
 return {
   "ggandor/leap.nvim",
   enabled = true,
-  keys = {
-    { "s", mode = { "n", "x", "o" }, desc = "Leap Forward to" },
-    { "S", mode = { "n", "x", "o" }, desc = "Leap Backward to" },
-  },
-  config = function(_, opts)
+  keys = false,
+  config = function(_, _)
     local leap = require("leap")
-    for k, v in pairs(opts) do
-      leap.opts[k] = v
-    end
-    leap.add_default_mappings(true)
-    vim.keymap.del({ "x", "o" }, "x")
-    vim.keymap.del({ "x", "o" }, "X")
+    vim.keymap.set({ "n", "x" }, "s", "<Plug>(leap-forward-to)", { desc = "leap-forward-to" })
+    vim.keymap.set({ "n", "x" }, "S", "<Plug>(leap-backward-to)", { desc = "leap-backward-to" })
+    vim.keymap.set({ "o" }, "z", "<Plug>(leap-forward-to)", { desc = "leap-forward-to" })
+    vim.keymap.set({ "o" }, "Z", "<Plug>(leap-backward-to)", { desc = "leap-backward-to" })
   end,
 }

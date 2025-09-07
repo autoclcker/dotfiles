@@ -5,4 +5,5 @@ lua = "latest"
 nasm = "latest"
 node = "23.4.0"
 python = ["3.11.9", "3.13.1"]
-rust = "1.86.0"
+rust = "1.9.0"
+

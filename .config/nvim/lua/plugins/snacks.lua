@@ -1,5 +1,7 @@
+local keys = require("lazy.core.handler.keys")
 return {
   "snacks.nvim",
+  enabled = true,
   opts = {
     picker = {
       sources = {
@@ -25,11 +27,44 @@ return {
       desc = "Toggle Zoom",
     },
     {
+      "<leader>,",
+      false,
+    },
+    {
+      "<leader>o",
+      function()
+        Snacks.picker.buffers()
+      end,
+      desc = "Buffers",
+    },
+    {
       "<M-t>",
       function()
         Snacks.terminal()
       end,
       desc = "Show Terminal",
+    },
+    {
+      "<C-g>",
+      function()
+        Snacks.picker.grep()
+      end,
+      desc = "Grep",
+    },
+    {
+      "q:",
+      function()
+        Snacks.picker.command_history()
+      end,
+      desc = "Command History",
+    },
+
+    {
+      "q/",
+      function()
+        Snacks.picker.search_history()
+      end,
+      desc = "Search History",
     },
   },
 }

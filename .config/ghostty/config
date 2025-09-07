@@ -33,6 +33,7 @@ keybind = alt+6=unbind
 keybind = alt+7=unbind
 keybind = alt+8=unbind
 keybind = alt+9=unbind
+keybind = ctrl+,=unbind
 keybind = ctrl+shift+left=unbind
 keybind = ctrl+shift+right=unbind
 
@@ -53,12 +54,12 @@ keybind = ctrl+shift+.=move_tab:1
 keybind = ctrl+shift+j=previous_tab
 keybind = ctrl+shift+k=next_tab
 
+keybind = "alt+[=text: | sed G "
 keybind = "alt+d=text:printf "\\e[1;96m%s\\e[0m\\n" $"
-keybind = "alt+h=text:IFS=$'\\n' PS3='! '; select i in $(fc -l | cut --characters 1-55); do fc "${i%% *}"; break; done"
 keybind = "alt+g=text: | grep "
+keybind = "alt+h=text:IFS=$'\\n' PS3='! '; select i in $(fc -l | cut --characters 1-55); do fc "${i%% *}"; break; done"
 keybind = "alt+i=text:ip -brief address"
 keybind = "alt+u=text:findmnt --tree --df"
-keybind = "alt+[=text: | sed G "
 
 keybind = ctrl+alt+s=new_split:down
 keybind = ctrl+alt+v=new_split:right
@@ -68,8 +69,8 @@ keybind = shift+insert=paste_from_clipboard
 keybind = unconsumed:ctrl+shift+r=reload_config
 
 keybind = ctrl+backspace=csi:127;5u
-keybind = ctrl+tab=csi:27;5;9~
 keybind = ctrl+escape=csi:28;5;9~
+keybind = ctrl+tab=csi:27;5;9~
 
 keybind = ctrl+1=csi:49;5u
 keybind = ctrl+2=csi:50;5u

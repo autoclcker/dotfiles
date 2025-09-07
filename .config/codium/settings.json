@@ -8,7 +8,7 @@
                 "s"
             ],
             "before": [
-                "<leader>",
+                "<space>",
                 "s"
             ]
         },
@@ -39,7 +39,7 @@
                 "t"
             ],
             "before": [
-                "<leader>",
+                "<space>",
                 "t"
             ]
         },
@@ -50,7 +50,7 @@
                 "T"
             ],
             "before": [
-                "<leader>",
+                "<space>",
                 "T"
             ]
         },
@@ -61,7 +61,7 @@
                 "j"
             ],
             "before": [
-                "<leader>",
+                "<space>",
                 "j"
             ]
         },
@@ -72,13 +72,43 @@
                 "k"
             ],
             "before": [
-                "<leader>",
+                "<space>",
                 "k"
             ]
         },
         {
-            "before": [
+            "after": [
                 "<leader>",
+                "w"
+            ],
+            "before": [
+                "<space>",
+                "w"
+            ]
+        },
+        {
+            "after": [
+                "<leader>",
+                "b"
+            ],
+            "before": [
+                "<space>",
+                "b"
+            ]
+        },
+        {
+            "after": [
+                "<leader>",
+                "e"
+            ],
+            "before": [
+                "<space>",
+                "e"
+            ]
+        },
+        {
+            "before": [
+                "<space>",
                 "p"
             ],
             "commands": [
@@ -114,7 +144,7 @@
         },
         {
             "before": [
-                "leader",
+                "<space>",
                 "v"
             ],
             "commands": [
@@ -123,7 +153,7 @@
         },
         {
             "before": [
-                "leader",
+                "<space>",
                 "C"
             ],
             "commands": [
@@ -133,7 +163,7 @@
         },
         {
             "before": [
-                "leader",
+                "<space>",
                 "c"
             ],
             "commands": [
@@ -143,7 +173,7 @@
         },
         {
             "before": [
-                "<leader>",
+                "<space>",
                 "m"
             ],
             "commands": [
@@ -153,7 +183,7 @@
         },
         {
             "before": [
-                "<leader>",
+                "<space>",
                 "'"
             ],
             "commands": [
@@ -162,7 +192,7 @@
         },
         {
             "before": [
-                "<leader>",
+                "<space>",
                 "a"
             ],
             "commands": [
@@ -246,7 +276,7 @@
                 "0"
             ],
             "before": [
-                "<leader>",
+                "<space>",
                 "0"
             ]
         },
@@ -256,7 +286,7 @@
                 "_"
             ],
             "before": [
-                "<leader>",
+                "<space>",
                 "-"
             ]
         },
@@ -266,7 +296,7 @@
                 "*"
             ],
             "before": [
-                "<leader>",
+                "<space>",
                 "8"
             ]
         },
@@ -380,6 +410,26 @@
                 "cursorPageDown"
             ],
             "silent": true
+        },
+        {
+            "before": [
+                "<space>",
+                "<space>"
+            ],
+            "commands": [
+                "workbench.action.quickOpen"
+            ],
+            "silent": true
+        },
+        {
+            "before": [
+                "<space>",
+                "o"
+            ],
+            "commands": [
+                "workbench.action.showAllEditors"
+            ],
+            "silent": true
         }
     ],
     "vim.normalModeKeyBindingsNonRecursive": [],
@@ -390,13 +440,13 @@
                 "*"
             ],
             "before": [
-                "<leader>",
+                "<space>",
                 "8"
             ]
         },
         {
             "before": [
-                "<leader>",
+                "<space>",
                 "h"
             ],
             "commands": [
@@ -405,7 +455,7 @@
         },
         {
             "before": [
-                "<leader>",
+                "<space>",
                 "a"
             ],
             "commands": [
@@ -415,7 +465,7 @@
         },
         {
             "before": [
-                "<leader>",
+                "<space>",
                 "A"
             ],
             "commands": [
@@ -425,7 +475,7 @@
         },
         {
             "before": [
-                "<leader>",
+                "<space>",
                 "r"
             ],
             "commands": [

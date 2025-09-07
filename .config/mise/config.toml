@@ -21,7 +21,7 @@
 "cargo:sd" = "latest"
 "cargo:systemctl-tui" = "latest"
 "cargo:tealdeer" = "latest"
-"cargo:timr-tui" = "latest"
+"cargo:timr-tui" = "1.3.1"
 "cargo:yazi-cli" = "latest"
 "cargo:yazi-fm" = "latest"
 "cargo:zoxide" = "latest"
