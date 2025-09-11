@@ -1,33 +1,37 @@
-local keys = require("lazy.core.handler.keys")
 return {
   "snacks.nvim",
-  enabled = true,
+  -- enabled = true,
   opts = {
     picker = {
       sources = {
         explorer = {
-          layout = { preset = "sidebar", layout = { position = "right" } },
+          layout = {
+            preset = "sidebar",
+            layout = { position = "right" },
+          },
+          win = {
+            list = {
+              keys = {
+                ["."] = "toggle_hidden",
+                ["v"] = "edit_vsplit",
+              },
+            },
+          },
         },
       },
     },
   },
   keys = {
     {
-      "<leader>Z",
-      function()
-        Snacks.zen()
-      end,
-      desc = "Toggle Zen Mode",
-    },
-    {
-      "<leader>z",
-      function()
-        Snacks.zen.zoom()
-      end,
-      desc = "Toggle Zoom",
-    },
-    {
       "<leader>,",
+      false,
+    },
+    {
+      "<leader>:",
+      false,
+    },
+    {
+      "<leader>/",
       false,
     },
     {
@@ -38,6 +42,20 @@ return {
       desc = "Buffers",
     },
     {
+      "<leader>z",
+      function()
+        Snacks.zen.zoom()
+      end,
+      desc = "Toggle Zoom",
+    },
+    {
+      "<leader>Z",
+      function()
+        Snacks.zen()
+      end,
+      desc = "Toggle Zen Mode",
+    },
+    {
       "<M-t>",
       function()
         Snacks.terminal()
@@ -46,10 +64,15 @@ return {
     },
     {
       "<C-g>",
-      function()
-        Snacks.picker.grep()
-      end,
+      LazyVim.pick("grep"),
       desc = "Grep",
+    },
+    {
+      "q/",
+      function()
+        Snacks.picker.search_history()
+      end,
+      desc = "Search History",
     },
     {
       "q:",
@@ -58,13 +81,19 @@ return {
       end,
       desc = "Command History",
     },
-
     {
-      "q/",
+      "<C-w>w",
       function()
-        Snacks.picker.search_history()
+        local explorer_pickers = Snacks.picker.get({ source = "explorer" })
+        if #explorer_pickers == 0 then
+          -- If no explorer picker is open, open a new one
+          Snacks.picker.explorer()
+        else
+          -- If an explorer picker is open, focus it
+          explorer_pickers[1]:focus()
+        end
       end,
-      desc = "Search History",
+      { desc = "Snacks File Explorer" },
     },
   },
 }

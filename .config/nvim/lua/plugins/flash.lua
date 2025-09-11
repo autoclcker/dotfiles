@@ -10,11 +10,7 @@ return {
     },
     {
       "S",
-      mode = { "o" },
-      function()
-        require("flash").treesitter()
-      end,
-      desc = "Flash Treesitter",
+      false,
     },
     {
       "r",
