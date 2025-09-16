@@ -430,6 +430,16 @@
                 "workbench.action.showAllEditors"
             ],
             "silent": true
+        },
+        {
+            "before": [
+                "<C-w>",
+                "w"
+            ],
+            "commands": [
+                "workbench.action.focusSideBar"
+            ],
+            "silent": true
         }
     ],
     "vim.normalModeKeyBindingsNonRecursive": [],
@@ -442,6 +452,15 @@
             "before": [
                 "<space>",
                 "8"
+            ]
+        },
+        {
+            "before": [
+                "<space>",
+                "r"
+            ],
+            "commands": [
+                "codeium.refactorCodeBlock"
             ]
         },
         {
@@ -472,15 +491,6 @@
                 "editor.action.sortLinesDescending"
             ],
             "silent": true
-        },
-        {
-            "before": [
-                "<space>",
-                "r"
-            ],
-            "commands": [
-                "codeium.refactorCodeBlock"
-            ]
         }
     ],
     "window.customTitleBarVisibility": "windowed",

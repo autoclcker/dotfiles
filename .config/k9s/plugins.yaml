@@ -179,6 +179,30 @@ plugins:
       - >-
         kubectl --namespace $NAMESPACE --context $CONTEXT
         delete --now $RESOURCE_NAME $NAME
+  logs:
+    shortCut: Shift-L
+    confirm: false
+    description: View logs
+    scopes:
+      - pods
+    command: sh
+    background: false
+    args:
+      - -ic
+      - |
+        kubectl logs $NAME --namespace $NAMESPACE --context $CONTEXT --tail=10000 | less
+  previous-logs:
+    shortCut: Shift-P
+    confirm: false
+    description: View previous logs
+    scopes:
+      - pods
+    command: sh
+    background: false
+    args:
+      - -ic
+      - |
+        kubectl logs $NAME --namespace $NAMESPACE --context $CONTEXT --previous | less
   dive:
     shortCut: d
     confirm: false

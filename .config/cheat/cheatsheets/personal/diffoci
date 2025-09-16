@@ -10,4 +10,3 @@ diffoci diff docker://foo docker://bar
 
 # Accessing private images
 # To access private images, create a credential file as ~/.docker/config.json using docker login.
-
