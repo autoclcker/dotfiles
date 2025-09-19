@@ -18,6 +18,16 @@ return {
         desc = "Toggle pin",
       },
       {
+        "]]",
+        "<Cmd>BufferLineCycleNext<CR>",
+        desc = "Prev Buffer",
+      },
+      {
+        "[[",
+        "<Cmd>BufferLineCyclePrev<CR>",
+        desc = "Next Buffer",
+      },
+      {
         "ZB",
         function()
           Snacks.bufdelete()

@@ -188,8 +188,8 @@ plugins:
     command: sh
     background: false
     args:
-      - -ic
-      - |
+      - -ci
+      - >-
         kubectl logs $NAME --namespace $NAMESPACE --context $CONTEXT --tail=10000 | less
   previous-logs:
     shortCut: Shift-P
@@ -200,8 +200,8 @@ plugins:
     command: sh
     background: false
     args:
-      - -ic
-      - |
+      - -ci
+      - >-
         kubectl logs $NAME --namespace $NAMESPACE --context $CONTEXT --previous | less
   dive:
     shortCut: d
