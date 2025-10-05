@@ -35,7 +35,7 @@ vim.keymap.set("i", "<M-k>", "<Up>", { noremap = true, silent = true, desc = "Mo
 vim.keymap.set("i", "<M-j>", "<Down>", { desc = "Move cursor down in insert mode" })
 
 -- Focus split
-vim.keymap.set("n", "<C-w>'", "<C-w>p", { desc = "Switch to the last visited split" })
+vim.keymap.set("n", "g'", "<C-w>p", { desc = "Switch to the last visited split" })
 vim.keymap.set("n", "<leader>1", "1<C-w>w", { desc = "Switch to split 1" })
 vim.keymap.set("n", "<leader>2", "2<C-w>w", { desc = "Switch to split 2" })
 vim.keymap.set("n", "<leader>3", "3<C-w>w", { desc = "Switch to split 3" })
@@ -51,3 +51,5 @@ vim.keymap.set("t", "<M-t>", "<cmd>close<cr>", { desc = "Hide Terminal" })
 -- buffers
 vim.keymap.del("n", "<S-h>")
 vim.keymap.del("n", "<S-l>")
+vim.keymap.set("n", "<M-k>", "<cmd>BufferLineCycleNext<cr>", { desc = "Prev Buffer" })
+vim.keymap.set("n", "<M-j>", "<cmd>BufferLineCyclePrev<cr>", { desc = "Next Buffer" })

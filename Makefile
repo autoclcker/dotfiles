@@ -2,9 +2,10 @@ all: help
 .PHONY: all
 
 HOME_ARR   = .bash_aliases .bashrc .gitconfig .profile .vimrc .vscodevimrc .zlogin .zshrc
-CONFIG_ARR = btop cheat copyq dive ghostty k9s lazydocker lazygit mise nvim pop-shell procps procs tmux wireshark/profiles yazi
+CONFIG_ARR = btop cheat copyq dive ghostty k9s lazydocker lazygit mimeapps.list mise nvim pop-shell procps procs tmux wireshark/profiles yazi
+DESKTOP_ARR = neovide.desktop
 
-CONFIG_DIR = ${PWD}/.config
+DESKTOP_APPLICATIONS_HOME = ${HOME}/.local/share/applications
 XDG_CONFIG_HOME = ${HOME}/.config
 ZSH = ${HOME}/.oh-my-zsh
 
@@ -39,7 +40,8 @@ install: download sync ### Install setup
 
 sync: ### Synchronize configurations
 	@./scripts/synchronize_configuration.sh --searchpath ${PWD} --destination ${HOME} ${HOME_ARR}
-	@./scripts/synchronize_configuration.sh --searchpath ${CONFIG_DIR} --destination ${XDG_CONFIG_HOME} ${CONFIG_ARR}
+	@./scripts/synchronize_configuration.sh --searchpath ${PWD}/.config --destination ${XDG_CONFIG_HOME} ${CONFIG_ARR}
+	@./scripts/synchronize_configuration.sh --searchpath ${PWD}/.desktop --destination ${DESKTOP_APPLICATIONS_HOME} ${DESKTOP_ARR}
 	@./scripts/install_tools.sh
 .PHONY: sync
 

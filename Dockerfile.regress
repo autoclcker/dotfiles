@@ -44,16 +44,15 @@ USER ${UID}:${GID}
 
 WORKDIR ${HOME}/dotfiles
 
+COPY --link --chown=${UID}:${GID} . .
+
 # DEBUG
 FROM base AS debug
-COPY --link --chown=${UID}:${GID} . .
 ENTRYPOINT ["/bin/bash"]
 
 # Final
 FROM base AS final
-RUN --mount=type=bind,target=.,readwrite=true \
-    --mount=type=cache,target=/var/lib/apt,sharing=locked \
+RUN --mount=type=cache,target=/var/lib/apt,sharing=locked \
     --mount=type=cache,target=/var/cache/apt,sharing=locked \
     --mount=type=secret,id=GITHUB_TOKEN,env=GITHUB_TOKEN,required=false \
-    sudo chown --recursive ${UID}:${GID} ${PWD} && \
     make install

@@ -3,6 +3,14 @@ return {
     "akinsho/bufferline.nvim",
     keys = {
       {
+        "]B",
+        false,
+      },
+      {
+        "[B",
+        false,
+      },
+      {
         "]b",
         "<Cmd>BufferLineMoveNext<CR>",
         { desc = "Move buffer next" },
@@ -16,16 +24,6 @@ return {
         "<leader>p",
         "<Cmd>BufferLineTogglePin<CR>",
         desc = "Toggle pin",
-      },
-      {
-        "]]",
-        "<Cmd>BufferLineCycleNext<CR>",
-        desc = "Prev Buffer",
-      },
-      {
-        "[[",
-        "<Cmd>BufferLineCyclePrev<CR>",
-        desc = "Next Buffer",
       },
       {
         "ZB",

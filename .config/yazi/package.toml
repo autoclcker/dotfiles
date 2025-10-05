@@ -70,8 +70,8 @@ hash = "2bd799b42b8e42b8ef100310be71f8d1"
 
 [[plugin.deps]]
 use = "boydaihungst/restore"
-rev = "dc40509"
-hash = "e7e377f9b1bbaca4a2e5d9ec9709ac4d"
+rev = "2161735"
+hash = "901741afba1979739b4650324265162e"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:smart-paste"
@@ -80,8 +80,8 @@ hash = "75fd60b2df7115e0a6ca31a6a804d320"
 
 [[plugin.deps]]
 use = "uhs-robert/sshfs"
-rev = "1a466c8"
-hash = "216b0497421e49b7fda5f07d20435400"
+rev = "0d6e699"
+hash = "458a404b1b9d6e72ee27812629782a0b"
 
 [flavor]
 deps = []
