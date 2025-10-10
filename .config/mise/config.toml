@@ -36,7 +36,6 @@
 "go:github.com/mikefarah/yq/v4" = "latest"
 "go:github.com/mr-karan/doggo/cmd/doggo" = "latest"
 "go:github.com/reproducible-containers/diffoci/cmd/diffoci" = "latest"
-"go:github.com/shazow/wifitui" = "latest"
 "go:github.com/tomnomnom/gron" = "latest"
 "npm:@angular/cli" = "latest"
 "npm:ts-node" = "latest"

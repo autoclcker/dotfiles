@@ -5,14 +5,11 @@ XDG_CONFIG_HOME=${XDG_CONFIG_HOME:-"$HOME/.config"}
 CHEATSHEETS_REPO=${CHEATSHEETS_REPO:-"https://github.com/cheat/cheatsheets.git"}
 HELM_DIFF_REPO=${HELM_DIFF_REPO:-"https://github.com/databus23/helm-diff"}
 NERD_FONTS_REPO=${NERD_FONTS_REPO:-"https://github.com/ryanoasis/nerd-fonts.git"}
-UEBERZUGPP_REPO=${UEBERZUGPP_REPO:-"https://github.com/jstkdng/ueberzugpp.git"}
 ZSH_AUTOSUGGESTIONS_REPO=${ZSH_AUTOSUGGESTIONS_REPO:-"https://github.com/zsh-users/zsh-autosuggestions.git"}
 ZSH_SYNTAX_HIGHLIGHTING_REPO=${ZSH_SYNTAX_HIGHLIGHTING_REPO:-"https://github.com/zsh-users/zsh-syntax-highlighting.git"}
 
 FONTS=("DejaVuSansMono" "FiraCode" "Hack")
 FONTS_PATH=${FONTS_PATH:-"$HOME/.local/share/fonts/nerd-fonts"}
-
-WORKSPACES_COUNT=${WORKSPACES_COUNT:-9}
 
 YAZI_SMART_PASTE_PATH=${YAZI_SMART_PASTE_PATH:-"$XDG_CONFIG_HOME/yazi/plugins/smart-paste.yazi"}
 
@@ -73,7 +70,7 @@ if env | grep --quiet "XDG_CURRENT_DESKTOP=.*GNOME"; then
   gsettings set org.gnome.desktop.wm.keybindings toggle-fullscreen "['<Super>z']"
   gsettings set org.gnome.desktop.wm.keybindings toggle-maximized "['<Alt><Super>z']"
   gsettings set org.gnome.desktop.wm.keybindings toggle-on-all-workspaces "['<Super>m']"
-  gsettings set org.gnome.desktop.wm.preferences num-workspaces "$WORKSPACES_COUNT"
+  gsettings set org.gnome.desktop.wm.preferences num-workspaces "12"
   gsettings set org.gnome.mutter dynamic-workspaces false
   gsettings set org.gnome.mutter workspaces-only-on-primary false
   gsettings set org.gnome.settings-daemon.plugins.media-keys control-center "['<Super>c']"
@@ -83,27 +80,22 @@ if env | grep --quiet "XDG_CURRENT_DESKTOP=.*GNOME"; then
   gsettings set org.gnome.shell.extensions.pop-shell tile-orientation "['<Super>r']"
   gsettings set org.gnome.shell.keybindings toggle-message-tray "['Help']"
   gsettings set org.gnome.shell.keybindings toggle-overview "['LaunchA']"
-  for ((i = 1; i <= "$WORKSPACES_COUNT"; i++)); do
+  for ((i = 1; i <= 9; i++)); do
     gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-"$i" "['<Super>$i']"
     gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-"$i" "['<Super><Shift>$i']"
   done
+  gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-10 "['<Super>0']"
+  gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-10 "['<Super><Shift>0']"
+  gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-11 "['<Super>minus']"
+  gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-11 "['<Super><Shift>minus']"
+  gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-12 "['<Super>equal']"
+  gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-12 "['<Super><Shift>equal']"
   printf "\e[1;96m%s\e[0m\n" "GNOME is configured"
 fi
 
 # Tealdeer
 printf "\e[1;96m%s\e[0m" "Tealdeer "
 tldr --update
-
-# Ueberzugpp
-if [[ ! $(ueberzug --version) ]]; then
-  git clone --depth 1 "${UEBERZUGPP_REPO}" /tmp/ueberzugpp && mkdir "$_/build"
-  pushd "$_" || exit 1
-  cmake -DCMAKE_BUILD_TYPE=Release -DENABLE_TURBOBASE64=ON ..
-  cmake --build .
-  sudo cmake --install .
-else
-  printf "\e[1;96m%s\e[0m\n" "Ueberzugpp is already installed"
-fi
 
 # Yazi
 ya pkg install
