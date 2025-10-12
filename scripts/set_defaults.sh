@@ -21,15 +21,6 @@ set -o errexit  # abort on nonzero exitstatus
 set -o nounset  # abort on unbound variable
 set -o pipefail # don't hide errors within pipes
 
-# Ghostty
-if realpath x-terminal-emulator | grep --quiet --invert-match "ghostty"; then
-  ghostty=$(which ghostty)
-  sudo update-alternatives --install /usr/bin/x-terminal-emulator x-terminal-emulator "$ghostty" 50
-  sudo update-alternatives --set x-terminal-emulator "$ghostty"
-else
-  printf "\e[1;96m%s\e[0m\n" "Ghostty is already default terminal"
-fi
-
 # Cheat
 if [[ ! -d "${XDG_CONFIG_HOME}/cheat/cheatsheets/community" ]]; then
   git clone --depth 1 "${CHEATSHEETS_REPO}" "${XDG_CONFIG_HOME}/cheat/cheatsheets/community"
@@ -72,7 +63,7 @@ if env | grep --quiet "XDG_CURRENT_DESKTOP=.*GNOME"; then
   gsettings set org.gnome.desktop.wm.keybindings toggle-fullscreen "['<Super>z']"
   gsettings set org.gnome.desktop.wm.keybindings toggle-maximized "['<Alt><Super>z']"
   gsettings set org.gnome.desktop.wm.keybindings toggle-on-all-workspaces "['<Super>m']"
-  gsettings set org.gnome.desktop.wm.preferences num-workspaces "12"
+  gsettings set org.gnome.desktop.wm.preferences num-workspaces "${#WORKSPACE_INDEXES[@]}"
   gsettings set org.gnome.mutter dynamic-workspaces false
   gsettings set org.gnome.mutter workspaces-only-on-primary false
   gsettings set org.gnome.settings-daemon.plugins.media-keys control-center "['<Super>c']"

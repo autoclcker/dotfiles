@@ -1,16 +1,19 @@
 all: help
 .PHONY: all
 
-CONFIG_CLI_ARR = btop cheat dive k9s lazydocker lazygit mise nvim procps procs wireshark/profiles yazi
-CONFIG_UI_ARR = copyq ghostty mimeapps.list pop-shell tmux
+CONFIG_CLI_APPS := cheat mise procs
+CONFIG_GUI_APPS := copyq ghostty mimeapps.list pop-shell wireshark
+CONFIG_TUI_APPS := btop dive k9s lazydocker lazygit nvim procps tmux yazi
+
+CONFIG_ARR  = $(CONFIG_CLI_APPS) $(CONFIG_GUI_APPS) $(CONFIG_TUI_APPS)
 DESKTOP_ARR = neovide.desktop
-HOME_ARR   = .bash_aliases .bashrc .gitconfig .profile .vimrc .vscodevimrc .zlogin .zshrc
+HOME_ARR    = .bash_aliases .bashrc .gitconfig .profile .vimrc .vscodevimrc .zlogin .zshrc
 
 DESKTOP_APPLICATIONS_HOME = ${HOME}/.local/share/applications
 XDG_CONFIG_HOME = ${HOME}/.config
 ZSH_HOME = ${HOME}/.oh-my-zsh
 
-SHORT_COMMIT=$(shell git rev-parse --short HEAD)
+SHORT_COMMIT ?= $(shell git rev-parse --short HEAD)
 
 docker%: export GITHUB_TOKEN ?= "STUB"
 
@@ -41,8 +44,7 @@ install: download sync ### Install setup
 
 sync: ### Synchronize configurations
 	@./scripts/synchronize_configuration.sh --searchpath ${PWD} --destination ${HOME} ${HOME_ARR}
-	@./scripts/synchronize_configuration.sh --searchpath ${PWD}/.config --destination ${XDG_CONFIG_HOME} ${CONFIG_CLI_ARR}
-	@./scripts/synchronize_configuration.sh --searchpath ${PWD}/.config --destination ${XDG_CONFIG_HOME} ${CONFIG_UI_ARR}
+	@./scripts/synchronize_configuration.sh --searchpath ${PWD}/.config --destination ${XDG_CONFIG_HOME} ${CONFIG_ARR}
 	@./scripts/synchronize_configuration.sh --searchpath ${PWD}/.desktop --destination ${DESKTOP_APPLICATIONS_HOME} ${DESKTOP_ARR}
 	@./scripts/install_tools.sh
 .PHONY: sync
