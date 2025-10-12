@@ -8,7 +8,7 @@ NERD_FONTS_REPO=${NERD_FONTS_REPO:-"https://github.com/ryanoasis/nerd-fonts.git"
 ZSH_AUTOSUGGESTIONS_REPO=${ZSH_AUTOSUGGESTIONS_REPO:-"https://github.com/zsh-users/zsh-autosuggestions.git"}
 ZSH_SYNTAX_HIGHLIGHTING_REPO=${ZSH_SYNTAX_HIGHLIGHTING_REPO:-"https://github.com/zsh-users/zsh-syntax-highlighting.git"}
 
-WORKSPACE_INDEX=("1" "2" "3" "4" "5" "6" "7" "8" "9" "0" "minus" "equal")
+WORKSPACE_INDEXES=("1" "2" "3" "4" "5" "6" "7" "8" "9" "0" "minus" "equal")
 
 FONTS=("DejaVuSansMono" "FiraCode" "Hack")
 FONTS_PATH=${FONTS_PATH:-"$HOME/.local/share/fonts/nerd-fonts"}
@@ -82,9 +82,9 @@ if env | grep --quiet "XDG_CURRENT_DESKTOP=.*GNOME"; then
   gsettings set org.gnome.shell.extensions.pop-shell tile-orientation "['<Super>r']"
   gsettings set org.gnome.shell.keybindings toggle-message-tray "['Help']"
   gsettings set org.gnome.shell.keybindings toggle-overview "['LaunchA']"
-  for ((i = 0; i <= ${#WORKSPACE_INDEX[@]} - 1; i++)); do
-    gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-"$((i+1))" "['<Super>${WORKSPACE_INDEX[$i]}']"
-    gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-"$((i+1))" "['<Super><Shift>${WORKSPACE_INDEX[$i]}']"
+  for ((i = 0; i <= ${#WORKSPACE_INDEXES[@]} - 1; i++)); do
+    gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-"$((i+1))" "['<Super>${WORKSPACE_INDEXES[$i]}']"
+    gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-"$((i+1))" "['<Super><Shift>${WORKSPACE_INDEXES[$i]}']"
   done
   printf "\e[1;96m%s\e[0m\n" "GNOME is configured"
 fi
