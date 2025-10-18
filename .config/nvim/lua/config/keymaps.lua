@@ -46,9 +46,10 @@ vim.keymap.set("n", "<leader>7", "7<C-w>w", { desc = "Switch to split 7" })
 vim.keymap.set("n", "<leader>8", "8<C-w>w", { desc = "Switch to split 8" })
 vim.keymap.set("n", "<leader>9", "9<C-w>w", { desc = "Switch to split 9" })
 
+-- Terminal
 vim.keymap.set("t", "<M-t>", "<cmd>close<cr>", { desc = "Hide Terminal" })
 
--- buffers
+-- Buffers
 vim.keymap.del("n", "<S-h>")
 vim.keymap.del("n", "<S-l>")
 vim.keymap.set("n", "<M-k>", "<cmd>BufferLineCycleNext<cr>", { desc = "Prev Buffer" })

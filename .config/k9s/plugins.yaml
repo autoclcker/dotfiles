@@ -1,7 +1,7 @@
 plugins:
   debug-pod:
-    shortCut: c
-    override: true
+    shortCut: r
+    override: false
     confirm: true
     background: false
     description: Debug

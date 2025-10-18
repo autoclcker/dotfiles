@@ -13,6 +13,7 @@ return {
             list = {
               keys = {
                 ["."] = "toggle_hidden",
+                ["o"] = "toggle_preview",
                 ["v"] = "edit_vsplit",
               },
             },
@@ -35,11 +36,29 @@ return {
       false,
     },
     {
+      "<leader>e",
+      false,
+    },
+    {
       "<leader>o",
       function()
         Snacks.picker.buffers()
       end,
       desc = "Buffers",
+    },
+    {
+      "<M-e>",
+      function()
+        Snacks.explorer()
+      end,
+      desc = "File Explorer",
+    },
+    {
+      "<M-t>",
+      function()
+        Snacks.terminal()
+      end,
+      desc = "Open Terminal",
     },
     {
       "<leader>z",
@@ -54,13 +73,6 @@ return {
         Snacks.zen()
       end,
       desc = "Toggle Zen Mode",
-    },
-    {
-      "<M-t>",
-      function()
-        Snacks.terminal()
-      end,
-      desc = "Show Terminal",
     },
     {
       "<C-g>",
@@ -82,7 +94,7 @@ return {
       desc = "Command History",
     },
     {
-      "<C-w>w",
+      "<leader>e",
       function()
         local explorer_pickers = Snacks.picker.get({ source = "explorer" })
         if #explorer_pickers == 0 then

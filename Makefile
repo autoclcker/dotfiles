@@ -9,9 +9,9 @@ CONFIG_ARR  = $(CONFIG_CLI_APPS) $(CONFIG_GUI_APPS) $(CONFIG_TUI_APPS)
 DESKTOP_ARR = neovide.desktop
 HOME_ARR    = .bash_aliases .bashrc .gitconfig .profile .vimrc .vscodevimrc .zlogin .zshrc
 
-DESKTOP_APPLICATIONS_HOME = ${HOME}/.local/share/applications
-XDG_CONFIG_HOME = ${HOME}/.config
-ZSH_HOME = ${HOME}/.oh-my-zsh
+DESKTOP_APPS_HOME ?= ${HOME}/.local/share/applications
+XDG_CONFIG_HOME   ?= ${HOME}/.config
+ZSH_HOME          ?= ${HOME}/.oh-my-zsh
 
 SHORT_COMMIT ?= $(shell git rev-parse --short HEAD)
 
@@ -45,7 +45,7 @@ install: download sync ### Install setup
 sync: ### Synchronize configurations
 	@./scripts/synchronize_configuration.sh --searchpath ${PWD} --destination ${HOME} ${HOME_ARR}
 	@./scripts/synchronize_configuration.sh --searchpath ${PWD}/.config --destination ${XDG_CONFIG_HOME} ${CONFIG_ARR}
-	@./scripts/synchronize_configuration.sh --searchpath ${PWD}/.desktop --destination ${DESKTOP_APPLICATIONS_HOME} ${DESKTOP_ARR}
+	@./scripts/synchronize_configuration.sh --searchpath ${PWD}/.desktop --destination ${DESKTOP_APPS_HOME} ${DESKTOP_ARR}
 	@./scripts/install_tools.sh
 .PHONY: sync
 
@@ -64,3 +64,4 @@ help: ## Display this help screen
 	/^##@/ { printf "\n\033[1m%s\033[0m\n", substr($$0, 5) }' \
 	${MAKEFILE_LIST}
 .PHONY: help
+
