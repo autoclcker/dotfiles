@@ -34,10 +34,6 @@ download:
 	@./scripts/download_core_apps.sh --packages $(shell cat ${PWD}/deps/*)
 .PHONY: download
 
-git/stage: ### Stage configurations
-	@git add  */.*
-.PHONY: git/stage
-
 install: download sync ### Install setup
 	@./scripts/set_defaults.sh
 .PHONY: install

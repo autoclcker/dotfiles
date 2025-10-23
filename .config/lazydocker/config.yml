@@ -44,12 +44,12 @@ customCommands:
     - name: shell
       attach: true
       command: 'docker exec -it {{ .Container.ID }} /bin/sh'
-    - name: debug
+    - name: network
       attach: true
       command: 'docker run --rm -it --net container:{{ .Container.ID }} nicolaka/netshoot'
     - name: filesystem
       attach: true
-      command: 'sudo --preserve-env bash -ic "yazi /proc/{{ .Container.Details.State.Pid }}/cwd"'
+      command: 'sudo --preserve-env bash -ci "yazi /proc/{{ .Container.Details.State.Pid }}/cwd"'
 bulkCommands:
   services:
     - name: up
