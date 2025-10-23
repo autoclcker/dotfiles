@@ -49,7 +49,7 @@ customCommands:
       command: 'docker run --rm -it --net container:{{ .Container.ID }} nicolaka/netshoot'
     - name: filesystem
       attach: true
-      command: 'sudo --preserve-env=PATH bash -ic "yazi /proc/{{ .Container.Details.State.Pid }}/cwd"'
+      command: 'sudo --preserve-env bash -ic "yazi /proc/{{ .Container.Details.State.Pid }}/cwd"'
 bulkCommands:
   services:
     - name: up

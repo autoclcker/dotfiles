@@ -407,8 +407,8 @@ unbind Space
 bind -n M-= next-layout
 
 # rotate panes
-bind -nr M-R rotate-window -D
-bind -nr M-r rotate-window -U
+bind -nr M-R rotate-window -UZ # rotate back
+bind -nr M-r rotate-window -DZ # rotate forward
 
 # switch to the previous pane
 bind -n "C-'" last-pane
@@ -444,6 +444,8 @@ bind h select-pane -L  # move left
 bind j select-pane -D  # move down
 bind k select-pane -U  # move up
 bind l select-pane -R  # move right
+bind -n M-, swap-pane -UZ # swap back
+bind -n M-. swap-pane -DZ # swap forward
 
 # pane resizing
 bind -n M-Left resize-pane -L 2
@@ -454,7 +456,7 @@ bind -n M-Right resize-pane -R 2
 # pane synchronization
 bind -n M-p set-window-option synchronize-panes\; display-message "synchronize-panes is now #{?pane_synchronized,on,off}"
 
-# create/destroy  window
+# create/destroy window
 bind -n C-t new-window
 bind -n M-w kill-window
 
@@ -472,8 +474,8 @@ bind -n C-8 select-window -t 8
 bind -n C-9 select-window -t 9
 bind p previous-window -a
 bind n next-window -a
-bind -n M-, swap-window -t -1\; select-window -t -1
-bind -n M-. swap-window -t +1\; select-window -t +1
+bind -n C-, swap-window -t -1\; select-window -t -1
+bind -n C-. swap-window -t +1\; select-window -t +1
 
 # rename window
 bind 4 command-prompt -I "#W" "rename-window '%%'"
