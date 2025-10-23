@@ -9,11 +9,6 @@ rev = "9a52857"
 hash = "56fdabc96fc1f4d53c96eb884b02a5be"
 
 [[plugin.deps]]
-use = "Reledia/glow"
-rev = "bd3eaa5"
-hash = "92b5c58159a51c567f82b618cee2b78"
-
-[[plugin.deps]]
 use = "dedukun/bookmarks"
 rev = "9ef1254"
 hash = "92fbb5483657fa7976cdf4e0104e18e0"
@@ -82,6 +77,11 @@ hash = "75fd60b2df7115e0a6ca31a6a804d320"
 use = "uhs-robert/sshfs"
 rev = "0d6e699"
 hash = "458a404b1b9d6e72ee27812629782a0b"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:piper"
+rev = "9a52857"
+hash = "a20327710c3a8d37ee0972128dcb6a31"
 
 [flavor]
 deps = []

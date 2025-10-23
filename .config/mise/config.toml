@@ -47,7 +47,6 @@
 "pipx:ipython" = "latest"
 "pipx:thefuck" = { version = "latest", pipx_args = "--python 3.11.9" }
 "pipx:trash-cli" = "latest"
-"ubi:Atoptool/atop" = "v2.12.0"
 "ubi:clangd/clangd" = "latest"
 "ubi:jgm/pandoc" = "latest"
 "ubi:jqlang/jq" = "latest"

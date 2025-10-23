@@ -11,12 +11,12 @@ return {
         false,
       },
       {
-        "]b",
+        "<leader>.",
         "<Cmd>BufferLineMoveNext<CR>",
         { desc = "Move buffer next" },
       },
       {
-        "[b",
+        "<leader>,",
         "<Cmd>BufferLineMovePrev<CR>",
         { desc = "Move buffer prev" },
       },

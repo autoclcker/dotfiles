@@ -36,10 +36,6 @@ return {
       false,
     },
     {
-      "<leader>e",
-      false,
-    },
-    {
       "<leader>o",
       function()
         Snacks.picker.buffers()

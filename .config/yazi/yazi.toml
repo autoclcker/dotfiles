@@ -185,7 +185,7 @@ prepend_fetchers = [
 
 prepend_previewers = [
 	{ name = "*/", run = "eza-preview" },
-	{ name = "*.md", run = "glow" },
+	{ name = "*.md", run = 'piper -- CLICOLOR_FORCE=1 glow -w=$w -s=dark "$1"' },
 	{ mime = "application/*zip", run = "ouch" },
 	{ mime = "application/x-tar", run = "ouch" },
 	{ mime = "application/x-bzip2", run = "ouch" },

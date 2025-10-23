@@ -1,3 +1,4 @@
+atop
 bison
 cmake
 p7zip-full

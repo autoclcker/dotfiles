@@ -431,16 +431,6 @@
             ],
             "silent": true
         },
-        {
-            "before": [
-                "<C-w>",
-                "w"
-            ],
-            "commands": [
-                "workbench.action.focusSideBar"
-            ],
-            "silent": true
-        }
     ],
     "vim.normalModeKeyBindingsNonRecursive": [],
     "vim.visualModeKeyBindings": [
