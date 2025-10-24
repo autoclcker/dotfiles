@@ -27,6 +27,7 @@ alias procsi='procs --watch --watch-interval 2'
 alias procst='procs --tree'
 alias s='systemctl'
 alias sql='lazysql'
+alias ktui='sudo $(command -v kmon) --color grey --accent-color lightgreen'
 alias stui='sudo $(command -v systemctl-tui)'
 alias ttui='timr-tui'
 alias ungron="gron --ungron"

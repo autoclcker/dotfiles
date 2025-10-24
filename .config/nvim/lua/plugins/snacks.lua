@@ -15,6 +15,7 @@ return {
                 ["."] = "toggle_hidden",
                 ["o"] = "toggle_preview",
                 ["v"] = "edit_vsplit",
+                ["e"] = "confirm",
               },
             },
           },
@@ -88,6 +89,20 @@ return {
         Snacks.picker.command_history()
       end,
       desc = "Command History",
+    },
+    {
+      "<C-m>",
+      function()
+        Snacks.picker.marks()
+      end,
+      desc = "Marks",
+    },
+    {
+      "<C-n>",
+      function()
+        Snacks.picker.resume()
+      end,
+      desc = "Resume last picker",
     },
     {
       "<leader>e",

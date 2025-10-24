@@ -54,3 +54,8 @@ vim.keymap.del("n", "<S-h>")
 vim.keymap.del("n", "<S-l>")
 vim.keymap.set("n", "<M-k>", "<cmd>BufferLineCycleNext<cr>", { desc = "Prev Buffer" })
 vim.keymap.set("n", "<M-j>", "<cmd>BufferLineCyclePrev<cr>", { desc = "Next Buffer" })
+
+-- Registers
+vim.keymap.set("n", "<C-h>", function()
+  require("snacks").picker.registers()
+end, { desc = "Registers" })

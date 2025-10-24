@@ -1,6 +1,7 @@
 atop
 bison
 cmake
+lshw
 p7zip-full
 pkg-config
 python3-launchpadlib
@@ -8,3 +9,4 @@ software-properties-common
 sshfs
 xsel
 zsh
+
