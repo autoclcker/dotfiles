@@ -1,6 +1,7 @@
 {
     "cmake.showOptionsMovedNotification": false,
-    "vim.normalModeKeyBindings": [
+    "vim.normalModeKeyBindings": [],
+    "vim.normalModeKeyBindingsNonRecursive": [
         {
             "after": [
                 "<leader>",
@@ -122,6 +123,15 @@
             ],
             "commands": [
                 "openEditors.newUntitledFile"
+            ]
+        },
+        {
+            "before": [
+                "<C-w>",
+                "t"
+            ],
+            "commands": [
+                "workbench.action.createTerminalEditor"
             ]
         },
         {
@@ -430,9 +440,8 @@
                 "workbench.action.showAllEditors"
             ],
             "silent": true
-        },
+        }
     ],
-    "vim.normalModeKeyBindingsNonRecursive": [],
     "vim.visualModeKeyBindings": [
         {
             "after": [
@@ -442,6 +451,15 @@
             "before": [
                 "<space>",
                 "8"
+            ]
+        },
+        {
+            "after": [
+                "S"
+            ],
+            "before": [
+                "y",
+                "s"
             ]
         },
         {

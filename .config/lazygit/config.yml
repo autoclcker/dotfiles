@@ -86,11 +86,11 @@ gui:
   switchToFilesAfterStashApply: true
   switchTabsWithPanelJumpKeys: false
 git:
-  paging:
-    colorArg: always
-    pager: delta --paging=never --hyperlinks-file-link-format="lazygit-edit://{path}:{line}"
-    useConfig: false
-    externalDiffCommand: ""
+  pagers:
+    - colorArg: always
+      pager: delta --paging=never --hyperlinks-file-link-format="lazygit-edit://{path}:{line}"
+      useConfig: false
+      externalDiffCommand: ""
   commit:
     signOff: false
     autoWrapCommitMessage: true
@@ -248,7 +248,7 @@ keybinding:
     viewResetOptions: D
     fetch: f
     toggleTreeView: T
-    openMergeTool: M
+    openMergeOptions: M
     openStatusFilter: F
     copyFileInfoToClipboard: "y"
     collapseAll: '-'

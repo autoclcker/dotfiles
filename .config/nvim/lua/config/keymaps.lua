@@ -12,6 +12,9 @@ vim.keymap.del("n", "<C-l>")
 vim.keymap.del({ "n", "i" }, "<M-j>")
 vim.keymap.del({ "n", "i" }, "<M-k>")
 
+-- Normal mode
+vim.keymap.set("n", "<C-l>", "<cmd>nohlsearch<cr>", { desc = "Clear search" })
+
 -- Command mode
 vim.keymap.set("c", "<C-a>", "<Home>", { desc = "Move cursor to the beginning of the line start in command mode" })
 vim.keymap.set("c", "<C-e>", "<End>", { desc = "Move cursor to the end of the line in command mode" })
@@ -35,7 +38,7 @@ vim.keymap.set("i", "<M-k>", "<Up>", { noremap = true, silent = true, desc = "Mo
 vim.keymap.set("i", "<M-j>", "<Down>", { desc = "Move cursor down in insert mode" })
 
 -- Focus split
-vim.keymap.set("n", "g'", "<C-w>p", { desc = "Switch to the last visited split" })
+vim.keymap.set("n", "<leader>'", "<C-w>p", { desc = "Switch to the last visited split" })
 vim.keymap.set("n", "<leader>1", "1<C-w>w", { desc = "Switch to split 1" })
 vim.keymap.set("n", "<leader>2", "2<C-w>w", { desc = "Switch to split 2" })
 vim.keymap.set("n", "<leader>3", "3<C-w>w", { desc = "Switch to split 3" })

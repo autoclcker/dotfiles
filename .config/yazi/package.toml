@@ -75,8 +75,8 @@ hash = "75fd60b2df7115e0a6ca31a6a804d320"
 
 [[plugin.deps]]
 use = "uhs-robert/sshfs"
-rev = "924f0eb"
-hash = "730c21c785d579a85be2ae34d9a316f1"
+rev = "2728b14"
+hash = "8ee736ae855ed80ae341136bb8fb353c"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:piper"
