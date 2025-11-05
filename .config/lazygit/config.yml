@@ -165,8 +165,8 @@ keybinding:
     nextPage: <c-f>
     scrollLeft: H
     scrollRight: L
-    gotoTop: "^"
-    gotoBottom: "$"
+    gotoTop: g
+    gotoBottom: G
     gotoTop-alt: <home>
     gotoBottom-alt: <end>
     toggleRangeSelect: v
@@ -276,7 +276,7 @@ keybinding:
     squashDown: s
     renameCommit: r
     renameCommitWithEditor: R
-    viewResetOptions: g
+    viewResetOptions: D
     markCommitAsFixup: f
     createFixupCommit: F
     squashAboveCommits: S

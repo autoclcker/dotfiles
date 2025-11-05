@@ -10,6 +10,7 @@ return {
     },
     {
       "S",
+      mode = { "n", "x", "o" },
       false,
     },
     {

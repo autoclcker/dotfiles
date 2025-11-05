@@ -4,6 +4,6 @@ java = ["openjdk-11.0.2", "corretto-8.322.06.2", "openjdk-17.0.2"]
 lua = "latest"
 nasm = "latest"
 node = "23.4.0"
-python = ["3.11.9", "3.13.1"]
+python = ["3.14.0", "3.11.9"]
 rust = "1.9.0"
 

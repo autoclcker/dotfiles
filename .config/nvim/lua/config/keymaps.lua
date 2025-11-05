@@ -2,15 +2,16 @@
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Keymaps are automatically loaded on the VeryLazy event
 
--- Move to window using the <ctrl> hjkl keys
+-- Cleanup
 vim.keymap.del("n", "<C-h>")
 vim.keymap.del("n", "<C-j>")
 vim.keymap.del("n", "<C-k>")
 vim.keymap.del("n", "<C-l>")
-
--- Move Lines
 vim.keymap.del({ "n", "i" }, "<M-j>")
 vim.keymap.del({ "n", "i" }, "<M-k>")
+vim.keymap.del("x", "ys")
+vim.keymap.del("n", "<S-h>")
+vim.keymap.del("n", "<S-l>")
 
 -- Normal mode
 vim.keymap.set("n", "<C-l>", "<cmd>nohlsearch<cr>", { desc = "Clear search" })
@@ -37,6 +38,11 @@ vim.keymap.set(
 vim.keymap.set("i", "<M-k>", "<Up>", { noremap = true, silent = true, desc = "Move cursor up in insert mode" })
 vim.keymap.set("i", "<M-j>", "<Down>", { desc = "Move cursor down in insert mode" })
 
+-- Visual mode
+vim.keymap.set("x", "S", function()
+  require("mini.surround").add("visual")
+end, { desc = "Add Surrounding in visual mode", silent = true })
+
 -- Focus split
 vim.keymap.set("n", "<leader>'", "<C-w>p", { desc = "Switch to the last visited split" })
 vim.keymap.set("n", "<leader>1", "1<C-w>w", { desc = "Switch to split 1" })
@@ -53,8 +59,6 @@ vim.keymap.set("n", "<leader>9", "9<C-w>w", { desc = "Switch to split 9" })
 vim.keymap.set("t", "<M-t>", "<cmd>close<cr>", { desc = "Hide Terminal" })
 
 -- Buffers
-vim.keymap.del("n", "<S-h>")
-vim.keymap.del("n", "<S-l>")
 vim.keymap.set("n", "<M-k>", "<cmd>BufferLineCycleNext<cr>", { desc = "Prev Buffer" })
 vim.keymap.set("n", "<M-j>", "<cmd>BufferLineCyclePrev<cr>", { desc = "Next Buffer" })
 
