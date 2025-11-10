@@ -89,7 +89,6 @@ git:
   pagers:
     - colorArg: always
       pager: delta --paging=never --hyperlinks-file-link-format="lazygit-edit://{path}:{line}"
-      useConfig: false
       externalDiffCommand: ""
   commit:
     signOff: false
@@ -149,7 +148,7 @@ disableStartupPopups: false
 customCommands: []
 services: {}
 notARepository: prompt
-promptToReturnFromSubprocess: true
+promptToReturnFromSubprocess: false
 keybinding:
   universal:
     quit: q
@@ -252,7 +251,7 @@ keybinding:
     openStatusFilter: F
     copyFileInfoToClipboard: "y"
     collapseAll: '-'
-    expandAll: =
+    expandAll: '='
   branches:
     createPullRequest: o
     viewPullRequestOptions: O

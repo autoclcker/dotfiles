@@ -4,19 +4,23 @@ return {
     "kevinhwang91/nvim-hlslens",
   },
   config = function()
-    local colors = require("tokyonight.colors").setup()
+    local colors = require("vscode.colors").get_colors()
     require("scrollbar").setup({
       handle = {
-        blend = 0,
-        color = colors.bg_highlight,
+        blend = 85,
+        color = colors.vscFront,
+        highlight = "CursorColumn",
       },
       marks = {
-        Search = { color = colors.orange },
-        Error = { color = colors.error },
-        Warn = { color = colors.warning },
-        Info = { color = colors.info },
-        Hint = { color = colors.hint },
-        Misc = { color = colors.purple },
+        Cursor = {
+          color = "#00fcd6",
+        },
+        Search = { color = "#009961", text = { "▬" } },
+        Error = { color = colors.vscRed },
+        Warn = { color = colors.vscYellowOrange },
+        Info = { color = colors.vscYellow },
+        Hint = { color = colors.vscBlue },
+        Misc = { color = colors.vscPink },
       },
       handlers = {
         cursor = true,

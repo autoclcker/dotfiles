@@ -1,7 +1,7 @@
 all: help
 .PHONY: all
 
-CONFIG_CLI_APPS := cheat mise procs
+CONFIG_CLI_APPS := cheat mise
 CONFIG_GUI_APPS := copyq ghostty mimeapps.list pop-shell wireshark
 CONFIG_TUI_APPS := btop dive k9s lazydocker lazygit nvim procps tmux yazi
 

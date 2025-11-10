@@ -45,8 +45,8 @@ hash = "f8530ee84fee95dbcc26bb1d8d8019c7"
 
 [[plugin.deps]]
 use = "ahkohd/eza-preview"
-rev = "a97cf55"
-hash = "cc3aef07a8b1c3fe820f1fbb9a5a2483"
+rev = "7b00863"
+hash = "c538f3766b4b3bafbae3f0b7c3c3d763"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:toggle-pane"
@@ -75,8 +75,8 @@ hash = "75fd60b2df7115e0a6ca31a6a804d320"
 
 [[plugin.deps]]
 use = "uhs-robert/sshfs"
-rev = "2728b14"
-hash = "8ee736ae855ed80ae341136bb8fb353c"
+rev = "a6ddd03"
+hash = "617d83a0e1d916a5ddcb90968eb3b5f6"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:piper"

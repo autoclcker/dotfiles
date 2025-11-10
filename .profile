@@ -25,8 +25,6 @@ alias pgadmin='docker run --rm -p 5432:80 \
     --name pgadmin4 \
     --detach dpage/pgadmin4
 '
-alias procsi='procs --watch --watch-interval 2'
-alias procst='procs --tree'
 alias s='systemctl'
 alias sql='lazysql'
 alias ktui='sudo $(command -v kmon) --color grey --accent-color lightgreen'
