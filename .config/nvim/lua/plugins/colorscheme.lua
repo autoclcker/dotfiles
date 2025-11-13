@@ -3,50 +3,45 @@ return {
     "Mofiqul/vscode.nvim",
     config = function()
       local colors = require("vscode.colors").get_colors()
+      local vscDefaultDark = "#181818"
+      local vscGreenBorder = "#009961"
       require("vscode").setup({
         style = "dark",
         italic_inlayhints = true,
+        transparent = false,
         underline_links = true,
         group_overrides = {
+          BufferLineFill = { fg = vscGreenBorder, bg = vscDefaultDark },
+          Comment = { fg = colors.vscLineNumber, bg = "NONE", italic = true },
           Cursor = { fg = "#00fcd6", bg = colors.vscCursorLight },
           CursorLineNr = { fg = "#00fcd6", bg = colors.vscBack },
-          Comment = { fg = colors.vscLineNumber, bg = "NONE", italic = true },
-          SnacksPickerBorder = { fg = "#009961", bg = colors.vscBack },
+          SnacksPickerBorder = { fg = vscGreenBorder, bg = colors.vscBack },
+          StatusLine = { fg = colors.vscFront, bg = vscDefaultDark, italic = true },
+          StatusLineNC = { fg = colors.vscFront, bg = vscDefaultDark },
+          VertSplit = { fg = vscGreenBorder, bg = colors.vscBack },
         },
       })
       require("bufferline").setup({
         highlights = {
-          fill = {
-            fg = { attribute = "fg", highlight = "Normal" },
-            bg = { attribute = "bg", highlight = "StatusLineNC" },
-          },
           background = {
-            fg = { attribute = "fg", highlight = "Normal" },
-            bg = { attribute = "bg", highlight = "Normal" },
+            fg = colors.vscCursorLight,
+            bg = { attribute = "bg", highlight = "BufferLineFill" },
           },
           buffer_visible = {
-            fg = { attribute = "fg", highlight = "Normal" },
-            bg = { attribute = "bg", highlight = "Normal" },
+            fg = colors.vscCursorLight,
+            bg = colors.vscBack,
           },
           buffer_selected = {
-            fg = { attribute = "fg", highlight = "CursorLineNr" },
-            bg = { attribute = "bg", highlight = "Normal" },
+            fg = "#ffffff",
+            bg = colors.vscPopupBack,
           },
           separator = {
-            fg = { attribute = "bg", highlight = "Normal" },
-            bg = { attribute = "bg", highlight = "StatusLine" },
-          },
-          separator_selected = {
-            fg = { attribute = "fg", highlight = "Special" },
-            bg = { attribute = "bg", highlight = "Normal" },
-          },
-          separator_visible = {
-            fg = { attribute = "fg", highlight = "Normal" },
-            bg = { attribute = "bg", highlight = "StatusLineNC" },
+            fg = { attribute = "fg", highlight = "VertSplit" },
+            bg = { attribute = "bg", highlight = "BufferLineFill" },
           },
           close_button = {
             fg = { attribute = "fg", highlight = "Normal" },
-            bg = { attribute = "bg", highlight = "Normal" },
+            bg = { attribute = "bg", highlight = "BufferLineFill" },
           },
         },
       })

@@ -1,22 +1,11 @@
 #!/usr/bin/env bash
 
-readonly CYAN="\x1B[36m"
-readonly GREEN="\x1B[32m"
-readonly RED="\x1B[31m"
-readonly RESET="\x1B[0m"
-readonly YELLOW="\x1B[33m"
+# shellcheck disable=SC1091
+source "scripts/helpers.sh"
 
 SEARCHPATH=${SEARCHPATH:=''}
 DESTINATION=${DESTINATION:=''}
 POSITIONAL_ARGS=()
-
-set -o errexit  # abort on nonzero exitstatus
-set -o nounset  # abort on unbound variable
-set -o pipefail # don't hide errors within pipes
-
-log() {
-  printf "%b" "${1}[!]${RESET} ${2}"
-}
 
 while [[ $# -gt 0 ]]; do
   case ${1} in
@@ -61,6 +50,7 @@ for a in "${POSITIONAL_ARGS[@]}"; do
     log "$YELLOW" "Path was deleted: ${DESTINATION}/${a}]\n"
   fi
 done
+# shellcheck disable=SC2164
 pushd "${SEARCHPATH}"
 for a in "${POSITIONAL_ARGS[@]}"; do
   if [[ ! -e ${PWD}/${a} ]]; then

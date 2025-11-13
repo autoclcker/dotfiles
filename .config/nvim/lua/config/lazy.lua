@@ -13,11 +13,6 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
   end
 end
 vim.opt.rtp:prepend(lazypath)
-vim.api.nvim_create_autocmd("ExitPre", {
-  group = vim.api.nvim_create_augroup("Exit", { clear = true }),
-  command = "set guicursor=a:ver25-blinkwait500-blinkon250-blinkoff250",
-  desc = "Set cursor back to beam when leaving Neovim.",
-})
 
 require("lazy").setup({
   spec = {
@@ -36,12 +31,8 @@ require("lazy").setup({
   }, -- automatically check for plugin updates
   performance = {
     rtp = {
-      -- disable some rtp plugins
       disabled_plugins = {
         "gzip",
-        -- "matchit",
-        -- "matchparen",
-        -- "netrwPlugin",
         "tarPlugin",
         "tohtml",
         "tutor",

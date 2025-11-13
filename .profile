@@ -13,7 +13,6 @@ alias less='bat --plain'
 alias atop='sudo atop'
 alias ntop='sudo $(command -v bandwhich)'
 alias nvtop='sudo $(command -v nvtop.AppImage)'
-alias p='printf'
 alias pgadmin='docker run --rm -p 5432:80 \
     --env "PGADMIN_CONFIG_MASTER_PASSWORD_REQUIRED=False" \
     --env "PGADMIN_CONFIG_UPGRADE_CHECK_ENABLED=False" \

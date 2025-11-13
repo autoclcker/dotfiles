@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# shellcheck disable=SC1091
+source "scripts/helpers.sh"
+
 XDG_CONFIG_HOME=${XDG_CONFIG_HOME:-"$HOME/.config"}
 
 CHEATSHEETS_REPO=${CHEATSHEETS_REPO:-"https://github.com/cheat/cheatsheets.git"}
@@ -17,15 +20,11 @@ YAZI_SMART_PASTE_PATH=${YAZI_SMART_PASTE_PATH:-"$XDG_CONFIG_HOME/yazi/plugins/sm
 
 export PATH="$HOME/.local/share/mise/shims:$PATH"
 
-set -o errexit  # abort on nonzero exitstatus
-set -o nounset  # abort on unbound variable
-set -o pipefail # don't hide errors within pipes
-
 # Cheat
 if [[ ! -d "${XDG_CONFIG_HOME}/cheat/cheatsheets/community" ]]; then
   git clone --depth 1 "${CHEATSHEETS_REPO}" "${XDG_CONFIG_HOME}/cheat/cheatsheets/community"
 else
-  printf "\e[1;96m%s\e[0m\n" "Cheatsheets are already installed"
+  log "${CYAN}" "Cheatsheets are already installed\n"
 fi
 
 # Fonts
@@ -37,14 +36,14 @@ if [[ ! -d /usr/local/share/fonts/nerd-fonts ]]; then
     ./install.sh "$f"
   done
 else
-  printf "\e[1;96m%s\e[0m\n" "Fonts are already installed"
+  log "${CYAN}" "Fonts are already installed\n"
 fi
 
 # Helm
 if [[ ! $(helm diff version) ]]; then
   helm plugin install "${HELM_DIFF_REPO}"
 else
-  printf "\e[1;96m%s\e[0m\n" "Helm diff is already installed"
+  log "${CYAN}" "Helm diff is already installed\n"
 fi
 
 # GNOME
@@ -54,19 +53,19 @@ if env | grep --quiet "XDG_CURRENT_DESKTOP=.*GNOME"; then
   gsettings set org.gnome.desktop.wm.keybindings cycle-group-backward "['<Shift><Super>apostrophe']"
   gsettings set org.gnome.desktop.wm.keybindings maximize-horizontally "['<Alt><Super>s']"
   gsettings set org.gnome.desktop.wm.keybindings maximize-vertically "['<Alt><Super>v']"
-  gsettings set org.gnome.desktop.wm.keybindings switch-group "['<Super>period']"
-  gsettings set org.gnome.desktop.wm.keybindings switch-group-backward "['<Super>comma']"
+  gsettings set org.gnome.desktop.wm.keybindings switch-group "['<Super>bracketright']"
+  gsettings set org.gnome.desktop.wm.keybindings switch-group-backward "['<Super>bracketleft']"
   gsettings set org.gnome.desktop.wm.keybindings switch-input-source "['<Super>space']"
   gsettings set org.gnome.desktop.wm.keybindings switch-input-source-backward "['<Super>backspace']"
-  gsettings set org.gnome.desktop.wm.keybindings switch-windows "['<Super>bracketright']"
-  gsettings set org.gnome.desktop.wm.keybindings switch-windows-backward "['<Super>bracketleft']"
+  gsettings set org.gnome.desktop.wm.keybindings switch-windows "['<Super>n']"
+  gsettings set org.gnome.desktop.wm.keybindings switch-windows-backward "['<Super>b']"
   gsettings set org.gnome.desktop.wm.keybindings toggle-fullscreen "['<Super>z']"
   gsettings set org.gnome.desktop.wm.keybindings toggle-maximized "['<Alt><Super>z']"
   gsettings set org.gnome.desktop.wm.keybindings toggle-on-all-workspaces "['<Super>m']"
   gsettings set org.gnome.desktop.wm.preferences num-workspaces "${#WORKSPACE_INDEXES[@]}"
   gsettings set org.gnome.mutter dynamic-workspaces false
   gsettings set org.gnome.mutter workspaces-only-on-primary false
-  gsettings set org.gnome.settings-daemon.plugins.media-keys control-center "['<Super>c']"
+  gsettings set org.gnome.settings-daemon.plugins.media-keys control-center "['<Super>comma']"
   gsettings set org.gnome.settings-daemon.plugins.media-keys terminal "['<Super>t']"
   gsettings set org.gnome.settings-daemon.plugins.media-keys www "['<Super>f']"
   gsettings set org.gnome.shell.extensions.pop-cosmic overlay-key-action 'LAUNCHER'
@@ -77,11 +76,11 @@ if env | grep --quiet "XDG_CURRENT_DESKTOP=.*GNOME"; then
     gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-"$((i+1))" "['<Super>${WORKSPACE_INDEXES[$i]}']"
     gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-"$((i+1))" "['<Super><Shift>${WORKSPACE_INDEXES[$i]}']"
   done
-  printf "\e[1;96m%s\e[0m\n" "GNOME is configured"
+  log "${CYAN}" "GNOME is configured\n"
 fi
 
 # Tealdeer
-printf "\e[1;96m%s\e[0m" "Tealdeer "
+log "${CYAN}" "Tealdeer "
 tldr --update
 
 # Yazi
@@ -104,7 +103,7 @@ return {
 }
 EOF
 fi
-printf "\e[1;96m%s\e[0m\n" "Yazi is configured"
+log "${CYAN}" "Yazi is configured\n"
 
 # ZSH
 zsh -c "zstyle ':omz:update' mode disabled"
@@ -112,7 +111,7 @@ if [[ ! -d "${HOME}/.oh-my-zsh/custom/plugins/zsh-autosuggestions" ]]; then
   git clone --depth 1 "${ZSH_AUTOSUGGESTIONS_REPO}" "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-autosuggestions"
   git clone --depth 1 "${ZSH_SYNTAX_HIGHLIGHTING_REPO}" "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting"
 else
-  printf "\e[1;96m%s\e[0m\n" "ZSH plugins are already installed"
+  log "${CYAN}" "ZSH plugins are already installed\n"
 fi
 
 exit 0

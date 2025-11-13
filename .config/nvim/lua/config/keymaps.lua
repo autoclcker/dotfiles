@@ -1,6 +1,4 @@
--- Add any additional keymaps here
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
--- Keymaps are automatically loaded on the VeryLazy event
 
 -- Cleanup
 vim.keymap.del("n", "<C-h>")
@@ -14,7 +12,7 @@ vim.keymap.del("n", "<S-h>")
 vim.keymap.del("n", "<S-l>")
 
 -- Normal mode
-vim.keymap.set("n", "<C-l>", "<cmd>nohlsearch<cr>", { desc = "Clear search" })
+vim.keymap.set("n", "<C-l>", "<cmd>nohlsearch<cr>", { noremap = true, silent = true, desc = "Clear search" })
 
 -- Command mode
 vim.keymap.set("c", "<C-a>", "<Home>", { desc = "Move cursor to the beginning of the line start in command mode" })
@@ -57,6 +55,13 @@ vim.keymap.set("n", "<leader>9", "9<C-w>w", { desc = "Switch to split 9" })
 
 -- Terminal
 vim.keymap.set("t", "<M-t>", "<cmd>close<cr>", { desc = "Hide Terminal" })
+vim.keymap.set("t", "<C-Up>", "5<C-w>+", { desc = "Hide Terminal" })
+vim.keymap.set(
+  "n",
+  "<C-w>t",
+  "<cmd>vsplit term://bash<cr>i",
+  { noremap = true, silent = true, desc = "Vertical split terminal" }
+)
 
 -- Buffers
 vim.keymap.set("n", "<M-k>", "<cmd>BufferLineCycleNext<cr>", { desc = "Prev Buffer" })

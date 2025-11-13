@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# shellcheck disable=SC1091
+source "scripts/helpers.sh"
+
 PACKAGES=()
 
 INSTALL_DOCKER=${INSTALL_DOCKER:-true}
@@ -13,11 +16,6 @@ VSCODIUM_URL=${VSCODIUM_URL:-"https://download.vscodium.com"}
 
 VSCODIUM_REPO=${VSCODIUM_REPO:-"https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo"}
 
-# IMPORTANT: This script is only for Ubuntu-based distro
-set -o errexit  # abort on nonzero exitstatus
-set -o nounset  # abort on unbound variable
-set -o pipefail # don't hide errors within pipes
-
 while [[ $# -gt 0 ]]; do
   case ${1} in
   -p | --packages)
@@ -30,7 +28,7 @@ while [[ $# -gt 0 ]]; do
     done
     ;;
   -*)
-    printf "%b %s\n" "\x1B[31mIllegal argument:\x1B[0m" "${1}"
+    log "${RED}" "Illegal argument: ${1}"
     exit 1
     ;;
   esac
@@ -59,7 +57,7 @@ EOF
   curl --silent --location --fail --show-error "$DOCKER_SBOM_URL" | sh --silent -- # install the docker-sbom plugin
   curl --silent --location "$DOCKER_SLIM_URL" | sudo --preserve-env sh -           # install the docker-slim
 else
-  printf "\e[1;96m%s\e[0m\n" "Docker isn't needed"
+  log "${CYAN}" "Docker isn't needed\n"
 fi
 
 # Install Mise
@@ -74,7 +72,7 @@ if [[ ! -f /etc/apt/sources.list.d/vscodium.list ]] && [[ "$INSTALL_DOCKER" == t
     | sudo tee /etc/apt/sources.list.d/vscodium.list
   sudo apt-get update && sudo apt install codium --yes
 else
-  printf "\e[1;96m%s\e[0m\n" "VSCodium is already installed"
+  log "${CYAN}" "VSCodium is already installed\n"
 fi
 
 # Install CopyQ
@@ -82,14 +80,14 @@ if [[ ! -f /etc/apt/sources.list.d/hluk-ubuntu-copyq-jammy.list ]] && [[ "$INSTA
   sudo add-apt-repository ppa:hluk/copyq
   sudo apt-get update && sudo apt install copyq --yes
 else
-  printf "\e[1;96m%s\e[0m\n" "CopyQ is already installed"
+  log "${CYAN}" "CopyQ is already installed\n"
 fi
 
 # Install Oh My Zsh
 if [[ ! -d "${HOME}/.oh-my-zsh" ]]; then
   sh -c "$(curl --fail --silent --show-error --location "$OH_MY_ZSH_URL")"
 else
-  printf "\e[1;96m%s\e[0m\n" "Oh My Zsh is already installed"
+  log "${CYAN}" "Oh My Zsh is already installed\n"
 fi
 
 exit 0
