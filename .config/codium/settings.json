@@ -494,6 +494,5 @@
     ],
     "window.customTitleBarVisibility": "windowed",
     "window.enableMenuBarMnemonics": false,
-    "window.menuBarVisibility": "toggle",
-    "window.newWindowProfile": "autoclcker"
+    "window.menuBarVisibility": "toggle"
 }

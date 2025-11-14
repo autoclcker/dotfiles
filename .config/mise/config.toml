@@ -40,6 +40,7 @@
 "npm:@angular/cli" = "latest"
 "npm:ts-node" = "latest"
 "npm:typescript" = "latest"
+"npm:vscode-langservers-extracted" = "latest"
 "pipx:ansible-core" = "latest"
 "pipx:ansible-creator" = "latest"
 "pipx:ansible-lint" = "latest"

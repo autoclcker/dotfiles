@@ -55,13 +55,7 @@ vim.keymap.set("n", "<leader>9", "9<C-w>w", { desc = "Switch to split 9" })
 
 -- Terminal
 vim.keymap.set("t", "<M-t>", "<cmd>close<cr>", { desc = "Hide Terminal" })
-vim.keymap.set("t", "<C-Up>", "5<C-w>+", { desc = "Hide Terminal" })
-vim.keymap.set(
-  "n",
-  "<C-w>t",
-  "<cmd>vsplit term://bash<cr>i",
-  { noremap = true, silent = true, desc = "Vertical split terminal" }
-)
+vim.keymap.set("n", "<C-w>t", "<cmd>terminal<cr>i", { noremap = true, silent = true, desc = "Open editor terminal" })
 
 -- Buffers
 vim.keymap.set("n", "<M-k>", "<cmd>BufferLineCycleNext<cr>", { desc = "Prev Buffer" })
