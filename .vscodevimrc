@@ -1,0 +1,5 @@
+cnoremap <C-a> <Home>
+cnoremap <C-e> <End>
+nnoremap <C-h> :registers<CR>
+nnoremap <C-l> :nohlsearch<CR>
+nnoremap <C-m> :marks<CR>

@@ -1,0 +1,71 @@
+hotKeys:
+  shift-0:
+    shortCut: Shift-0
+    description: View Xray
+    command: "xray $RESOURCE_NAME $NAMESPACE"
+  shift-1:
+    shortCut: Shift-1
+    description: View Pods
+    command: pod /$FILTER
+    keepHistory: true
+  shift-2:
+    shortCut: Shift-2
+    description: View Jobs
+    command: job
+  shift-3:
+    shortCut: Shift-3
+    description: View Deployments
+    command: deployment
+  shift-4:
+    shortCut: Shift-4
+    description: View StatefulSets
+    command: statefulset
+  shift-5:
+    shortCut: Shift-5
+    description: View Secrets
+    command: secret /$FILTER
+    keepHistory: true
+  shift-6:
+    shortCut: Shift-6
+    description: View PersistentVolumeClaims
+    command: persistentvolumeclaim
+  shift-7:
+    shortCut: Shift-7
+    description: View Services
+    command: service /$FILTER
+    keepHistory: true
+  shift-8:
+    shortCut: Shift-8
+    description: View Ingresses
+    command: ingress /$FILTER
+    keepHistory: true
+  shift-9:
+    shortCut: Shift-9
+    description: View RoleBindings
+    command: rolebinding
+  shift-h:
+    shortCut: Shift-H
+    description: View Pulse
+    command: pulse
+  shift-q:
+    shortCut: Shift-Q
+    description: View Namespaces
+    command: namespace
+  ctrl-q:
+    shortCut: Ctrl-Q
+    description: View Context
+    override: true
+    command: ctx
+  h:
+    shortCut: h
+    description: View Helm
+    command: helm
+  m:
+    shortCut: m
+    description: View ConfigMaps
+    command: configmap /$FILTER
+    keepHistory: true
+  q:
+    shortCut: q
+    description: Clear current history and filter
+    command: $RESOURCE_NAME $NAMESPACE

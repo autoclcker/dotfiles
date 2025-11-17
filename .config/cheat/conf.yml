@@ -1,0 +1,15 @@
+# origin ref: https://github.com/cheat/cheat
+editor: nvim
+colorize: true
+style: monokai
+formatter: terminal256
+pager: "less -FRX"
+cheatpaths:
+  - name: community
+    path: ~/.config/cheat/cheatsheets/community
+    tags: [community]
+    readonly: true
+  - name: personal
+    path: ~/.config/cheat/cheatsheets/personal
+    tags: [personal]
+    readonly: false

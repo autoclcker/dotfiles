@@ -1,0 +1,498 @@
+{
+    "cmake.showOptionsMovedNotification": false,
+    "vim.normalModeKeyBindings": [],
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "after": [
+                "<leader>",
+                "<leader>",
+                "s"
+            ],
+            "before": [
+                "<space>",
+                "s"
+            ]
+        },
+        {
+            "after": [
+                "<leader>",
+                "<leader>",
+                "f"
+            ],
+            "before": [
+                "End"
+            ]
+        },
+        {
+            "after": [
+                "<leader>",
+                "<leader>",
+                "F"
+            ],
+            "before": [
+                "Home"
+            ]
+        },
+        {
+            "after": [
+                "<leader>",
+                "<leader>",
+                "t"
+            ],
+            "before": [
+                "<space>",
+                "t"
+            ]
+        },
+        {
+            "after": [
+                "<leader>",
+                "<leader>",
+                "T"
+            ],
+            "before": [
+                "<space>",
+                "T"
+            ]
+        },
+        {
+            "after": [
+                "<leader>",
+                "<leader>",
+                "j"
+            ],
+            "before": [
+                "<space>",
+                "j"
+            ]
+        },
+        {
+            "after": [
+                "<leader>",
+                "<leader>",
+                "k"
+            ],
+            "before": [
+                "<space>",
+                "k"
+            ]
+        },
+        {
+            "after": [
+                "<leader>",
+                "w"
+            ],
+            "before": [
+                "<space>",
+                "w"
+            ]
+        },
+        {
+            "after": [
+                "<leader>",
+                "b"
+            ],
+            "before": [
+                "<space>",
+                "b"
+            ]
+        },
+        {
+            "after": [
+                "<leader>",
+                "e"
+            ],
+            "before": [
+                "<space>",
+                "e"
+            ]
+        },
+        {
+            "before": [
+                "<space>",
+                "p"
+            ],
+            "commands": [
+                "workbench.action.toggleLockedScrolling"
+            ]
+        },
+        {
+            "before": [
+                "<C-w>",
+                "n"
+            ],
+            "commands": [
+                "openEditors.newUntitledFile"
+            ]
+        },
+        {
+            "before": [
+                "<C-w>",
+                "t"
+            ],
+            "commands": [
+                "workbench.action.createTerminalEditor"
+            ]
+        },
+        {
+            "before": [
+                "]",
+                "e"
+            ],
+            "commands": [
+                "editor.action.marker.next"
+            ]
+        },
+        {
+            "before": [
+                "[",
+                "e"
+            ],
+            "commands": [
+                "editor.action.marker.prev"
+            ]
+        },
+        {
+            "before": [
+                "<space>",
+                "v"
+            ],
+            "commands": [
+                "codeium.pasteAndTranslate"
+            ]
+        },
+        {
+            "before": [
+                "<space>",
+                "C"
+            ],
+            "commands": [
+                "copyRelativeFilePath"
+            ],
+            "silent": true
+        },
+        {
+            "before": [
+                "<space>",
+                "c"
+            ],
+            "commands": [
+                "copyFilePath"
+            ],
+            "silent": true
+        },
+        {
+            "before": [
+                "<space>",
+                "m"
+            ],
+            "commands": [
+                "bookmarks.toggle"
+            ],
+            "silent": true
+        },
+        {
+            "before": [
+                "<space>",
+                "'"
+            ],
+            "commands": [
+                "bookmarks.listFromAllFiles"
+            ]
+        },
+        {
+            "before": [
+                "<space>",
+                "a"
+            ],
+            "commands": [
+                "json.sort"
+            ],
+            "silent": true
+        },
+        {
+            "before": [
+                "z",
+                "1"
+            ],
+            "commands": [
+                "editor.foldLevel1"
+            ],
+            "silent": true
+        },
+        {
+            "before": [
+                "z",
+                "2"
+            ],
+            "commands": [
+                "editor.foldLevel2"
+            ],
+            "silent": true
+        },
+        {
+            "before": [
+                "z",
+                "3"
+            ],
+            "commands": [
+                "editor.foldLevel3"
+            ],
+            "silent": true
+        },
+        {
+            "before": [
+                "z",
+                "4"
+            ],
+            "commands": [
+                "editor.foldLevel4"
+            ],
+            "silent": true
+        },
+        {
+            "before": [
+                "z",
+                "5"
+            ],
+            "commands": [
+                "editor.foldLevel5"
+            ],
+            "silent": true
+        },
+        {
+            "before": [
+                "z",
+                "6"
+            ],
+            "commands": [
+                "editor.foldLevel6"
+            ],
+            "silent": true
+        },
+        {
+            "before": [
+                "z",
+                "7"
+            ],
+            "commands": [
+                "editor.foldLevel7"
+            ],
+            "silent": true
+        },
+        {
+            "after": [
+                "\"",
+                "0"
+            ],
+            "before": [
+                "<space>",
+                "0"
+            ]
+        },
+        {
+            "after": [
+                "\"",
+                "_"
+            ],
+            "before": [
+                "<space>",
+                "-"
+            ]
+        },
+        {
+            "after": [
+                "\"",
+                "*"
+            ],
+            "before": [
+                "<space>",
+                "8"
+            ]
+        },
+        {
+            "before": [
+                ">"
+            ],
+            "commands": [
+                "editor.action.indentLines"
+            ],
+            "silent": true
+        },
+        {
+            "before": [
+                "<"
+            ],
+            "commands": [
+                "editor.action.outdentLines"
+            ],
+            "silent": true
+        },
+        {
+            "before": [
+                "g",
+                "p",
+                "d"
+            ],
+            "commands": [
+                "editor.action.peekDefinition"
+            ]
+        },
+        {
+            "before": [
+                "g",
+                "h"
+            ],
+            "commands": [
+                "editor.action.showHover"
+            ]
+        },
+        {
+            "before": [
+                "g",
+                "s"
+            ],
+            "commands": [
+                "editor.action.referenceSearch.trigger"
+            ]
+        },
+        {
+            "before": [
+                "g",
+                "l"
+            ],
+            "commands": [
+                "editor.action.goToImplementation"
+            ]
+        },
+        {
+            "before": [
+                "g",
+                "p",
+                "l"
+            ],
+            "commands": [
+                "editor.action.peekImplementation"
+            ]
+        },
+        {
+            "before": [
+                "g",
+                "k"
+            ],
+            "commands": [
+                "editor.action.goToTypeDefinition"
+            ]
+        },
+        {
+            "before": [
+                "g",
+                "p",
+                "k"
+            ],
+            "commands": [
+                "editor.action.peekTypeDefinition"
+            ]
+        },
+        {
+            "after": [
+                "y",
+                "$"
+            ],
+            "before": [
+                "Y"
+            ]
+        },
+        {
+            "before": [
+                "C-b"
+            ],
+            "commands": [
+                "cursorPageUp"
+            ],
+            "silent": true
+        },
+        {
+            "before": [
+                "C-f"
+            ],
+            "commands": [
+                "cursorPageDown"
+            ],
+            "silent": true
+        },
+        {
+            "before": [
+                "<space>",
+                "<space>"
+            ],
+            "commands": [
+                "workbench.action.quickOpen"
+            ],
+            "silent": true
+        },
+        {
+            "before": [
+                "<space>",
+                "o"
+            ],
+            "commands": [
+                "workbench.action.showAllEditors"
+            ],
+            "silent": true
+        }
+    ],
+    "vim.visualModeKeyBindings": [
+        {
+            "after": [
+                "\"",
+                "*"
+            ],
+            "before": [
+                "<space>",
+                "8"
+            ]
+        },
+        {
+            "before": [
+                "<space>",
+                "r"
+            ],
+            "commands": [
+                "codeium.refactorCodeBlock"
+            ]
+        },
+        {
+            "before": [
+                "<space>",
+                "h"
+            ],
+            "commands": [
+                "codeium.explainCodeBlock"
+            ]
+        },
+        {
+            "before": [
+                "<space>",
+                "a"
+            ],
+            "commands": [
+                "editor.action.sortLinesAscending"
+            ],
+            "silent": true
+        },
+        {
+            "before": [
+                "<space>",
+                "A"
+            ],
+            "commands": [
+                "editor.action.sortLinesDescending"
+            ],
+            "silent": true
+        }
+    ],
+    "window.customTitleBarVisibility": "windowed",
+    "window.enableMenuBarMnemonics": false,
+    "window.menuBarVisibility": "toggle"
+}

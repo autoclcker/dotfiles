@@ -1,0 +1,18 @@
+# Generate a public and private key:
+wg genkey | tee {{path/to/private_key}} | wg pubkey > {{path/to/public_key}}
+
+# CLI workflow
+# A new interface can be added via ip-link(8), which should automatically handle module loading:
+ip link add dev wg0 type wireguard
+# An IP address and peer can be assigned with ifconfig(8) or ip-address(8):
+ip address add dev wg0 {{IP/mask}}
+# The interface can be configured with keys and peer endpoints with the included wg(8) utility:
+wg setconf wg0 myconfig.conf
+# or
+wg set wg0 listen-port 51820
+wg set wg0 peer {{public_key}} allowed-ips {{private_IP}}/32 endpoint {{public_IP}}:{{listen_port}}
+# Finally, the interface can then be activated
+ip link set up dev wg0
+
+# IMPORTANT:
+# Much of the routine bring-up and tear-down dance of wg(8) and ip(8) can be automated by the included wg-quick(8) tool

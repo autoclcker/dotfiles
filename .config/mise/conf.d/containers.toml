@@ -1,0 +1,8 @@
+[tools]
+dive = "latest"
+k3d = "latest"
+k9s = "latest"
+kind = "latest"
+kubectl = "latest"
+kubectx = "latest"
+wasmer = "latest"

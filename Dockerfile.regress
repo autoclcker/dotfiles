@@ -1,0 +1,50 @@
+# syntax=docker/dockerfile:1
+
+ARG REGISTRY=docker.io/library
+ARG OS_BASE=archlinux
+ARG OS_VERSION=base@sha256:c136b06a4f786b84c1cc0d2494fabdf9be8811d15051cd4404deb5c3dc0b2e57
+
+# Download the dependencies
+FROM --platform=${BUILDPLATFORM} ${REGISTRY}/${OS_BASE}:${OS_VERSION} AS base
+
+ARG UID=59999
+ARG GID=59999
+ARG USER=nonroot
+ARG GROUP=nonroot
+ARG HOME=/home/${USER}
+
+ENV FULL_INSTALLATION=false
+ENV GNUPGHOME=/etc/pacman.d/gnupg
+ENV TZ=Europe/Moscow
+
+RUN <<EOF
+groupadd --gid ${GID} ${GROUP}
+useradd --comment '' --create-home --home-dir ${HOME} --shell /bin/bash --uid ${UID} --gid ${GID} ${USER}
+pacman-key --init
+pacman-key --populate archlinux
+setfacl --recursive --modify "u:${USER}:rwx" /etc/pacman.d/gnupg
+EOF
+RUN --mount=type=cache,target=/var/cache/pacman/pkg,sharing=locked \
+    pacman --refresh --sync && pacman --needed --noconfirm --sync \
+        git>=2.51.* \
+        make>=4.4.* \
+        sudo>=1.9.17.* \
+        && \
+    printf '%s ALL=(ALL) NOPASSWD:ALL\n' "${USER}" >> /etc/sudoers.d/${USER} && \
+    runuser ${USER} --login --command 'printf "make help" >> .bashrc'
+
+USER ${UID}:${GID}
+
+WORKDIR ${HOME}/dotfiles
+
+COPY --link --chown=${UID}:${GID} . .
+
+# DEBUG
+FROM base AS debug
+ENTRYPOINT ["/bin/bash"]
+
+# Final
+FROM base AS final
+RUN --mount=type=cache,target=/var/cache/pacman/pkg,sharing=locked \
+    --mount=type=secret,id=GITHUB_TOKEN,env=GITHUB_TOKEN,required=false \
+    make install

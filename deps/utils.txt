@@ -1,0 +1,6 @@
+atop
+lshw
+p7zip
+sshfs
+xsel
+zsh

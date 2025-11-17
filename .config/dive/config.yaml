@@ -1,0 +1,20 @@
+# supported options are "docker" and "podman"
+container-engine: docker
+ignore-errors: false
+log:
+  enabled: false
+keybinding:
+  quit: q,ctrl+c
+  toggle-view: tab
+  filter-files: o
+  compare-all: A
+  compare-layer: L
+  toggle-collapse-dir: space
+  toggle-collapse-all-dir: T
+  toggle-added-files: a
+  toggle-removed-files: r
+  toggle-modified-files: m
+  toggle-unmodified-files: u
+  toggle-filetree-attributes: b
+  page-up: ctrl+b
+  page-down: ctrl+f

@@ -1,0 +1,6 @@
+autoconf
+bison
+dbus
+gcc
+pkgconf
+unzip

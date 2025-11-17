@@ -1,0 +1,8 @@
+!copyq-commands.ini
+!copyq.conf
+.vscode
+**/*/.gitignore
+**/community/
+**/copyq/*
+**/yazi/plugins
+**/yazi/sshfs.list
