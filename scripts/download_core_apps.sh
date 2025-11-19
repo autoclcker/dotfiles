@@ -44,7 +44,7 @@ fi
 if [[ ! $(yay --version) ]] && [[ "$FULL_INSTALLATION" == true ]]; then
   git clone "${YAY_URL}" /tmp/yay
   pushd "$_" || exit 1
-  makepkg --install --noconfirm --syndeps
+  makepkg --install --noconfirm --syncdeps
   yay --refresh --sync
   if [[ ${#YAY_PACKAGES[@]} -gt 0 ]]; then
     yay --needed --noconfirm --sync "${YAY_PACKAGES[@]}"
@@ -80,7 +80,11 @@ else
 fi
 
 # Mise
-curl "$MISE_URL" | sh
+if [[ ! $(mise --version) ]]; then
+  curl "$MISE_URL" | sh
+else
+  log "${CYAN}" "Mise isn't needed\n"
+fi
 
 # Systemd
 if [[ "$FULL_INSTALLATION" == true ]]; then
