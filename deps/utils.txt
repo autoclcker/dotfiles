@@ -1,5 +1,6 @@
 atop
 lshw
+nmap
 p7zip
 sshfs
 xsel

@@ -14,7 +14,6 @@ ARG GROUP=nonroot
 ARG HOME=/home/${USER}
 
 ENV FULL_INSTALLATION=false
-ENV GNUPGHOME=/etc/pacman.d/gnupg
 ENV TZ=Europe/Moscow
 
 RUN <<EOF
@@ -22,7 +21,6 @@ groupadd --gid ${GID} ${GROUP}
 useradd --comment '' --create-home --home-dir ${HOME} --shell /bin/bash --uid ${UID} --gid ${GID} ${USER}
 pacman-key --init
 pacman-key --populate archlinux
-setfacl --recursive --modify "u:${USER}:rwx" /etc/pacman.d/gnupg
 EOF
 RUN --mount=type=cache,target=/var/cache/pacman/pkg,sharing=locked \
     pacman --refresh --sync && pacman --needed --noconfirm --sync \

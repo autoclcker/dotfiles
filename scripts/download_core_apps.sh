@@ -3,7 +3,7 @@
 # shellcheck disable=SC1091
 source "scripts/helpers.sh"
 
-DESKTOP_PACKAGES=("base-devel" "copyq" "cosmic-session" "docker" "ghossty" "networkmanager")
+DESKTOP_PACKAGES=("base-devel" "copyq" "cosmic-session" "docker" "ghostty" "networkmanager")
 PACKAGES=()
 YAY_PACKAGES=("vscodium-bin")
 
@@ -37,6 +37,7 @@ done
 sudo pacman --refresh --sync
 if [[ ${#PACKAGES[@]} -gt 0 ]]; then
   sudo pacman --needed --noconfirm --sync "${PACKAGES[@]}"
+  sudo setfacl --recursive --modify "u:$(whoami):rwx" /etc/pacman.d/gnupg
 fi
 
 # Yay

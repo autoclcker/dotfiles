@@ -1,8 +1,11 @@
-!copyq-commands.ini
-!copyq.conf
 .vscode
-**/*/.gitignore
+**/.gitignore
 **/community/
 **/copyq/*
+**/cosmic/*
 **/yazi/plugins
 **/yazi/sshfs.list
+!com.system76.CosmicComp
+!com.system76.CosmicPanel.Panel
+!copyq-commands.ini
+!copyq.conf

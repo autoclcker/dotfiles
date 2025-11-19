@@ -11,6 +11,7 @@ alias j='journalctl'
 alias kc='kubectx'
 alias less='bat --plain'
 alias atop='sudo atop'
+alias nc='ncat'
 alias ntop='sudo $(command -v bandwhich)'
 alias nvtop='sudo $(command -v nvtop.AppImage)'
 alias pgadmin='docker run --rm -p 5432:80 \
@@ -58,6 +59,9 @@ y() {
   fi
   rm -f -- "$tmp"
 }
+
+# GPG keys
+export GNUPGHOME="/etc/pacman.d/gnupg"
 
 # Editor
 export EDITOR="nvim"
