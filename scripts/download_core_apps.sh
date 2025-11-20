@@ -54,7 +54,7 @@ else
 fi
 
 # Zsh
-if [[ ! $(zsh --version) ]] && [[ "$FULL_INSTALLATION" == true ]]; then
+if [[ $(zsh --version) ]]; then
   chsh --shell "$(which zsh)"
   sh -c "$(curl --fail --silent --show-error --location "$OH_MY_ZSH_URL")"
 else

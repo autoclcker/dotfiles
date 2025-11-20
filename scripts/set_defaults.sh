@@ -76,8 +76,8 @@ if env | grep --quiet "XDG_CURRENT_DESKTOP=.*GNOME"; then
   gsettings set org.gnome.shell.keybindings toggle-message-tray "['Help']"
   gsettings set org.gnome.shell.keybindings toggle-overview "['LaunchA']"
   for ((i = 0; i <= ${#WORKSPACE_INDEXES[@]} - 1; i++)); do
-    gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-"$((i+1))" "['<Super>${WORKSPACE_INDEXES[$i]}']"
-    gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-"$((i+1))" "['<Super><Shift>${WORKSPACE_INDEXES[$i]}']"
+    gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-"$((i + 1))" "['<Super>${WORKSPACE_INDEXES[$i]}']"
+    gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-"$((i + 1))" "['<Super><Shift>${WORKSPACE_INDEXES[$i]}']"
   done
   log "${CYAN}" "GNOME is configured\n"
 fi
@@ -109,8 +109,7 @@ fi
 log "${CYAN}" "Yazi is configured\n"
 
 # ZSH
-zsh -c "zstyle ':omz:update' mode disabled"
-if [[ ! -d "${ZSH_PLUGINS_HOME}/zsh-autosuggestions" ]]; then
+if [[ $(zsh --version) ]] && [[ ! -d "${ZSH_PLUGINS_HOME}/zsh-autosuggestions" ]]; then
   git clone --depth 1 "${ZSH_AUTOSUGGESTIONS_REPO}" "${ZSH_PLUGINS_HOME:-$ZSH_PLUGINS_HOME}/zsh-autosuggestions"
   git clone --depth 1 "${ZSH_SYNTAX_HIGHLIGHTING_REPO}" "${ZSH_PLUGINS_HOME:-$ZSH_PLUGINS_HOME}/zsh-syntax-highlighting"
 else
