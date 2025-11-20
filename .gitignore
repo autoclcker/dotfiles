@@ -6,6 +6,7 @@
 **/yazi/plugins
 **/yazi/sshfs.list
 !com.system76.CosmicComp
+!com.system76.CosmicPanel
 !com.system76.CosmicPanel.Panel
 !copyq-commands.ini
 !copyq.conf

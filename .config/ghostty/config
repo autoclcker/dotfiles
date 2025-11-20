@@ -1,4 +1,6 @@
 # https://ghostty.org/docs/config
+command = $(which $SHELL)
+
 font-size = 13
 font-family = "FiraCode Nerd Font"
 font-style = "Regular"
@@ -18,7 +20,7 @@ cursor-color = #00ffa6
 theme = "Molokai"
 window-theme = dark
 
-window-decoration = server
+window-decoration = "none"
 window-padding-x = 5,1
 confirm-close-surface = false
 

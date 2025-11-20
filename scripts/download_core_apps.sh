@@ -5,7 +5,7 @@ source "scripts/helpers.sh"
 
 DESKTOP_PACKAGES=("base-devel" "copyq" "cosmic-session" "docker" "ghostty" "networkmanager")
 PACKAGES=()
-YAY_PACKAGES=("vscodium-bin")
+YAY_PACKAGES=("google-chrome" "vscodium-bin")
 
 DOCKER_SBOM_URL=${DOCKER_SBOM_URL:-"https://raw.githubusercontent.com/docker/sbom-cli-plugin/main/install.sh"}
 DOCKER_SLIM_URL=${DOCKER_SLIM_URL:-"https://raw.githubusercontent.com/slimtoolkit/slim/master/scripts/install-slim.sh"}

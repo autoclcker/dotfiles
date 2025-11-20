@@ -60,6 +60,9 @@ y() {
   rm -f -- "$tmp"
 }
 
+# SHELL
+export SHELL=zsh
+
 # GPG keys
 export GNUPGHOME="/etc/pacman.d/gnupg"
 
