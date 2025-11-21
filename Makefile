@@ -28,7 +28,7 @@ docker/debug: docker/build-debug ### Debug in Docker
 
 docker/regress: ### Validate Setup integrity
 	@docker buildx build --secret id=GITHUB_TOKEN --tag ${BRANCH}/regress --file Dockerfile.regress .
-	@docker rmi regress:latest
+	@docker rmi ${BRANCH}/regress:latest
 .PHONY: docker/regress
 
 download:

@@ -54,9 +54,6 @@ bindkey -M emacs '^[[28;5;9~' sudo-command-line
 bindkey -M vicmd '^[[28;5;9~' sudo-command-line
 bindkey -M viins '^[[28;5;9~' sudo-command-line
 
-# User configuration
-export LANG=en_US.UTF-8
-
 precmd () {
 	echo -n -e "\a"
 }

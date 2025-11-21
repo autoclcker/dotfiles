@@ -1,7 +1,9 @@
 atop
+less
 lshw
 nmap
 p7zip
 sshfs
+vim
 xsel
 zsh
