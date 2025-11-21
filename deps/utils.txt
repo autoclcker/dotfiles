@@ -1,5 +1,4 @@
 atop
-less
 lshw
 nmap
 p7zip

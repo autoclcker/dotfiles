@@ -1,6 +1,4 @@
 # https://ghostty.org/docs/config
-command = $(which $SHELL)
-
 font-size = 13
 font-family = "FiraCode Nerd Font"
 font-style = "Regular"

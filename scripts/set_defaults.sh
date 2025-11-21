@@ -30,7 +30,7 @@ else
   log "${CYAN}" "Cheatsheets are already installed\n"
 fi
 
-# Fonts
+# Fonts&Locales
 if [[ ! -d "${FONTS_PATH}" ]]; then
   git clone --filter=blob:none --sparse "${NERD_FONTS_REPO}" "${FONTS_PATH}"
   pushd "$_" || exit 1
@@ -38,8 +38,11 @@ if [[ ! -d "${FONTS_PATH}" ]]; then
     git sparse-checkout add "patched-fonts/$f"
     ./install.sh "$f"
   done
+  sudo vim /etc/locale.gen
+  sudo locale-gen
+  sudo mandb
 else
-  log "${CYAN}" "Fonts are already installed\n"
+  log "${CYAN}" "Fonts&Locales are already installed\n"
 fi
 
 # Helm
@@ -108,12 +111,12 @@ EOF
 fi
 log "${CYAN}" "Yazi is configured\n"
 
-# ZSH
+# Zsh
 if [[ $(zsh --version) ]] && [[ ! -d "${ZSH_PLUGINS_HOME}/zsh-autosuggestions" ]]; then
   git clone --depth 1 "${ZSH_AUTOSUGGESTIONS_REPO}" "${ZSH_PLUGINS_HOME:-$ZSH_PLUGINS_HOME}/zsh-autosuggestions"
   git clone --depth 1 "${ZSH_SYNTAX_HIGHLIGHTING_REPO}" "${ZSH_PLUGINS_HOME:-$ZSH_PLUGINS_HOME}/zsh-syntax-highlighting"
 else
-  log "${CYAN}" "ZSH plugins are already installed\n"
+  log "${CYAN}" "Zsh plugins are already installed\n"
 fi
 
 exit 0

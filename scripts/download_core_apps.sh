@@ -13,6 +13,8 @@ MISE_URL=${MISE_URL:-"https://mise.run"}
 OH_MY_ZSH_URL=${OH_MY_ZSH_URL:-"https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh"}
 YAY_URL=${YAY_URL:-"https://aur.archlinux.org/yay.git"}
 
+ZSH=${ZSH:-"$HOME/.oh-my-zsh"}
+
 if [[ "$FULL_INSTALLATION" == true ]]; then
   PACKAGES=("${DESKTOP_PACKAGES[@]}")
 fi
@@ -38,9 +40,6 @@ sudo pacman --refresh --sync
 if [[ ${#PACKAGES[@]} -gt 0 ]]; then
   sudo pacman --needed --noconfirm --sync "${PACKAGES[@]}"
   sudo setfacl --recursive --modify "u:$(whoami):rwx" /etc/pacman.d/gnupg
-  sudo vim /etc/locale.gen
-  sudo locale-gen
-  sudo mandb
 fi
 
 # Yay
@@ -57,7 +56,7 @@ else
 fi
 
 # Zsh
-if [[ $(zsh --version) ]]; then
+if [[ $(zsh --version) ]] && [[ ! -d "${ZSH}" ]]; then
   chsh --shell "$(which zsh)"
   sh -c "$(curl --fail --silent --show-error --location "$OH_MY_ZSH_URL")"
 else

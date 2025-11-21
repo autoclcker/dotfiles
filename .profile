@@ -70,7 +70,9 @@ export GNUPGHOME="/etc/pacman.d/gnupg"
 export EDITOR="nvim"
 
 # Manpager
-export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+export MANPAGER="sh -c \
+    'awk '\''{ gsub(/\x1B\[[0-9;]*m/, \"\", \$0); gsub(/.\x08/, \"\", \$0); print }'\'' \
+      | bat --plain --language man'"
 
 # Fzf
 export FZF_ALT_C_OPTS="--preview 'tree -C {}'"
