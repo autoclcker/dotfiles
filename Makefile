@@ -7,7 +7,7 @@ CONFIG_TUI_APPS := btop dive k9s lazydocker lazygit nvim procps tmux yazi
 
 CONFIG_ARR  = $(CONFIG_CLI_APPS) $(CONFIG_GUI_APPS) $(CONFIG_TUI_APPS)
 DESKTOP_ARR = neovide.desktop
-HOME_ARR    = .bash_aliases .bashrc .gitconfig .profile .vimrc .vscodevimrc .zlogin .zshrc
+HOME_ARR    = .bashrc .gitconfig .profile .vimrc .vscodevimrc .zshrc
 
 DESKTOP_APPS_HOME ?= ${HOME}/.local/share/applications
 XDG_CONFIG_HOME   ?= ${HOME}/.config

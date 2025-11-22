@@ -5,7 +5,7 @@ source "scripts/helpers.sh"
 
 DESKTOP_PACKAGES=("base-devel" "copyq" "cosmic-session" "docker" "ghostty" "man-db" "man-pages" "networkmanager")
 PACKAGES=()
-YAY_PACKAGES=("google-chrome" "preload" "vscodium-bin")
+YAY_PACKAGES=("google-chrome" "vscodium-bin")
 
 DOCKER_SBOM_URL=${DOCKER_SBOM_URL:-"https://raw.githubusercontent.com/docker/sbom-cli-plugin/main/install.sh"}
 DOCKER_SLIM_URL=${DOCKER_SLIM_URL:-"https://raw.githubusercontent.com/slimtoolkit/slim/master/scripts/install-slim.sh"}
@@ -94,7 +94,6 @@ if [[ "$FULL_INSTALLATION" == true ]]; then
   sudo systemctl enable cosmic-greeter.service
   sudo systemctl enable docker.service
   sudo systemctl enable NetworkManager.service
-  sudo systemctl enable preload.service
 else
   log "${CYAN}" "Systemd isn't needed\n"
 fi

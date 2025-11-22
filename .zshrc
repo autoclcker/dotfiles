@@ -1,6 +1,6 @@
 export ZSH="$HOME/.oh-my-zsh"
-export DISABLE_AUTO_UPDATE="true"
 
+zstyle ':omz:update' mode disabled
 plugins=(
 	aliases
 	ansible
@@ -38,9 +38,13 @@ plugins=(
 	zsh-syntax-highlighting
 )
 
-# Common aliases
-source ~/.profile
+alias grep='rg'
+alias la='eza --all --color=always --icons=always'
+alias ll='eza --long --group --git --header --color=always --icons=always'
+alias lR='eza --tree --color=always --icons=always'
+alias ls='eza --color=always --icons=always'
 
+source $HOME/.profile
 source $ZSH/oh-my-zsh.sh
 
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#6e6e6e,bg=#000000,bold"
@@ -58,3 +62,8 @@ precmd () {
 	echo -n -e "\a"
 }
 
+# Delta
+eval "$(delta --generate-completion zsh)"
+
+# Thefuck
+eval "$(thefuck --alias)"
