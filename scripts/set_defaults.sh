@@ -31,7 +31,7 @@ else
 fi
 
 # Fonts&Locales
-if [[ ! -d "${FONTS_PATH}" ]]; then
+if [[ ! -d "${FONTS_PATH}" ]] && [[ "$FULL_INSTALLATION" == true ]]; then
   git clone --filter=blob:none --sparse "${NERD_FONTS_REPO}" "${FONTS_PATH}"
   pushd "$_" || exit 1
   for f in "${FONTS[@]}"; do

@@ -1,5 +1,7 @@
 [[ $- != *i* ]] && return
 
+MISE_PATH=${MISE_PATH:-"$HOME/.local/bin/mise"}
+
 export PS1="\[\033[01;32m\]\W \[\e[0m\]"
 
 alias la='ls --all'
@@ -9,7 +11,7 @@ alias ls='ls --color=auto'
 source $HOME/.profile
 
 # Mise
-eval "$(~/.local/bin/mise activate bash)"
+eval "$(${MISE_PATH} activate bash)"
 
 # Zoxide
 eval "$(zoxide init bash)"
