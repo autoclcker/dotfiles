@@ -1,4 +1,4 @@
-# : << EOF
+# : << 'EOF'
 # Oh my tmux!
 # 💛🩷💙🖤❤️🤍
 # https://github.com/gpakosz/.tmux
@@ -385,14 +385,14 @@ tmux_conf_urlscan_options="--compact --dedupe"
 # this is the place to override or undo settings
 
 set -g allow-passthrough on
+set -ga update-environment TERM
+set -ga update-environment TERM_PROGRAM
 set -g cursor-style blinking-bar
 set -g display-panes-time 3000
 set -g history-limit 100000
 set -g mouse on
 set -g prefix C-BSpace
 set -g status-position top
-set -g default-terminal "tmux-253color"
-set -ag terminal-overrides ",xterm-256color:RGB"
 set -gu prefix2
 
 unbind -n C-f
@@ -540,6 +540,7 @@ tmux_conf_uninstall_plugins_on_reload=true
 # /!\ do not add set -g @plugin 'tmux-plugins/tpm'
 # /!\ do not add run '~/.tmux/plugins/tpm/tpm'
 
+# /!\ the 'set -g @tpm_plugins' syntax is not supported
 # to enable a plugin, use the 'set -g @plugin' syntax:
 # visit https://github.com/tmux-plugins for available plugins
 #set -g @plugin 'tmux-plugins/tmux-copycat'

@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Name=CopyQ
+Exec=env QT_QPA_PLATFORM=xcb copyq
+Icon=copyq
+Terminal=false
+Categories=Qt;KDE;Utility;
+Comment=A cut & paste history utility
+Hidden=false
+StartupNotify=false
+

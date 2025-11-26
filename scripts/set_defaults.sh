@@ -12,8 +12,6 @@ NERD_FONTS_REPO=${NERD_FONTS_REPO:-"https://github.com/ryanoasis/nerd-fonts.git"
 ZSH_AUTOSUGGESTIONS_REPO=${ZSH_AUTOSUGGESTIONS_REPO:-"https://github.com/zsh-users/zsh-autosuggestions.git"}
 ZSH_SYNTAX_HIGHLIGHTING_REPO=${ZSH_SYNTAX_HIGHLIGHTING_REPO:-"https://github.com/zsh-users/zsh-syntax-highlighting.git"}
 
-WORKSPACE_INDEXES=("1" "2" "3" "4" "5" "6" "7" "8" "9" "0" "minus" "equal")
-
 FONTS=("DejaVuSansMono" "FiraCode" "Hack")
 
 YAZI_SMART_PASTE_PATH=${YAZI_SMART_PASTE_PATH:-"$XDG_CONFIG_HOME/yazi/plugins/smart-paste.yazi"}
@@ -52,39 +50,6 @@ else
   log "${CYAN}" "Helm diff is already installed\n"
 fi
 
-# TODO: keybindings
-if env | grep --quiet "XDG_CURRENT_DESKTOP=.*GNOME"; then
-  gsettings set org.gnome.desktop.wm.keybindings always-on-top "['<Super>u']"
-  gsettings set org.gnome.desktop.wm.keybindings cycle-group "['<Super>apostrophe']"
-  gsettings set org.gnome.desktop.wm.keybindings cycle-group-backward "['<Shift><Super>apostrophe']"
-  gsettings set org.gnome.desktop.wm.keybindings maximize-horizontally "['<Alt><Super>s']"
-  gsettings set org.gnome.desktop.wm.keybindings maximize-vertically "['<Alt><Super>v']"
-  gsettings set org.gnome.desktop.wm.keybindings switch-group "['<Super>bracketright']"
-  gsettings set org.gnome.desktop.wm.keybindings switch-group-backward "['<Super>bracketleft']"
-  gsettings set org.gnome.desktop.wm.keybindings switch-input-source "['<Super>space']"
-  gsettings set org.gnome.desktop.wm.keybindings switch-input-source-backward "['<Super>backspace']"
-  gsettings set org.gnome.desktop.wm.keybindings switch-windows "['<Super>n']"
-  gsettings set org.gnome.desktop.wm.keybindings switch-windows-backward "['<Super>b']"
-  gsettings set org.gnome.desktop.wm.keybindings toggle-fullscreen "['<Super>z']"
-  gsettings set org.gnome.desktop.wm.keybindings toggle-maximized "['<Alt><Super>z']"
-  gsettings set org.gnome.desktop.wm.keybindings toggle-on-all-workspaces "['<Super>m']"
-  gsettings set org.gnome.desktop.wm.preferences num-workspaces "${#WORKSPACE_INDEXES[@]}"
-  gsettings set org.gnome.mutter dynamic-workspaces false
-  gsettings set org.gnome.mutter workspaces-only-on-primary false
-  gsettings set org.gnome.settings-daemon.plugins.media-keys control-center "['<Super>comma']"
-  gsettings set org.gnome.settings-daemon.plugins.media-keys terminal "['<Super>t']"
-  gsettings set org.gnome.settings-daemon.plugins.media-keys www "['<Super>f']"
-  gsettings set org.gnome.shell.extensions.pop-cosmic overlay-key-action 'LAUNCHER'
-  gsettings set org.gnome.shell.extensions.pop-shell tile-orientation "['<Super>r']"
-  gsettings set org.gnome.shell.keybindings toggle-message-tray "['Help']"
-  gsettings set org.gnome.shell.keybindings toggle-overview "['LaunchA']"
-  for ((i = 0; i <= ${#WORKSPACE_INDEXES[@]} - 1; i++)); do
-    gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-"$((i + 1))" "['<Super>${WORKSPACE_INDEXES[$i]}']"
-    gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-"$((i + 1))" "['<Super><Shift>${WORKSPACE_INDEXES[$i]}']"
-  done
-  log "${CYAN}" "GNOME is configured\n"
-fi
-
 # Tealdeer
 log "${CYAN}" "Tealdeer "
 tldr --update
@@ -93,7 +58,7 @@ tldr --update
 ya pkg install
 if [[ ! -d "${YAZI_SMART_PASTE_PATH}" ]]; then
   mkdir --parents "${YAZI_SMART_PASTE_PATH}"
-  cat <<EOF >"$YAZI_SMART_PASTE_PATH/main.lua"
+  cat >"$YAZI_SMART_PASTE_PATH/main.lua"<<-EOF
 --- @sync entry
 return {
 	entry = function()

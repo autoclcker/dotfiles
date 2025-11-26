@@ -1,8 +1,8 @@
 all: help
 .PHONY: all
 
-CONFIG_CLI_APPS := cheat mise
-CONFIG_GUI_APPS := copyq cosmic ghostty mimeapps.list wireshark
+CONFIG_CLI_APPS := cheat mise mimeapps.list
+CONFIG_GUI_APPS := autostart copyq cosmic ghostty wireshark
 CONFIG_TUI_APPS := btop dive k9s lazydocker lazygit nvim procps tmux yazi
 
 CONFIG_ARR  = $(CONFIG_CLI_APPS) $(CONFIG_GUI_APPS) $(CONFIG_TUI_APPS)
@@ -33,6 +33,7 @@ docker/regress: ### Validate Setup integrity
 
 download:
 	@./scripts/download_core_apps.sh --packages $(shell cat ${PWD}/deps/*)
+	@./scripts/install_desktop.sh
 .PHONY: download
 
 install: download sync ### Install setup
@@ -50,8 +51,9 @@ upgrade: ### Upgrade setup
 	@${ZSH_HOME}/tools/upgrade.sh
 	@yes | mise self-update
 	@mise upgrade
-	@nvim --headless "+Lazy! sync" +qa
 	@tldr --update
+	@nvim --headless "+Lazy! sync" +qa
+	@yay --needed --noconfirm --sync
 	@ya pkg upgrade
 .PHONY: upgrade
 
