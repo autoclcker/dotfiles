@@ -54,10 +54,10 @@ else
 fi
 
 # Docker
-if [[ ! $(docker --version) ]] && [[ "$FULL_INSTALLATION" == true ]]; then
-  sudo usermod --append --groups docker "${USER}" && newgrp docker
-  sudo setfacl --modify "u:${USER}:rwx" /etc/docker/daemon.json
-  cat >/etc/docker/daemon.json<<-EOF
+if [[ ! $(slim --version) ]] && [[ "$FULL_INSTALLATION" == true ]]; then
+  sudo usermod --append --groups docker "${USER}"
+  sudo mkdir --parents /etc/docker && sudo touch "$_/daemon.json"
+  sudo tee /etc/docker/daemon.json <<EOF
 {
   "features": {
     "cdi": true,
@@ -65,8 +65,9 @@ if [[ ! $(docker --version) ]] && [[ "$FULL_INSTALLATION" == true ]]; then
   }
 }
 EOF
-  curl --silent --location --fail --show-error "$DOCKER_SBOM_URL" | sh --silent -- # install the docker-sbom plugin
-  curl --silent --location "$DOCKER_SLIM_URL" | sudo --preserve-env sh -           # install the docker-slim
+  mkdir --parents "$HOME/.docker"
+  curl --silent --location --fail --show-error "$DOCKER_SBOM_URL" | sh -s -- # install the docker-sbom plugin
+  curl --silent --location "$DOCKER_SLIM_URL" | sudo --preserve-env sh -     # install the docker-slim
 else
   log "${CYAN}" "Docker isn't needed\n"
 fi

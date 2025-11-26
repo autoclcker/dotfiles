@@ -1,4 +1,5 @@
 alias atop='sudo atop'
+alias code='export PATH=$HOME/.local/share/mise/shims:$PATH exec codium'
 alias copy='xsel --input --clipboard'
 alias diffo='diffoci diff --semantic'
 alias djwt='jwt decode'

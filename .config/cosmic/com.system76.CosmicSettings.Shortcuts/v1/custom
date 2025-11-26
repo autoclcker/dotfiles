@@ -2,25 +2,9 @@
     (
         modifiers: [
             Super,
-            Shift,
         ],
-        key: "Right",
+        key: "o",
     ): Disable,
-    (
-        modifiers: [
-            Super,
-            Ctrl,
-            Shift,
-        ],
-        key: "Up",
-    ): Disable,
-    (
-        modifiers: [
-            Super,
-            Ctrl,
-        ],
-        key: "h",
-    ): SwitchOutput(Left),
     (
         modifiers: [
             Super,
@@ -32,32 +16,56 @@
         modifiers: [
             Super,
             Alt,
-            Shift,
         ],
-        key: "Right",
-    ): Disable,
-    (
-        modifiers: [
-            Super,
-            Alt,
-            Shift,
-        ],
-        key: "Left",
-    ): Disable,
-    (
-        modifiers: [
-            Super,
-            Ctrl,
-            Shift,
-        ],
-        key: "k",
-    ): Disable,
+        key: "j",
+    ): Move(Down),
     (
         modifiers: [
             Super,
         ],
         key: "x",
     ): Spawn("/opt/Telegram/Telegram"),
+    (
+        modifiers: [
+            Super,
+            Ctrl,
+            Shift,
+        ],
+        key: "Down",
+    ): Disable,
+    (
+        modifiers: [
+            Alt,
+        ],
+        key: "F4",
+    ): Disable,
+    (
+        modifiers: [
+            Super,
+        ],
+        key: "e",
+        description: Some("VSCodium"),
+    ): Spawn("env PATH=$HOME/.local/share/mise/shims:$PATH codium"),
+    (
+        modifiers: [
+            Super,
+            Ctrl,
+            Shift,
+        ],
+        key: "h",
+    ): Disable,
+    (
+        modifiers: [
+            Super,
+        ],
+        key: "BackSpace",
+    ): System(InputSourceSwitch),
+    (
+        modifiers: [
+            Super,
+        ],
+        key: "w",
+    ): Disable,
     (
         modifiers: [
             Super,
@@ -71,13 +79,55 @@
             Alt,
             Shift,
         ],
-        key: "j",
+        key: "Left",
     ): Disable,
     (
         modifiers: [
+            Super,
+            Shift,
+        ],
+        key: "Up",
+    ): Disable,
+    (
+        modifiers: [
+            Super,
+            Ctrl,
+            Shift,
+        ],
+        key: "j",
+    ): Disable,
+    (
+        modifiers: [],
+        key: "XF86Open",
+    ): System(WorkspaceOverview),
+    (
+        modifiers: [
+            Super,
+            Shift,
+        ],
+        key: "Left",
+    ): Disable,
+    (
+        modifiers: [
+            Super,
             Alt,
         ],
-        key: "F4",
+        key: "Up",
+    ): Disable,
+    (
+        modifiers: [
+            Super,
+            Alt,
+        ],
+        key: "Down",
+    ): Disable,
+    (
+        modifiers: [
+            Super,
+            Alt,
+            Shift,
+        ],
+        key: "h",
     ): Disable,
     (
         modifiers: [
@@ -89,21 +139,113 @@
     (
         modifiers: [
             Super,
+            Ctrl,
         ],
-        key: "BackSpace",
-    ): System(InputSourceSwitch),
+        key: "Right",
+    ): Disable,
+    (
+        modifiers: [
+            Super,
+        ],
+        key: "comma",
+    ): SwapWindow,
+    (
+        modifiers: [
+            Super,
+            Shift,
+        ],
+        key: "j",
+    ): MoveToNextWorkspace,
+    (
+        modifiers: [
+            Super,
+            Alt,
+        ],
+        key: "Left",
+    ): Disable,
+    (
+        modifiers: [
+            Super,
+            Ctrl,
+            Shift,
+        ],
+        key: "Right",
+    ): Disable,
+    (
+        modifiers: [
+            Super,
+        ],
+        key: "f",
+    ): System(WebBrowser),
+    (
+        modifiers: [
+            Super,
+            Alt,
+            Shift,
+        ],
+        key: "j",
+    ): Disable,
+    (
+        modifiers: [
+            Super,
+            Alt,
+        ],
+        key: "Right",
+    ): Disable,
     (
         modifiers: [
             Super,
             Ctrl,
         ],
-        key: "l",
-    ): SwitchOutput(Right),
+        key: "Left",
+    ): Disable,
+    (
+        modifiers: [
+            Super,
+            Ctrl,
+            Shift,
+        ],
+        key: "Left",
+    ): Disable,
+    (
+        modifiers: [],
+        key: "XF86Calculator",
+        description: Some("Hibernate"),
+    ): Spawn("systemctl hibernate"),
+    (
+        modifiers: [
+            Super,
+            Ctrl,
+        ],
+        key: "h",
+    ): SwitchOutput(Left),
     (
         modifiers: [
             Super,
         ],
-        key: "w",
+        key: "m",
+    ): ToggleSticky,
+    (
+        modifiers: [
+            Super,
+        ],
+        key: "r",
+    ): ToggleOrientation,
+    (
+        modifiers: [
+            Super,
+            Alt,
+            Shift,
+        ],
+        key: "Down",
+    ): Disable,
+    (
+        modifiers: [
+            Super,
+            Ctrl,
+            Shift,
+        ],
+        key: "Up",
     ): Disable,
     (
         modifiers: [
@@ -115,108 +257,7 @@
     (
         modifiers: [
             Super,
-            Ctrl,
             Shift,
-        ],
-        key: "l",
-    ): Disable,
-    (
-        modifiers: [
-            Super,
-        ],
-        key: "o",
-    ): Disable,
-    (
-        modifiers: [
-            Super,
-            Alt,
-        ],
-        key: "Up",
-    ): Disable,
-    (
-        modifiers: [],
-        key: "XF86Open",
-    ): System(WorkspaceOverview),
-    (
-        modifiers: [
-            Super,
-            Ctrl,
-            Shift,
-        ],
-        key: "h",
-    ): Disable,
-    (
-        modifiers: [
-            Super,
-            Shift,
-        ],
-        key: "Left",
-    ): Disable,
-    (
-        modifiers: [
-            Super,
-        ],
-        key: "z",
-    ): Maximize,
-    (
-        modifiers: [
-            Super,
-        ],
-        key: "n",
-    ): Resizing(Outwards),
-    (
-        modifiers: [
-            Super,
-            Shift,
-        ],
-        key: "r",
-    ): Disable,
-    (
-        modifiers: [
-            Super,
-            Alt,
-            Shift,
-        ],
-        key: "Up",
-    ): Disable,
-    (
-        modifiers: [
-            Super,
-            Alt,
-        ],
-        key: "j",
-    ): Move(Down),
-    (
-        modifiers: [
-            Super,
-        ],
-        key: "q",
-    ): Close,
-    (
-        modifiers: [
-            Super,
-            Alt,
-            Shift,
-        ],
-        key: "h",
-    ): Disable,
-    (
-        modifiers: [
-            Super,
-        ],
-        key: "r",
-    ): ToggleOrientation,
-    (
-        modifiers: [
-            Super,
-            Ctrl,
-        ],
-        key: "Left",
-    ): Disable,
-    (
-        modifiers: [
-            Super,
-            Alt,
         ],
         key: "Down",
     ): Disable,
@@ -230,9 +271,81 @@
     (
         modifiers: [
             Super,
+            Ctrl,
+            Shift,
+        ],
+        key: "k",
+    ): Disable,
+    (
+        modifiers: [
+            Super,
+            Shift,
+        ],
+        key: "l",
+    ): MoveToOutput(Right),
+    (
+        modifiers: [
+            Super,
+        ],
+        key: "q",
+    ): Close,
+    (
+        modifiers: [
+            Super,
+            Shift,
+        ],
+        key: "r",
+    ): Disable,
+    (
+        modifiers: [
+            Super,
+            Ctrl,
+        ],
+        key: "l",
+    ): SwitchOutput(Right),
+    (
+        modifiers: [
+            Super,
+        ],
+        key: "z",
+    ): Maximize,
+    (
+        modifiers: [
+            Super,
+        ],
+        key: "b",
+    ): Resizing(Inwards),
+    (
+        modifiers: [
+            Super,
+            Alt,
+            Shift,
+        ],
+        key: "Right",
+    ): Disable,
+    (
+        modifiers: [
+            Super,
+            Alt,
             Shift,
         ],
         key: "Up",
+    ): Disable,
+    (
+        modifiers: [
+            Super,
+            Ctrl,
+            Shift,
+        ],
+        key: "l",
+    ): Disable,
+    (
+        modifiers: [
+            Super,
+            Alt,
+            Shift,
+        ],
+        key: "k",
     ): Disable,
     (
         modifiers: [
@@ -252,40 +365,6 @@
     (
         modifiers: [
             Super,
-        ],
-        key: "b",
-    ): Resizing(Inwards),
-    (
-        modifiers: [
-            Super,
-        ],
-        key: "m",
-    ): ToggleSticky,
-    (
-        modifiers: [
-            Super,
-            Alt,
-        ],
-        key: "Right",
-    ): Disable,
-    (
-        modifiers: [
-            Super,
-            Ctrl,
-        ],
-        key: "Right",
-    ): Disable,
-    (
-        modifiers: [
-            Super,
-            Alt,
-        ],
-        key: "Left",
-    ): Disable,
-    (
-        modifiers: [
-            Super,
-            Ctrl,
             Shift,
         ],
         key: "Right",
@@ -293,81 +372,7 @@
     (
         modifiers: [
             Super,
-            Ctrl,
-            Shift,
         ],
-        key: "Left",
-    ): Disable,
-    (
-        modifiers: [
-            Super,
-        ],
-        key: "comma",
-    ): SwapWindow,
-    (
-        modifiers: [
-            Super,
-        ],
-        key: "e",
-        description: Some("VSCodium"),
-    ): Spawn("codium"),
-    (
-        modifiers: [
-            Super,
-            Shift,
-        ],
-        key: "j",
-    ): MoveToNextWorkspace,
-    (
-        modifiers: [
-            Super,
-            Shift,
-        ],
-        key: "Down",
-    ): Disable,
-    (
-        modifiers: [
-            Super,
-            Ctrl,
-            Shift,
-        ],
-        key: "Down",
-    ): Disable,
-    (
-        modifiers: [
-            Super,
-            Shift,
-        ],
-        key: "l",
-    ): MoveToOutput(Right),
-    (
-        modifiers: [
-            Super,
-        ],
-        key: "f",
-    ): System(WebBrowser),
-    (
-        modifiers: [
-            Super,
-            Ctrl,
-            Shift,
-        ],
-        key: "j",
-    ): Disable,
-    (
-        modifiers: [
-            Super,
-            Alt,
-            Shift,
-        ],
-        key: "k",
-    ): Disable,
-    (
-        modifiers: [
-            Super,
-            Alt,
-            Shift,
-        ],
-        key: "Down",
-    ): Disable,
+        key: "n",
+    ): Resizing(Outwards),
 }

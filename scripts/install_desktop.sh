@@ -5,7 +5,7 @@ source "scripts/helpers.sh"
 
 APPS=("copyq" "docker" "ghostty" "google-chrome" "vscodium-bin")
 NETWORK=("bluez" "bluez-utils" "networkmanager")
-NVIDIA=("nvidia-dkms" "nvidia-settings")
+NVIDIA=("nvidia-dkms")
 PREREQUISITES=("base-devel" "linux-headers" "man-pages" "man-db")
 SOUND=("pipewire" "pipewire-alsa" "pipewire-pulse" "sof-firmware" "wireplumber")
 WAYLAND_COMPOSITOR=("cosmic-session" "system76-power")
@@ -26,7 +26,7 @@ yay --needed --noconfirm --sync "${PACKAGES[@]}"
 if grep --quiet "__NV_PRIME_RENDER_OFFLOAD" /etc/environment; then
   log "${CYAN}" "Nvidia is already configured\n"
 else
-  cat >>/etc/environment<<-EOF
+  sudo tee --append /etc/environment <<EOF
 __NV_PRIME_RENDER_OFFLOAD=1
 __GLX_VENDOR_LIBRARY_NAME=nvidia
 EOF
