@@ -54,7 +54,6 @@
 "ubi:junegunn/fzf" = "latest"
 "ubi:muesli/duf" = "latest"
 "ubi:neovide/neovide" = "latest"
-"ubi:Syllo/nvtop" = "latest"
 btop = "latest"
 cheat = "latest"
 fastfetch = "latest"

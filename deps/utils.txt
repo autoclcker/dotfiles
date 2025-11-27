@@ -1,6 +1,7 @@
 atop
 lshw
 nmap
+nvtop
 p7zip
 sshfs
 vim

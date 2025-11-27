@@ -1,4 +1,3 @@
-alias atop='sudo atop'
 alias code='export PATH=$HOME/.local/share/mise/shims:$PATH exec codium'
 alias copy='xsel --input --clipboard'
 alias diffo='diffoci diff --semantic'
@@ -14,7 +13,6 @@ alias less='bat --plain'
 alias lR='eza --tree --color=always --icons=always'
 alias nc='ncat'
 alias ntop='sudo $(command -v bandwhich)'
-alias nvtop='sudo $(command -v nvtop.AppImage)'
 alias pgadmin='docker run --rm -p 5432:80 \
     --env "PGADMIN_CONFIG_MASTER_PASSWORD_REQUIRED=False" \
     --env "PGADMIN_CONFIG_UPGRADE_CHECK_ENABLED=False" \

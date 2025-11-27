@@ -53,8 +53,8 @@ upgrade: ### Upgrade setup
 	@mise upgrade
 	@tldr --update
 	@nvim --headless "+Lazy! sync" +qa
-	@yay --needed --noconfirm --sync
 	@ya pkg upgrade
+	@yay -Syu
 .PHONY: upgrade
 
 help: ## Display this help screen
