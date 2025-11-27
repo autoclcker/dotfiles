@@ -21,8 +21,6 @@ plugins=(
 	nmap
 	npm
 	pip
-	podman
-	procs
 	python
 	rust
 	ssh
@@ -31,7 +29,6 @@ plugins=(
 	systemadmin
 	systemd
 	thefuck
-	tldr
 	tmux
 	zoxide
 	zsh-autosuggestions

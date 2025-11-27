@@ -3,7 +3,7 @@
 # shellcheck disable=SC1091
 source "scripts/helpers.sh"
 
-APPS=("copyq" "docker" "ghostty" "google-chrome" "vscodium-bin")
+APPS=("copyq" "docker" "ghostty" "google-chrome" "udiskie" "vscodium-bin")
 NETWORK=("bluez" "bluez-utils" "networkmanager")
 NVIDIA=("nvidia-dkms")
 PREREQUISITES=("base-devel" "linux-headers" "man-pages" "man-db")
