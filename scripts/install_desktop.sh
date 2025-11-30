@@ -8,7 +8,7 @@ NETWORK=("bluez" "bluez-utils" "networkmanager")
 NVIDIA=("nvidia-dkms")
 PREREQUISITES=("base-devel" "linux-headers" "man-pages" "man-db")
 SOUND=("pipewire" "pipewire-alsa" "pipewire-pulse" "sof-firmware" "wireplumber")
-WAYLAND_COMPOSITOR=("cosmic-session" "system76-power")
+WAYLAND_COMPOSITOR=("cosmic-session" "cosmic-wallpapers" "system76-power")
 
 PACKAGES=("${APPS[@]}" "${NETWORK[@]}" "${NVIDIA[@]}" "${SOUND[@]}" "${WAYLAND_COMPOSITOR[@]}")
 

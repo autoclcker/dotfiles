@@ -1,4 +1,3 @@
-alias code='export PATH=$HOME/.local/share/mise/shims:$PATH exec codium'
 alias copy='xsel --input --clipboard'
 alias diffo='diffoci diff --semantic'
 alias djwt='jwt decode'
@@ -27,7 +26,7 @@ alias pgadmin='docker run --rm -p 5432:80 \
 alias s='systemctl'
 alias sql='lazysql'
 alias ktui='sudo $(command -v kmon) --color grey --accent-color lightgreen'
-alias stui='sudo $(command -v systemctl-tui)'
+alias stui='sudo EDITOR=vim $(command -v systemctl-tui)'
 alias ttui='timr-tui'
 alias ungron="gron --ungron"
 alias wp='nmcli device wifi show-password'
