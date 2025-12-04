@@ -3,13 +3,15 @@
 # shellcheck disable=SC1091
 source "scripts/helpers.sh"
 
-APPS=("copyq" "docker" "ghostty" "google-chrome" "udiskie" "vscodium-bin")
+CLI_APPS=("docker" "docker-compose" "docker-buildx" "udiskie")
+GUI_APPS=("copyq" "ghostty" "google-chrome" "vscodium-bin")
 NETWORK=("bluez" "bluez-utils" "networkmanager")
 NVIDIA=("nvidia-dkms")
 PREREQUISITES=("base-devel" "linux-headers" "man-pages" "man-db")
 SOUND=("pipewire" "pipewire-alsa" "pipewire-pulse" "sof-firmware" "wireplumber")
 WAYLAND_COMPOSITOR=("cosmic-session" "cosmic-wallpapers" "system76-power")
 
+APPS=("${CLI_APPS[@]}" "${GUI_APPS[@]}")
 PACKAGES=("${APPS[@]}" "${NETWORK[@]}" "${NVIDIA[@]}" "${SOUND[@]}" "${WAYLAND_COMPOSITOR[@]}")
 
 if [[ ! $(yay --version) ]] || [[ "$FULL_INSTALLATION" != true ]]; then

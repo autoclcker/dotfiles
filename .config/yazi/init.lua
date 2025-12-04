@@ -44,6 +44,7 @@ require("copy-file-contents"):setup({
 })
 
 require("sshfs"):setup({
+	mount_dir = "/tmp/" .. os.getenv("USER") .. "/mnt",
 	sshfs_options = {
 		"reconnect",
 		"compression=yes",
