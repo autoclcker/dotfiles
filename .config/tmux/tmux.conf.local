@@ -404,12 +404,13 @@ unbind C-l
 unbind C-o
 unbind Space
 
-# select next layout
-bind -n M-= next-layout
+# select layout
+bind -nr M-r next-layout
+bind -nr M-R previous-layout
 
 # rotate panes
-bind -nr M-R rotate-window -UZ # rotate back
-bind -nr M-r rotate-window -DZ # rotate forward
+bind -nr M-U rotate-window -UZ # rotate back
+bind -nr M-u rotate-window -DZ # rotate forward
 
 # switch to the previous pane
 bind -n "C-'" last-pane

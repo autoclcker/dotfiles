@@ -4,7 +4,7 @@
   "macros": ["", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""],
   "layers": [
     [
-      "KC_CALC",
+      "KC_WAKE",
       "KC_CAPS",
       "KC_BRID",
       "KC_BRIU",

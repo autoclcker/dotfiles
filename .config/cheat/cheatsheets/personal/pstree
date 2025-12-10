@@ -1,2 +1,2 @@
 # Show tree for a process:
-pstree -phsS $PID
+pstree -pthsS $PID

@@ -155,15 +155,6 @@
         {
             "before": [
                 "<space>",
-                "v"
-            ],
-            "commands": [
-                "codeium.pasteAndTranslate"
-            ]
-        },
-        {
-            "before": [
-                "<space>",
                 "C"
             ],
             "commands": [
@@ -456,19 +447,19 @@
         {
             "before": [
                 "<space>",
-                "r"
+                "h"
             ],
             "commands": [
-                "codeium.refactorCodeBlock"
+                "cline.improveCode"
             ]
         },
         {
             "before": [
-                "<space>",
+                "g",
                 "h"
             ],
             "commands": [
-                "codeium.explainCodeBlock"
+                "cline.explainCode"
             ]
         },
         {
