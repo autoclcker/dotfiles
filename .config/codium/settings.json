@@ -446,8 +446,8 @@
         },
         {
             "before": [
-                "<space>",
-                "h"
+                "g",
+                "i"
             ],
             "commands": [
                 "cline.improveCode"

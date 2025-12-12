@@ -18,7 +18,7 @@ ENV TZ=Europe/Moscow
 
 RUN <<EOF
 groupadd --gid ${GID} ${GROUP}
-useradd --comment '' --create-home --home-dir ${HOME} --shell /bin/bash --uid ${UID} --gid ${GID} ${USER}
+useradd --comment "${USER}" --create-home --shell /bin/bash --uid ${UID} --gid ${GID} ${USER}
 pacman-key --init
 pacman-key --populate archlinux
 EOF
