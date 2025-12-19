@@ -1,0 +1,12 @@
+[Desktop Entry]
+Name=Applications
+Comment=COSMIC App Library shell application
+Type=Application
+Exec=cosmic-app-library
+Terminal=false
+Categories=COSMIC;
+Keywords=COSMIC;ICED;
+Icon=com.system76.CosmicAppLibrary
+StartupNotify=true
+NoDisplay=true
+PrefersNonDefaultGPU=true

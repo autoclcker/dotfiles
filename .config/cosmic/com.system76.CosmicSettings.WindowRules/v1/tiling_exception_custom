@@ -1,0 +1,13 @@
+[
+  (
+    enabled: true,
+    appid: ".*",
+    title: "Telegram"
+  ),
+  (
+    enabled: true,
+    appid: ".*",
+    title: "CopyQ"
+  ),
+]
+

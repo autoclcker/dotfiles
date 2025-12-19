@@ -25,8 +25,8 @@ hash = "bcda8eeb3f4013bae156aecabfc745e8"
 
 [[plugin.deps]]
 use = "Lil-Dank/lazygit"
-rev = "699712a"
-hash = "14f96284461507db0f384da0eeebe432"
+rev = "ea20d05"
+hash = "b95f2d56dd4b2df1be338179a6f1f6c9"
 
 [[plugin.deps]]
 use = "Rolv-Apneseth/starship"

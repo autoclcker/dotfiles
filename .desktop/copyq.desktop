@@ -11,4 +11,5 @@ X-KDE-StartupNotify=false
 X-KDE-UniqueApplet=true
 Categories=Qt;KDE;Utility;
 Comment=A cut & paste history utility
+StartupWMClass=CopyQ
 PrefersNonDefaultGPU=true
