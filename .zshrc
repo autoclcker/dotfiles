@@ -47,6 +47,7 @@ source $ZSH/oh-my-zsh.sh
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#6e6e6e,bg=#000000,bold"
 PROMPT_EOL_MARK=''
 bindkey '^ ' autosuggest-accept
+bindkey "^U" backward-kill-line
 bindkey -M menuselect 'h' vi-backward-char
 bindkey -M menuselect 'k' vi-up-line-or-history
 bindkey -M menuselect 'l' vi-forward-char

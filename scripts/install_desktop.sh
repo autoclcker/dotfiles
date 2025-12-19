@@ -8,13 +8,16 @@ GUI_APPS=("copyq" "ghostty" "google-chrome" "vscodium-bin")
 INTEL=("intel-media-driver" "intel-ucode" "mesa" "vulkan-intel")
 NETWORK=("bluez" "bluez-utils" "networkmanager")
 NVIDIA=("nvidia-dkms" "nvidia-settings" "nvidia-utils")
+POWER_MANAGEMENT=("system76-acpi-dkms" "system76-power")
 PREREQUISITES=("base-devel" "linux-headers" "man-pages" "man-db")
 SOUND=("pipewire" "pipewire-alsa" "pipewire-pulse" "sof-firmware" "wireplumber")
-WAYLAND_COMPOSITOR=("cosmic-session" "cosmic-wallpapers" "system76-acpi-dkms" "system76-power")
+WAYLAND_COMPOSITOR=("cosmic-session" "cosmic-wallpapers" "switcheroo")
 
 APPS=("${CLI_APPS[@]}" "${GUI_APPS[@]}")
 GPU=("${INTEL[@]}" "${NVIDIA[@]}")
-PACKAGES=("${APPS[@]}" "${GPU[@]}" "${NETWORK[@]}" "${SOUND[@]}" "${WAYLAND_COMPOSITOR[@]}")
+SYSTEM=("${NETWORK[@]}" "${POWER_MANAGEMENT[@]}" "${SOUND[@]}")
+
+PACKAGES=("${APPS[@]}" "${GPU[@]}" "${SYSTEM[@]}" "${WAYLAND_COMPOSITOR[@]}")
 
 if [[ ! $(yay --version) ]] || [[ "$FULL_INSTALLATION" != true ]]; then
   log "${CYAN}" "Desktop Environment isn't needed\n"
@@ -43,5 +46,6 @@ sudo systemctl enable containerd.service
 sudo systemctl enable cosmic-greeter.service
 sudo systemctl enable docker.service
 sudo systemctl enable NetworkManager.service
+sudo systemctl enable switcheroo-control.service
 
 exit 0

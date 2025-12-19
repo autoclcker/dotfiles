@@ -1,15 +1,16 @@
 [Default Applications]
-text/html=google-chrome.desktop
-x-scheme-handler/http=google-chrome.desktop
-x-scheme-handler/https=google-chrome.desktop
-x-scheme-handler/about=google-chrome.desktop
-x-scheme-handler/unknown=google-chrome.desktop
-application/vnd.apple.keynote=neovide.desktop
-application/x-shellscript=neovide.desktop
-text/plain=neovide.desktop
-text/x-lua=neovide.desktop
-application/xml=neovide.desktop
 application/json=neovide.desktop
 application/octet-stream=neovide.desktop
 application/vnd.apple.keynote=neovide.desktop
+application/x-shellscript=neovide.desktop
+application/x-terminal-emulator=ghostty.desktop
+application/xml=neovide.desktop
+text/html=google-chrome.desktop
+text/plain=neovide.desktop
+text/x-lua=neovide.desktop
+x-scheme-handler/about=google-chrome.desktop
+x-scheme-handler/http=google-chrome.desktop
+x-scheme-handler/https=google-chrome.desktop
+x-scheme-handler/terminal=ghostty.desktop
+x-scheme-handler/unknown=google-chrome.desktop
 

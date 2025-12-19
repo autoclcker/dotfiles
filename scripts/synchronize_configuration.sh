@@ -10,12 +10,12 @@ POSITIONAL_ARGS=()
 while [[ $# -gt 0 ]]; do
   case ${1} in
   -s | --searchpath)
-    SEARCHPATH=${2}
+    SEARCHPATH=$(realpath --canonicalize-existing "${2}")
     shift # past argument
     shift # past value
     ;;
   -d | --destination)
-    DESTINATION=${2}
+    DESTINATION=$(realpath --canonicalize-missing "${2}")
     shift # past argument
     shift # past value
     ;;

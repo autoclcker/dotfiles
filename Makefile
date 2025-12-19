@@ -6,7 +6,7 @@ CONFIG_GUI_APPS := autostart copyq cosmic ghostty wireshark
 CONFIG_TUI_APPS := btop dive k9s lazydocker lazygit nvim procps tmux yazi
 
 CONFIG_ARR  = $(CONFIG_CLI_APPS) $(CONFIG_GUI_APPS) $(CONFIG_TUI_APPS)
-DESKTOP_ARR = neovide.desktop
+DESKTOP_ARR = $(shell ls ${PWD}/.desktop)
 HOME_ARR    = .bashrc .gitconfig .profile .vimrc .vscodevimrc .zshrc
 
 DESKTOP_APPS_HOME ?= ${HOME}/.local/share/applications

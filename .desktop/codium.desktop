@@ -1,0 +1,20 @@
+[Desktop Entry]
+Name=VSCodium
+Comment=Code Editing. Redefined.
+GenericName=Text Editor
+Exec=bash -c "PATH=$HOME/.local/share/mise/shims:$PATH /usr/bin/codium %F"
+Icon=vscodium
+Type=Application
+StartupNotify=false
+StartupWMClass=codium
+Categories=Utility;Development;IDE;
+MimeType=text/plain;inode/directory;
+Actions=new-empty-window;
+Keywords=vscode;
+PrefersNonDefaultGPU=true
+
+[Desktop Action new-empty-window]
+Name=New Empty Window
+Exec=bash -c "PATH=$HOME/.local/share/mise/shims:$PATH /usr/bin/codium --new-window %F"
+Icon=vscodium
+PrefersNonDefaultGPU=true

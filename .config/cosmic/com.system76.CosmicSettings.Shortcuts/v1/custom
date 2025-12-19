@@ -2,50 +2,7 @@
     (
         modifiers: [
             Super,
-        ],
-        key: "w",
-    ): Disable,
-    (
-        modifiers: [
-            Super,
             Alt,
-            Shift,
-        ],
-        key: "Right",
-    ): Disable,
-    (
-        modifiers: [
-            Super,
-            Alt,
-        ],
-        key: "Right",
-    ): Disable,
-    (
-        modifiers: [
-            Super,
-            Ctrl,
-            Shift,
-        ],
-        key: "j",
-    ): Disable,
-    (
-        modifiers: [
-            Super,
-            Alt,
-        ],
-        key: "l",
-    ): Move(Right),
-    (
-        modifiers: [
-            Super,
-            Ctrl,
-        ],
-        key: "Right",
-    ): Disable,
-    (
-        modifiers: [
-            Super,
-            Ctrl,
             Shift,
         ],
         key: "Left",
@@ -53,213 +10,15 @@
     (
         modifiers: [
             Super,
-            Alt,
-            Shift,
-        ],
-        key: "l",
-    ): Disable,
-    (
-        modifiers: [
-            Super,
-        ],
-        key: "z",
-    ): Maximize,
-    (
-        modifiers: [
-            Super,
-            Alt,
-        ],
-        key: "h",
-    ): Move(Left),
-    (
-        modifiers: [
-            Super,
-        ],
-        key: "r",
-    ): ToggleOrientation,
-    (
-        modifiers: [],
-        key: "Help",
-        description: Some("Neovide"),
-    ): Spawn("env PATH=$HOME/.local/share/mise/shims:$PATH neovide --frame none"),
-    (
-        modifiers: [
-            Super,
-            Shift,
-        ],
-        key: "k",
-    ): MoveToPreviousWorkspace,
-    (
-        modifiers: [
-            Super,
             Ctrl,
-            Shift,
-        ],
-        key: "Up",
-    ): Disable,
-    (
-        modifiers: [
-            Super,
-            Shift,
         ],
         key: "Left",
     ): Disable,
-    (
-        modifiers: [
-            Super,
-        ],
-        key: "m",
-    ): ToggleSticky,
     (
         modifiers: [
             Alt,
         ],
         key: "F4",
-    ): Disable,
-    (
-        modifiers: [
-            Super,
-            Ctrl,
-            Shift,
-        ],
-        key: "Down",
-    ): Disable,
-    (
-        modifiers: [
-            Super,
-            Alt,
-        ],
-        key: "Down",
-    ): Disable,
-    (
-        modifiers: [
-            Super,
-            Alt,
-        ],
-        key: "Left",
-    ): Disable,
-    (
-        modifiers: [
-            Super,
-            Alt,
-            Shift,
-        ],
-        key: "Down",
-    ): Disable,
-    (
-        modifiers: [
-            Super,
-            Ctrl,
-        ],
-        key: "l",
-    ): SwitchOutput(Right),
-    (
-        modifiers: [
-            Super,
-            Shift,
-        ],
-        key: "j",
-    ): MoveToNextWorkspace,
-    (
-        modifiers: [
-            Super,
-        ],
-        key: "v",
-        description: Some("CopyQ"),
-    ): Spawn("copyq show main"),
-    (
-        modifiers: [
-            Super,
-            Shift,
-        ],
-        key: "h",
-    ): MoveToOutput(Left),
-    (
-        modifiers: [
-            Super,
-            Alt,
-            Shift,
-        ],
-        key: "h",
-    ): Disable,
-    (
-        modifiers: [
-            Super,
-            Alt,
-        ],
-        key: "Up",
-    ): Disable,
-    (
-        modifiers: [
-            Super,
-            Alt,
-        ],
-        key: "k",
-    ): Move(Up),
-    (
-        modifiers: [
-            Super,
-            Alt,
-            Shift,
-        ],
-        key: "Left",
-    ): Disable,
-    (
-        modifiers: [],
-        key: "XF86WakeUp",
-    ): Spawn("systemctl hibernate"),
-    (
-        modifiers: [
-            Super,
-            Ctrl,
-            Shift,
-        ],
-        key: "k",
-    ): Disable,
-    (
-        modifiers: [
-            Super,
-            Shift,
-        ],
-        key: "l",
-    ): MoveToOutput(Right),
-    (
-        modifiers: [
-            Super,
-            Ctrl,
-        ],
-        key: "Left",
-    ): Disable,
-    (
-        modifiers: [
-            Super,
-            Alt,
-            Shift,
-        ],
-        key: "j",
-    ): Disable,
-    (
-        modifiers: [
-            Super,
-            Shift,
-        ],
-        key: "Up",
-    ): Disable,
-    (
-        modifiers: [
-            Super,
-            Alt,
-            Shift,
-        ],
-        key: "Up",
-    ): Disable,
-    (
-        modifiers: [
-            Super,
-            Ctrl,
-            Shift,
-        ],
-        key: "l",
     ): Disable,
     (
         modifiers: [
@@ -271,11 +30,25 @@
         modifiers: [
             Super,
         ],
-        key: "BackSpace",
-    ): System(InputSourceSwitch),
+        key: "v",
+        description: Some("CopyQ"),
+    ): Spawn("copyq show main"),
+    (
+        modifiers: [],
+        key: "XF86Favorites",
+    ): Resizing(Outwards),
     (
         modifiers: [
             Super,
+            Alt,
+            Shift,
+        ],
+        key: "k",
+    ): Disable,
+    (
+        modifiers: [
+            Super,
+            Alt,
             Shift,
         ],
         key: "Down",
@@ -283,19 +56,17 @@
     (
         modifiers: [
             Super,
+            Alt,
         ],
-        key: "q",
-    ): Close,
+        key: "l",
+    ): Move(Right),
     (
         modifiers: [
             Super,
+            Alt,
         ],
-        key: "d",
-    ): SwapWindow,
-    (
-        modifiers: [],
-        key: "XF86Favorites",
-    ): Resizing(Outwards),
+        key: "Left",
+    ): Disable,
     (
         modifiers: [
             Super,
@@ -307,25 +78,70 @@
         modifiers: [
             Super,
             Alt,
-            Shift,
         ],
-        key: "k",
-    ): Disable,
+        key: "h",
+    ): Move(Left),
     (
-        modifiers: [],
-        key: "XF86Mail",
-    ): Spawn("firefox"),
+        modifiers: [
+            Super,
+            Alt,
+        ],
+        key: "j",
+    ): Move(Down),
     (
-        modifiers: [],
-        key: "XF86Search",
-    ): Resizing(Inwards),
+        modifiers: [
+            Super,
+        ],
+        key: "e",
+        description: Some("VSCodium"),
+    ): Spawn("gtk-launch codium.desktop"),
     (
         modifiers: [
             Super,
             Shift,
         ],
+        key: "j",
+    ): MoveToNextWorkspace,
+    (
+        modifiers: [
+            Super,
+            Shift,
+        ],
+        key: "Left",
+    ): Disable,
+    (
+        modifiers: [
+            Super,
+        ],
+        key: "d",
+    ): SwapWindow,
+    (
+        modifiers: [
+            Super,
+            Alt,
+            Shift,
+        ],
         key: "Right",
     ): Disable,
+    (
+        modifiers: [
+            Super,
+            Ctrl,
+            Shift,
+        ],
+        key: "Up",
+    ): Disable,
+    (
+        modifiers: [
+            Super,
+        ],
+        key: "o",
+    ): Disable,
+    (
+        modifiers: [],
+        key: "Help",
+        description: Some("Neovide"),
+    ): Spawn("env PATH=$HOME/.local/share/mise/shims:$PATH neovide --frame none"),
     (
         modifiers: [
             Super,
@@ -336,9 +152,210 @@
     (
         modifiers: [
             Super,
+            Ctrl,
+            Shift,
         ],
-        key: "o",
+        key: "j",
     ): Disable,
+    (
+        modifiers: [],
+        key: "XF86Search",
+    ): Resizing(Inwards),
+    (
+        modifiers: [
+            Super,
+            Alt,
+            Shift,
+        ],
+        key: "Up",
+    ): Disable,
+    (
+        modifiers: [
+            Super,
+            Alt,
+        ],
+        key: "Right",
+    ): Disable,
+    (
+        modifiers: [],
+        key: "XF86WakeUp",
+    ): Spawn("systemctl hibernate"),
+    (
+        modifiers: [
+            Super,
+            Alt,
+        ],
+        key: "Down",
+    ): Disable,
+    (
+        modifiers: [
+            Super,
+            Ctrl,
+            Shift,
+        ],
+        key: "Right",
+    ): Disable,
+    (
+        modifiers: [
+            Super,
+            Ctrl,
+        ],
+        key: "l",
+    ): SwitchOutput(Right),
+    (
+        modifiers: [
+            Super,
+            Alt,
+            Shift,
+        ],
+        key: "l",
+    ): Disable,
+    (
+        modifiers: [
+            Super,
+            Shift,
+        ],
+        key: "Up",
+    ): Disable,
+    (
+        modifiers: [
+            Super,
+            Ctrl,
+            Shift,
+        ],
+        key: "Left",
+    ): Disable,
+    (
+        modifiers: [
+            Super,
+        ],
+        key: "w",
+    ): Disable,
+    (
+        modifiers: [
+            Super,
+            Shift,
+        ],
+        key: "l",
+    ): MoveToOutput(Right),
+    (
+        modifiers: [
+            Super,
+        ],
+        key: "q",
+    ): Close,
+    (
+        modifiers: [
+            Super,
+            Shift,
+        ],
+        key: "Right",
+    ): Disable,
+    (
+        modifiers: [
+            Super,
+            Ctrl,
+            Shift,
+        ],
+        key: "l",
+    ): Disable,
+    (
+        modifiers: [
+            Super,
+        ],
+        key: "BackSpace",
+    ): System(InputSourceSwitch),
+    (
+        modifiers: [
+            Super,
+        ],
+        key: "r",
+    ): ToggleOrientation,
+    (
+        modifiers: [
+            Super,
+            Shift,
+        ],
+        key: "h",
+    ): MoveToOutput(Left),
+    (
+        modifiers: [
+            Super,
+            Shift,
+        ],
+        key: "k",
+    ): MoveToPreviousWorkspace,
+    (
+        modifiers: [],
+        key: "XF86Mail",
+    ): Spawn("firefox"),
+    (
+        modifiers: [
+            Super,
+        ],
+        key: "z",
+    ): Maximize,
+    (
+        modifiers: [
+            Super,
+        ],
+        key: "x",
+    ): Spawn("/opt/Telegram/Telegram"),
+    (
+        modifiers: [
+            Super,
+            Ctrl,
+        ],
+        key: "Right",
+    ): Disable,
+    (
+        modifiers: [
+            Super,
+            Alt,
+            Shift,
+        ],
+        key: "j",
+    ): Disable,
+    (
+        modifiers: [
+            Super,
+            Alt,
+        ],
+        key: "Up",
+    ): Disable,
+    (
+        modifiers: [
+            Super,
+            Ctrl,
+            Shift,
+        ],
+        key: "Down",
+    ): Disable,
+    (
+        modifiers: [
+            Super,
+            Alt,
+            Shift,
+        ],
+        key: "h",
+    ): Disable,
+    (
+        modifiers: [
+            Super,
+            Alt,
+        ],
+        key: "k",
+    ): Move(Up),
+    (
+        modifiers: [],
+        key: "XF86Open",
+    ): System(WorkspaceOverview),
+    (
+        modifiers: [
+            Super,
+        ],
+        key: "m",
+    ): ToggleSticky,
     (
         modifiers: [
             Super,
@@ -353,30 +370,13 @@
             Ctrl,
             Shift,
         ],
-        key: "Right",
+        key: "k",
     ): Disable,
     (
-        modifiers: [],
-        key: "XF86Open",
-    ): System(WorkspaceOverview),
-    (
         modifiers: [
             Super,
-            Alt,
+            Shift,
         ],
-        key: "j",
-    ): Move(Down),
-    (
-        modifiers: [
-            Super,
-        ],
-        key: "x",
-    ): Spawn("/opt/Telegram/Telegram"),
-    (
-        modifiers: [
-            Super,
-        ],
-        key: "e",
-        description: Some("VSCodium"),
-    ): Spawn("env PATH=$HOME/.local/share/mise/shims:$PATH codium"),
+        key: "Down",
+    ): Disable,
 }
