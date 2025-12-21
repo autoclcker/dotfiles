@@ -9,5 +9,10 @@
     appid: ".*",
     title: "CopyQ"
   ),
+  (
+    enabled: true,
+    appid: ".*",
+    title: "Neovide"
+  ),
 ]
 

@@ -2,6 +2,7 @@
 **/.gitignore
 **/community/
 **/copyq/*
+**/tmux/plugins
 **/yazi/plugins
 !copyq-commands.ini
 !copyq.conf
