@@ -2,7 +2,7 @@
 Name=VSCodium
 Comment=Code Editing. Redefined.
 GenericName=Text Editor
-Exec=bash -c "PATH=$HOME/.local/share/mise/shims:$PATH /usr/bin/codium %F"
+Exec=sh -c "PATH=$HOME/.local/share/mise/shims:$PATH /usr/bin/codium --enable-features=UseOzonePlatform,WaylandWindowDecorations --ozone-platform=wayland %F"
 Icon=vscodium
 Type=Application
 StartupNotify=false
@@ -15,6 +15,6 @@ PrefersNonDefaultGPU=true
 
 [Desktop Action new-empty-window]
 Name=New Empty Window
-Exec=bash -c "PATH=$HOME/.local/share/mise/shims:$PATH /usr/bin/codium --new-window %F"
+Exec=sh -c "PATH=$HOME/.local/share/mise/shims:$PATH /usr/bin/codium --new-window --enable-features=UseOzonePlatform,WaylandWindowDecorations --ozone-platform=wayland %F"
 Icon=vscodium
 PrefersNonDefaultGPU=true
