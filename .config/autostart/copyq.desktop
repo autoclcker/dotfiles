@@ -8,4 +8,5 @@ Categories=Qt;KDE;Utility;
 Comment=A cut & paste history utility
 Hidden=false
 StartupNotify=false
+PrefersNonDefaultGPU=true
 

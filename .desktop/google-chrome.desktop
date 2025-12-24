@@ -23,5 +23,5 @@ PrefersNonDefaultGPU=true
 [Desktop Action new-private-window]
 Name=New Incognito Window
 StartupWMClass=Google-chrome
-Exec=/usr/bin/google-chrome-stabl --enable-features=AcceleratedVideoDecodeLinuxGL,AcceleratedVideoDecodeLinuxZeroCopyGL,AcceleratedVideoEncoder,VaapiOnNvidiaGPUse --incognito
+Exec=/usr/bin/google-chrome-stable --enable-features=AcceleratedVideoDecodeLinuxGL,AcceleratedVideoDecodeLinuxZeroCopyGL,AcceleratedVideoEncoder,VaapiOnNvidiaGPUse --incognito
 PrefersNonDefaultGPU=true

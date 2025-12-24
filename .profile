@@ -1,4 +1,3 @@
-alias copy='xsel --input --clipboard'
 alias diffo='diffoci diff --semantic'
 alias djwt='jwt decode'
 alias doc='lazydocker'
@@ -23,7 +22,6 @@ alias pgadmin='docker run --rm -p 5432:80 \
     --name pgadmin4 \
     --detach dpage/pgadmin4
 '
-alias s='systemctl'
 alias sql='lazysql'
 alias ktui='sudo $(command -v kmon) --color grey --accent-color lightgreen'
 alias stui='sudo EDITOR=vim $(command -v systemctl-tui)'
@@ -76,7 +74,7 @@ export MANPAGER="sh -c \
 export FZF_ALT_C_OPTS="--preview 'tree -C {}'"
 export FZF_CTRL_R_OPTS="
 	--preview 'echo {}' --preview-window up:3:hidden:wrap
-	--bind 'ctrl-y:execute-silent(echo -n {2..} | xsel --input --clipboard)+abort'
+	--bind 'ctrl-y:execute-silent(echo -n {2..} | wl-copy)+abort'
 	--bind 'ctrl-/:toggle-preview'
 	--color header:italic"
 export FZF_DEFAULT_COMMAND="rg --files --hidden --follow --glob '!.git'"

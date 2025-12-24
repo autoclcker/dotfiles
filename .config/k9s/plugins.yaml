@@ -135,7 +135,7 @@ plugins:
       - >-
         kubectl --namespace $NAMESPACE --context $CONTEXT
         get ingress $NAME --output go-template='{{range .spec.rules}}{{.host}} {{end}}' |
-        xsel --clipboard --input && printf "Successfully copied hosts"
+        wl-copy && printf "Successfully copied hosts"
   copy-screendump-path:
     shortCut: c
     override: true
@@ -151,7 +151,7 @@ plugins:
       - -c
       - >-
         printf $COL-DIR/$COL-NAME |
-        xsel --clipboard --input && printf "Successfully copied path"
+        wl-copy && printf "Successfully copied path"
   kill-resource:
     shortCut: Shift-D
     override: false

@@ -5,5 +5,5 @@ nvtop
 p7zip
 sshfs
 vim
-xsel
+wl-clipboard
 zsh
