@@ -505,7 +505,7 @@ bind -n M-l send-keys C-l \; run 'sleep 0.2' \; clear-history
 bind-key x kill-server
 
 # plugins
-set -g @easymotion-key "BSpace"
+set -g @easymotion-s2  "BSpace"
 set -g @easymotion-case-sensitive 'true'
 run-shell $XDG_CONFIG_HOME/tmux/plugins/tmux-easymotion/easymotion.tmux
 

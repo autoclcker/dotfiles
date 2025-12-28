@@ -34,7 +34,6 @@ if grep --quiet "__NV_PRIME_RENDER_OFFLOAD" /etc/environment; then
   log "${CYAN}" "Nvidia is already configured\n"
 else
   sudo tee --append /etc/environment <<EOF
-LIBVA_DRIVER_NAME=nvidia
 __NV_PRIME_RENDER_OFFLOAD=1
 __GLX_VENDOR_LIBRARY_NAME=nvidia
 EOF

@@ -61,6 +61,7 @@ neovim = "latest"
 starship = "latest"
 tmux = "latest"
 usage = "latest"
+"pipx:pylint" = "latest"
 
 [settings]
 disable_hints = ["registry"]
