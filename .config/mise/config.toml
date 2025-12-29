@@ -46,6 +46,7 @@
 "pipx:ansible-lint" = "latest"
 "pipx:httpie" = "latest"
 "pipx:ipython" = "latest"
+"pipx:pylint" = "latest"
 "pipx:thefuck" = { version = "latest", pipx_args = "--python 3.11.9" }
 "pipx:trash-cli" = "latest"
 "ubi:clangd/clangd" = "latest"
@@ -61,7 +62,6 @@ neovim = "latest"
 starship = "latest"
 tmux = "latest"
 usage = "latest"
-"pipx:pylint" = "latest"
 
 [settings]
 disable_hints = ["registry"]

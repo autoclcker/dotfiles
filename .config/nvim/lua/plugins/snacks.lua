@@ -51,10 +51,34 @@ return {
     },
     {
       "<M-t>",
+      mode = { "n", "t" },
       function()
-        Snacks.terminal()
+        Snacks.terminal.toggle()
       end,
-      desc = "Open Terminal",
+      desc = "Toggle Terminal",
+    },
+    {
+      "<leader>T",
+      mode = { "n" },
+      function()
+        Snacks.terminal.open("/bin/bash", nil)
+      end,
+      desc = "Floating Terminal",
+    },
+    {
+      "<C-v>",
+      mode = { "t" },
+      function()
+        Snacks.terminal.open()
+      end,
+      desc = "Open Split Terminal",
+    },
+    {
+      "<leader>t",
+      function()
+        Snacks.terminal(nil, { cwd = vim.fn.expand("%:p:h") })
+      end,
+      desc = "Open Terminal in fileDir",
     },
     {
       "<leader>z",

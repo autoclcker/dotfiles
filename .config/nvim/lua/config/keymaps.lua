@@ -5,11 +5,13 @@ vim.keymap.del("n", "<C-h>")
 vim.keymap.del("n", "<C-j>")
 vim.keymap.del("n", "<C-k>")
 vim.keymap.del("n", "<C-l>")
-vim.keymap.del({ "n", "i" }, "<M-j>")
-vim.keymap.del({ "n", "i" }, "<M-k>")
-vim.keymap.del("x", "ys")
 vim.keymap.del("n", "<S-h>")
 vim.keymap.del("n", "<S-l>")
+vim.keymap.del("x", "ys")
+vim.keymap.del({ "n", "i" }, "<M-j>")
+vim.keymap.del({ "n", "i" }, "<M-k>")
+vim.keymap.del({ "n", "t" }, "<C-/>")
+vim.keymap.del({ "n", "t" }, "<C-_>")
 
 -- Normal mode
 vim.keymap.set("n", "<C-l>", "<cmd>nohlsearch<cr>", { noremap = true, silent = true, desc = "Clear search" })
@@ -54,12 +56,19 @@ vim.keymap.set("n", "<leader>8", "8<C-w>w", { desc = "Switch to split 8" })
 vim.keymap.set("n", "<leader>9", "9<C-w>w", { desc = "Switch to split 9" })
 
 -- Terminal
-vim.keymap.set("t", "<M-t>", "<cmd>close<cr>", { desc = "Hide Terminal" })
 vim.keymap.set("n", "<C-w>t", "<cmd>terminal<cr>i", { noremap = true, silent = true, desc = "Open editor terminal" })
 
 -- Buffers
 vim.keymap.set("n", "<M-k>", "<cmd>BufferLineCycleNext<cr>", { desc = "Prev Buffer" })
 vim.keymap.set("n", "<M-j>", "<cmd>BufferLineCyclePrev<cr>", { desc = "Next Buffer" })
+
+-- Comments
+vim.keymap.set({ "n", "v" }, "<C-/>", function()
+  return require("vim._comment").operator() .. "_"
+end, { expr = true, desc = "Toggle comment line" })
+vim.keymap.set({ "n", "v" }, "<C-_>", function()
+  return require("vim._comment").operator() .. "_"
+end, { expr = true, desc = "Toggle comment line" })
 
 -- Registers
 vim.keymap.set("n", "<C-h>", function()

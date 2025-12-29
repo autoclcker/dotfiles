@@ -194,6 +194,21 @@
         {
             "before": [
                 "<space>",
+                "t"
+            ],
+            "commands": [
+                {
+                    "args": {
+                        "cwd": "${fileDirname}"
+                    },
+                    "command": "workbench.action.terminal.newWithCwd"
+                }
+            ],
+            "silent": true
+        },
+        {
+            "before": [
+                "<space>",
                 "a"
             ],
             "commands": [

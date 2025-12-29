@@ -10,7 +10,7 @@
         modifiers: [],
         key: "Help",
         description: Some("Neovide"),
-    ): Spawn("env PATH=$HOME/.local/share/mise/shims:$PATH neovide --frame none"),
+    ): Spawn("PATH=$HOME/.local/share/mise/shims:$PATH gtk-launch neovide.desktop"),
     (
         modifiers: [
             Super,
@@ -59,7 +59,7 @@
         ],
         key: "e",
         description: Some("VSCodium"),
-    ): Spawn("gtk-launch codium.desktop"),
+    ): Spawn("PATH=$HOME/.local/share/mise/shims:$PATH gtk-launch codium.desktop"),
     (
         modifiers: [
             Super,
