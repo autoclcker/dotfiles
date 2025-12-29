@@ -37,28 +37,6 @@
             "after": [
                 "<leader>",
                 "<leader>",
-                "t"
-            ],
-            "before": [
-                "<space>",
-                "t"
-            ]
-        },
-        {
-            "after": [
-                "<leader>",
-                "<leader>",
-                "T"
-            ],
-            "before": [
-                "<space>",
-                "T"
-            ]
-        },
-        {
-            "after": [
-                "<leader>",
-                "<leader>",
                 "j"
             ],
             "before": [

@@ -4,6 +4,7 @@ return {
     picker = {
       sources = {
         explorer = {
+          hidden = true,
           layout = {
             preset = "sidebar",
             layout = { position = "right" },
@@ -53,7 +54,7 @@ return {
       "<M-t>",
       mode = { "n", "t" },
       function()
-        Snacks.terminal.toggle()
+        Snacks.terminal.toggle(nil, { auto_insert = true })
       end,
       desc = "Toggle Terminal",
     },
@@ -69,14 +70,14 @@ return {
       "<C-v>",
       mode = { "t" },
       function()
-        Snacks.terminal.open()
+        Snacks.terminal.open(nil, { auto_insert = true })
       end,
       desc = "Open Split Terminal",
     },
     {
       "<leader>t",
       function()
-        Snacks.terminal(nil, { cwd = vim.fn.expand("%:p:h") })
+        Snacks.terminal(nil, { cwd = vim.fn.expand("%:p:h"), auto_insert = true })
       end,
       desc = "Open Terminal in fileDir",
     },
