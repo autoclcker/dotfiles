@@ -1,5 +1,6 @@
 alias diffo='diffoci diff --semantic'
 alias djwt='jwt decode'
+alias rml='docker rm --force $(docker ps --quiet --latest)'
 alias doc='lazydocker'
 alias dog='doggo'
 alias e='nvim'

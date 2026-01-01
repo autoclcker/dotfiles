@@ -1,4 +1,5 @@
 atop
+lsof
 lshw
 nmap
 nvtop

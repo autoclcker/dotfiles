@@ -9,7 +9,7 @@ vim.g.neovide_scroll_animation_far_lines = 0
 vim.g.neovide_scroll_animation_length = 0.00
 vim.g.snacks_animate = false
 vim.opt.guicursor =
-  "n-v-c:block-blinkwait700-blinkon250-blinkoff250,i-ci-ve:ver25-blinkwait700-blinkon250-blinkoff250,r-cr:hor20-blinkwait700-blinkon250-blinkoff250"
+  "n-v-c:block-blinkwait700-blinkon250-blinkoff250,i-t-ci-ve:ver25-blinkwait700-blinkon250-blinkoff250,r-cr:hor20-blinkwait700-blinkon250-blinkoff250"
 vim.opt.guifont = "FiraCode Nerd Font:h13"
 vim.opt.shell = "bash"
 vim.opt.timeoutlen = 1000

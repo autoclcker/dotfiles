@@ -19,6 +19,10 @@ return {
           StatusLine = { fg = colors.vscFront, bg = vscDefaultDark, italic = true },
           StatusLineNC = { fg = colors.vscFront, bg = vscDefaultDark },
           VertSplit = { fg = vscGreenBorder, bg = colors.vscBack },
+          NormalFloat = { fg = "#ffffff", bg = "#000000" },
+          WhichKeyValue = { fg = colors.vscFront, bg = "#000000" },
+          WhichKeyBorder = { fg = vscGreenBorder, bg = "#000000" },
+          WhichKeyTitle = { fg = colors.vscFront, bg = "#000000" },
         },
       })
       require("bufferline").setup({

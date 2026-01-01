@@ -7,6 +7,10 @@ vim.keymap.del("n", "<C-k>")
 vim.keymap.del("n", "<C-l>")
 vim.keymap.del("n", "<S-h>")
 vim.keymap.del("n", "<S-l>")
+vim.keymap.del("n", "<leader>gg")
+vim.keymap.del("n", "<leader>gG")
+vim.keymap.del("n", "<leader>gi")
+vim.keymap.del("n", "<leader>gI")
 vim.keymap.del("x", "ys")
 vim.keymap.del({ "n", "i" }, "<M-j>")
 vim.keymap.del({ "n", "i" }, "<M-k>")
@@ -15,6 +19,9 @@ vim.keymap.del({ "n", "t" }, "<C-_>")
 
 -- Normal mode
 vim.keymap.set("n", "<C-l>", "<cmd>nohlsearch<cr>", { noremap = true, silent = true, desc = "Clear search" })
+vim.keymap.set("n", "<leader>gi", function()
+  return require("snacks").lazygit({ cwd = LazyVim.root.git() })
+end, { noremap = true, silent = true, desc = "Lazygit (root dir)" })
 
 -- Command mode
 vim.keymap.set("c", "<C-a>", "<Home>", { desc = "Move cursor to the beginning of the line start in command mode" })
