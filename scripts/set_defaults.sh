@@ -16,8 +16,6 @@ ZSH_SYNTAX_HIGHLIGHTING_REPO=${ZSH_SYNTAX_HIGHLIGHTING_REPO:-"https://github.com
 
 FONTS=("DejaVuSansMono" "FiraCode" "Hack")
 
-YAZI_SMART_PASTE_PATH=${YAZI_SMART_PASTE_PATH:-"$XDG_CONFIG_HOME/yazi/plugins/smart-paste.yazi"}
-
 FONTS_PATH=${FONTS_PATH:-"$HOME/.local/share/fonts/nerd-fonts"}
 HELM_DIFF_PATH=${HELM_DIFF_PATH:-"$HOME/.local/share/helm/plugins/helm-diff"}
 
@@ -58,24 +56,6 @@ tldr --update
 
 # Yazi
 ya pkg install
-if [[ ! -d "${YAZI_SMART_PASTE_PATH}" ]]; then
-  mkdir --parents "${YAZI_SMART_PASTE_PATH}"
-  cat >"$YAZI_SMART_PASTE_PATH/main.lua"<<-EOF
---- @sync entry
-return {
-	entry = function()
-		local h = cx.active.current.hovered
-		if h and h.cha.is_dir then
-			ya.manager_emit("enter", {})
-			ya.manager_emit("paste", {})
-			ya.manager_emit("leave", {})
-		else
-			ya.manager_emit("paste", {})
-		end
-	end,
-}
-EOF
-fi
 log "${CYAN}" "Yazi is configured\n"
 
 # Tmux

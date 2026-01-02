@@ -44,11 +44,6 @@ rev = "71545f4"
 hash = "f8530ee84fee95dbcc26bb1d8d8019c7"
 
 [[plugin.deps]]
-use = "ahkohd/eza-preview"
-rev = "7b00863"
-hash = "c538f3766b4b3bafbae3f0b7c3c3d763"
-
-[[plugin.deps]]
 use = "yazi-rs/plugins:toggle-pane"
 rev = "80cd5b5"
 hash = "8a7c58225816a163a6e8730c0adafbc8"
@@ -69,11 +64,6 @@ rev = "6395e52"
 hash = "f107436db5d2cccccc11ab54bc97b761"
 
 [[plugin.deps]]
-use = "yazi-rs/plugins:smart-paste"
-rev = "80cd5b5"
-hash = "75fd60b2df7115e0a6ca31a6a804d320"
-
-[[plugin.deps]]
 use = "uhs-robert/sshfs"
 rev = "75a025c"
 hash = "e1cebecfee70daef1f97aa083209340c"
@@ -82,6 +72,16 @@ hash = "e1cebecfee70daef1f97aa083209340c"
 use = "yazi-rs/plugins:piper"
 rev = "80cd5b5"
 hash = "2dd68af59418b631b9703a03f606b31f"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:smart-paste"
+rev = "80cd5b5"
+hash = "75fd60b2df7115e0a6ca31a6a804d320"
+
+[[plugin.deps]]
+use = "peterfication/mux"
+rev = "266233e"
+hash = "1963dda85333e5e2cb6ff5d7d5a6ad4e"
 
 [flavor]
 deps = []
