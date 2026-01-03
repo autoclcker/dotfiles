@@ -38,7 +38,7 @@ if [[ ${#PACKAGES[@]} -gt 0 ]]; then
 fi
 
 # Yay
-if [[ ! $(yay --version) ]] && [[ "$FULL_INSTALLATION" == true ]]; then
+if [[ "$FULL_INSTALLATION" == true ]] && [[ ! $(yay --version) ]]; then
   git clone "${YAY_URL}" /tmp/yay
   pushd "$_" || exit 1
   makepkg --install --noconfirm --syncdeps
@@ -54,7 +54,7 @@ else
 fi
 
 # Docker
-if [[ ! $(slim --version) ]] && [[ "$FULL_INSTALLATION" == true ]]; then
+if [[ "$FULL_INSTALLATION" == true ]] && [[ ! $(slim --version) ]]; then
   sudo usermod --append --groups docker "${USER}"
   sudo mkdir --parents /etc/docker && sudo touch "$_/daemon.json"
   sudo tee /etc/docker/daemon.json <<EOF

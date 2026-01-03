@@ -19,7 +19,7 @@ SYSTEM=("${NETWORK[@]}" "${POWER_MANAGEMENT[@]}" "${SOUND[@]}")
 
 PACKAGES=("${APPS[@]}" "${GPU[@]}" "${SYSTEM[@]}" "${WAYLAND_COMPOSITOR[@]}")
 
-if [[ ! $(yay --version) ]] || [[ "$FULL_INSTALLATION" != true ]]; then
+if [[ "$FULL_INSTALLATION" != true ]] || [[ ! $(yay --version) ]]; then
   log "${CYAN}" "Desktop Environment isn't needed\n"
   exit 0
 fi

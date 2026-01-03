@@ -1,6 +1,5 @@
 {
     "cmake.showOptionsMovedNotification": false,
-    "vim.normalModeKeyBindings": [],
     "vim.normalModeKeyBindingsNonRecursive": [
         {
             "after": [
@@ -424,6 +423,28 @@
                 "workbench.action.showAllEditors"
             ],
             "silent": true
+        }
+    ],
+    "vim.operatorPendingModeKeyBindingsNonRecursive": [
+        {
+            "after": [
+                "a",
+                "I"
+            ],
+            "before": [
+                "a",
+                "i"
+            ]
+        },
+        {
+            "after": [
+                "a",
+                "i"
+            ],
+            "before": [
+                "a",
+                "I"
+            ]
         }
     ],
     "vim.visualModeKeyBindings": [

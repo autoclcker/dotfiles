@@ -1,6 +1,7 @@
 [Desktop Entry]
 Type=Application
 Exec=neovide --frame none --no-vsync %F
+Icon=preferences-default-applications
 Name=Neovide
 Keywords=Text;Editor;
 Categories=Utility;TextEditor;
