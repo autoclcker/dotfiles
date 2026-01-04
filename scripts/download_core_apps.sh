@@ -48,7 +48,7 @@ fi
 
 # Zsh
 if [[ $(zsh --version) ]] && [[ ! -d "${ZSH}" ]]; then
-  sh -c "$(curl --fail --silent --show-error --location "$OH_MY_ZSH_URL")"
+  sh -c "$(curl --fail --silent --show-error --location "$OH_MY_ZSH_URL") --unattended"
 else
   log "${CYAN}" "Zsh isn't needed\n"
 fi

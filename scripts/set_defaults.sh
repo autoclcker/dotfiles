@@ -68,6 +68,7 @@ fi
 
 # Zsh
 if [[ $(zsh --version) ]] && [[ ! -d "${ZSH_PLUGINS_HOME}/zsh-autosuggestions" ]]; then
+  sudo chsh --shell $(command -v zsh | xargs realpath) $(whoami)
   git clone --depth 1 "${ZSH_AUTOSUGGESTIONS_REPO}" "${ZSH_PLUGINS_HOME:-$ZSH_PLUGINS_HOME}/zsh-autosuggestions"
   git clone --depth 1 "${ZSH_SYNTAX_HIGHLIGHTING_REPO}" "${ZSH_PLUGINS_HOME:-$ZSH_PLUGINS_HOME}/zsh-syntax-highlighting"
 else
