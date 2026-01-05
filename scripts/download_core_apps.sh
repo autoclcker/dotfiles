@@ -5,13 +5,8 @@ source "scripts/helpers.sh"
 
 PACKAGES=()
 
-DOCKER_SBOM_URL=${DOCKER_SBOM_URL:-"https://raw.githubusercontent.com/docker/sbom-cli-plugin/main/install.sh"}
-DOCKER_SLIM_URL=${DOCKER_SLIM_URL:-"https://raw.githubusercontent.com/slimtoolkit/slim/master/scripts/install-slim.sh"}
 MISE_URL=${MISE_URL:-"https://mise.run"}
-OH_MY_ZSH_URL=${OH_MY_ZSH_URL:-"https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh"}
-YAY_URL=${YAY_URL:-"https://aur.archlinux.org/yay.git"}
-
-ZSH=${ZSH:-"$HOME/.oh-my-zsh"}
+YAY_REPO=${YAY_REPO:-"https://aur.archlinux.org/yay.git"}
 
 while [[ $# -gt 0 ]]; do
   case ${1} in
@@ -39,37 +34,11 @@ fi
 
 # Yay
 if [[ "$FULL_INSTALLATION" == true ]] && [[ ! $(yay --version) ]]; then
-  git clone "${YAY_URL}" /tmp/yay
+  git clone "${YAY_REPO}" /tmp/yay
   pushd "$_" || exit 1
   makepkg --install --noconfirm --syncdeps
 else
   log "${CYAN}" "Yay isn't needed\n"
-fi
-
-# Zsh
-if [[ $(zsh --version) ]] && [[ ! -d "${ZSH}" ]]; then
-  sh -c "$(curl --fail --silent --show-error --location "$OH_MY_ZSH_URL") --unattended"
-else
-  log "${CYAN}" "Zsh isn't needed\n"
-fi
-
-# Docker
-if [[ "$FULL_INSTALLATION" == true ]] && [[ ! $(slim --version) ]]; then
-  sudo usermod --append --groups docker "${USER}"
-  sudo mkdir --parents /etc/docker && sudo touch "$_/daemon.json"
-  sudo tee /etc/docker/daemon.json <<EOF
-{
-  "features": {
-    "cdi": true,
-    "containerd-snapshotter": true
-  }
-}
-EOF
-  mkdir --parents "$HOME/.docker"
-  curl --silent --location --fail --show-error "$DOCKER_SBOM_URL" | sh -s -- # install the docker-sbom plugin
-  curl --silent --location "$DOCKER_SLIM_URL" | sudo --preserve-env sh -     # install the docker-slim
-else
-  log "${CYAN}" "Docker isn't needed\n"
 fi
 
 # Mise

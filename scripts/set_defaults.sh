@@ -7,6 +7,10 @@ XDG_CONFIG_HOME=${XDG_CONFIG_HOME:-"$HOME/.config"}
 TMUX_PLUGINS_HOME=${TMUX_PLUGINS_HOME:-"$XDG_CONFIG_HOME/tmux/plugins"}
 ZSH_PLUGINS_HOME=${ZSH_PLUGINS_HOME:-"$HOME/.oh-my-zsh/custom/plugins"}
 
+DOCKER_SBOM_URL=${DOCKER_SBOM_URL:-"https://raw.githubusercontent.com/docker/sbom-cli-plugin/main/install.sh"}
+DOCKER_SLIM_URL=${DOCKER_SLIM_URL:-"https://raw.githubusercontent.com/slimtoolkit/slim/master/scripts/install-slim.sh"}
+OH_MY_ZSH_URL=${OH_MY_ZSH_URL:-"https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh"}
+
 CHEATSHEETS_REPO=${CHEATSHEETS_REPO:-"https://github.com/cheat/cheatsheets.git"}
 HELM_DIFF_REPO=${HELM_DIFF_REPO:-"https://github.com/databus23/helm-diff"}
 NERD_FONTS_REPO=${NERD_FONTS_REPO:-"https://github.com/ryanoasis/nerd-fonts.git"}
@@ -40,7 +44,26 @@ if [[ "$FULL_INSTALLATION" == true ]] && [[ ! -d "${FONTS_PATH}" ]]; then
   sudo locale-gen
   sudo mandb
 else
-  log "${CYAN}" "Fonts&Locales are already installed\n"
+  log "${CYAN}" "Fonts&Locales are not needed\n"
+fi
+
+# Docker
+if [[ "$FULL_INSTALLATION" == true ]] && [[ ! $(slim --version) ]]; then
+  sudo usermod --append --groups docker "${USER}"
+  sudo mkdir --parents /etc/docker && sudo touch "$_/daemon.json"
+  sudo tee /etc/docker/daemon.json <<EOF
+{
+  "features": {
+    "cdi": true,
+    "containerd-snapshotter": true
+  }
+}
+EOF
+  mkdir --parents "$HOME/.docker"
+  curl --silent --location --fail --show-error "$DOCKER_SBOM_URL" | sh -s -- # install the docker-sbom plugin
+  curl --silent --location "$DOCKER_SLIM_URL" | sudo --preserve-env sh -     # install the docker-slim
+else
+  log "${CYAN}" "Docker isn't needed\n"
 fi
 
 # Helm
@@ -68,11 +91,12 @@ fi
 
 # Zsh
 if [[ $(zsh --version) ]] && [[ ! -d "${ZSH_PLUGINS_HOME}/zsh-autosuggestions" ]]; then
-  sudo chsh --shell $(command -v zsh | xargs realpath) $(whoami)
+  sudo chsh --shell "$(command -v zsh | xargs realpath)" "$(whoami)"
+  sh -c "$(curl --fail --silent --show-error --location "$OH_MY_ZSH_URL") --unattended"
   git clone --depth 1 "${ZSH_AUTOSUGGESTIONS_REPO}" "${ZSH_PLUGINS_HOME:-$ZSH_PLUGINS_HOME}/zsh-autosuggestions"
   git clone --depth 1 "${ZSH_SYNTAX_HIGHLIGHTING_REPO}" "${ZSH_PLUGINS_HOME:-$ZSH_PLUGINS_HOME}/zsh-syntax-highlighting"
 else
-  log "${CYAN}" "Zsh plugins are already installed\n"
+  log "${CYAN}" "Zsh is already configured\n"
 fi
 
 exit 0
