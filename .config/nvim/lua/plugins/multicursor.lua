@@ -8,6 +8,14 @@ return {
     vim.keymap.set({ "n", "x" }, "gb", function()
       mc.matchAddCursor(1)
     end)
+    vim.keymap.set({ "n", "x" }, "gB", mc.matchAllAddCursors)
+
+    vim.keymap.set({ "n", "x" }, "<S-Up>", function()
+      mc.lineAddCursor(-1)
+    end)
+    vim.keymap.set({ "n", "x" }, "<S-Down>", function()
+      mc.lineAddCursor(1)
+    end)
 
     -- Mappings defined in a keymap layer only apply when there are
     -- multiple cursors. This lets you have overlapping mappings.

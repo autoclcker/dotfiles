@@ -13,9 +13,10 @@ return {
             list = {
               keys = {
                 ["."] = "toggle_hidden",
+                ["<C-h>"] = "explorer_close_all",
+                ["e"] = "confirm",
                 ["o"] = "toggle_preview",
                 ["v"] = "edit_vsplit",
-                ["e"] = "confirm",
               },
             },
           },

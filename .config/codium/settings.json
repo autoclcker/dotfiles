@@ -457,7 +457,27 @@
             ]
         }
     ],
-    "vim.visualModeKeyBindings": [
+    "vim.visualModeKeyBindingsNonRecursive": [
+        {
+            "after": [
+                "<leader>",
+                "<leader>",
+                "f"
+            ],
+            "before": [
+                "End"
+            ]
+        },
+        {
+            "after": [
+                "<leader>",
+                "<leader>",
+                "F"
+            ],
+            "before": [
+                "Home"
+            ]
+        },
         {
             "after": [
                 "\"",
