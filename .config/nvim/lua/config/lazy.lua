@@ -52,7 +52,6 @@ require("substitute").setup({
     timer = 500,
   },
   range = {
-    prefix = "s",
     prompt_current_text = false,
     confirm = false,
     complete_word = false,

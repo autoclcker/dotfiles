@@ -41,8 +41,8 @@ alias ll='eza --long --group --git --header --color=always --icons=always'
 alias lR='eza --tree --color=always --icons=always'
 alias ls='eza --color=always --icons=always'
 
-source $HOME/.profile
-source $ZSH/oh-my-zsh.sh
+source "$HOME/.profile"
+source "$ZSH/oh-my-zsh.sh"
 
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#6e6e6e,bg=#000000,bold"
 PROMPT_EOL_MARK=''

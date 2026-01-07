@@ -3,7 +3,6 @@ return {
   enabled = true,
   keys = false,
   config = function(_, _)
-    local leap = require("leap")
     vim.keymap.set({ "n" }, "s", "<Plug>(leap-forward)", { desc = "After cursor" })
     vim.keymap.set({ "n" }, "S", "<Plug>(leap-backward)", { desc = "Before cursor" })
     vim.keymap.set({ "n", "x" }, "gS", "<Plug>(leap-anywhere)", { desc = "All windows" })

@@ -8,7 +8,7 @@ GUI_APPS=("copyq" "ghostty" "google-chrome" "vscodium-bin")
 INTEL=("intel-media-driver" "intel-ucode" "mesa" "vulkan-intel")
 NETWORK=("bluez" "bluez-utils" "networkmanager")
 NVIDIA=("libva-nvidia-driver" "nvidia-open-dkms" "nvidia-settings" "nvidia-utils")
-POWER_MANAGEMENT=("system76-acpi-dkms" "system76-power")
+POWER_MANAGEMENT=("cpupower" "system76-acpi-dkms" "system76-power")
 PREREQUISITES=("base-devel" "linux-headers" "man-pages" "man-db")
 SOUND=("pipewire" "pipewire-alsa" "pipewire-pulse" "sof-firmware" "wireplumber")
 WAYLAND_COMPOSITOR=("cosmic-session" "cosmic-wallpapers" "switcheroo")
@@ -45,6 +45,7 @@ sudo systemctl enable bluetooth.service
 sudo systemctl enable com.system76.PowerDaemon.service
 sudo systemctl enable containerd.service
 sudo systemctl enable cosmic-greeter.service
+sudo systemctl enable cpupower.service
 sudo systemctl enable docker.service
 sudo systemctl enable NetworkManager.service
 sudo systemctl enable switcheroo-control.service

@@ -423,6 +423,16 @@
                 "workbench.action.showAllEditors"
             ],
             "silent": true
+        },
+        {
+            "before": [
+                "g",
+                "B"
+            ],
+            "commands": [
+                "editor.action.selectHighlights"
+            ],
+            "silent": true
         }
     ],
     "vim.operatorPendingModeKeyBindingsNonRecursive": [
