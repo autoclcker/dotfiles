@@ -433,7 +433,16 @@
                 "editor.action.selectHighlights"
             ],
             "silent": true
-        }
+        },
+        {
+            "before": [
+                "<C-Space>",
+            ],
+            "commands": [
+                "flash-vscode.jump.treesitterSelection",
+            ],
+            "silent": true
+        },
     ],
     "vim.operatorPendingModeKeyBindingsNonRecursive": [
         {
@@ -455,7 +464,7 @@
                 "a",
                 "I"
             ]
-        }
+        },
     ],
     "vim.visualModeKeyBindingsNonRecursive": [
         {
@@ -525,7 +534,16 @@
                 "editor.action.sortLinesDescending"
             ],
             "silent": true
-        }
+        },
+        {
+            "before": [
+                "<C-Space>",
+            ],
+            "commands": [
+                "flash-vscode.jump.treesitterSelection",
+            ],
+            "silent": true
+        },
     ],
     "window.customTitleBarVisibility": "windowed",
     "window.enableMenuBarMnemonics": false,
