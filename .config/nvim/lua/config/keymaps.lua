@@ -29,7 +29,7 @@ vim.keymap.set("n", "<leader>gi", function()
   return require("snacks").lazygit({ cwd = LazyVim.root.git() })
 end, { noremap = true, silent = true, desc = "Lazygit (root dir)" })
 vim.keymap.set("n", "<S-u>", "<cmd>edit!<cr>", { noremap = true, silent = true, desc = "Reset unsaved changes" })
-vim.keymap.set({ "n", "x" }, "<C-p>", '"*p', { noremap = true, silent = true, desc = "Paste from system clipboard" })
+vim.keymap.set({ "n", "x" }, "<C-p>", '"+p', { noremap = true, silent = true, desc = "Paste from system clipboard" })
 
 -- Command mode
 vim.keymap.set("c", "<C-a>", "<Home>", { desc = "Move cursor to the beginning of the line start in command mode" })

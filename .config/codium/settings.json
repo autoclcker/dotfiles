@@ -436,13 +436,13 @@
         },
         {
             "before": [
-                "<C-Space>",
+                "<C-Space>"
             ],
             "commands": [
-                "flash-vscode.jump.treesitterSelection",
+                "flash-vscode.jump.treesitterSelection"
             ],
             "silent": true
-        },
+        }
     ],
     "vim.operatorPendingModeKeyBindingsNonRecursive": [
         {
@@ -464,9 +464,29 @@
                 "a",
                 "I"
             ]
-        },
+        }
     ],
     "vim.visualModeKeyBindingsNonRecursive": [
+        {
+            "after": [
+                "a",
+                "I"
+            ],
+            "before": [
+                "a",
+                "i"
+            ]
+        },
+        {
+            "after": [
+                "a",
+                "i"
+            ],
+            "before": [
+                "a",
+                "I"
+            ]
+        },
         {
             "after": [
                 "<leader>",
@@ -537,13 +557,13 @@
         },
         {
             "before": [
-                "<C-Space>",
+                "<C-Space>"
             ],
             "commands": [
-                "flash-vscode.jump.treesitterSelection",
+                "flash-vscode.jump.treesitterSelection"
             ],
             "silent": true
-        },
+        }
     ],
     "window.customTitleBarVisibility": "windowed",
     "window.enableMenuBarMnemonics": false,
