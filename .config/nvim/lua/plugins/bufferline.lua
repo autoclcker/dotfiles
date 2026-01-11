@@ -13,12 +13,12 @@ return {
       {
         "<M-.>",
         "<Cmd>BufferLineMoveNext<CR>",
-        { desc = "Move buffer next" },
+        desc = "Move buffer next",
       },
       {
         "<M-,>",
         "<Cmd>BufferLineMovePrev<CR>",
-        { desc = "Move buffer prev" },
+        desc = "Move buffer prev",
       },
       {
         "<leader>p",
@@ -30,7 +30,7 @@ return {
         function()
           Snacks.bufdelete()
         end,
-        { desc = "Delete Buffer" },
+        desc = "Close Buffer",
       },
     },
   },

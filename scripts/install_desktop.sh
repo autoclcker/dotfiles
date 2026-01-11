@@ -20,10 +20,11 @@ POWER_CONTROL_SVC=("com.system76.PowerDaemon" "cpupower")
 
 APPS=("${CLI_APPS[@]}" "${GUI_APPS[@]}")
 GPU=("${INTEL[@]}" "${NVIDIA[@]}")
+SYSTEM_SVC=("${NETWORK_SVC[@]}" "${POWER_CONTROL_SVC[@]}")
 SYSTEM=("${NETWORK[@]}" "${POWER_MANAGEMENT[@]}" "${SOUND[@]}")
-SERVICES=("${APPS_SVC[@]}" "${DESKTOP_SVC[@]}" "${NETWORK_SVC[@]}" "${POWER_CONTROL_SVC[@]}")
 
 PACKAGES=("${APPS[@]}" "${GPU[@]}" "${SYSTEM[@]}" "${WAYLAND_COMPOSITOR[@]}")
+SERVICES=("${APPS_SVC[@]}" "${DESKTOP_SVC[@]}" "${SYSTEM_SVC[@]}")
 UNITS=("${SERVICES[@]/%/.service}")
 
 if [[ "$FULL_INSTALLATION" != true ]] || [[ ! $(yay --version) ]]; then

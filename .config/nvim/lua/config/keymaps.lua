@@ -21,7 +21,7 @@ vim.keymap.del({ "n", "t" }, "<C-/>")
 vim.keymap.set(
   "n",
   "<CR>",
-  '<cmd>let @* = @"<cr>',
+  '<cmd>let @+ = @"<cr>',
   { noremap = true, silent = true, desc = "Copy unnamed register to system" }
 )
 vim.keymap.set("n", "<C-l>", "<cmd>nohlsearch<cr>", { noremap = true, silent = true, desc = "Clear search" })
@@ -29,6 +29,12 @@ vim.keymap.set("n", "<leader>gi", function()
   return require("snacks").lazygit({ cwd = LazyVim.root.git() })
 end, { noremap = true, silent = true, desc = "Lazygit (root dir)" })
 vim.keymap.set("n", "<S-u>", "<cmd>edit!<cr>", { noremap = true, silent = true, desc = "Reset unsaved changes" })
+vim.keymap.set(
+  "n",
+  "ZS",
+  "<cmd>SudoWrite<cr><cmd>q<cr>",
+  { noremap = true, silent = true, desc = "Write with sudo and exit" }
+)
 vim.keymap.set({ "n", "x" }, "<C-p>", '"+p', { noremap = true, silent = true, desc = "Paste from system clipboard" })
 
 -- Command mode
