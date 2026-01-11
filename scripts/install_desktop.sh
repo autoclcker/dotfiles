@@ -13,11 +13,18 @@ PREREQUISITES=("base-devel" "linux-headers" "man-pages" "man-db")
 SOUND=("pipewire" "pipewire-alsa" "pipewire-pulse" "sof-firmware" "wireplumber")
 WAYLAND_COMPOSITOR=("cosmic-session" "cosmic-wallpapers" "switcheroo")
 
+APPS_SVC=("containerd" "docker")
+DESKTOP_SVC=("cosmic-greeter" "switcheroo-control")
+NETWORK_SVC=("bluetooth" "NetworkManager")
+POWER_CONTROL_SVC=("com.system76.PowerDaemon" "cpupower")
+
 APPS=("${CLI_APPS[@]}" "${GUI_APPS[@]}")
 GPU=("${INTEL[@]}" "${NVIDIA[@]}")
 SYSTEM=("${NETWORK[@]}" "${POWER_MANAGEMENT[@]}" "${SOUND[@]}")
+SERVICES=("${APPS_SVC[@]}" "${DESKTOP_SVC[@]}" "${NETWORK_SVC[@]}" "${POWER_CONTROL_SVC[@]}")
 
 PACKAGES=("${APPS[@]}" "${GPU[@]}" "${SYSTEM[@]}" "${WAYLAND_COMPOSITOR[@]}")
+UNITS=("${SERVICES[@]/%/.service}")
 
 if [[ "$FULL_INSTALLATION" != true ]] || [[ ! $(yay --version) ]]; then
   log "${CYAN}" "Desktop Environment isn't needed\n"
@@ -28,6 +35,11 @@ fi
 yay --refresh --sync
 yay --needed --noconfirm --sync "${PREREQUISITES[@]}"
 yay --needed --noconfirm --sync "${PACKAGES[@]}"
+
+# Systemd
+for u in "${UNITS[@]}"; do
+  sudo systemctl enable "$u"
+done
 
 # Nvidia
 if grep --quiet "__NV_PRIME_RENDER_OFFLOAD" /etc/environment; then
@@ -40,15 +52,5 @@ __NV_PRIME_RENDER_OFFLOAD=1
 __GLX_VENDOR_LIBRARY_NAME=nvidia
 EOF
 fi
-
-# Systemd
-sudo systemctl enable bluetooth.service
-sudo systemctl enable com.system76.PowerDaemon.service
-sudo systemctl enable containerd.service
-sudo systemctl enable cosmic-greeter.service
-sudo systemctl enable cpupower.service
-sudo systemctl enable docker.service
-sudo systemctl enable NetworkManager.service
-sudo systemctl enable switcheroo-control.service
 
 exit 0
