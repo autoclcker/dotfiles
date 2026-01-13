@@ -2,6 +2,23 @@ return {
   "folke/snacks.nvim",
   opts = {
     picker = {
+      win = {
+        input = {
+          keys = {
+            ["<C-_>"] = { "toggle_hidden", mode = { "i", "n" } },
+            ["<C-/>"] = { "toggle_hidden", mode = { "i", "n" } },
+            ["<C-o>"] = { "toggle_regex", mode = { "i", "n" } },
+            ["<Tab>"] = { "inspect", mode = { "n", "i" } },
+          },
+        },
+        list = {
+          keys = {
+            ["e"] = "confirm",
+            ["o"] = "toggle_preview",
+            ["v"] = "edit_vsplit",
+          },
+        },
+      },
       sources = {
         explorer = {
           hidden = true,
@@ -13,10 +30,11 @@ return {
             list = {
               keys = {
                 ["."] = "toggle_hidden",
+                ["<BS>"] = "toggle_ignored",
                 ["<C-h>"] = "explorer_close_all",
-                ["e"] = "confirm",
-                ["o"] = "toggle_preview",
-                ["v"] = "edit_vsplit",
+                ["i"] = "explorer_focus",
+                ["u"] = "explorer_up",
+                ["x"] = "explorer_move",
               },
             },
           },
