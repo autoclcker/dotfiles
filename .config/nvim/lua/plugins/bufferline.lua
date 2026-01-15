@@ -11,6 +11,18 @@ return {
         false,
       },
       {
+        "<leader>bd",
+        false,
+      },
+      {
+        "<leader>bl",
+        false,
+      },
+      {
+        "<leader>br",
+        false,
+      },
+      {
         "<M-.>",
         "<Cmd>BufferLineMoveNext<CR>",
         desc = "Move buffer next",
@@ -24,6 +36,16 @@ return {
         "<leader>p",
         "<Cmd>BufferLineTogglePin<CR>",
         desc = "Toggle pin",
+      },
+      {
+        "Z<",
+        "<Cmd>BufferLineCloseLeft<CR>",
+        desc = "Close Left buffers",
+      },
+      {
+        "Z>",
+        "<Cmd>BufferLineCloseRight<CR>",
+        desc = "Close Right buffers",
       },
       {
         "ZB",

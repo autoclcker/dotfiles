@@ -264,6 +264,26 @@
             "silent": true
         },
         {
+            "before": [
+                "Z",
+                ">"
+            ],
+            "commands": [
+                "workbench.action.closeEditorsToTheRight",
+            ],
+            "silent": true
+        },
+        {
+            "before": [
+                "Z",
+                "<"
+            ],
+            "commands": [
+                "workbench.action.closeEditorsToTheLeft",
+            ],
+            "silent": true
+        },
+        {
             "after": [
                 "\"",
                 "0"
@@ -561,6 +581,16 @@
             ],
             "commands": [
                 "flash-vscode.jump.treesitterSelection"
+            ],
+            "silent": true
+        },
+        {
+            "before": [
+                "g",
+                "B"
+            ],
+            "commands": [
+                "editor.action.selectHighlights"
             ],
             "silent": true
         }

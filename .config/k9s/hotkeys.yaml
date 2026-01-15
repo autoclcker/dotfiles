@@ -67,5 +67,6 @@ hotKeys:
     keepHistory: true
   q:
     shortCut: q
+    override: true
     description: Clear current history and filter
     command: $RESOURCE_NAME $NAMESPACE

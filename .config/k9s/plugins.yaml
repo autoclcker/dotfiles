@@ -67,7 +67,7 @@ plugins:
         scale statefulset,deployment --all --replicas=0
   scale-up:
     shortCut: Shift-S
-    override: false
+    override: true
     overwriteOutput: false
     confirm: true
     dangerous: false
@@ -194,6 +194,7 @@ plugins:
   previous-logs:
     shortCut: Shift-P
     confirm: false
+    override: true
     description: View previous logs
     scopes:
       - pods
