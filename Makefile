@@ -54,7 +54,7 @@ upgrade: ### Upgrade setup
 	@tldr --update
 	@nvim --headless "+Lazy! sync" +qa
 	@ya pkg upgrade
-	@yay -Syu
+	@yay
 .PHONY: upgrade
 
 help: ## Display this help screen

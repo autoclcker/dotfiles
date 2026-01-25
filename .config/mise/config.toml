@@ -55,7 +55,7 @@
 "ubi:junegunn/fzf" = "latest"
 "ubi:muesli/duf" = "latest"
 "ubi:neovide/neovide" = "latest"
-btop = "1.4.5"
+btop = "latest"
 cheat = "latest"
 fastfetch = "latest"
 neovim = "latest"

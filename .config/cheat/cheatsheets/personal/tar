@@ -1,5 +1,5 @@
 # Copy the folder data/ from current machine to remote server or system to folder /opt:
-tar czf - data/ | ssh user@remoteserver "cd /opt && tar xvzf -"
+tar cfz - data/ | ssh user@remoteserver "cd /opt && tar xfzv -"
 
 # Copy the folder data/ in /opt to current machine from remote server or system:
 ssh user@remoteserver "cd /opt && tar cfz - data/" | tar xfzv -
