@@ -57,7 +57,6 @@ keybind = ctrl+shift+k=next_tab
 keybind = "alt+d=text: printf "\\e[1;96m%s\\e[0m\\n" $"
 keybind = "alt+h=text: IFS=$'\\n' PS3='! '; select i in $(fc -l | cut --characters 1-64); do fc $(awk '{print}' <<< "${i}"); break; done"
 keybind = "alt+shift+h=text: pstree --show-pids --highlight-all --show-parents --ns-changes --thread-names "
-keybind = "alt+[=text: | sed G "
 keybind = "alt+g=text: | grep "
 keybind = "alt+shift+g=text: read; ps -o uid,pid,ppid,stat,tname,etime,cmd -p $(pgrep --delimiter , --full $REPLY)"
 keybind = "alt+i=text: ip -brief address"
