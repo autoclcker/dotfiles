@@ -496,6 +496,8 @@ bind-key -n M-/ copy-mode \; send-key ?
 bind -n IC copy-mode # enter copy mode
 bind -T copy-mode-vi 'C-v' send -X begin-selection \; send -X rectangle-toggle
 bind -T copy-mode-vi 'C-c' if-shell -F '#{selection_present}' 'send-keys -X clear-selection' 'send-keys -X cancel'
+set-hook -g after-copy-mode 'set -p cursor-style blinking-block'
+
 bind v choose-buffer
 
 # clear both screen and history

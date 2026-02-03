@@ -46,7 +46,7 @@ done
 if [[ ! $(nvidia-smi) ]]; then
   log "${CYAN}" "NVIDIA configuration isn't needed\n"
 elif grep --quiet "__NV_PRIME_RENDER_OFFLOAD" /etc/environment; then
-  log "${CYAN}" "Nvidia is already configured\n"
+  log "${CYAN}" "NVIDIA is already configured\n"
 else
   sudo tee --append /etc/environment <<EOF
 GBM_BACKEND=nvidia-drm

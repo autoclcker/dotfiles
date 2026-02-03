@@ -67,7 +67,7 @@ else
 fi
 
 # Helm
-if [[ ! -d "${HELM_DIFF_PATH}" ]]; then
+if [[ $(helm version) ]] && [[ ! -d "${HELM_DIFF_PATH}" ]]; then
   helm plugin install --verify=false "${HELM_DIFF_REPO}"
 else
   log "${CYAN}" "Helm diff is already installed\n"
