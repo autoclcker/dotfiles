@@ -42,8 +42,10 @@ for u in "${UNITS[@]}"; do
   sudo systemctl enable "$u"
 done
 
-# Nvidia
-if grep --quiet "__NV_PRIME_RENDER_OFFLOAD" /etc/environment; then
+# NVIDIA
+if [[ ! $(nvidia-smi) ]]; then
+  log "${CYAN}" "NVIDIA configuration isn't needed\n"
+elif grep --quiet "__NV_PRIME_RENDER_OFFLOAD" /etc/environment; then
   log "${CYAN}" "Nvidia is already configured\n"
 else
   sudo tee --append /etc/environment <<EOF

@@ -2,7 +2,7 @@
 
 ARG REGISTRY=docker.io/library
 ARG OS_BASE=archlinux
-ARG OS_VERSION=base@sha256:f7047b912073aba008a42602920728e3fd604f4a1b50ae35babd64012eba5b3e
+ARG OS_VERSION=base@sha256:9b8e02df0f0a08fa8144d901932bd85d751257f83e00314053314a27ff87884f
 
 # Download the dependencies
 FROM --platform=${BUILDPLATFORM} ${REGISTRY}/${OS_BASE}:${OS_VERSION} AS base
@@ -24,7 +24,7 @@ pacman-key --populate archlinux
 EOF
 RUN --mount=type=cache,target=/var/cache/pacman/pkg,sharing=locked \
     pacman --refresh --sync && pacman --needed --noconfirm --sync \
-        git>=2.51.* \
+        git>=2.53.* \
         make>=4.4.* \
         sudo>=1.9.17.* \
         && \
