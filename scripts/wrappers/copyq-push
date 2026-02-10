@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+copyq eval "\
+const src_tab = 'history'; \
+const dst_tab = 'stack'; \
+tab(src_tab); \
+if (size() == 0) {  abort(); } \
+const item = getItem(0); \
+plugins.itemtags.untag('Important', 0); \
+plugins.itempinned.unpin(0); \
+remove(0); \
+tab(dst_tab); \
+write(0, item);"

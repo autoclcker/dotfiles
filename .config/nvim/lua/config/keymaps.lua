@@ -36,6 +36,12 @@ vim.keymap.set(
   { noremap = true, silent = true, desc = "Write with sudo and exit" }
 )
 vim.keymap.set({ "n", "x" }, "<C-p>", '"+p', { noremap = true, silent = true, desc = "Paste from system clipboard" })
+vim.keymap.set(
+  { "n", "v", "i" },
+  "<S-Insert>",
+  "<C-R>+",
+  { noremap = true, silent = true, desc = "Paste from system clipboard" }
+)
 
 -- Command mode
 vim.keymap.set("c", "<C-a>", "<Home>", { desc = "Move cursor to the beginning of the line start in command mode" })

@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+copyq eval "\
+const stack_tab = 'stack'; \
+tab(stack_tab); \
+if (size() == 0) { \
+    popup('The stack is empty'); \
+    abort(); \
+} \
+const item = getItem(0); \
+copy(item); \
+execute('wtype', '-M', 'shift', '-k', 'insert'); \
+plugins.itemtags.untag('Important', 0); \
+plugins.itempinned.unpin(0); \
+remove(0);"

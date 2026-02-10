@@ -1,7 +1,7 @@
 [Desktop Entry]
 Type=Application
 Name=CopyQ
-Exec=env QT_QPA_PLATFORM=xcb copyq
+Exec=copyq
 Icon=copyq
 Terminal=false
 Categories=Qt;KDE;Utility;

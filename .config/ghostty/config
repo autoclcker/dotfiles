@@ -33,6 +33,7 @@ keybind = alt+6=unbind
 keybind = alt+7=unbind
 keybind = alt+8=unbind
 keybind = alt+9=unbind
+keybind = ctrl+enter=unbind
 keybind = ctrl+,=unbind
 keybind = ctrl+shift+left=unbind
 keybind = ctrl+shift+right=unbind
@@ -68,6 +69,7 @@ keybind = ctrl+alt+x=close_surface
 keybind = shift+insert=paste_from_clipboard
 
 keybind = unconsumed:ctrl+shift+r=reload_config
+keybind = f11=toggle_fullscreen
 
 keybind = ctrl+backspace=csi:127;5u
 keybind = ctrl+escape=csi:28;5;9~

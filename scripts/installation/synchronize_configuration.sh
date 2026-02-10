@@ -1,8 +1,5 @@
 #!/usr/bin/env bash
 
-# shellcheck disable=SC1091
-source "scripts/helpers.sh"
-
 SEARCHPATH=${SEARCHPATH:=''}
 DESTINATION=${DESTINATION:=''}
 POSITIONAL_ARGS=()
@@ -10,12 +7,12 @@ POSITIONAL_ARGS=()
 while [[ $# -gt 0 ]]; do
   case ${1} in
   -s | --searchpath)
-    SEARCHPATH=$(realpath --canonicalize-existing "${2}")
+    SEARCHPATH=$(realpath --canonicalize-existing "${2}") || exit 1
     shift # past argument
     shift # past value
     ;;
   -d | --destination)
-    DESTINATION=$(realpath --canonicalize-missing "${2}")
+    DESTINATION=$(realpath --canonicalize-missing "${2}") || exit 1
     shift # past argument
     shift # past value
     ;;
@@ -24,7 +21,7 @@ while [[ $# -gt 0 ]]; do
     exit 0
     ;;
   -*)
-    log "${RED}" "Illegal argument: ${1}"
+    log "${RED}" "Error: Illegal argument: ${1}\n"
     exit 1
     ;;
   *)
@@ -35,10 +32,10 @@ while [[ $# -gt 0 ]]; do
 done
 
 if [[ -z ${SEARCHPATH} ]]; then
-  log "${RED}" "No searchpath provided\nUse (-s|--searchpath) flag to set the path"
+  log "${RED}" "Error: No searchpath provided\n    Use (-s|--searchpath) option to set the path\n"
   exit 1
 elif [[ -z ${DESTINATION} ]]; then
-  log "${RED}" "No destination provided\nUse (-d|--destination) flag to set the path"
+  log "${RED}" "Error: No destination provided\n    Use (-d|--destination) option to set the path\n"
   exit 1
 else
   log "${CYAN}" "Synchronization started (${SEARCHPATH} -> ${DESTINATION}):\n"
@@ -53,10 +50,10 @@ for a in "${POSITIONAL_ARGS[@]}"; do
 done
 
 # shellcheck disable=SC2164
-pushd "${SEARCHPATH}"
+pushd "${SEARCHPATH}" >/dev/null
 for a in "${POSITIONAL_ARGS[@]}"; do
   if [[ ! -e ${PWD}/${a} ]]; then
-    log "${RED}" "Path does not exists: ${PWD}/${a}]\n"
+    log "${RED}" "Error: Path does not exists: ${PWD}/${a}]\n"
     continue
   fi
   ln --symbolic --force "${PWD}/${a}" "${DESTINATION}"

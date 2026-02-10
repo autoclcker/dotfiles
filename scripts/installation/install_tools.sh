@@ -2,7 +2,6 @@
 
 # shellcheck disable=SC1091
 source "$HOME/.profile"
-source "scripts/helpers.sh"
 
 MISE_CONF_DIR=${MISE_CONF_DIR:-"${PWD}/.config/mise/conf.d"}
 MISE_CONF_PATH=${MISE_CONF_PATH:-"${PWD}/.config/mise/config.toml"}

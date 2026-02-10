@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+copyq eval "\
+const microseconds = 2; \
+popup('-'.repeat(60), clipboard(), microseconds * 1000)"

@@ -1,8 +1,5 @@
 #!/usr/bin/env bash
 
-# shellcheck disable=SC1091
-source "scripts/helpers.sh"
-
 XDG_CONFIG_HOME=${XDG_CONFIG_HOME:-"$HOME/.config"}
 TMUX_PLUGINS_HOME=${TMUX_PLUGINS_HOME:-"$XDG_CONFIG_HOME/tmux/plugins"}
 ZSH_PLUGINS_HOME=${ZSH_PLUGINS_HOME:-"$HOME/.oh-my-zsh/custom/plugins"}
@@ -19,6 +16,7 @@ ZSH_AUTOSUGGESTIONS_REPO=${ZSH_AUTOSUGGESTIONS_REPO:-"https://github.com/zsh-use
 ZSH_SYNTAX_HIGHLIGHTING_REPO=${ZSH_SYNTAX_HIGHLIGHTING_REPO:-"https://github.com/zsh-users/zsh-syntax-highlighting.git"}
 
 FONTS=("DejaVuSansMono" "FiraCode" "Hack")
+TMUX_EASYMOTION_VERSION=${TMUX_EASYMOTION_VERSION:-"v1.1.0"}
 
 FONTS_PATH=${FONTS_PATH:-"$HOME/.local/share/fonts/nerd-fonts"}
 HELM_DIFF_PATH=${HELM_DIFF_PATH:-"$HOME/.local/share/helm/plugins/helm-diff"}
@@ -84,7 +82,8 @@ log "${CYAN}" "Yazi is configured\n"
 # Tmux
 if [[ $(tmux --version) ]] && [[ ! -d "${TMUX_PLUGINS_HOME}/tmux-easymotion" ]]; then
   mkdir --parents "$TMUX_PLUGINS_HOME"
-  git clone --depth 1 "${TMUX_EASYMOTION_REPO}" "${TMUX_PLUGINS_HOME:-$TMUX_PLUGINS_HOME}/tmux-easymotion"
+  pushd "$_" || exit 1
+  git clone --depth 1 --branch "${TMUX_EASYMOTION_VERSION}" "${TMUX_EASYMOTION_REPO}"
 else
   log "${CYAN}" "Tmux plugins are already installed\n"
 fi

@@ -1,19 +1,25 @@
 all: help
 .PHONY: all
 
+DE ?= ${PWD}/scripts/installation/driver.sh
+WRAPPERS ?= ${PWD}/scripts/wrappers
+
 CONFIG_CLI_APPS := cheat mise mimeapps.list
 CONFIG_GUI_APPS := autostart copyq cosmic ghostty wireshark
 CONFIG_TUI_APPS := btop dive k9s lazydocker lazygit nvim procps tmux yazi
 
+BIN_ARR     = $(shell ls ${WRAPPERS})
 CONFIG_ARR  = $(CONFIG_CLI_APPS) $(CONFIG_GUI_APPS) $(CONFIG_TUI_APPS)
 DESKTOP_ARR = $(shell ls ${PWD}/.desktop)
 HOME_ARR    = .bashrc .gitconfig .profile .vimrc .vscodevimrc .zshrc
 
+BIN_HOME          ?= ${HOME}/.local/bin
 DESKTOP_APPS_HOME ?= ${HOME}/.local/share/applications
+OH_MY_ZSH_HOME    ?= ${HOME}/.oh-my-zsh
 XDG_CONFIG_HOME   ?= ${HOME}/.config
-ZSH_HOME          ?= ${HOME}/.oh-my-zsh
 
 BRANCH ?= $(shell git branch --show-current)
+SHELL := /bin/bash
 SHORT_COMMIT ?= $(shell git rev-parse --short HEAD)
 
 docker%: export GITHUB_TOKEN ?= "STUB"
@@ -32,23 +38,24 @@ docker/regress: ### Validate Setup integrity
 .PHONY: docker/regress
 
 download:
-	@./scripts/download_core_apps.sh --packages $(shell cat ${PWD}/deps/*)
-	@./scripts/install_desktop.sh
+	@${DE} download_core_apps --packages $(shell cat ${PWD}/deps/*)
+	@${DE} install_desktop
 .PHONY: download
 
 install: download sync ### Install setup
-	@./scripts/set_defaults.sh
+	@${DE} set_defaults
 .PHONY: install
 
 sync: ### Synchronize configurations
-	@./scripts/synchronize_configuration.sh --searchpath ${PWD} --destination ${HOME} ${HOME_ARR}
-	@./scripts/synchronize_configuration.sh --searchpath ${PWD}/.config --destination ${XDG_CONFIG_HOME} ${CONFIG_ARR}
-	@./scripts/synchronize_configuration.sh --searchpath ${PWD}/.desktop --destination ${DESKTOP_APPS_HOME} ${DESKTOP_ARR}
-	@./scripts/install_tools.sh
+	@${DE} synchronize_configuration --searchpath ${PWD} --destination ${HOME} ${HOME_ARR}
+	@${DE} synchronize_configuration --searchpath ${PWD}/.config --destination ${XDG_CONFIG_HOME} ${CONFIG_ARR}
+	@${DE} synchronize_configuration --searchpath ${PWD}/.desktop --destination ${DESKTOP_APPS_HOME} ${DESKTOP_ARR}
+	@${DE} synchronize_configuration --searchpath ${WRAPPERS} --destination ${BIN_HOME} ${BIN_ARR}
+	@${DE} install_tools
 .PHONY: sync
 
 upgrade: ### Upgrade setup
-	@${ZSH_HOME}/tools/upgrade.sh
+	@${OH_MY_ZSH_HOME}/tools/upgrade.sh
 	@yes | mise self-update
 	@mise upgrade
 	@tldr --update

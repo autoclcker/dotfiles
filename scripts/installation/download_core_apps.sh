@@ -1,8 +1,5 @@
 #!/usr/bin/env bash
 
-# shellcheck disable=SC1091
-source "scripts/helpers.sh"
-
 PACKAGES=()
 
 MISE_URL=${MISE_URL:-"https://mise.run"}

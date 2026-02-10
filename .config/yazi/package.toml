@@ -1,11 +1,11 @@
 [[plugin.deps]]
 use = "yazi-rs/plugins:full-border"
-rev = "230b9c6"
+rev = "88990a6"
 hash = "3996fc74044bc44144b323686f887e1"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:smart-enter"
-rev = "230b9c6"
+rev = "88990a6"
 hash = "56fdabc96fc1f4d53c96eb884b02a5be"
 
 [[plugin.deps]]
@@ -15,12 +15,12 @@ hash = "92fbb5483657fa7976cdf4e0104e18e0"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:git"
-rev = "230b9c6"
+rev = "88990a6"
 hash = "270915fa8282a19908449530ff66f7e2"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:smart-filter"
-rev = "230b9c6"
+rev = "88990a6"
 hash = "407d19bc4fb46eff5fa8ff8337644847"
 
 [[plugin.deps]]
@@ -45,12 +45,12 @@ hash = "f8530ee84fee95dbcc26bb1d8d8019c7"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:toggle-pane"
-rev = "230b9c6"
+rev = "88990a6"
 hash = "8a7c58225816a163a6e8730c0adafbc8"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:chmod"
-rev = "230b9c6"
+rev = "88990a6"
 hash = "8da0b15a97b5dfd13941d1ecc617ac7c"
 
 [[plugin.deps]]
@@ -65,17 +65,17 @@ hash = "778941e7f1ebbacd60f4e254bb3c51de"
 
 [[plugin.deps]]
 use = "uhs-robert/sshfs"
-rev = "5edff3b"
-hash = "e92138f6eb884bef96d92b2d114ac927"
+rev = "4070c8e"
+hash = "a4cd81fe60c350c3f0fde9957f4a4bb9"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:piper"
-rev = "230b9c6"
+rev = "88990a6"
 hash = "25aee698dd1081001008ce0cb1cc4da3"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:smart-paste"
-rev = "230b9c6"
+rev = "88990a6"
 hash = "75fd60b2df7115e0a6ca31a6a804d320"
 
 [[plugin.deps]]

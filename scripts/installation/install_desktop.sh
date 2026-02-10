@@ -1,8 +1,5 @@
 #!/usr/bin/env bash
 
-# shellcheck disable=SC1091
-source "scripts/helpers.sh"
-
 CLI_APPS=("docker" "docker-compose" "docker-buildx" "udiskie")
 GUI_APPS=("copyq" "ghostty" "google-chrome" "vscodium-bin")
 INTEL=("intel-media-driver" "intel-ucode" "mesa" "vulkan-intel")
