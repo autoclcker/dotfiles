@@ -17,7 +17,7 @@ while [[ $# -gt 0 ]]; do
     done
     ;;
   -*)
-    log "${RED}" "Illegal argument: ${1}"
+    log "${RED}" "Error: ${1} is an invalid argument\n"
     exit 1
     ;;
   esac

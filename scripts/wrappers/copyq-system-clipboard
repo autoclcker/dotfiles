@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
 copyq eval "\
 const microseconds = 2; \
-popup('-'.repeat(60), clipboard(), microseconds * 1000)"
+const output = execute('bash', '-c', 'wl-paste');
+popup('-'.repeat(60), output.stdout, microseconds * 1000)"

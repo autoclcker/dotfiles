@@ -21,7 +21,7 @@ while [[ $# -gt 0 ]]; do
     exit 0
     ;;
   -*)
-    log "${RED}" "Error: Illegal argument: ${1}\n"
+    log "${RED}" "Error: ${1} is an invalid argument\n"
     exit 1
     ;;
   *)
