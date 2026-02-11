@@ -2,7 +2,7 @@
 
 # shellcheck disable=SC2034
 
-set -a # enable auto-export
+set -a          # enable auto-export
 set -o errexit  # abort on nonzero exitstatus
 set -o nounset  # abort on unbound variable
 set -o pipefail # don't hide errors within pipes
@@ -33,7 +33,7 @@ print_usage() {
     commands+=("$name")
   done
 
-  read -ra sorted <<< "$(sort <<<"${commands[*]}")"
+  read -ra sorted <<<"$(sort <<<"${commands[*]}")"
   usage_msg="$(printf "      %s\n" "${sorted[@]}")"
   usage_msg="\
 Usage: $0 <command> [args...]
@@ -46,7 +46,7 @@ $usage_msg
 
 main() {
   if [[ $# -eq 0 ]]; then
-    log "${RED}" "Error: Missing script argument\n" >&2
+    log "${RED}" "Error: Missing script argument\n"
     print_usage
     exit 1
   fi
@@ -59,7 +59,7 @@ main() {
   script_path="$script_dir/$script_name.sh"
 
   if [[ ! -f "$script_path" ]]; then
-    log "${RED}" "Error: Command '$script_name' not found\n" >&2
+    log "${RED}" "Error: Command '$script_name' not found\n"
     print_usage
     exit 1
   fi
