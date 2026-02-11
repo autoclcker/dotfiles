@@ -31,22 +31,28 @@ else
 fi
 
 # Fonts&Locales
-if [[ "$FULL_INSTALLATION" == true ]] && [[ ! -d "${FONTS_PATH}" ]]; then
+if [[ "$FULL_INSTALLATION" != true ]]; then
+  log "${CYAN}" "Fonts&Locales are not needed\n"
+elif [[ ! -d "${FONTS_PATH}" ]]; then
   git clone --filter=blob:none --sparse "${NERD_FONTS_REPO}" "${FONTS_PATH}"
   pushd "$_" || exit 1
   for f in "${FONTS[@]}"; do
     git sparse-checkout add "patched-fonts/$f"
     ./install.sh "$f"
   done
-  sudo vim /etc/locale.gen
+  sudo vim /etc/locale.gen || exit 1
   sudo locale-gen
   sudo mandb
 else
-  log "${CYAN}" "Fonts&Locales are not needed\n"
+  log "${CYAN}" "Fonts&Locales are already installed\n"
 fi
 
 # Docker
-if [[ "$FULL_INSTALLATION" == true ]] && [[ ! $(slim --version) ]]; then
+if [[ "$FULL_INSTALLATION" != true ]]; then
+  log "${CYAN}" "No Docker configuration is required\n"
+elif [[ ! $(docker --version &>/dev/null) ]]; then
+  log "${YELLOW}" "Warning: Docker is not installed\n"
+elif [[ ! $(slim --version) ]]; then
   sudo usermod --append --groups docker "${USER}"
   sudo mkdir --parents /etc/docker && sudo touch "$_/daemon.json"
   sudo tee /etc/docker/daemon.json <<EOF
@@ -61,26 +67,28 @@ EOF
   curl --silent --location --fail --show-error "$DOCKER_SBOM_URL" | sh -s -- # install the docker-sbom plugin
   curl --silent --location "$DOCKER_SLIM_URL" | sudo --preserve-env sh -     # install the docker-slim
 else
-  log "${CYAN}" "Docker isn't needed\n"
+  log "${CYAN}" "No Docker configuration is required\n"
 fi
 
 # Helm
-if [[ $(helm version) ]] && [[ ! -d "${HELM_DIFF_PATH}" ]]; then
+if [[ ! $(helm version &>/dev/null) ]]; then
+  log "${YELLOW}" "Warning: Helm is not installed\n"
+elif [[ ! -d "${HELM_DIFF_PATH}" ]]; then
   helm plugin install --verify=false "${HELM_DIFF_REPO}"
 else
   log "${CYAN}" "Helm diff is already installed\n"
 fi
 
 # Tealdeer
-log "${CYAN}" "Tealdeer "
-tldr --update
+tldr --update &>/dev/null || log "${YELLOW}" "Warning: Tealdeer is not installed\n"
 
 # Yazi
-ya pkg install
-log "${CYAN}" "Yazi is configured\n"
+ya pkg install &>/dev/null || log "${YELLOW}" "Warning: Yazi is not installed\n"
 
 # Tmux
-if [[ $(tmux --version) ]] && [[ ! -d "${TMUX_PLUGINS_HOME}/tmux-easymotion" ]]; then
+if [[ ! $(tmux --version &>/dev/null) ]]; then
+  log "${YELLOW}" "Warning: Tmux is not installed\n"
+elif [[ ! -d "${TMUX_PLUGINS_HOME}/tmux-easymotion" ]]; then
   mkdir --parents "$TMUX_PLUGINS_HOME"
   pushd "$_" || exit 1
   git clone --depth 1 --branch "${TMUX_EASYMOTION_VERSION}" "${TMUX_EASYMOTION_REPO}"
@@ -89,7 +97,9 @@ else
 fi
 
 # Zsh
-if [[ $(zsh --version) ]] && [[ ! -d "${ZSH_PLUGINS_HOME}/zsh-autosuggestions" ]]; then
+if [[ ! $(zsh --version &>/dev/null) ]]; then
+  log "${YELLOW}" "Warning: Zsh is not installed\n"
+elif [[ ! -d "${ZSH_PLUGINS_HOME}/zsh-autosuggestions" ]]; then
   sudo chsh --shell "$(command -v zsh | xargs realpath)" "$(whoami)"
   sh -c "$(curl --fail --silent --show-error --location "$OH_MY_ZSH_URL") --unattended"
   git clone --depth 1 "${ZSH_AUTOSUGGESTIONS_REPO}" "${ZSH_PLUGINS_HOME:-$ZSH_PLUGINS_HOME}/zsh-autosuggestions"

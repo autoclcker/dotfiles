@@ -8,6 +8,11 @@ MISE_CONF_PATH=${MISE_CONF_PATH:-"${PWD}/.config/mise/config.toml"}
 
 export PATH="${HOME}/.local/bin:$PATH"
 
+if [[ ! $(mise --version &>/dev/null) ]]; then
+  log "${RED}" "Error: mise is not installed\n"
+  exit 1
+fi
+
 MISE_QUIET=true mise --cd "${MISE_CONF_DIR}" trust
 MISE_IGNORED_CONFIG_PATHS="$MISE_CONF_PATH" mise install --yes
 mise install --yes

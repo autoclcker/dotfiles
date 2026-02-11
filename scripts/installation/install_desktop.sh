@@ -24,9 +24,12 @@ PACKAGES=("${APPS[@]}" "${GPU[@]}" "${SYSTEM[@]}" "${WAYLAND_COMPOSITOR[@]}")
 SERVICES=("${APPS_SVC[@]}" "${DESKTOP_SVC[@]}" "${SYSTEM_SVC[@]}")
 UNITS=("${SERVICES[@]/%/.service}")
 
-if [[ "$FULL_INSTALLATION" != true ]] || [[ ! $(yay --version) ]]; then
+if [[ "$FULL_INSTALLATION" != true ]]; then
   log "${CYAN}" "Desktop Environment isn't needed\n"
   exit 0
+elif [[ ! $(yay --version &>/dev/null) ]]; then
+  log "${RED}" "Error: yay is not installed\n"
+  exit 1
 fi
 
 # Desktop Environment
