@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-copyq eval "\
+exec copyq eval "\
 const src_tab = 'history'; \
 const dst_tab = 'stack'; \
 tab(src_tab); \

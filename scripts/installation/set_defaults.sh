@@ -30,6 +30,16 @@ else
   log "${CYAN}" "Cheatsheets are already installed\n"
 fi
 
+# CopyQ
+if [[ "$FULL_INSTALLATION" != true ]]; then
+  log "${CYAN}" "CopyQ are not needed\n"
+elif [[ ! $(dotool --version &>/dev/null) ]]; then
+  log "${YELLOW}" "Warning: dotool is not installed\n"
+else
+  sudo groupadd --force input
+  sudo usermod --append --groups input "${USER}"
+fi
+
 # Fonts&Locales
 if [[ "$FULL_INSTALLATION" != true ]]; then
   log "${CYAN}" "Fonts&Locales are not needed\n"

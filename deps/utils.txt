@@ -7,5 +7,4 @@ p7zip
 sshfs
 vim
 wl-clipboard
-wtype
 zsh

@@ -6,9 +6,7 @@ source "$HOME/.profile"
 MISE_CONF_DIR=${MISE_CONF_DIR:-"${PWD}/.config/mise/conf.d"}
 MISE_CONF_PATH=${MISE_CONF_PATH:-"${PWD}/.config/mise/config.toml"}
 
-export PATH="${HOME}/.local/bin:$PATH"
-
-if [[ ! $(mise --version &>/dev/null) ]]; then
+if [[ ! $(mise --version) ]]; then
   log "${RED}" "Error: mise is not installed\n"
   exit 1
 fi

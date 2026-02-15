@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-copyq eval "\
+exec copyq eval "\
 const stack_tab = 'stack'; \
 tab(stack_tab); \
 if (size() == 0) { \
@@ -8,7 +8,7 @@ if (size() == 0) { \
 } \
 const item = getItem(0); \
 copy(item); \
-execute('wtype', '-M', 'shift', '-k', 'insert'); \
+execute('paste-hack'); \
 plugins.itemtags.untag('Important', 0); \
 plugins.itempinned.unpin(0); \
 remove(0);"

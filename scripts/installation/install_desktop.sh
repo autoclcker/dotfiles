@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-CLI_APPS=("docker" "docker-compose" "docker-buildx" "udiskie")
+CLI_APPS=("docker" "docker-compose" "docker-buildx" "dotool" "udiskie")
 GUI_APPS=("copyq" "ghostty" "google-chrome" "vscodium-bin")
 INTEL=("intel-media-driver" "intel-ucode" "mesa" "vulkan-intel")
 NETWORK=("bluez" "bluez-utils" "networkmanager")
