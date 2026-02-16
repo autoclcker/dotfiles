@@ -42,6 +42,11 @@ vim.keymap.set(
   "<C-R>+",
   { noremap = true, silent = true, desc = "Paste from system clipboard" }
 )
+if vim.g.neovide then
+  vim.keymap.set("n", "<F11>", function()
+    vim.g.neovide_fullscreen = not vim.g.neovide_fullscreen
+  end)
+end
 
 -- Command mode
 vim.keymap.set("c", "<C-a>", "<Home>", { desc = "Move cursor to the beginning of the line start in command mode" })

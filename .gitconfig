@@ -54,4 +54,4 @@
     path = .gitconfig_loop
 
 [oh-my-zsh]
-	git-commit-alias = 88659ed193cd1af0ba3679c9de3c85f21003f3d4
+	git-commit-alias = 45dd7d006ab2650273d9859f7e3224cf757a9db3

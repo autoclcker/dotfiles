@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-exec dotool <<<"key shift+insert"
+exec dotoolc <<<"key shift+insert"

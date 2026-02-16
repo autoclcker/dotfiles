@@ -3,12 +3,12 @@ exec copyq eval "\
 const stack_tab = 'stack'; \
 tab(stack_tab); \
 if (size() == 0) { \
-    popup('The stack is empty'); \
+    popup('The stack is empty', '', 1000); \
     abort(); \
 } \
-const item = getItem(0); \
-copy(item); \
-execute('paste-hack'); \
+select(0); \
+sleep(1000); \
 plugins.itemtags.untag('Important', 0); \
 plugins.itempinned.unpin(0); \
+execute('paste-hack'); \
 remove(0);"
