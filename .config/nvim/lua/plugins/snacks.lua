@@ -28,12 +28,17 @@ return {
           win = {
             list = {
               keys = {
+                ["<C-j>"] = false,
+                ["<C-k>"] = false,
+                ["<M-d>"] = false,
                 ["<M-h>"] = false,
                 ["<M-i>"] = false,
+                ["<M-m>"] = false,
                 ["<M-p>"] = false,
+                ["<M-w>"] = false,
                 ["<S-Tab>"] = false,
-                ["<Tab>"] = false,
                 ["H"] = false,
+                ["I"] = false,
                 ["m"] = false,
                 ["P"] = false,
                 ["Z"] = false,
@@ -42,6 +47,7 @@ return {
                 ["<C-h>"] = "explorer_close_all",
                 ["<S-Down>"] = "select_and_next",
                 ["<S-Up>"] = "select_and_prev",
+                ["<Tab>"] = "Inspect",
                 ["i"] = "explorer_focus",
                 ["o"] = "toggle_preview",
                 ["u"] = "explorer_up",
