@@ -125,7 +125,8 @@ return {
       desc = "Toggle Zoom",
     },
     {
-      "<leader>Z",
+      "<C-CR>",
+      mode = { "n", "i", "v" },
       function()
         Snacks.zen()
       end,

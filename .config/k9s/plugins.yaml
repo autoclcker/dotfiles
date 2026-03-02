@@ -24,9 +24,9 @@ plugins:
     args:
       - -c
       - >-
-        nvim /tmp/k9s.yaml &&
-        (test -s $_ && cat /tmp/k9s.yaml | kubectl --namespace $NAMESPACE --context $CONTEXT apply --filename -) &&
-        rm /tmp/k9s.yaml || exit 0
+        manifest=k9s.$(date +%Y-%m-%d_%H:%M:%S).yaml && nvim /tmp/$manifest &&
+        (test -s $_ && cat /tmp/$manifest | kubectl --namespace $NAMESPACE --context $CONTEXT apply --filename -) &&
+        rm /tmp/$manifest || exit 0
   clear-namespace:
     shortCut: Ctrl-L
     override: false

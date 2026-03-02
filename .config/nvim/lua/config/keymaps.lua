@@ -67,8 +67,9 @@ vim.keymap.set(
   "<C-Right>",
   { noremap = true, silent = true, desc = "Move one word forward in insert mode" }
 )
+vim.keymap.set("i", "<C-x>e", "<C-o>:", { noremap = true, silent = true, desc = "Command mode" })
+vim.keymap.set("i", "<M-j>", "<Down>", { noremap = true, silent = true, desc = "Move cursor down in insert mode" })
 vim.keymap.set("i", "<M-k>", "<Up>", { noremap = true, silent = true, desc = "Move cursor up in insert mode" })
-vim.keymap.set("i", "<M-j>", "<Down>", { desc = "Move cursor down in insert mode" })
 
 -- Visual mode
 vim.keymap.set("x", "S", function()

@@ -1,5 +1,17 @@
 {
     "cmake.showOptionsMovedNotification": false,
+    "vim.insertModeKeyBindingsNonRecursive": [
+        {
+            "after": [
+                "<C-o>",
+                ":"
+            ],
+            "before": [
+                "<C-x>",
+                "e"
+            ]
+        }
+    ],
     "vim.normalModeKeyBindingsNonRecursive": [
         {
             "after": [
@@ -269,7 +281,7 @@
                 ">"
             ],
             "commands": [
-                "workbench.action.closeEditorsToTheRight",
+                "workbench.action.closeEditorsToTheRight"
             ],
             "silent": true
         },
@@ -279,7 +291,7 @@
                 "<"
             ],
             "commands": [
-                "workbench.action.closeEditorsToTheLeft",
+                "workbench.action.closeEditorsToTheLeft"
             ],
             "silent": true
         },
