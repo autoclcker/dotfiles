@@ -95,7 +95,7 @@ return {
       desc = "Toggle Terminal",
     },
     {
-      "<leader>T",
+      "<F5>",
       mode = { "n" },
       function()
         Snacks.terminal.open("/bin/bash", nil)

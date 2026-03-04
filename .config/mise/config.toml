@@ -1,6 +1,6 @@
 [tools]
 "cargo:atac" = "latest"
-"cargo:bandwhich" = "latest"
+"cargo:bandwhich" = { version = "latest", postinstall = "sudo setcap cap_sys_ptrace,cap_dac_read_search,cap_net_raw,cap_net_admin+ep $(which bandwhich)" }
 "cargo:bat" = "latest"
 "cargo:binsider" = "latest"
 "cargo:bluetui" = "latest"
@@ -18,6 +18,7 @@
 "cargo:resvg" = "latest"
 "cargo:ripgrep_all" = "latest"
 "cargo:ripgrep" = "latest"
+"cargo:rustnet-monitor" = { version = "latest", postinstall = "sudo setcap 'cap_net_raw,cap_bpf,cap_perfmon=eip' $(which rustnet)" }
 "cargo:sd" = "latest"
 "cargo:systemctl-tui" = "latest"
 "cargo:tealdeer" = "latest"
@@ -47,7 +48,6 @@
 "pipx:httpie" = "latest"
 "pipx:ipython" = "latest"
 "pipx:pylint" = "latest"
-"pipx:thefuck" = { version = "latest", pipx_args = "--python 3.11.9" }
 "pipx:trash-cli" = "latest"
 "ubi:clangd/clangd" = "latest"
 "ubi:jgm/pandoc" = "latest"

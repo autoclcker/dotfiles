@@ -11,7 +11,6 @@ alias kc='kubectx'
 alias less='bat --plain'
 alias lR='eza --tree --color=always --icons=always'
 alias nc='ncat'
-alias ntop='sudo $(command -v bandwhich)'
 alias pgadmin='docker run --rm -p 5432:80 \
     --env "PGADMIN_CONFIG_MASTER_PASSWORD_REQUIRED=False" \
     --env "PGADMIN_CONFIG_UPGRADE_CHECK_ENABLED=False" \

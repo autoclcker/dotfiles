@@ -28,7 +28,6 @@ plugins=(
 	sudo
 	systemadmin
 	systemd
-	thefuck
 	tmux
 	zoxide
 	zsh-autosuggestions
@@ -52,9 +51,6 @@ bindkey -M menuselect 'h' vi-backward-char
 bindkey -M menuselect 'k' vi-up-line-or-history
 bindkey -M menuselect 'l' vi-forward-char
 bindkey -M menuselect 'j' vi-down-line-or-history
-bindkey -M emacs '^[[28;5;9~' sudo-command-line
-bindkey -M vicmd '^[[28;5;9~' sudo-command-line
-bindkey -M viins '^[[28;5;9~' sudo-command-line
 
 precmd () {
 	echo -n -e "\a"
@@ -62,6 +58,3 @@ precmd () {
 
 # Delta
 eval "$(delta --generate-completion zsh)"
-
-# Thefuck
-eval "$(thefuck --alias)"
