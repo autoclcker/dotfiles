@@ -259,7 +259,7 @@
         modifiers: [],
         key: "Help",
         description: Some("Neovide"),
-    ): Spawn("PATH=$HOME/.local/share/mise/shims:$PATH gtk-launch neovide.desktop"),
+    ): Spawn("gtk-launch neovide.desktop"),
     (
         modifiers: [
             Alt,
@@ -386,7 +386,7 @@
         ],
         key: "e",
         description: Some("VSCodium"),
-    ): Spawn("PATH=$HOME/.local/share/mise/shims:$PATH gtk-launch codium.desktop"),
+    ): Spawn("gtk-launch codium.desktop"),
     (
         modifiers: [
             Super,

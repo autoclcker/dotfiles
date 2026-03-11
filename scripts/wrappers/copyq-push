@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 exec copyq eval "\
-const src_tab = 'history'; \
+const src_tab = 'cache'; \
 const dst_tab = 'stack'; \
 tab(src_tab); \
 if (size() == 0) {  abort(); } \

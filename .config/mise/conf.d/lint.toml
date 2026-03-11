@@ -1,4 +1,7 @@
 [tools]
+"github:clangd/clangd" = "latest"
+"npm:vscode-langservers-extracted" = "latest"
+"pipx:ansible-lint" = "latest"
 golangci-lint = "latest"
 hadolint = "latest"
 kubeconform = "latest"

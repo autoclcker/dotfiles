@@ -30,7 +30,7 @@ if [[ ${#PACKAGES[@]} -gt 0 ]]; then
 fi
 
 # Yay
-if [[ "$FULL_INSTALLATION" == true ]] && [[ ! $(yay --version) ]]; then
+if [[ "$FULL_INSTALLATION" == true ]] && [[ ! $(yay --version &>/dev/null) ]]; then
   git clone "${YAY_REPO}" /tmp/yay
   pushd "$_" || exit 1
   makepkg --install --noconfirm --syncdeps
@@ -39,7 +39,7 @@ else
 fi
 
 # Mise
-if [[ ! $(mise --version) ]]; then
+if [[ ! $(mise --version &>/dev/null) ]]; then
   curl "$MISE_URL" | sh
 else
   log "${CYAN}" "Mise isn't needed\n"
