@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 
 CLI_APPS=("docker" "docker-compose" "docker-buildx" "dotool" "udiskie")
-GUI_APPS=("copyq" "ghostty" "google-chrome" "vscodium-bin")
+GUI_APPS=("copyq" "ghostty" "google-chrome" "vscodium-bin" "wireshark-qt")
 INTEL=("intel-media-driver" "intel-ucode" "mesa" "vulkan-intel")
 NETWORK=("bluez" "bluez-utils" "networkmanager")
 NVIDIA=("libva-nvidia-driver" "nvidia-open-dkms" "nvidia-settings" "nvidia-utils")
 POWER_MANAGEMENT=("cpupower" "system76-acpi-dkms" "system76-power")
-PREREQUISITES=("base-devel" "linux-headers" "man-pages" "man-db")
+PREREQUISITES=("linux-headers" "man-pages" "man-db")
 SOUND=("pipewire" "pipewire-alsa" "pipewire-pulse" "sof-firmware" "wireplumber")
 WAYLAND_COMPOSITOR=("cosmic-session" "cosmic-wallpapers" "switcheroo")
 
@@ -27,7 +27,7 @@ UNITS=("${SERVICES[@]/%/.service}")
 if [[ "$FULL_INSTALLATION" != true ]]; then
   log "${CYAN}" "Desktop Environment isn't needed\n"
   exit 0
-elif [[ ! $(yay --version &>/dev/null) ]]; then
+elif [[ ! $(yay --version) ]]; then
   log "${RED}" "Error: yay is not installed\n"
   exit 1
 fi

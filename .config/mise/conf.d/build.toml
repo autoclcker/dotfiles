@@ -1,7 +1,6 @@
 [tools]
 "npm:typescript" = "latest"
 ant = "1.10.13"
-clang = "latest"
 cmake = "latest"
 make = "latest"
 maven = ["3.6.3", "3.8.5"]
