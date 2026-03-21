@@ -385,6 +385,8 @@ tmux_conf_urlscan_options="--compact --dedupe"
 # this is the place to override or undo settings
 
 set -g allow-passthrough on
+set -g extended-keys on
+set -g extended-keys-format csi-u
 set -ga update-environment TERM
 set -ga update-environment TERM_PROGRAM
 set -g cursor-style blinking-bar

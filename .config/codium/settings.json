@@ -12,6 +12,7 @@
             ]
         }
     ],
+    "vim.normalModeKeyBindings": [],
     "vim.normalModeKeyBindingsNonRecursive": [
         {
             "after": [
@@ -94,6 +95,35 @@
             "before": [
                 "<space>",
                 "e"
+            ]
+        },
+        {
+            "before": [
+                "<space>",
+                "s",
+                "k"
+            ],
+            "commands": [
+                "workbench.action.openGlobalKeybindings"
+            ]
+        },
+        {
+            "before": [
+                "<space>",
+                "g",
+                "i"
+            ],
+            "commands": [
+                "lazygit-vscode.toggle"
+            ]
+        },
+        {
+            "before": [
+                "<space>",
+                "y"
+            ],
+            "commands": [
+                "yazi-vscode.toggle"
             ]
         },
         {
