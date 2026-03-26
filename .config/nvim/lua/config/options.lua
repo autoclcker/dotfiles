@@ -12,5 +12,5 @@ vim.opt.guicursor =
   "n-v-c:block-blinkwait700-blinkon250-blinkoff250,i-t-ci-ve:ver25-blinkwait700-blinkon250-blinkoff250,r-cr:hor20-blinkwait700-blinkon250-blinkoff250"
 vim.opt.clipboard = ""
 vim.opt.guifont = "FiraCode Nerd Font:h13"
-vim.opt.shell = "bash"
+vim.opt.shell = "/bin/bash"
 vim.opt.timeoutlen = 1000

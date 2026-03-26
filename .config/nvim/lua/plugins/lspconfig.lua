@@ -48,7 +48,7 @@ return {
       },
       clangd = {
         keys = {
-          { "<BS>", "<cmd>LspClangdSwitchSourceHeader<cr>", desc = "Switch Source/Header (C/C++)" },
+          { "<M-BS>", "<cmd>LspClangdSwitchSourceHeader<cr>", desc = "Switch Source/Header (C/C++)" },
         },
         root_markers = {
           "compile_commands.json",

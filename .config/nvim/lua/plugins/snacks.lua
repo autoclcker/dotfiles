@@ -43,14 +43,14 @@ return {
                 ["P"] = false,
                 ["Z"] = false,
                 ["."] = "toggle_hidden",
+                ["["] = "explorer_up",
+                ["]"] = "explorer_focus",
                 ["<BS>"] = "toggle_ignored",
                 ["<C-h>"] = "explorer_close_all",
                 ["<S-Down>"] = "select_and_next",
                 ["<S-Up>"] = "select_and_prev",
                 ["<Tab>"] = "Inspect",
-                [">"] = "explorer_focus",
                 ["o"] = "toggle_preview",
-                ["<"] = "explorer_up",
                 ["x"] = "explorer_move",
               },
             },
@@ -98,7 +98,7 @@ return {
       "<F5>",
       mode = { "n" },
       function()
-        Snacks.terminal.open("/bin/bash", nil)
+        Snacks.terminal.open(vim.opt.shell:get(), nil)
       end,
       desc = "Floating Terminal",
     },
@@ -170,10 +170,8 @@ return {
       function()
         local explorer_pickers = Snacks.picker.get({ source = "explorer" })
         if #explorer_pickers == 0 then
-          -- If no explorer picker is open, open a new one
           Snacks.picker.explorer()
         else
-          -- If an explorer picker is open, focus it
           explorer_pickers[1]:focus()
         end
       end,
