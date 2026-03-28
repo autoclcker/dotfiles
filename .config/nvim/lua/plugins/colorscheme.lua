@@ -3,6 +3,8 @@ return {
     "Mofiqul/vscode.nvim",
     config = function()
       local colors = require("vscode.colors").get_colors()
+      local black = "#000000"
+      local white = "#ffffff"
       local vscDefaultDark = "#181818"
       local vscGreenBorder = "#009961"
       require("vscode").setup({
@@ -16,13 +18,13 @@ return {
           Cursor = { fg = "#00fcd6", bg = colors.vscCursorLight },
           CursorLineNr = { fg = "#00fcd6", bg = colors.vscBack },
           SnacksPickerBorder = { fg = vscGreenBorder, bg = colors.vscBack },
-          StatusLine = { fg = colors.vscFront, bg = vscDefaultDark, italic = true },
+          StatusLine = { fg = colors.vscCursorLight, bg = colors.vscBack, italic = true },
           StatusLineNC = { fg = colors.vscFront, bg = vscDefaultDark },
           VertSplit = { fg = vscGreenBorder, bg = colors.vscBack },
-          NormalFloat = { fg = "#ffffff", bg = "#000000" },
-          WhichKeyValue = { fg = colors.vscFront, bg = "#000000" },
-          WhichKeyBorder = { fg = vscGreenBorder, bg = "#000000" },
-          WhichKeyTitle = { fg = colors.vscFront, bg = "#000000" },
+          NormalFloat = { fg = white, bg = black },
+          WhichKeyValue = { fg = colors.vscFront, bg = black },
+          WhichKeyBorder = { fg = vscGreenBorder, bg = black },
+          WhichKeyTitle = { fg = colors.vscFront, bg = black },
         },
       })
       require("bufferline").setup({
@@ -36,7 +38,7 @@ return {
             bg = colors.vscBack,
           },
           buffer_selected = {
-            fg = "#ffffff",
+            fg = white,
             bg = colors.vscPopupBack,
           },
           separator = {

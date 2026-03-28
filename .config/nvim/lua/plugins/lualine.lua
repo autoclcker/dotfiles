@@ -10,11 +10,20 @@ return {
         auto[field].c.bg = "#181818"
       end
     end
+
     local opts = {
       options = {
         theme = auto,
         always_divide_middle = true,
         disabled_filetypes = { statusline = { "dashboard", "alpha", "ministarter", "snacks_dashboard" } },
+      },
+      winbar = {
+        lualine_a = {
+          {
+            LazyVim.lualine.pretty_path(),
+            color = "StatusLine",
+          },
+        },
       },
       sections = {
         lualine_a = { "mode" },
@@ -46,7 +55,6 @@ return {
           },
         },
         lualine_c = {
-          LazyVim.lualine.root_dir(),
           {
             "diagnostics",
             symbols = {
@@ -63,10 +71,6 @@ return {
               warn = { fg = "#fbff00", bg = "#13261c" },
             },
             separator = { right = "" },
-          },
-          {
-            LazyVim.lualine.pretty_path(),
-            color = { fg = "#11fc00", bg = "#181818" },
           },
         },
         lualine_x = {
@@ -116,17 +120,16 @@ return {
     if vim.g.trouble_lualine and LazyVim.has("trouble.nvim") then
       local trouble = require("trouble")
       local symbols = trouble.statusline({
-        mode = "symbols",
+        mode = "lsp_document_symbols",
         groups = {},
         title = false,
         filter = { range = true },
-        format = "{kind_icon}{symbol.name:Insert}",
+        format = "{kind_icon}{symbol.name:StatusLine}",
+        hl_group = "StatusLine",
       })
-      table.insert(opts.sections.lualine_c, {
-        symbols and symbols.get,
-        cond = function()
-          return vim.b.trouble_lualine ~= false and symbols.has()
-        end,
+      table.insert(opts.winbar.lualine_a, {
+        symbols.get,
+        cond = symbols.has,
       })
     end
 
