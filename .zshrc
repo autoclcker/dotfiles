@@ -43,7 +43,6 @@ alias ls='eza --color=always --icons=always'
 source "$HOME/.profile"
 source "$ZSH/oh-my-zsh.sh"
 
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#6e6e6e,bg=#000000,bold"
 PROMPT_EOL_MARK=''
 bindkey '^ ' autosuggest-accept
 bindkey "^U" backward-kill-line
