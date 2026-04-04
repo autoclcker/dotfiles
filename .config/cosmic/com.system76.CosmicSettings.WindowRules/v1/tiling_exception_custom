@@ -11,8 +11,8 @@
   ),
   (
     enabled: true,
-    appid: ".*",
-    title: "Neovide"
+    appid: "Neovide",
+    title: ".*"
   ),
 ]
 

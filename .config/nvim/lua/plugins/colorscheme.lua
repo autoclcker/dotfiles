@@ -25,6 +25,8 @@ return {
           WhichKeyValue = { fg = colors.vscFront, bg = black },
           WhichKeyBorder = { fg = vscGreenBorder, bg = black },
           WhichKeyTitle = { fg = colors.vscFront, bg = black },
+          SatelliteCursor = { fg = "#00fcd6" },
+          SatelliteBar = { bg = "#666666" },
         },
       })
       require("bufferline").setup({
