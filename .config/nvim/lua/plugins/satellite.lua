@@ -38,6 +38,7 @@ return {
         },
         quickfix = {
           signs = { "-", "=", "≡" },
+          enable = true,
         },
       },
     })

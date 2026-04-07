@@ -60,13 +60,13 @@ hash = "f5afc904d5106ee368c8aa2ded43bd74"
 
 [[plugin.deps]]
 use = "boydaihungst/restore"
-rev = "4eda0bf"
-hash = "778941e7f1ebbacd60f4e254bb3c51de"
+rev = "0e08704"
+hash = "e4d7c06510b4fe5f64ae31fbb4e017d6"
 
 [[plugin.deps]]
 use = "uhs-robert/sshfs"
-rev = "b4c7c5c"
-hash = "d1cd188c14a53d03ae4a87e6e40f7233"
+rev = "7ba17a8"
+hash = "f6927372436c780965035310821a40d9"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:piper"

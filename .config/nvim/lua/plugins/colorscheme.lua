@@ -27,6 +27,7 @@ return {
           WhichKeyTitle = { fg = colors.vscFront, bg = black },
           SatelliteCursor = { fg = "#00fcd6" },
           SatelliteBar = { bg = "#666666" },
+          SatelliteSearch = { link = 'SearchCurrent' },
         },
       })
       require("bufferline").setup({
