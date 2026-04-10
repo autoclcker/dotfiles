@@ -88,7 +88,7 @@ export ZSH_TMUX_DEFAULT_SESSION_NAME="main"
 export XDG_CONFIG_HOME="$HOME/.config"
 
 # MISE
-export PATH="$HOME/.local/share/mise/shims:$HOME/.local/bin:$PATH"
+[[ $- != *i* ]] && export PATH="$HOME/.local/share/mise/shims:$HOME/.local/bin:$PATH"
 
 # Zoxide
 export ZOXIDE_CMD_OVERRIDE="cd"

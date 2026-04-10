@@ -17,7 +17,7 @@
 "cargo:resvg" = "latest"
 "cargo:ripgrep_all" = "latest"
 "cargo:ripgrep" = "latest"
-"cargo:rustnet-monitor" = { version = "latest", postinstall = "sudo setcap 'cap_net_raw,cap_bpf,cap_perfmon=eip' $(which rustnet)" }
+"cargo:rustnet-monitor" = { version = "latest", postinstall = "date && sudo setcap 'cap_net_raw,cap_bpf,cap_perfmon=eip' $(which rustnet)" }
 "cargo:sd" = "latest"
 "cargo:systemctl-tui" = "latest"
 "cargo:tealdeer" = "latest"

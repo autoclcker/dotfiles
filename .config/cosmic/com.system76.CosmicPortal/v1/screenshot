@@ -2,9 +2,9 @@
     save_location: Clipboard,
     choice: Rectangle,
     last_rectangle: Some((
-        left: 3076,
-        top: 1202,
-        right: 4186,
-        bottom: 1371,
+        left: 4797,
+        top: 214,
+        right: 6374,
+        bottom: 1112,
     )),
 )
