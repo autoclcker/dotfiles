@@ -1,0 +1,10 @@
+# Hint: use the .pgpass file to connect (export PGPASSFILE=PATH_TO_YOUR_PGPASSFILE)
+# Example of .pgpass file:
+localhost:5432:*:USERNAME:PASSWORD
+
+# Create a full backup
+nohup bash -c "time pg_basebackup --host=localhost --username=YOUR_USERNAME --checkpoint=fast --format=t --pgdata=$(date +%F) --wal-method=stream --compress=server-lz4:1 --progress" > progress.out 2>&1 &
+
+# Restore from backup ($PGDATA is the data directory of the postgres instance)
+lz4 -d base.tar.lz4 -c | tar xf - -C $PGDATA
+tar xf pg_wal.tar -C $PGDATA/pg_wal

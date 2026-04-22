@@ -14,3 +14,5 @@ x-scheme-handler/https=google-chrome.desktop
 x-scheme-handler/terminal=ghostty.desktop
 x-scheme-handler/unknown=google-chrome.desktop
 
+[Added Associations]
+message/rfc822=google-chrome.desktop;

@@ -504,6 +504,16 @@
                 "flash-vscode.jump.treesitterSelection"
             ],
             "silent": true
+        },
+        {
+            "before": [
+                "<space>",
+                "f"
+            ],
+            "commands": [
+                "simpleBrowser.show"
+            ],
+            "silent": true
         }
     ],
     "vim.operatorPendingModeKeyBindingsNonRecursive": [

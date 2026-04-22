@@ -19,6 +19,14 @@ return {
       false,
     },
     {
+      "<M-f>",
+      mode = { "n", "x", "o" },
+      function()
+        require("flash").jump()
+      end,
+      desc = "Flash",
+    },
+    {
       "<Home>",
       mode = { "n", "x", "o" },
       function()

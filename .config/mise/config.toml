@@ -53,6 +53,7 @@
 btop = "latest"
 cheat = "latest"
 fastfetch = "latest"
+mc = "latest"
 neovim = "latest"
 starship = "latest"
 tmux = "latest"
