@@ -2,7 +2,7 @@
 exec copyq eval "\
 const src_tab = 'cache'; \
 tab(src_tab); \
-if (size() == 0) {  abort(); } \
+if (size() == 0) { abort(); } \
 plugins.itemtags.untag('Important', 0); \
 plugins.itempinned.unpin(0); \
 remove(0);"
