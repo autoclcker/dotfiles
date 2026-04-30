@@ -1,7 +1,7 @@
 {
 	"name": "Vimium C",
-	"@time": "4/30/2026, 4:25:50 AM",
-	"time": 1777512350934,
+	"@time": "4/30/2026, 4:42:18 AM",
+	"time": 1777513338745,
 	"environment": {
 		"extension": "2.12.2",
 		"platform": "linux",
@@ -15,7 +15,11 @@
 		"map <c-'> visitPreviousTab",
 		"map <a-k> nextTab",
 		"map <a-j> previousTab",
-		"mapkey <c-c> <c-[>",
+		"mapkey <c-c:l> <c-[>",
+		"mapkey <c-c:f> <c-[>",
+		"mapkey <c-c:m> <c-[>",
+		"mapkey <c-c:o> <c-[>",
+		"mapkey <c-c:e> <c-[>",
 		"map W moveTabToNewWindow",
 		"map w moveTabToNextWindow",
 		""
