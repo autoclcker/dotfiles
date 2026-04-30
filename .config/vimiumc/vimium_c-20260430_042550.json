@@ -1,0 +1,24 @@
+{
+	"name": "Vimium C",
+	"@time": "4/30/2026, 4:25:50 AM",
+	"time": 1777512350934,
+	"environment": {
+		"extension": "2.12.2",
+		"platform": "linux",
+		"chromium": 147
+	},
+	"exclusionRules": [],
+	"keyLayout": 2,
+	"keyMappings": [
+		"#!no-check",
+		"map ' Marks.activate",
+		"map <c-'> visitPreviousTab",
+		"map <a-k> nextTab",
+		"map <a-j> previousTab",
+		"mapkey <c-c> <c-[>",
+		"map W moveTabToNewWindow",
+		"map w moveTabToNextWindow",
+		""
+	],
+	"vimSync": true
+}

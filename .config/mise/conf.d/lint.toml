@@ -2,6 +2,7 @@
 "github:clangd/clangd" = "latest"
 "npm:vscode-langservers-extracted" = "latest"
 "pipx:ansible-lint" = "latest"
+"pipx:pylint" = "latest"
 golangci-lint = "latest"
 hadolint = "latest"
 kubeconform = "latest"

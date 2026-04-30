@@ -48,7 +48,6 @@
 "pipx:ansible-creator" = "latest"
 "pipx:httpie" = "latest"
 "pipx:ipython" = "latest"
-"pipx:pylint" = "latest"
 "pipx:trash-cli" = "latest"
 btop = "latest"
 cheat = "latest"

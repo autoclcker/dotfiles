@@ -2,7 +2,7 @@
 [Interface]
 Address = {{private_ip}}/24
 ListenPort = 51821
-PrivateKey = {{key}}
+PrivateKey = {{client_key}}
 PostUp = ip rule add table 200 from {{public_ip}}
 PostUp = ip route add table 200 default via {{gateway_ip}}
 PreDown = ip rule delete table 200 from {{public_ip}}
@@ -10,9 +10,9 @@ PreDown = ip route delete table 200 default via {{gateway_ip}}
 DNS = 1.1.1.1
 
 [Peer]
-PublicKey = {{key}}
+PublicKey = {{client_key}}
 AllowedIPs = 0.0.0.0/0, ::/0
-Endpoint = {{public_ip}}:51820
+Endpoint = {{server_public_ip}}:51820
 PersistentKeepalive = 25
 
 # server config
@@ -20,16 +20,16 @@ PersistentKeepalive = 25
 Address = {{private_ip}}/24
 SaveConfig = true
 ListenPort = 51820
-PrivateKey = {{key}}
+PrivateKey = {{server_key}}
 PostUp = iptables -t nat -I POSTROUTING -o eth0 -j MASQUERADE
 PostUp = ip6tables -t nat -I POSTROUTING -o eth0 -j MASQUERADE
 PreDown = iptables -t nat -D POSTROUTING -o eth0 -j MASQUERADE
 PreDown = ip6tables -t nat -D POSTROUTING -o eth0 -j MASQUERADE
 
 [Peer]
-PublicKey = {{key}}
+PublicKey = {{client_key}}
 AllowedIPs = {{private_ip}}/32
 
 [Peer]
-PublicKey = {{key}}
+PublicKey = {{client_key}}
 AllowedIPs = {{private_ip}}/32
