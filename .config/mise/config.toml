@@ -3,6 +3,7 @@
 "cargo:bat" = "latest"
 "cargo:binsider" = "latest"
 "cargo:bluetui" = "latest"
+"cargo:bookokrat" = "latest"
 "cargo:du-dust" = "latest"
 "cargo:dufs" = "latest"
 "cargo:eza" = "latest"
@@ -44,12 +45,12 @@
 "go:github.com/tomnomnom/gron" = "latest"
 "npm:@angular/cli" = "latest"
 "npm:ts-node" = "latest"
-"pipx:ansible-core" = "latest"
+"pipx:ansible-core" = { version = "latest",  pipx_args = "--preinstall requests" }
 "pipx:ansible-creator" = "latest"
 "pipx:httpie" = "latest"
 "pipx:ipython" = "latest"
+"pipx:molecule-plugins" = { version = "latest", extras = "docker", pipx_args = "--include-deps" }
 "pipx:trash-cli" = "latest"
-btop = "latest"
 cheat = "latest"
 fastfetch = "latest"
 mc = "latest"

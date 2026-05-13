@@ -13,6 +13,7 @@ readonly RED="\x1B[1;31m"
 readonly RESET="\x1B[0m"
 readonly YELLOW="\x1B[1;33m"
 
+CONNECTION_TIMEOUT=${CONNECTION_TIMEOUT:-10}
 FULL_INSTALLATION=${FULL_INSTALLATION:-true}
 
 log() {

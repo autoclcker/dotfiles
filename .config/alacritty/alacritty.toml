@@ -1,6 +1,9 @@
 [env]
 TERM = "xterm-256color"
 
+[terminal.shell]
+program = "/usr/bin/zsh" # Replace with the path to your desired shell
+
 [window]
 decorations = "None"
 dynamic_padding = false
@@ -150,22 +153,21 @@ mods = "Control"
 chars = "\uE000"
 
 [[keyboard.bindings]]
-key= "Back"
-mods= "Control"
-chars= "\uE001"
+key = "Back"
+mods = "Control"
+chars = "\uE001"
 
 [[keyboard.bindings]]
-key= "Enter"
-mods= "Control"
-chars= "\uE002"
+key = "Enter"
+mods = "Control"
+chars = "\uE002"
 
 [[keyboard.bindings]]
-key= "Tab"
-mods= "Control"
-chars= "\uE003"
+key = "Tab"
+mods = "Control"
+chars = "\uE003"
 
 [[keyboard.bindings]]
 key = "Insert"
 mods = "Shift"
 action = "Paste"
-

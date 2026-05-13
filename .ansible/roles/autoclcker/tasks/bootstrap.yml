@@ -1,0 +1,31 @@
+---
+- name: Bootstrap | Install prerequisites on Archlinux system
+  community.general.pacman:
+    name: "{{ autoclcker_prerequisites }}"
+    state: present
+    update_cache: true
+  when: ansible_facts["os_family"] == "Archlinux"
+
+- name: Bootstrap | Ensure dotfiles group exists
+  ansible.builtin.group:
+    name: "{{ autoclcker_group | default('autoclcker') }}"
+    state: present
+  become: "{{ autoclcker_become | default('true') }}"
+
+- name: Bootstrap | Ensure dotfiles user exists
+  ansible.builtin.user:
+    name: "{{ autoclcker_user | default('autoclcker') }}"
+    state: present
+    group: "{{ autoclcker_group | default('autoclcker') }}"
+    createhome: true
+    shell: "{{ autoclcker_shell | default('/usr/bin/bash') }}"
+  become: "{{ autoclcker_become | default('true') }}"
+
+- name: Bootstrap | Ensure dotfiles directory exists
+  ansible.builtin.file:
+    path: "{{ autoclcker_dotfiles_dst }}"
+    state: directory
+    owner: "{{ autoclcker_user | default('autoclcker') }}"
+    group: "{{ autoclcker_group | default('autoclcker') }}"
+    mode: "0755"
+  become: "{{ autoclcker_become | default('true') }}"

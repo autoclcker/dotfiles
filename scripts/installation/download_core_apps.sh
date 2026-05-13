@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# shellcheck disable=SC1091
+[ -f "$HOME/.profile" ] && source "$HOME/.profile"
+
 PACKAGES=()
 
 MISE_URL=${MISE_URL:-"https://mise.run"}
@@ -30,7 +33,7 @@ if [[ ${#PACKAGES[@]} -gt 0 ]]; then
 fi
 
 # Yay
-if [[ "$FULL_INSTALLATION" == true ]] && [[ ! $(yay --version) ]]; then
+if [[ ! $(yay --version) ]]; then
   git clone "${YAY_REPO}" /tmp/yay || exit 1
   pushd "$_" || exit 1
   makepkg --install --noconfirm --syncdeps
@@ -39,8 +42,11 @@ else
 fi
 
 # Mise
-if [[ ! $(mise --version &>/dev/null) ]]; then
-  curl "$MISE_URL" | sh
+if [[ ! $(mise --version) ]]; then
+  curl --connect-timeout "${CONNECTION_TIMEOUT}" \
+      --fail \
+      "$MISE_URL" | timeout "${CONNECTION_TIMEOUT}" sh || \
+      log "${RED}" "Error: connection timeout exceeded" && exit 1
 else
   log "${CYAN}" "Mise isn't needed\n"
 fi

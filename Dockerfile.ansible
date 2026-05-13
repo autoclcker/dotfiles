@@ -1,0 +1,8 @@
+# syntax=docker/dockerfile:1
+
+ARG REGISTRY=docker.io/library
+ARG OS_BASE=archlinux
+ARG OS_VERSION=base-20260412.0.513370@sha256:d0adc0bcc3bdfeacf9f30abd853c8d4d1dd40b6363e17cc158312a40423e063b
+
+# Download the dependencies
+FROM --platform=${BUILDPLATFORM} ${REGISTRY}/${OS_BASE}:${OS_VERSION} AS base

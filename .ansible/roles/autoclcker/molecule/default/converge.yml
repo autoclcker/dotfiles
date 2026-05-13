@@ -1,0 +1,10 @@
+---
+# Purpose: bring the instance to the desired state by running the role under test.
+# Molecule calls this playbook with `molecule converge`.
+- name: Converge
+  hosts: all
+  gather_facts: true
+  tasks:
+    - name: Test the role
+      ansible.builtin.include_role:
+        name: autoclcker

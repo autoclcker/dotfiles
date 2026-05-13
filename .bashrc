@@ -6,6 +6,7 @@ alias la='ls --all'
 alias ll='ls -l'
 alias ls='ls --color=auto'
 
+# shellcheck disable=SC1091
 source "$HOME/.profile"
 
 # Zoxide

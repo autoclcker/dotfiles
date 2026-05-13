@@ -15,7 +15,10 @@ TMUX_EASYMOTION_REPO=${TMUX_EASYMOTION_REPO:-"https://github.com/ddzero2c/tmux-e
 ZSH_AUTOSUGGESTIONS_REPO=${ZSH_AUTOSUGGESTIONS_REPO:-"https://github.com/zsh-users/zsh-autosuggestions.git"}
 ZSH_SYNTAX_HIGHLIGHTING_REPO=${ZSH_SYNTAX_HIGHLIGHTING_REPO:-"https://github.com/zsh-users/zsh-syntax-highlighting.git"}
 
+TZ=${TZ:-"Europe/Moscow"}
+
 FONTS=("DejaVuSansMono" "FiraCode" "Hack")
+LOCALES=("en_US.UTF-8 UTF-8" "ru_RU.UTF-8 UTF-8")
 TMUX_EASYMOTION_VERSION=${TMUX_EASYMOTION_VERSION:-"v1.1.0"}
 
 FONTS_PATH=${FONTS_PATH:-"$HOME/.local/share/fonts/nerd-fonts"}
@@ -33,11 +36,17 @@ fi
 # CopyQ
 if [[ "$FULL_INSTALLATION" != true ]]; then
   log "${CYAN}" "CopyQ are not needed\n"
-elif [[ ! $(dotool --version &>/dev/null) ]]; then
+elif [[ ! $(dotool --version) ]]; then
   log "${YELLOW}" "Warning: dotool is not installed\n"
 else
   sudo groupadd --force input
   sudo usermod --append --groups input "${USER}"
+fi
+
+# Time
+sudo ln --symbolic --force /usr/share/zoneinfo/"${TZ}" /etc/localtime
+if [[ "$FULL_INSTALLATION" != true ]]; then
+  sudo hwclock --systohc
 fi
 
 # Fonts&Locales
@@ -50,7 +59,9 @@ elif [[ ! -d "${FONTS_PATH}" ]]; then
     git sparse-checkout add "patched-fonts/$f"
     ./install.sh "$f"
   done
-  sudo vim /etc/locale.gen || exit 1
+  for l in "${LOCALES[@]}"; do
+    sudo sed --in-place "s/^#\($l\)/\1/" /etc/locale.gen
+  done
   sudo locale-gen
   sudo mandb
 else
@@ -60,7 +71,7 @@ fi
 # Docker
 if [[ "$FULL_INSTALLATION" != true ]]; then
   log "${CYAN}" "No Docker configuration is required\n"
-elif [[ ! $(docker --version &>/dev/null) ]]; then
+elif [[ ! $(docker --version) ]]; then
   log "${YELLOW}" "Warning: Docker is not installed\n"
 elif [[ ! $(slim --version) ]]; then
   sudo usermod --append --groups docker "${USER}"
@@ -74,14 +85,23 @@ elif [[ ! $(slim --version) ]]; then
 }
 EOF
   mkdir --parents "$HOME/.docker"
-  curl --silent --location --fail --show-error "$DOCKER_SBOM_URL" | sh -s -- # install the docker-sbom plugin
-  curl --silent --location "$DOCKER_SLIM_URL" | sudo --preserve-env sh -     # install the docker-slim
+  curl --connect-timeout "${CONNECTION_TIMEOUT}" \
+      --show-error \
+      --location \
+      --silent \
+      --fail \
+      "$DOCKER_SBOM_URL" | sh -s --
+  curl --connect-timeout "${CONNECTION_TIMEOUT}" \
+      --location \
+      --silent \
+      --fail \
+      "$DOCKER_SLIM_URL" | sudo --preserve-env sh -
 else
   log "${CYAN}" "No Docker configuration is required\n"
 fi
 
 # Helm
-if [[ ! $(helm version &>/dev/null) ]]; then
+if [[ ! $(helm version) ]]; then
   log "${YELLOW}" "Warning: Helm is not installed\n"
 elif [[ ! -d "${HELM_DIFF_PATH}" ]]; then
   helm plugin install --verify=false "${HELM_DIFF_REPO}"
@@ -96,7 +116,7 @@ tldr --update &>/dev/null || log "${YELLOW}" "Warning: Tealdeer is not installed
 ya pkg install &>/dev/null || log "${YELLOW}" "Warning: Yazi is not installed\n"
 
 # Tmux
-if [[ ! $(tmux --version &>/dev/null) ]]; then
+if [[ ! $(tmux -V) ]]; then
   log "${YELLOW}" "Warning: Tmux is not installed\n"
 elif [[ ! -d "${TMUX_PLUGINS_HOME}/tmux-easymotion" ]]; then
   mkdir --parents "$TMUX_PLUGINS_HOME"
@@ -107,11 +127,16 @@ else
 fi
 
 # Zsh
-if [[ ! $(zsh --version &>/dev/null) ]]; then
+if [[ ! $(zsh --version) ]]; then
   log "${YELLOW}" "Warning: Zsh is not installed\n"
 elif [[ ! -d "${ZSH_PLUGINS_HOME}/zsh-autosuggestions" ]]; then
   sudo chsh --shell "$(command -v zsh | xargs realpath)" "$(whoami)"
-  sh -c "$(curl --fail --silent --show-error --location "$OH_MY_ZSH_URL") --unattended"
+  sh -c "$(curl --connect-timeout "${CONNECTION_TIMEOUT}" \
+                --show-error \
+                --location \
+                --silent \
+                --fail \
+                "$OH_MY_ZSH_URL") --unattended"
   git clone --depth 1 "${ZSH_AUTOSUGGESTIONS_REPO}" "${ZSH_PLUGINS_HOME:-$ZSH_PLUGINS_HOME}/zsh-autosuggestions"
   git clone --depth 1 "${ZSH_SYNTAX_HIGHLIGHTING_REPO}" "${ZSH_PLUGINS_HOME:-$ZSH_PLUGINS_HOME}/zsh-syntax-highlighting"
 else

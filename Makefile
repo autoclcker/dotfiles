@@ -6,7 +6,7 @@ WRAPPERS ?= ${PWD}/scripts/wrappers
 
 CONFIG_CLI_APPS := cheat mise mimeapps.list
 CONFIG_GUI_APPS := autostart copyq cosmic ghostty wireshark
-CONFIG_TUI_APPS := btop dive k9s lazydocker lazygit nvim procps tmux yazi
+CONFIG_TUI_APPS := bookokrat btop dive k9s lazydocker lazygit nvim procps tmux yazi
 
 BIN_ARR     = $(shell ls ${WRAPPERS})
 CONFIG_ARR  = $(CONFIG_CLI_APPS) $(CONFIG_GUI_APPS) $(CONFIG_TUI_APPS)
@@ -22,7 +22,19 @@ BRANCH ?= $(shell git branch --show-current)
 SHELL := /bin/bash
 SHORT_COMMIT ?= $(shell git rev-parse --short HEAD)
 
+ansible/install: docker/build-ansible ### Install setup on the target host
+	@docker run --rm ${BRANCH}/ansible:${SHORT_COMMIT}
+.PHONY: ansible/install
+
+ansible/dry-run: docker/build-ansible ### Validate Setup integrity
+	@docker run --rm ${BRANCH}/ansible:${SHORT_COMMIT}
+.PHONY: ansible/dry-run
+
 docker%: export GITHUB_TOKEN ?= "STUB"
+
+docker/build-ansible:
+	@docker buildx build --quiet --tag ${BRANCH}/ansible:${SHORT_COMMIT} --file Dockerfile.ansible .
+.PHONY: docker/build-ansible
 
 docker/build-debug:
 	@docker buildx build --quiet --tag ${BRANCH}/debug:${SHORT_COMMIT} --target debug --file Dockerfile.regress .
@@ -32,17 +44,18 @@ docker/debug: docker/build-debug ### Debug in Docker
 	@docker run --rm --interactive --tty --env GITHUB_TOKEN=${GITHUB_TOKEN} ${BRANCH}/debug:${SHORT_COMMIT}
 .PHONY: docker/debug
 
-docker/regress: ### Validate Setup integrity
+docker/regress: ### Run a smoke-regress installation
 	@docker buildx build --secret id=GITHUB_TOKEN --tag ${BRANCH}/regress --file Dockerfile.regress .
 	@docker rmi ${BRANCH}/regress:latest
 .PHONY: docker/regress
 
 download:
-	@${DE} download_core_apps --packages $(shell cat ${PWD}/deps/*)
-	@${DE} install_desktop
+	@${DE} download_core_apps --packages $(shell cat ${PWD}/deps/buildtime.txt)
 .PHONY: download
 
 install: download sync ### Install setup
+	@${DE} install_desktop
+	@${DE} install_tools --packages $(shell cat ${PWD}/deps/tools.txt)
 	@${DE} set_defaults
 .PHONY: install
 
@@ -51,7 +64,6 @@ sync: ### Synchronize configurations
 	@${DE} synchronize_configuration --searchpath ${PWD}/.config --destination ${XDG_CONFIG_HOME} ${CONFIG_ARR}
 	@${DE} synchronize_configuration --searchpath ${PWD}/.desktop --destination ${DESKTOP_APPS_HOME} ${DESKTOP_ARR}
 	@${DE} synchronize_configuration --searchpath ${WRAPPERS} --destination ${BIN_HOME} ${BIN_ARR}
-	@${DE} install_tools
 .PHONY: sync
 
 upgrade: ### Upgrade setup

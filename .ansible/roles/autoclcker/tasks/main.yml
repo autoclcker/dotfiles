@@ -1,0 +1,32 @@
+---
+- name: Check for GITHUB_TOKEN
+  run_once: true
+  block:
+    - name: Get GITHUB_TOKEN from environment variable
+      set_fact:
+        autoclcker_github_token: "{{ lookup('env', 'GITHUB_TOKEN') | default(autoclcker_github_token) }}"
+      no_log: true
+
+    - name: Fail if GITHUB_TOKEN is not provided
+      ansible.builtin.fail:
+        msg: "The autoclcker Ansible role requires you to specify the 'autoclcker_github_token' variable OR set it using the GITHUB_TOKEN environment variable."
+      when: autoclcker_github_token is not defined or autoclcker_github_token | length == 0
+
+- name: Fail if OS is not supported
+  ansible.builtin.fail:
+    msg: "The autoclcker Ansible role does not support your OS yet."
+  when: ansible_facts.os_family not in ["Archlinux"]
+
+# - name: Import assert.yml
+#   ansible.builtin.import_tasks:
+#     file: assert.yml
+#   run_once: true
+#   delegate_to: localhost
+
+- name: Satisfy requirements
+  ansible.builtin.include_tasks:
+    file: bootstrap.yml
+
+- name: Install Desktop Environment
+  ansible.builtin.include_tasks:
+    file: install.yml

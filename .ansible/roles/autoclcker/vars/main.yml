@@ -1,0 +1,8 @@
+---
+autoclcker_prerequisites:
+  - git
+  - make
+  - sudo
+
+autoclcker_git_branches:
+  Archlinux: arch

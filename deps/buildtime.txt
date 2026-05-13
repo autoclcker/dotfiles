@@ -1,5 +1,4 @@
 base-devel
-clang
 gcc
 pkgconf
 unzip

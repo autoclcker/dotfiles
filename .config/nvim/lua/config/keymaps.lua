@@ -90,6 +90,9 @@ vim.keymap.set("n", "<leader>9", "9<C-w>w", { desc = "Switch to split 9" })
 
 -- Terminal
 vim.keymap.set("n", "<C-w>t", "<cmd>terminal<cr>i", { noremap = true, silent = true, desc = "Open editor terminal" })
+vim.keymap.set("t", "<C-]>", "<C-\\><C-n><C-w>l", { desc = "Terminal Right" })
+vim.keymap.set("t", "<C-[>", "<C-\\><C-n><C-w>h", { desc = "Terminal Left" })
+vim.keymap.set("t", "<C-n>", "<C-\\><C-n>", { desc = "Enter Normal mode" })
 
 -- Buffers
 vim.keymap.set("n", "<M-k>", "<cmd>BufferLineCycleNext<cr>", { desc = "Prev Buffer" })

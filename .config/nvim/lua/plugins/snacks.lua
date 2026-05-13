@@ -20,7 +20,9 @@ return {
       },
       sources = {
         explorer = {
+          enabled = true,
           hidden = true,
+          replace_netrw = true,
           layout = {
             preset = "sidebar",
             layout = { position = "right" },

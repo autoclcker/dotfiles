@@ -1,14 +1,17 @@
 -- Default autocmds that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/autocmds.lua
 
+-- TODO: find a solution to restore the shape of the cursor when exiting
 vim.api.nvim_create_autocmd("ExitPre", {
   group = vim.api.nvim_create_augroup("Exit", { clear = true }),
   command = "set guicursor=a:ver25-blinkwait700-blinkon250-blinkoff250",
   desc = "Set cursor back to beam when leaving Neovim.",
 })
 
-vim.api.nvim_create_autocmd("TermEnter", {
-  callback = function(ev)
-    vim.keymap.set("t", "<M-l>", "<c-l>", { buffer = ev.buf, nowait = true })
+vim.api.nvim_create_autocmd("TermOpen", {
+  pattern = "*",
+  callback = function()
+    pcall(vim.keymap.del, "t", "<C-l>", { buffer = true })
+    pcall(vim.keymap.del, "t", "<C-h>", { buffer = true })
   end,
 })
 

@@ -1,6 +1,9 @@
 atop
+btop
+clang
 lsof
 lshw
+mpv
 nmap
 nvtop
 p7zip

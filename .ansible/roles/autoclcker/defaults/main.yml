@@ -1,0 +1,12 @@
+---
+autoclcker_group: autoclcker
+autoclcker_user: autoclcker
+autoclcker_shell: /usr/bin/bash
+
+autoclcker_sudo_nopasswd: false
+autoclcker_dotfiles_src: "../../../../../../dotfiles"
+autoclcker_dotfiles_dst: "/home/{{ autoclcker_user | default('autoclcker') }}/Desktop/Projects"
+autoclcker_dotfiles_git: https://github.com/autoclcker/dotfiles.git
+
+autoclcker_github_token: ""
+autoclcker_become: true

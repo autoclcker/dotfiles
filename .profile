@@ -1,3 +1,4 @@
+alias book='bookokrat'
 alias diffo='diffoci diff --semantic'
 alias djwt='jwt decode'
 alias rml='docker rm --force $(docker ps --quiet --latest)'
@@ -86,6 +87,7 @@ export ZSH_TMUX_DEFAULT_SESSION_NAME="main"
 
 # XDG
 export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_DATA_HOME="$HOME/.local/share"
 
 # MISE
 [[ $- != *i* ]] && export PATH="$HOME/.local/share/mise/shims:$HOME/.local/bin:$PATH"
