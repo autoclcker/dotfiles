@@ -76,9 +76,9 @@ gui:
   filterMode: substring
   spinner:
     frames:
-      - '|'
+      - "|"
       - /
-      - '-'
+      - "-"
       - \
     rate: 50
   statusPanelView: dashboard
@@ -188,7 +188,7 @@ keybinding:
     prevMatch: "N"
     startSearch: /
     optionMenu: <disabled>
-    optionMenu-alt1: '?'
+    optionMenu-alt1: "?"
     select: <space>
     goInto: <enter>
     confirm: <enter>
@@ -203,14 +203,14 @@ keybinding:
     scrollDownMain-alt1: J
     scrollUpMain-alt2: <c-u>
     scrollDownMain-alt2: <c-d>
-    executeShellCommand: ':'
+    executeShellCommand: ":"
     createRebaseOptionsMenu: <c-o>
     pushFiles: P
     pullFiles: p
     refresh: R
     createPatchOptionsMenu: <c-p>
-    nextTab: ']'
-    prevTab: '['
+    nextTab: "]"
+    prevTab: "["
     nextScreenMode: +
     prevScreenMode: _
     undo: z
@@ -221,10 +221,10 @@ keybinding:
     copyToClipboard: Y
     openRecentRepos: <c-r>
     submitEditorText: <enter>
-    extrasMenu: '@'
+    extrasMenu: "@"
     toggleWhitespaceInDiffView: <c-w>
-    increaseContextInDiffView: '}'
-    decreaseContextInDiffView: '{'
+    increaseContextInDiffView: "}"
+    decreaseContextInDiffView: "{"
     increaseRenameSimilarityThreshold: )
     decreaseRenameSimilarityThreshold: (
     openDiffTool: <a-enter>
@@ -250,8 +250,8 @@ keybinding:
     openMergeOptions: M
     openStatusFilter: F
     copyFileInfoToClipboard: "y"
-    collapseAll: '-'
-    expandAll: '='
+    collapseAll: "-"
+    expandAll: "="
   branches:
     createPullRequest: o
     viewPullRequestOptions: O
@@ -290,13 +290,13 @@ keybinding:
     markCommitAsBaseForRebase: B
     tagCommit: T
     checkoutCommit: <space>
-    resetCherryPick: <c-R>
-    copyCommitAttributeToClipboard: "y"
+    resetCherryPick: '\'
+    copyCommitAttributeToClipboard: y
     openLogMenu: m
     openInBrowser: o
     viewBisectOptions: b
     startInteractiveRebase: i
-    selectCommitsOfCurrentBranch: '*'
+    selectCommitsOfCurrentBranch: "*"
   amendAttribute:
     resetAuthor: a
     setAuthor: A

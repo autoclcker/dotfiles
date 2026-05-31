@@ -2,14 +2,18 @@
 - name: Check for GITHUB_TOKEN
   run_once: true
   block:
+    - name: Load secret variables
+      ansible.builtin.include_vars: vars/secrets.yml
+
     - name: Get GITHUB_TOKEN from environment variable
-      set_fact:
-        autoclcker_github_token: "{{ lookup('env', 'GITHUB_TOKEN') | default(autoclcker_github_token) }}"
+      ansible.builtin.set_fact:
+        autoclcker_github_token: "{{ lookup('env', 'GITHUB_TOKEN') | default(autoclcker_github_token, true) }}"
       no_log: true
 
     - name: Fail if GITHUB_TOKEN is not provided
       ansible.builtin.fail:
-        msg: "The autoclcker Ansible role requires you to specify the 'autoclcker_github_token' variable OR set it using the GITHUB_TOKEN environment variable."
+        msg: "The autoclcker Ansible role requires you to specify the 'autoclcker_github_token' variable.
+          The value can be loaded from the GITHUB_TOKEN environment variable."
       when: autoclcker_github_token is not defined or autoclcker_github_token | length == 0
 
 - name: Fail if OS is not supported
@@ -17,11 +21,11 @@
     msg: "The autoclcker Ansible role does not support your OS yet."
   when: ansible_facts.os_family not in ["Archlinux"]
 
-# - name: Import assert.yml
-#   ansible.builtin.import_tasks:
-#     file: assert.yml
-#   run_once: true
-#   delegate_to: localhost
+- name: Validate parameters
+  ansible.builtin.import_tasks:
+    file: assert.yml
+  run_once: true
+  delegate_to: localhost
 
 - name: Satisfy requirements
   ansible.builtin.include_tasks:

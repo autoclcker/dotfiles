@@ -1,52 +1,70 @@
 ---
-- name: Assert | Test autoclcker_become
+- name: assert | Test autoclcker_become
   ansible.builtin.assert:
     that:
       - autoclcker_become is boolean
-    quiet: true
   when:
     - autoclcker_become is defined
 
-- name: Assert | Test autoclcker_mirror
+- name: assert | Test autoclcker_comment
   ansible.builtin.assert:
     that:
-      - autoclcker_mirror is defined
-      - autoclcker_mirror is string
-      - autoclcker_mirror is not none
-    quiet: true
+      - autoclcker_comment is string
+  when:
+    - autoclcker_comment is defined
 
-- name: Assert | Test group in autoclcker_
+- name: assert | Test autoclcker_is_passwordless_sudo
   ansible.builtin.assert:
     that:
-      - group is defined
-      - group is string
-      - group is match("^[a-z_][a-z0-9_-]*[$]?$")
+      - autoclcker_is_passwordless_sudo is boolean
+  when:
+    - autoclcker_is_passwordless_sudo is defined
+
+- name: assert | Test autoclcker_group
+  ansible.builtin.assert:
+    that:
+      - autoclcker_group is string
+      - autoclcker_group is match("^[a-z_][a-z0-9_-]*[$]?$")
     fail_msg: "Please use alphanumeric characters only."
-    quiet: true
-  loop: "{{ autoclcker_ }}"
-  loop_control:
-    label: "{{ name }}"
+  when:
+    - autoclcker_group is defined
 
-- name: Assert | Test user in autoclcker_
+- name: assert | Test autoclcker_user
   ansible.builtin.assert:
     that:
-      - user is defined
-      - user is string
-      - user is match("^[a-z_][a-z0-9_-]*[$]?$")
+      - autoclcker_user is string
+      - autoclcker_user is match("^[a-z_][a-z0-9_-]*[$]?$")
     fail_msg: "Please use alphanumeric characters only."
-    quiet: true
-  loop: "{{ autoclcker_ }}"
-  loop_control:
-    label: "{{ name }}"
+  when:
+    - autoclcker_user is defined
 
-- name: Assert | Test directory in autoclcker_
+- name: assert | Test dotfiles localhost sources
+  when: autoclcker_dotfiles_src is defined
+  block:
+    - name: assert | Get src directory status
+      ansible.builtin.stat:
+        path: "{{ autoclcker_dotfiles_src }}"
+      register: autoclcker_src
+
+    - name: assert | Test autoclcker_dotfiles_src
+      ansible.builtin.assert:
+        that:
+          - autoclcker_src.stat.exists
+          - autoclcker_src.stat.isdir
+        fail_msg: "Please specify the path to the existing directory."
+
+- name: assert | Test autoclcker_dotfiles_git
   ansible.builtin.assert:
     that:
-      - directory is defined
-      - directory is string
-      - directory is match("^[a-zA-Z0-9/_-]*$")
+      - autoclcker_dotfiles_dst is defined
+      - autoclcker_dotfiles_git is
+        regex("^(https|git|ssh)(:\/\/|@)([\\w\\.-]+)(:|\/)([\\w\\.@\\:\/\\-~]+)(\\.git)?(\/)?$")
+    fail_msg: "Please provide a valid Git repository URL."
+
+- name: assert | Test autoclcker_dotfiles_dst
+  ansible.builtin.assert:
+    that:
+      - autoclcker_dotfiles_dst is defined
+      - autoclcker_dotfiles_dst is string
+      - autoclcker_dotfiles_dst is match("^[a-zA-Z0-9/_-]*$")
     fail_msg: "Please use the correct directory name."
-    quiet: true
-  loop: "{{ autoclcker_ }}"
-  loop_control:
-    label: "{{ name }}"

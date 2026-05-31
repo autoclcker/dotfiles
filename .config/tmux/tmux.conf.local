@@ -385,7 +385,7 @@ tmux_conf_urlscan_options="--compact --dedupe"
 # this is the place to override or undo settings
 
 set -g allow-passthrough on
-set -g extended-keys on
+set -g extended-keys always
 set -g extended-keys-format csi-u
 set -ga update-environment TERM
 set -ga update-environment TERM_PROGRAM
@@ -441,15 +441,20 @@ bind -n M-s split-window -v
 bind -n M-v split-window -h
 
 # destroy pane
-bind -n M-x kill-pane
+bind -n M-q kill-pane
 
 # pane navigation
 bind h select-pane -L  # move left
 bind j select-pane -D  # move down
 bind k select-pane -U  # move up
 bind l select-pane -R  # move right
-bind -r , swap-pane -UZ # swap back
-bind -r . swap-pane -DZ # swap forward
+bind -n M-x switch-client -T swap
+bind -rT swap h swap-pane -s '{left-of}'
+bind -rT swap j swap-pane -s '{down-of}'
+bind -rT swap k swap-pane -s '{up-of}'
+bind -rT swap l swap-pane -s '{right-of}'
+bind -rT swap , swap-pane -UZ # swap back
+bind -rT swap . swap-pane -DZ # swap forward
 
 # pane resizing
 bind -n M-Left resize-pane -L 2
@@ -486,7 +491,8 @@ bind 4 command-prompt -I "#W" "rename-window '%%'"
 
 # create/destroy session
 bind -n M-n new-session
-bind -n M-q kill-session
+bind x kill-session
+bind Delete kill-server
 
 # find session
 bind -n M-o command-prompt -p find-session 'switch-client -t %%'
@@ -503,10 +509,7 @@ set-hook -g after-copy-mode 'set -p cursor-style blinking-block'
 bind v choose-buffer
 
 # clear both screen and history
-bind -n M-l send-keys C-l \; run 'sleep 0.2' \; clear-history
-
-# gracefull shutdown
-bind-key x kill-server
+bind -n C-Escape send-keys C-l \; run 'sleep 0.2' \; clear-history
 
 # plugins
 set -g @easymotion-s  "none"

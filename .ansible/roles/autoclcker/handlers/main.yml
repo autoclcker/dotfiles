@@ -1,0 +1,3 @@
+---
+- name: Configure set password prompt
+  ansible.builtin.include_tasks: tasks/request_password.yml

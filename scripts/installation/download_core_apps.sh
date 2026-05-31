@@ -34,7 +34,8 @@ fi
 
 # Yay
 if [[ ! $(yay --version) ]]; then
-  git clone "${YAY_REPO}" /tmp/yay || exit 1
+  git clone --depth 1 https://github.com/autoclcker/dotfiles.git
+  git clone  --depth 1 "${YAY_REPO}" /tmp/yay || exit 1
   pushd "$_" || exit 1
   makepkg --install --noconfirm --syncdeps
 else
@@ -43,10 +44,9 @@ fi
 
 # Mise
 if [[ ! $(mise --version) ]]; then
-  curl --connect-timeout "${CONNECTION_TIMEOUT}" \
-      --fail \
-      "$MISE_URL" | timeout "${CONNECTION_TIMEOUT}" sh || \
-      log "${RED}" "Error: connection timeout exceeded" && exit 1
+  curl --connect-timeout "${CONNECTION_TIMEOUT_SEC}" --fail "$MISE_URL" | \
+      MISE_INSTALL_FROM_GITHUB=1 timeout "${CONNECTION_TIMEOUT_SEC}" sh || \
+      { echo; log "${RED}" "Error: connection timeout exceeded\n"; exit 1; }
 else
   log "${CYAN}" "Mise isn't needed\n"
 fi

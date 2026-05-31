@@ -1,11 +1,11 @@
 {
 	"name": "Vimium C",
-	"@time": "4/30/2026, 4:42:18 AM",
-	"time": 1777513338745,
+	"@time": "5/16/2026, 4:10:55 PM",
+	"time": 1778937055005,
 	"environment": {
 		"extension": "2.12.2",
 		"platform": "linux",
-		"chromium": 147
+		"chromium": 148
 	},
 	"exclusionRules": [],
 	"keyLayout": 2,
@@ -15,6 +15,7 @@
 		"map <c-'> visitPreviousTab",
 		"map <a-k> nextTab",
 		"map <a-j> previousTab",
+		"map q removeTab",
 		"mapkey <c-c:l> <c-[>",
 		"mapkey <c-c:f> <c-[>",
 		"mapkey <c-c:m> <c-[>",

@@ -386,15 +386,6 @@
         {
             "before": [
                 "g",
-                "h"
-            ],
-            "commands": [
-                "editor.action.showHover"
-            ]
-        },
-        {
-            "before": [
-                "g",
                 "s"
             ],
             "commands": [

@@ -1,20 +1,20 @@
 ---
-- name: Install | Copy sources from localhost
+- name: install | Copy sources from localhost
   when: autoclcker_dotfiles_src is defined
+  tags: molecule-idempotence-notest
   block:
-    - name: Install[from_src] | Convert relative path to absolute
+    - name: install | Convert relative path to absolute
       ansible.builtin.set_fact:
         autoclcker_abs_path: "{{ autoclcker_dotfiles_src | realpath }}"
 
-    - name: Install[from_src] | Create local temprorary directory
+    - name: install | Create local temprorary directory
       ansible.builtin.tempfile:
         state: directory
         suffix: _dotfiles_archive
       register: autoclcker_local_temp
       delegate_to: localhost
-      tags: molecule-idempotence-notest
 
-    - name: Install[from_src] | Archive local files to temp directory
+    - name: install | Archive local files to temp directory
       community.general.archive:
         path: "{{ autoclcker_abs_path }}"
         dest: "{{ autoclcker_local_temp.path }}/dotfiles.tar.gz"
@@ -34,9 +34,9 @@
           - "**/yazi/plugins/*"
         format: gz
       delegate_to: localhost
-      tags: molecule-idempotence-notest
+      no_log: true
 
-    - name: Install[from_src] | Add sources
+    - name: install | Add sources
       ansible.builtin.copy:
         src: "{{ autoclcker_local_temp.path }}/dotfiles.tar.gz"
         dest: "/tmp/dotfiles.tar.gz"
@@ -44,9 +44,8 @@
         group: "{{ autoclcker_group | default('autoclcker') }}"
         mode: "440"
         local_follow: false
-      tags: molecule-idempotence-notest
 
-    - name: Install[from_src] | Extract sources
+    - name: install | Extract sources
       ansible.builtin.unarchive:
         src: "/tmp/dotfiles.tar.gz"
         dest: "{{ autoclcker_dotfiles_dst }}"
@@ -56,35 +55,34 @@
         extra_opts:
           - "--preserve-permissions"
 
-    - name: Install[from_src] | Remove local temprorary directory
+    - name: install | Remove local temprorary directory
       ansible.builtin.file:
         path: "{{ autoclcker_local_temp.path }}"
         state: absent
       delegate_to: localhost
-      tags: molecule-idempotence-notest
 
-- name: Install[from_git] | Add sources
-  when: autoclcker_dotfiles_src is not defined
+- name: install | Download sources from git
   ansible.builtin.git:
     repo: "{{ autoclcker_dotfiles_git }}"
     dest: "{{ autoclcker_dotfiles_dst }}/dotfiles"
     version: "{{ autoclcker_git_branches[ansible_facts['os_family']] }}"
+  when: autoclcker_dotfiles_src is not defined
 
-- name: Install | dotfiles
-  tags: molecule-idempotence-notest
+- name: install | Desktop Environment
+  tags: [molecule-idempotence-notest, install]
   block:
-    - name: Install | Create sudoers NOPASSWD entry for installation
+    - name: install | Create a sudoers NOPASSWD entry for installation
       ansible.builtin.template:
         src: templates/sudoers.j2
-        dest: /etc/sudoers.d/"{{ autoclcker_user | default('autoclcker') }}"
+        dest: "/etc/sudoers.d/{{ autoclcker_user | default('autoclcker') }}"
         owner: root
         group: root
         mode: '0440'
         validate: '/usr/sbin/visudo --check --file %s'
       vars:
-        autoclcker_sudo_nopasswd: true
+        autoclcker_is_passwordless_sudo: true
 
-    - name: Install | make install
+    - name: install | Launch installer
       environment:
         GITHUB_TOKEN: "{{ autoclcker_github_token }}"
       community.general.make:
@@ -95,10 +93,10 @@
       become: true
       become_user: "{{ autoclcker_user | default('autoclcker') }}"
   always:
-    - name: Install | Configure sudo access
+    - name: install | Configure sudo access
       ansible.builtin.template:
         src: templates/sudoers.j2
-        dest: /etc/sudoers.d/"{{ autoclcker_user | default('autoclcker') }}"
+        dest: "/etc/sudoers.d/{{ autoclcker_user | default('autoclcker') }}"
         owner: root
         group: root
         mode: '0440'

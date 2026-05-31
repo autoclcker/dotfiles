@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 
+BROWSERS=("brave-bin" "google-chrome")
 CLI_APPS=("docker" "docker-compose" "docker-buildx" "dotool" "udiskie")
-GUI_APPS=("copyq" "ghostty" "google-chrome" "vscodium-bin" "wireshark-qt")
+GUI_APPS=("${BROWSERS[@]}" "copyq" "ghostty" "vscodium-bin" "wireshark-qt")
 INTEL=("intel-media-driver" "intel-ucode" "mesa" "vulkan-intel")
 NETWORK=("bluez" "bluez-utils" "networkmanager")
 NVIDIA=("libva-nvidia-driver" "nvidia-open-dkms" "nvidia-settings" "nvidia-utils")
@@ -24,7 +25,7 @@ PACKAGES=("${APPS[@]}" "${GPU[@]}" "${SYSTEM[@]}" "${WAYLAND_COMPOSITOR[@]}")
 SERVICES=("${APPS_SVC[@]}" "${DESKTOP_SVC[@]}" "${SYSTEM_SVC[@]}")
 UNITS=("${SERVICES[@]/%/.service}")
 
-if [[ "$FULL_INSTALLATION" != true ]]; then
+if [[ "$IS_FULL_INSTALLATION" != true ]]; then
   log "${CYAN}" "Desktop Environment isn't needed\n"
   exit 0
 elif [[ ! $(yay --version) ]]; then

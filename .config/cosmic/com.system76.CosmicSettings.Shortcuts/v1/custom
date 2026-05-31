@@ -1,21 +1,42 @@
 {
     (
-        modifiers: [],
-        key: "XF86WakeUp",
-    ): Spawn("systemctl hibernate"),
+        modifiers: [
+            Alt,
+        ],
+        key: "F4",
+    ): Disable,
     (
         modifiers: [
             Super,
         ],
-        key: "minus",
+        key: "equal",
+    ): Disable,
+    (
+        modifiers: [
+            Super,
+            Ctrl,
+        ],
+        key: "l",
+    ): SwitchOutput(Right),
+    (
+        modifiers: [
+            Super,
+        ],
+        key: "z",
+    ): Maximize,
+    (
+        modifiers: [
+            Super,
+        ],
+        key: "F10",
     ): Disable,
     (
         modifiers: [
             Super,
             Shift,
         ],
-        key: "Up",
-    ): Disable,
+        key: "l",
+    ): MoveToOutput(Right),
     (
         modifiers: [
             Super,
@@ -23,27 +44,49 @@
         key: "b",
     ): Spawn("copyq-pop"),
     (
+        modifiers: [],
+        key: "XF86AudioRewind",
+    ): ZoomOut,
+    (
         modifiers: [
             Super,
             Alt,
             Shift,
         ],
-        key: "j",
+        key: "k",
     ): Disable,
     (
         modifiers: [
             Super,
         ],
-        key: "w",
-    ): Disable,
+        key: "f",
+    ): System(WebBrowser),
     (
         modifiers: [
             Super,
-            Ctrl,
+            Alt,
             Shift,
         ],
-        key: "l",
+        key: "Down",
     ): Disable,
+    (
+        modifiers: [
+            Super,
+            Shift,
+        ],
+        key: "Down",
+    ): Disable,
+    (
+        modifiers: [],
+        key: "XF86Mail",
+    ): Spawn("brave"),
+    (
+        modifiers: [
+            Super,
+            Alt,
+        ],
+        key: "k",
+    ): Move(Up),
     (
         modifiers: [
             Super,
@@ -56,23 +99,22 @@
             Super,
             Shift,
         ],
-        key: "l",
-    ): MoveToOutput(Right),
-    (
-        modifiers: [],
-        key: "XF86Search",
-    ): Resizing(Inwards),
-    (
-        modifiers: [],
-        key: "XF86Favorites",
-    ): Resizing(Outwards),
+        key: "k",
+    ): MoveToPreviousWorkspace,
     (
         modifiers: [
             Super,
-            Alt,
+            Ctrl,
         ],
-        key: "k",
-    ): Move(Up),
+        key: "Right",
+    ): Disable,
+    (
+        modifiers: [
+            Super,
+            Ctrl,
+        ],
+        key: "h",
+    ): SwitchOutput(Left),
     (
         modifiers: [
             Super,
@@ -88,15 +130,57 @@
         key: "BackSpace",
     ): System(InputSourceSwitch),
     (
+        modifiers: [],
+        key: "XF86Open",
+    ): System(WorkspaceOverview),
+    (
         modifiers: [
             Super,
             Ctrl,
+            Shift,
+        ],
+        key: "j",
+    ): Disable,
+    (
+        modifiers: [
+            Super,
+            Alt,
+        ],
+        key: "Down",
+    ): Disable,
+    (
+        modifiers: [
+            Super,
+            Alt,
+            Shift,
         ],
         key: "Left",
     ): Disable,
     (
         modifiers: [
             Super,
+            Ctrl,
+            Shift,
+        ],
+        key: "l",
+    ): Disable,
+    (
+        modifiers: [
+            Super,
+            Alt,
+        ],
+        key: "Up",
+    ): Disable,
+    (
+        modifiers: [
+            Super,
+        ],
+        key: "i",
+    ): Focus(In),
+    (
+        modifiers: [
+            Super,
+            Ctrl,
             Shift,
         ],
         key: "Right",
@@ -112,23 +196,62 @@
         modifiers: [
             Super,
             Ctrl,
+        ],
+        key: "Left",
+    ): Disable,
+    (
+        modifiers: [
+            Super,
+            Alt,
             Shift,
         ],
-        key: "Right",
+        key: "j",
     ): Disable,
+    (
+        modifiers: [
+            Super,
+        ],
+        key: "o",
+    ): Spawn("/opt/Telegram/Telegram"),
     (
         modifiers: [
             Super,
             Ctrl,
+            Shift,
         ],
-        key: "Right",
+        key: "Up",
+    ): Disable,
+    (
+        modifiers: [
+            Super,
+            Alt,
+        ],
+        key: "Left",
     ): Disable,
     (
         modifiers: [
             Super,
         ],
-        key: "F10",
+        key: "m",
     ): Disable,
+    (
+        modifiers: [
+            Super,
+        ],
+        key: "comma",
+    ): Spawn("cosmic-settings"),
+    (
+        modifiers: [
+            Super,
+            Alt,
+            Shift,
+        ],
+        key: "l",
+    ): Disable,
+    (
+        modifiers: [],
+        key: "XF86Favorites",
+    ): Resizing(Outwards),
     (
         modifiers: [
             Super,
@@ -140,10 +263,9 @@
     (
         modifiers: [
             Super,
-            Shift,
         ],
-        key: "Left",
-    ): Disable,
+        key: "q",
+    ): Close,
     (
         modifiers: [
             Super,
@@ -156,34 +278,28 @@
             Super,
             Alt,
         ],
-        key: "Left",
-    ): Disable,
+        key: "l",
+    ): Move(Right),
     (
         modifiers: [
             Super,
-            Alt,
         ],
-        key: "Right",
+        key: "period",
     ): Disable,
     (
         modifiers: [
             Super,
-            Alt,
-            Shift,
-        ],
-        key: "Left",
-    ): Disable,
-    (
-        modifiers: [
-            Super,
+            Ctrl,
             Shift,
         ],
         key: "k",
-    ): MoveToPreviousWorkspace,
+    ): Disable,
     (
-        modifiers: [],
-        key: "XF86Mail",
-    ): Spawn("firefox"),
+        modifiers: [
+            Ctrl,
+        ],
+        key: "a",
+    ): Disable,
     (
         modifiers: [
             Super,
@@ -194,51 +310,8 @@
     (
         modifiers: [
             Super,
-            Alt,
         ],
-        key: "v",
-        description: Some("System Clipboard"),
-    ): Spawn("copyq-system-clipboard"),
-    (
-        modifiers: [
-            Super,
-            Shift,
-        ],
-        key: "r",
-    ): Disable,
-    (
-        modifiers: [
-            Super,
-            Ctrl,
-            Shift,
-        ],
-        key: "Up",
-    ): Disable,
-    (
-        modifiers: [
-            Super,
-        ],
-        key: "f",
-    ): System(WebBrowser),
-    (
-        modifiers: [
-            Super,
-            Alt,
-        ],
-        key: "Down",
-    ): Disable,
-    (
-        modifiers: [
-            Super,
-        ],
-        key: "o",
-    ): Spawn("/opt/Telegram/Telegram"),
-    (
-        modifiers: [
-            Super,
-            Shift,
-        ],
-        key: "Down",
+        key: "minus",
     ): Disable,
     (
         modifiers: [
@@ -246,168 +319,7 @@
             Alt,
             Shift,
         ],
-        key: "h",
-    ): Disable,
-    (
-        modifiers: [
-            Super,
-            Shift,
-        ],
-        key: "h",
-    ): MoveToOutput(Left),
-    (
-        modifiers: [],
-        key: "Help",
-        description: Some("Neovide"),
-    ): Spawn("gtk-launch neovide.desktop"),
-    (
-        modifiers: [
-            Alt,
-        ],
-        key: "F4",
-    ): Disable,
-    (
-        modifiers: [
-            Super,
-            Alt,
-        ],
-        key: "Up",
-    ): Disable,
-    (
-        modifiers: [
-            Super,
-        ],
-        key: "q",
-    ): Close,
-    (
-        modifiers: [
-            Super,
-        ],
-        key: "period",
-    ): Disable,
-    (
-        modifiers: [
-            Super,
-            Alt,
-            Shift,
-        ],
-        key: "k",
-    ): Disable,
-    (
-        modifiers: [
-            Super,
-            Ctrl,
-            Shift,
-        ],
-        key: "Down",
-    ): Disable,
-    (
-        modifiers: [],
-        key: "XF86AudioForward",
-    ): ZoomIn,
-    (
-        modifiers: [
-            Super,
-            Ctrl,
-            Shift,
-        ],
-        key: "k",
-    ): Disable,
-    (
-        modifiers: [
-            Super,
-            Ctrl,
-        ],
-        key: "l",
-    ): SwitchOutput(Right),
-    (
-        modifiers: [
-            Super,
-            Ctrl,
-            Shift,
-        ],
-        key: "h",
-    ): Disable,
-    (
-        modifiers: [
-            Super,
-            Alt,
-            Shift,
-        ],
-        key: "l",
-    ): Disable,
-    (
-        modifiers: [
-            Super,
-        ],
-        key: "r",
-    ): ToggleOrientation,
-    (
-        modifiers: [
-            Super,
-        ],
-        key: "comma",
-    ): Spawn("cosmic-settings"),
-    (
-        modifiers: [
-            Super,
-        ],
-        key: "z",
-    ): Maximize,
-    (
-        modifiers: [
-            Super,
-            Ctrl,
-        ],
-        key: "h",
-    ): SwitchOutput(Left),
-    (
-        modifiers: [],
-        key: "XF86Open",
-    ): System(WorkspaceOverview),
-    (
-        modifiers: [
-            Super,
-        ],
-        key: "d",
-        description: Some("CopyQ drop latest"),
-    ): Spawn("copyq-rm-last"),
-    (
-        modifiers: [
-            Super,
-            Ctrl,
-            Shift,
-        ],
-        key: "j",
-    ): Disable,
-    (
-        modifiers: [
-            Super,
-        ],
-        key: "e",
-        description: Some("VSCodium"),
-    ): Spawn("gtk-launch codium.desktop"),
-    (
-        modifiers: [
-            Super,
-        ],
-        key: "equal",
-    ): Disable,
-    (
-        modifiers: [
-            Super,
-        ],
-        key: "p",
-    ): ToggleSticky,
-    (
-        modifiers: [],
-        key: "XF86AudioRewind",
-    ): ZoomOut,
-    (
-        modifiers: [
-            Super,
-        ],
-        key: "m",
+        key: "Right",
     ): Disable,
     (
         modifiers: [
@@ -419,7 +331,33 @@
     (
         modifiers: [
             Super,
+        ],
+        key: "p",
+    ): ToggleSticky,
+    (
+        modifiers: [
+            Super,
+            Ctrl,
+            Shift,
+        ],
+        key: "h",
+    ): Disable,
+    (
+        modifiers: [],
+        key: "XF86Search",
+    ): Resizing(Inwards),
+    (
+        modifiers: [
+            Super,
             Alt,
+            Shift,
+        ],
+        key: "h",
+    ): Disable,
+    (
+        modifiers: [
+            Super,
+            Ctrl,
             Shift,
         ],
         key: "Down",
@@ -428,21 +366,89 @@
         modifiers: [
             Super,
         ],
-        key: "i",
-    ): Focus(In),
+        key: "r",
+    ): ToggleOrientation,
+    (
+        modifiers: [
+            Super,
+            Shift,
+        ],
+        key: "Left",
+    ): Disable,
+    (
+        modifiers: [],
+        key: "XF86AudioForward",
+    ): ZoomIn,
     (
         modifiers: [
             Super,
             Alt,
         ],
-        key: "l",
-    ): Move(Right),
+        key: "Right",
+    ): Disable,
     (
         modifiers: [
             Super,
             Alt,
+        ],
+        key: "v",
+        description: Some("System Clipboard"),
+    ): Spawn("copyq-system-clipboard"),
+    (
+        modifiers: [
+            Super,
+        ],
+        key: "e",
+        description: Some("VSCodium"),
+    ): Spawn("gtk-launch codium.desktop"),
+    (
+        modifiers: [
+            Super,
+            Shift,
+        ],
+        key: "Up",
+    ): Disable,
+    (
+        modifiers: [
+            Super,
             Shift,
         ],
         key: "Right",
     ): Disable,
+    (
+        modifiers: [
+            Super,
+            Shift,
+        ],
+        key: "r",
+    ): Disable,
+    (
+        modifiers: [],
+        key: "Help",
+        description: Some("Neovide"),
+    ): Spawn("gtk-launch neovide.desktop"),
+    (
+        modifiers: [],
+        key: "XF86WakeUp",
+    ): Spawn("systemctl hibernate"),
+    (
+        modifiers: [
+            Super,
+        ],
+        key: "w",
+    ): Disable,
+    (
+        modifiers: [
+            Super,
+        ],
+        key: "d",
+        description: Some("CopyQ drop latest"),
+    ): Spawn("copyq-rm-last"),
+    (
+        modifiers: [
+            Super,
+            Shift,
+        ],
+        key: "h",
+    ): MoveToOutput(Left),
 }

@@ -1,5 +1,9 @@
+.ansible/**/.ansible
+.ansible/collections/
+.ansible/modules/
 .vscode
 **/.gitignore
+**/*.bak
 **/community/
 **/copyq/*
 **/tmux/plugins

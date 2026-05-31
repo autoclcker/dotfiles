@@ -19,7 +19,7 @@ TZ=${TZ:-"Europe/Moscow"}
 
 FONTS=("DejaVuSansMono" "FiraCode" "Hack")
 LOCALES=("en_US.UTF-8 UTF-8" "ru_RU.UTF-8 UTF-8")
-TMUX_EASYMOTION_VERSION=${TMUX_EASYMOTION_VERSION:-"v1.1.0"}
+TMUX_EASYMOTION_VERSION=${TMUX_EASYMOTION_VERSION:-"v1.2.2"}
 
 FONTS_PATH=${FONTS_PATH:-"$HOME/.local/share/fonts/nerd-fonts"}
 HELM_DIFF_PATH=${HELM_DIFF_PATH:-"$HOME/.local/share/helm/plugins/helm-diff"}
@@ -34,7 +34,7 @@ else
 fi
 
 # CopyQ
-if [[ "$FULL_INSTALLATION" != true ]]; then
+if [[ "$IS_FULL_INSTALLATION" != true ]]; then
   log "${CYAN}" "CopyQ are not needed\n"
 elif [[ ! $(dotool --version) ]]; then
   log "${YELLOW}" "Warning: dotool is not installed\n"
@@ -45,12 +45,12 @@ fi
 
 # Time
 sudo ln --symbolic --force /usr/share/zoneinfo/"${TZ}" /etc/localtime
-if [[ "$FULL_INSTALLATION" != true ]]; then
+if [[ "$IS_FULL_INSTALLATION" = true ]]; then
   sudo hwclock --systohc
 fi
 
 # Fonts&Locales
-if [[ "$FULL_INSTALLATION" != true ]]; then
+if [[ "$IS_FULL_INSTALLATION" != true ]]; then
   log "${CYAN}" "Fonts&Locales are not needed\n"
 elif [[ ! -d "${FONTS_PATH}" ]]; then
   git clone --filter=blob:none --sparse "${NERD_FONTS_REPO}" "${FONTS_PATH}"
@@ -69,7 +69,7 @@ else
 fi
 
 # Docker
-if [[ "$FULL_INSTALLATION" != true ]]; then
+if [[ "$IS_FULL_INSTALLATION" != true ]]; then
   log "${CYAN}" "No Docker configuration is required\n"
 elif [[ ! $(docker --version) ]]; then
   log "${YELLOW}" "Warning: Docker is not installed\n"
@@ -85,13 +85,13 @@ elif [[ ! $(slim --version) ]]; then
 }
 EOF
   mkdir --parents "$HOME/.docker"
-  curl --connect-timeout "${CONNECTION_TIMEOUT}" \
+  curl --connect-timeout "${CONNECTION_TIMEOUT_SEC}" \
       --show-error \
       --location \
       --silent \
       --fail \
       "$DOCKER_SBOM_URL" | sh -s --
-  curl --connect-timeout "${CONNECTION_TIMEOUT}" \
+  curl --connect-timeout "${CONNECTION_TIMEOUT_SEC}" \
       --location \
       --silent \
       --fail \
@@ -131,7 +131,7 @@ if [[ ! $(zsh --version) ]]; then
   log "${YELLOW}" "Warning: Zsh is not installed\n"
 elif [[ ! -d "${ZSH_PLUGINS_HOME}/zsh-autosuggestions" ]]; then
   sudo chsh --shell "$(command -v zsh | xargs realpath)" "$(whoami)"
-  sh -c "$(curl --connect-timeout "${CONNECTION_TIMEOUT}" \
+  sh -c "$(curl --connect-timeout "${CONNECTION_TIMEOUT_SEC}" \
                 --show-error \
                 --location \
                 --silent \

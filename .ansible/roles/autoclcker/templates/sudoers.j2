@@ -1,2 +1,2 @@
 # Managed by Ansible
-{{ autoclcker_user | default('autoclcker') }} ALL=(ALL) {% if autoclcker_sudo_nopasswd %}NOPASSWD:{% endif %}ALL
+{{ autoclcker_user | default('autoclcker') }} ALL=(ALL) {% if autoclcker_is_passwordless_sudo %}NOPASSWD:{% endif %}ALL

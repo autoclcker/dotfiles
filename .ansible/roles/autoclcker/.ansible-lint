@@ -1,0 +1,6 @@
+---
+enable_list:
+  - empty-string-compare
+  - fqcn-builtins
+  - fqcn[action]
+  - name[prefix]

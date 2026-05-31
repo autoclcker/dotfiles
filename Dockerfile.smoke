@@ -13,7 +13,7 @@ ARG USER=nonroot
 ARG GROUP=nonroot
 ARG HOME=/home/${USER}
 
-ENV FULL_INSTALLATION=false
+ENV IS_FULL_INSTALLATION=false
 ENV TZ=Europe/Moscow
 
 RUN <<EOF

@@ -22,13 +22,17 @@ BRANCH ?= $(shell git branch --show-current)
 SHELL := /bin/bash
 SHORT_COMMIT ?= $(shell git rev-parse --short HEAD)
 
-ansible/install: docker/build-ansible ### Install setup on the target host
-	@docker run --rm ${BRANCH}/ansible:${SHORT_COMMIT}
-.PHONY: ansible/install
+# TODO: implement
+# ansible/install: docker/build-ansible ### Install setup on the target host
+# 	@docker run --rm ${BRANCH}/ansible:${SHORT_COMMIT}
+# .PHONY: ansible/install
 
-ansible/dry-run: docker/build-ansible ### Validate Setup integrity
-	@docker run --rm ${BRANCH}/ansible:${SHORT_COMMIT}
-.PHONY: ansible/dry-run
+# ansible/dry-run: ansible-lint ### Validate Setup integrity
+# 	@docker run --rm ${BRANCH}/ansible:${SHORT_COMMIT}
+# .PHONY: ansible/dry-run
+
+# ansible/lint:
+# .PRONE: ansible/lint
 
 docker%: export GITHUB_TOKEN ?= "STUB"
 
@@ -37,17 +41,17 @@ docker/build-ansible:
 .PHONY: docker/build-ansible
 
 docker/build-debug:
-	@docker buildx build --quiet --tag ${BRANCH}/debug:${SHORT_COMMIT} --target debug --file Dockerfile.regress .
+	@docker buildx build --quiet --tag ${BRANCH}/debug:${SHORT_COMMIT} --target debug --file Dockerfile.smoke .
 .PHONY: docker/build-debug
 
 docker/debug: docker/build-debug ### Debug in Docker
 	@docker run --rm --interactive --tty --env GITHUB_TOKEN=${GITHUB_TOKEN} ${BRANCH}/debug:${SHORT_COMMIT}
 .PHONY: docker/debug
 
-docker/regress: ### Run a smoke-regress installation
-	@docker buildx build --secret id=GITHUB_TOKEN --tag ${BRANCH}/regress --file Dockerfile.regress .
-	@docker rmi ${BRANCH}/regress:latest
-.PHONY: docker/regress
+docker/bvt: ### Build Verification Test
+	@docker buildx build --secret id=GITHUB_TOKEN --tag ${BRANCH}/smoke --file Dockerfile.smoke .
+	@docker rmi ${BRANCH}/smoke:latest
+.PHONY: docker/bvt
 
 download:
 	@${DE} download_core_apps --packages $(shell cat ${PWD}/deps/buildtime.txt)

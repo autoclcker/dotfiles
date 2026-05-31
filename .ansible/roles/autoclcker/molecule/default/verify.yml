@@ -1,12 +1,91 @@
-# Purpose: assert that the instance really ended up in the expected state.
-# Molecule calls this playbook with `molecule verify`.
+---
 - name: Verify
   hosts: all
+  vars_files:
+    - "../../defaults/main.yml"
+    - "../../vars/main.yml"
   gather_facts: false
   tasks:
-    - name: Test connection
-      ansible.builtin.ping:
+    - name: Gather package facts
+      ansible.builtin.package_facts:
+        manager: auto
 
-    - name: Assert something
+    - name: Gather service facts
+      ansible.builtin.service_facts:
+
+    - name: Verify dotfiles user exists
+      ansible.builtin.getent:
+        database: passwd
+        key: "{{ autoclcker_user | default('autoclcker') }}"
+
+    - name: Verify dotfiles directory exists
+      ansible.builtin.stat:
+        path: "{{ autoclcker_dotfiles_dst }}/dotfiles"
+      register: autoclcker_dotfiles
+      failed_when:
+        - not autoclcker_dotfiles.stat.exists
+        - not autoclcker_dotfiles.stat.isdir
+      become: true
+      become_user: "{{ autoclcker_user | default('autoclcker') }}"
+
+    - name: Verify all required user groups exist
+      ansible.builtin.getent:
+        database: group
+        key: "{{ item }}"
+      loop:
+        - docker
+        - input
+
+    - name: Verify installed fonts
+      ansible.builtin.shell:
+        cmd: |
+          set -o pipefail
+          fc-list | grep -i "FiraCode Nerd Font"
+        executable: /usr/bin/bash
+      changed_when: false
+      become: true
+      become_user: "{{ autoclcker_user | default('autoclcker') }}"
+
+    - name: Verify all critical packages are installed
       ansible.builtin.assert:
-        that: true
+        that: item in ansible_facts.packages
+      loop:
+        - copyq
+        - cosmic-session
+        - cpupower
+        - dotool
+        - google-chrome
+        - intel-ucode
+        - networkmanager
+        - pipewire
+        - yay
+
+    - name: Verify all critical services are enabled
+      ansible.builtin.assert:
+        that: ansible_facts.services[item].status == 'enabled'
+      loop:
+        - cosmic-greeter.service
+        - cpupower.service
+        - docker.service
+        - NetworkManager.service
+
+    - name: Verify defaults are applied
+      ansible.builtin.stat:
+        path: "/home/{{ autoclcker_user | default('autoclcker') }}/.config/tmux/plugins"
+      register: autoclcker_dotfiles
+      failed_when:
+        - not autoclcker_dotfiles.stat.exists
+        - not autoclcker_dotfiles.stat.isdir
+      become: true
+      become_user: "{{ autoclcker_user | default('autoclcker') }}"
+
+    - name: Verify dotfiles management works
+      community.general.make:
+        chdir: "{{ autoclcker_dotfiles_dst }}/dotfiles"
+        target: sync
+        params:
+          PATH: "$HOME/.local/share/mise/shims:$HOME/.local/bin:$PATH"
+          PWD: "{{ autoclcker_dotfiles_dst }}/dotfiles"
+      become: true
+      become_user: "{{ autoclcker_user | default('autoclcker') }}"
+      tags: molecule-idempotence-notest

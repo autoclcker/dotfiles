@@ -24,8 +24,15 @@ return {
       layerSet({ "n", "x" }, "<left>", mc.prevCursor)
       layerSet({ "n", "x" }, "<right>", mc.nextCursor)
 
-      -- Enable and clear cursors using escape.
+      -- Enable and clear cursors using escape/C-c.
       layerSet("n", "<esc>", function()
+        if not mc.cursorsEnabled() then
+          mc.enableCursors()
+        else
+          mc.clearCursors()
+        end
+      end)
+      layerSet("n", "<C-c>", function()
         if not mc.cursorsEnabled() then
           mc.enableCursors()
         else

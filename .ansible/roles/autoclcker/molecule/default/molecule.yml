@@ -2,7 +2,6 @@
 driver:
   name: docker
 
-# Dependency management (download roles/collections)
 dependency:
   name: galaxy
   options:
