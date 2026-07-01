@@ -4,7 +4,7 @@ all: help
 DE ?= ${PWD}/scripts/installation/driver.sh
 WRAPPERS ?= ${PWD}/scripts/wrappers
 
-CONFIG_CLI_APPS := cheat mise mimeapps.list
+CONFIG_CLI_APPS := cheat mise mimeapps.list systemd
 CONFIG_GUI_APPS := autostart copyq cosmic ghostty wireshark
 CONFIG_TUI_APPS := bookokrat btop dive k9s lazydocker lazygit nvim procps tmux yazi
 
@@ -19,33 +19,40 @@ OH_MY_ZSH_HOME    ?= ${HOME}/.oh-my-zsh
 XDG_CONFIG_HOME   ?= ${HOME}/.config
 
 BRANCH ?= $(shell git branch --show-current)
+REV ?= $(shell git rev-parse --short HEAD)
 SHELL := /bin/bash
-SHORT_COMMIT ?= $(shell git rev-parse --short HEAD)
+
+ansible/dry-run: docker/build-molecule ### Validate Setup integrity
+	@docker run --rm --env GITHUB_TOKEN=${GITHUB_TOKEN} \
+		--volume /var/run/docker.sock:/var/run/docker.sock \
+		${BRANCH}/molecule:${REV}
+.PHONY: ansible/dry-run
 
 # TODO: implement
 # ansible/install: docker/build-ansible ### Install setup on the target host
-# 	@docker run --rm ${BRANCH}/ansible:${SHORT_COMMIT}
+# 	@docker run --rm ${BRANCH}/ansible:${REV}
 # .PHONY: ansible/install
 
-# ansible/dry-run: ansible-lint ### Validate Setup integrity
-# 	@docker run --rm ${BRANCH}/ansible:${SHORT_COMMIT}
-# .PHONY: ansible/dry-run
-
-# ansible/lint:
-# .PRONE: ansible/lint
+ansible/lint: ### Static analysis of Ansible manifests
+	@docker buildx build --quiet --tag ${BRANCH}/ansible-lint:${REV} --target lint --file Dockerfile.ansible .
+.PRONE: ansible/lint
 
 docker%: export GITHUB_TOKEN ?= "STUB"
 
 docker/build-ansible:
-	@docker buildx build --quiet --tag ${BRANCH}/ansible:${SHORT_COMMIT} --file Dockerfile.ansible .
+	@docker buildx build --quiet --tag ${BRANCH}/ansible:${REV} --file Dockerfile.ansible .
 .PHONY: docker/build-ansible
 
 docker/build-debug:
-	@docker buildx build --quiet --tag ${BRANCH}/debug:${SHORT_COMMIT} --target debug --file Dockerfile.smoke .
+	@docker buildx build --quiet --tag ${BRANCH}/debug:${REV} --target debug --file Dockerfile.smoke .
 .PHONY: docker/build-debug
 
+docker/build-molecule:
+	@docker buildx build --quiet --tag ${BRANCH}/molecule:${REV} --target dry-run --file Dockerfile.ansible .
+.PHONY: docker/build-molecule
+
 docker/debug: docker/build-debug ### Debug in Docker
-	@docker run --rm --interactive --tty --env GITHUB_TOKEN=${GITHUB_TOKEN} ${BRANCH}/debug:${SHORT_COMMIT}
+	@docker run --rm --interactive --tty --env GITHUB_TOKEN=${GITHUB_TOKEN} ${BRANCH}/debug:${REV}
 .PHONY: docker/debug
 
 docker/bvt: ### Build Verification Test

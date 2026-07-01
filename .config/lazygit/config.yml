@@ -11,16 +11,19 @@ gui:
   scrollOffBehavior: margin
   tabWidth: 4
   mouseEvents: true
+  skipAmendWarning: false
   skipDiscardChangeWarning: false
   skipStashWarning: false
   skipNoStagedFilesWarning: false
   skipRewordInEditorWarning: false
+  skipSwitchWorktreeOnCheckoutWarning: false
   sidePanelWidth: 0.3333
   expandFocusedSidePanel: false
   expandedSidePanelWeight: 2
   mainPanelSplitMode: flexible
   enlargedSideViewLocation: left
   wrapLinesInStagingView: true
+  useHunkModeInStagingView: true
   language: auto
   timeFormat: 02 Jan 06
   shortTimeFormat: 3:04PM
@@ -55,6 +58,9 @@ gui:
     show: true
   showListFooter: true
   showFileTree: true
+  showRootItemInFileTree: true
+  fileTreeSortOrder: mixed
+  fileTreeSortCaseSensitive: true
   showNumstatInFilesView: true
   showRandomTip: false
   showCommandLog: false
@@ -73,6 +79,8 @@ gui:
   border: rounded
   animateExplosion: true
   portraitMode: auto
+  portraitModeAutoMaxWidth: 84
+  portraitModeAutoMinHeight: 46
   filterMode: substring
   spinner:
     frames:
@@ -88,7 +96,7 @@ gui:
 git:
   pagers:
     - colorArg: always
-      pager: delta --paging=never --hyperlinks-file-link-format="lazygit-edit://{path}:{line}"
+      pager: delta --paging=never
       externalDiffCommand: ""
   commit:
     signOff: false
@@ -110,6 +118,9 @@ git:
   branchLogCmd: git log --graph --color=always --abbrev-commit --decorate --date=relative --pretty=medium {{branchName}} --
   allBranchesLogCmds:
     - git log --graph --all --color=always --abbrev-commit --decorate --date=relative  --pretty=medium
+  ignoreWhitespaceInDiffView: false
+  diffContextSize: 3
+  renameSimilarityThreshold: 50
   overrideGpg: false
   disableForcePushing: false
   commitPrefix: []
@@ -117,7 +128,11 @@ git:
   branchPrefix: ""
   parseEmoji: false
   log:
+    order: topo-order
+    showGraph: always
     showWholeGraph: false
+  localBranchSortOrder: date
+  remoteBranchSortOrder: date
   truncateCopiedCommitHashesTo: 12
 update:
   method: prompt
@@ -129,7 +144,7 @@ confirmOnQuit: false
 quitOnTopLevelReturn: false
 os:
   edit: "$EDITOR {{filename}}"
-  editAtLine: "$EDITOR {{filename}}"
+  editAtLine: "$EDITOR +{{line}} {{filename}}"
   editAtLineAndWait: "$EDITOR {{filename}}"
   editInTerminal: true
   openDirInEditor: ""
@@ -152,31 +167,23 @@ promptToReturnFromSubprocess: false
 keybinding:
   universal:
     quit: q
-    quit-alt1: <c-c>
+    suspendApp: <ctrl+z>
     return: <esc>
     quitWithoutChangingDirectory: Q
     togglePanel: <tab>
-    prevItem: <up>
-    nextItem: <down>
-    prevItem-alt: k
-    nextItem-alt: j
+    prevItem: [<up>, k]
+    nextItem: [<down>, j]
     prevPage: <c-b>
     nextPage: <c-f>
     scrollLeft: H
     scrollRight: L
-    gotoTop: g
-    gotoBottom: G
-    gotoTop-alt: <home>
-    gotoBottom-alt: <end>
+    gotoTop: [g, <home>]
+    gotoBottom: [G, <end>]
     toggleRangeSelect: v
-    rangeSelectDown: <s-down>
-    rangeSelectUp: <s-up>
-    prevBlock: <left>
-    nextBlock: <right>
-    prevBlock-alt: h
-    nextBlock-alt: l
-    nextBlock-alt2: <disabled>
-    prevBlock-alt2: <disabled>
+    rangeSelectDown: <shift+down>
+    rangeSelectUp: <shift+up>
+    prevBlock: [<left>, h, <backtab>]
+    nextBlock: [<right>, l, <tab>]
     jumpToBlock:
       - "1"
       - "2"
@@ -187,50 +194,50 @@ keybinding:
     nextMatch: "n"
     prevMatch: "N"
     startSearch: /
-    optionMenu: <disabled>
-    optionMenu-alt1: "?"
+    moveWordLeft: <alt+left>
+    moveWordRight: <alt+right>
+    backspaceWord: <ctrl+w>
+    forwardDeleteWord: <ctrl+delete>
+    optionMenu: '?'
     select: <space>
     goInto: <enter>
     confirm: <enter>
-    confirmInEditor: <a-enter>
+    confirmSuggestion: <enter>
+    confirmInEditor: <ctrl-enter>
     remove: d
     new: "n"
     edit: e
     openFile: o
-    scrollUpMain: <pgup>
-    scrollDownMain: <pgdown>
-    scrollUpMain-alt1: K
-    scrollDownMain-alt1: J
-    scrollUpMain-alt2: <c-u>
-    scrollDownMain-alt2: <c-d>
+    scrollUpMain: [<pgup>, K, <ctrl+u>]
+    scrollDownMain: [<pgdown>, J, <ctrl+d>]
     executeShellCommand: ":"
     createRebaseOptionsMenu: <c-o>
     pushFiles: P
     pullFiles: p
     refresh: R
-    createPatchOptionsMenu: <c-p>
+    createPatchOptionsMenu: <ctrl+p>
     nextTab: "]"
     prevTab: "["
     nextScreenMode: +
     prevScreenMode: _
     undo: z
-    redo: <c-z>
+    redo: Z
     filteringMenu: "!"
-    diffingMenu: W
-    diffingMenu-alt: <c-e>
+    diffingMenu: [W, <ctrl+e>]
     copyToClipboard: Y
-    openRecentRepos: <c-r>
+    openRecentRepos: <ctrl+r>
     submitEditorText: <enter>
     extrasMenu: "@"
-    toggleWhitespaceInDiffView: <c-w>
+    toggleWhitespaceInDiffView: <ctrl+w>
     increaseContextInDiffView: "}"
     decreaseContextInDiffView: "{"
     increaseRenameSimilarityThreshold: )
     decreaseRenameSimilarityThreshold: (
-    openDiffTool: <a-enter>
+    openDiffTool: <ctrl+t>
   status:
     checkForUpdate: u
     recentRepos: <enter>
+    allBranchesLogGraphReverse: A
     allBranchesLogGraph: a
   files:
     commitChanges: c
@@ -315,4 +322,4 @@ keybinding:
     update: u
     bulkMenu: b
   commitMessage:
-    commitMenu: <c-o>
+    commitMenu: <ctrl+o>

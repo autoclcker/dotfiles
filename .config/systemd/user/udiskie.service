@@ -1,0 +1,9 @@
+[Unit]
+Description=Removable disk automounter
+
+[Service]
+Type=exec
+ExecStart=/usr/bin/udiskie
+
+[Install]
+WantedBy=default.target

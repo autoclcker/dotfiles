@@ -24,7 +24,7 @@ vim.keymap.set(
   '<cmd>let @+ = @"<cr>',
   { noremap = true, silent = true, desc = "Copy unnamed register to system" }
 )
-vim.keymap.set("n", "<C-l>", "<cmd>nohlsearch<cr>", { noremap = true, silent = true, desc = "Clear search" })
+vim.keymap.set("n", "\\", "<cmd>nohlsearch<cr>", { noremap = true, silent = true, desc = "Clear search" })
 vim.keymap.set("n", "<leader>gi", function()
   return require("snacks").lazygit({ cwd = LazyVim.root.git() })
 end, { noremap = true, silent = true, desc = "Lazygit (root dir)" })

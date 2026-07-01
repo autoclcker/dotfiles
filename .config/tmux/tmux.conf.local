@@ -441,7 +441,7 @@ bind -n M-s split-window -v
 bind -n M-v split-window -h
 
 # destroy pane
-bind -n M-q kill-pane
+bind -n M-d kill-pane
 
 # pane navigation
 bind h select-pane -L  # move left
@@ -463,7 +463,7 @@ bind -n M-Up resize-pane -U 2
 bind -n M-Right resize-pane -R 2
 
 # pane synchronization
-bind -n M-p set-window-option synchronize-panes\; display-message "synchronize-panes is now #{?pane_synchronized,on,off}"
+bind p set-window-option synchronize-panes\; display-message "synchronize-panes is now #{?pane_synchronized,on,off}"
 
 # create/destroy window
 bind -n C-t new-window
@@ -481,8 +481,6 @@ bind -n C-6 select-window -t 6
 bind -n C-7 select-window -t 7
 bind -n C-8 select-window -t 8
 bind -n C-9 select-window -t 9
-bind p previous-window -a
-bind n next-window -a
 bind -n C-, swap-window -t -1\; select-window -t -1
 bind -n C-. swap-window -t +1\; select-window -t +1
 
@@ -495,7 +493,7 @@ bind x kill-session
 bind Delete kill-server
 
 # find session
-bind -n M-o command-prompt -p find-session 'switch-client -t %%'
+bind -n M-o choose-tree -s
 
 # search text
 bind-key -n M-/ copy-mode \; send-key ?

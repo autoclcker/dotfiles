@@ -60,8 +60,7 @@ keymap = [
   { on = "<Tab>", run = "spot", desc = "Spot hovered file" },
 
   # Operation
-  { on = "o", run = "open", desc = "Open selected files" },
-  { on = "O", run = "open --interactive", desc = "Open selected files interactively" },
+  { on = "o", run = "open --interactive", desc = "Open selected files interactively" },
   { on = "e", run = "open", desc = "Open selected files" },
   { on = "<S-Enter>", run = "open --interactive", desc = "Open selected files interactively" },
   { on = "y", run = "yank", desc = "Yank selected files (copy)" },
@@ -261,6 +260,7 @@ keymap = [
 
   # Custom
   { on = "!", run = 'shell "$(which bash)" --block', desc = "Open shell here" },
+  { on = "E", run = 'shell "vim %s" --block', desc = "Jump to a bookmark" },
 
   { on = "'", run = "plugin bookmarks jump", desc = "Jump to a bookmark" },
   { on = "F", run = "plugin smart-filter", desc = "Smart filter" },

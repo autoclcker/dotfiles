@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+
+set -o errexit  # abort on nonzero exitstatus
+set -o nounset  # abort on unbound variable
+set -o pipefail # don't hide errors within pipes
+
+XDG_DOCUMENTS_DIR=${XDG_DOCUMENTS_DIR:-"$HOME/Documents"}
+XDG_DOWNLOAD_DIR=${XDG_DOWNLOAD_DIR:-"$HOME/Downloads"}
+XDG_PICTURES_DIR=${XDG_PICTURES_DIR:-"$HOME/Pictures"}
+
+PDF_DIR="${XDG_DOCUMENTS_DIR}/PDF"
+WORD_DIR="${XDG_DOCUMENTS_DIR}/Word"
+
+declare -A extensions=(
+  ["${PDF_DIR}"]='.*\.pdf$'
+  ["${WORD_DIR}"]='.*\.(doc|docx)$'
+  ["${XDG_PICTURES_DIR}"]='.*\.(jpg|jpeg|png)$'
+)
+
+for dest_dir in "${!extensions[@]}"; do
+  find "${XDG_DOWNLOAD_DIR}" -maxdepth 1 -type f \
+    -regextype posix-extended \
+    -regex "${extensions[${dest_dir}]}" \
+    -exec mv -- {} "${dest_dir}/" \;
+done
+
+exit 0

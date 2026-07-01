@@ -42,6 +42,7 @@
             Super,
         ],
         key: "b",
+        description: Some("CopyQ pop"),
     ): Spawn("copyq-pop"),
     (
         modifiers: [],

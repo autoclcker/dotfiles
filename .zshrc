@@ -34,14 +34,14 @@ plugins=(
 	zsh-syntax-highlighting
 )
 
+source "$HOME/.profile"
+source "$ZSH/oh-my-zsh.sh"
+
 alias grep='rg'
 alias la='eza --all --color=always --icons=always'
 alias ll='eza --long --group --git --header --color=always --icons=always'
 alias lR='eza --tree --color=always --icons=always'
 alias ls='eza --color=always --icons=always'
-
-source "$HOME/.profile"
-source "$ZSH/oh-my-zsh.sh"
 
 PROMPT_EOL_MARK=''
 bindkey '^ ' autosuggest-accept

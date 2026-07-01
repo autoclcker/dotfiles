@@ -7,6 +7,10 @@
       ansible.builtin.set_fact:
         autoclcker_abs_path: "{{ autoclcker_dotfiles_src | realpath }}"
 
+    - name: install | Define autoclcker_prj
+      ansible.builtin.set_fact:
+        autoclcker_prj: "{{ autoclcker_abs_path | basename }}"
+
     - name: install | Create local temprorary directory
       ansible.builtin.tempfile:
         state: directory
@@ -62,11 +66,19 @@
       delegate_to: localhost
 
 - name: install | Download sources from git
-  ansible.builtin.git:
-    repo: "{{ autoclcker_dotfiles_git }}"
-    dest: "{{ autoclcker_dotfiles_dst }}/dotfiles"
-    version: "{{ autoclcker_git_branches[ansible_facts['os_family']] }}"
   when: autoclcker_dotfiles_src is not defined
+  block:
+    - name: install | Define autoclcker_prj
+      ansible.builtin.set_fact:
+        autoclcker_prj: "{{ autoclcker_dotfiles_git | basename | regex_replace('\\.git$', '') }}"
+
+    - name: install | Download sources from git
+      ansible.builtin.git:
+        repo: "{{ autoclcker_dotfiles_git }}"
+        dest: "{{ autoclcker_dotfiles_dst }}/{{ autoclcker_prj }}"
+        version: "{{ autoclcker_git_branches[ansible_facts['os_family']] }}"
+      become: true
+      become_user: "{{ autoclcker_user | default('autoclcker') }}"
 
 - name: install | Desktop Environment
   tags: [molecule-idempotence-notest, install]
@@ -86,10 +98,10 @@
       environment:
         GITHUB_TOKEN: "{{ autoclcker_github_token }}"
       community.general.make:
-        chdir: "{{ autoclcker_dotfiles_dst }}/dotfiles"
+        chdir: "{{ autoclcker_dotfiles_dst }}/{{ autoclcker_prj }}"
         target: install
         params:
-          PWD: "{{ autoclcker_dotfiles_dst }}/dotfiles"
+          PWD: "{{ autoclcker_dotfiles_dst }}/{{ autoclcker_prj }}"
       become: true
       become_user: "{{ autoclcker_user | default('autoclcker') }}"
   always:

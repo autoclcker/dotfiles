@@ -1,4 +1,5 @@
 [tools]
+"cargo:uv" = "latest"
 cargo-binstall = "latest"
 helm = "latest"
 pipx = "latest"

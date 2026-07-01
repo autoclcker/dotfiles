@@ -1,0 +1,9 @@
+[Unit]
+Description=Classify downloads
+
+[Service]
+Type=oneshot
+ExecStart=%h/.local/bin/downloads-demux
+
+[Install]
+WantedBy=default.target

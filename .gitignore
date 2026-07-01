@@ -6,6 +6,7 @@
 **/*.bak
 **/community/
 **/copyq/*
+**/default.*
 **/tmux/plugins
 **/yazi/plugins
 !copyq-commands.ini

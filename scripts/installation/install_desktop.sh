@@ -12,6 +12,7 @@ SOUND=("pipewire" "pipewire-alsa" "pipewire-pulse" "sof-firmware" "wireplumber")
 WAYLAND_COMPOSITOR=("cosmic-session" "cosmic-wallpapers" "switcheroo")
 
 APPS_SVC=("containerd" "docker")
+AUTOSTART_SVC=("dotool" "udiskie")
 DESKTOP_SVC=("cosmic-greeter" "switcheroo-control")
 NETWORK_SVC=("bluetooth" "NetworkManager")
 POWER_CONTROL_SVC=("com.system76.PowerDaemon" "cpupower")
@@ -22,8 +23,10 @@ SYSTEM_SVC=("${NETWORK_SVC[@]}" "${POWER_CONTROL_SVC[@]}")
 SYSTEM=("${NETWORK[@]}" "${POWER_MANAGEMENT[@]}" "${SOUND[@]}")
 
 PACKAGES=("${APPS[@]}" "${GPU[@]}" "${SYSTEM[@]}" "${WAYLAND_COMPOSITOR[@]}")
+PATHS=("downloads-demux")
 SERVICES=("${APPS_SVC[@]}" "${DESKTOP_SVC[@]}" "${SYSTEM_SVC[@]}")
 UNITS=("${SERVICES[@]/%/.service}")
+USER_UNITS=("${AUTOSTART_SVC[@]/%/.service}" "${PATHS[@]/%/.path}")
 
 if [[ "$IS_FULL_INSTALLATION" != true ]]; then
   log "${CYAN}" "Desktop Environment isn't needed\n"
@@ -41,6 +44,9 @@ yay --needed --noconfirm --sync "${PACKAGES[@]}"
 # Systemd
 for u in "${UNITS[@]}"; do
   sudo systemctl enable "$u"
+done
+for u in "${USER_UNITS[@]}"; do
+  systemctl --user enable "$u"
 done
 
 # NVIDIA

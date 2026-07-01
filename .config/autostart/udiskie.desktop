@@ -1,8 +1,0 @@
-[Desktop Entry]
-Type=Application
-Name=Udiskie
-Comment=Removable disk automounter
-Exec=udiskie
-Terminal=false
-Categories=System;Utility;
-

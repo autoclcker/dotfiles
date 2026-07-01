@@ -505,6 +505,16 @@
                 "simpleBrowser.show"
             ],
             "silent": true
+        },
+        {
+            "before": [
+                "<space>",
+                "="
+            ],
+            "commands": [
+                "editor.action.formatDocument"
+            ],
+            "silent": true
         }
     ],
     "vim.operatorPendingModeKeyBindingsNonRecursive": [

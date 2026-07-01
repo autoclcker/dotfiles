@@ -45,11 +45,11 @@
 "go:github.com/tomnomnom/gron" = "latest"
 "npm:@angular/cli" = "latest"
 "npm:ts-node" = "latest"
-"pipx:ansible-core" = { version = "latest",  pipx_args = "--preinstall requests" }
+"pipx:ansible-core" = { version = "latest", uvx_args = "--with requests" }
 "pipx:ansible-creator" = "latest"
 "pipx:httpie" = "latest"
 "pipx:ipython" = "latest"
-"pipx:molecule-plugins" = { version = "latest", extras = "docker", pipx_args = "--include-deps" }
+"pipx:molecule-plugins" = { version = "latest", uvx = "false", extras = "docker", pipx_args = "--include-deps" }
 "pipx:trash-cli" = "latest"
 cheat = "latest"
 fastfetch = "latest"

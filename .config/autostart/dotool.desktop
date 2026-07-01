@@ -1,8 +1,0 @@
-[Desktop Entry]
-Type=Application
-Name=dotool
-Comment=Keyboard/mouse input simulator
-Exec=dotoold
-Terminal=false
-Categories=System;Utility;
-

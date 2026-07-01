@@ -1,8 +1,58 @@
 # syntax=docker/dockerfile:1
 
-ARG REGISTRY=docker.io/library
-ARG OS_BASE=archlinux
-ARG OS_VERSION=base-20260412.0.513370@sha256:d0adc0bcc3bdfeacf9f30abd853c8d4d1dd40b6363e17cc158312a40423e063b
+ARG REGISTRY=docker.io
+
+ARG CLIENT_BASE=dockereng/cli-bin
+ARG CLIENT_VERSION=29.6.1@sha256:a4efde61a01ecd0ee88b641a14103c52d209c9ecc49453a94cf61c18cc7451ac
+
+ARG UV_BASE=astral/uv
+ARG UV_VERSION=0.11.26-trixie-slim@sha256:5dbaa15c970f3ea16a15cf6cf2e3d806aabd43e7fff40192d35dd20bab059156
 
 # Download the dependencies
-FROM --platform=${BUILDPLATFORM} ${REGISTRY}/${OS_BASE}:${OS_VERSION} AS base
+FROM --platform=${BUILDPLATFORM} ${REGISTRY}/${UV_BASE}:${UV_VERSION} AS deps
+
+ARG PYTHON_VERSION=3.14.3
+ARG ROLE_PATH=.ansible/roles/autoclcker
+
+ENV UV_LINK_MODE=copy
+ENV UV_PYTHON_CACHE_DIR=/root/.cache/uv/python
+
+WORKDIR /purgatory
+
+RUN --mount=type=cache,target=/root/.cache/uv \
+    uv venv --python ${PYTHON_VERSION}
+RUN --mount=type=bind,source=${ROLE_PATH},target=role \
+    --mount=type=cache,target=/root/.cache/uv \
+    uv pip install --requirements role/requirements.txt
+RUN --mount=target=/var/lib/apt/lists,type=cache,sharing=locked \
+    --mount=target=/var/cache/apt,type=cache,sharing=locked \
+    apt-get update && apt-get --yes --no-install-recommends install \
+        ca-certificates=20250419
+RUN --mount=type=bind,source=${ROLE_PATH},target=role \
+    --mount=type=cache,target=/root/.cache/uv \
+    uv run ansible-galaxy collection install --requirements-file role/requirements.yml
+
+# Ansible code analysis
+FROM deps AS lint
+RUN --mount=type=bind,source=.ansible,target=.ansible \
+    --mount=type=cache,target=/root/.cache/uv \
+    uv run ansible-playbook --syntax-check \
+        --inventory .ansible/inventory.ini \
+        .ansible/playbook.yml
+RUN --mount=type=bind,source=.ansible,target=.ansible \
+    --mount=type=cache,target=/root/.cache/uv \
+    uv run ansible-lint --offline --strict \
+        --config-file ${ROLE_PATH}/.ansible-lint \
+        --yamllint-file ${ROLE_PATH}/.yamllint \
+        .ansible/*
+
+# Run the molecule scenarios
+FROM --platform=${BUILDPLATFORM} ${REGISTRY}/${CLIENT_BASE}:${CLIENT_VERSION} AS docker-cli
+FROM deps AS dry-run
+
+COPY --link --from=docker-cli /docker /bin/
+COPY --link . dotfiles
+
+WORKDIR /purgatory/dotfiles/${ROLE_PATH}
+
+ENTRYPOINT [ "uv", "run", "molecule", "test" ]

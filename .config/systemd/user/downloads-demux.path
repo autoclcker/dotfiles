@@ -1,0 +1,9 @@
+[Unit]
+Description=Monitor the directory for new uploads
+
+[Path]
+PathChanged=%h/Downloads
+Unit=downloads-demux.service
+
+[Install]
+WantedBy=default.target

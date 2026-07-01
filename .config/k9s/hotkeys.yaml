@@ -51,8 +51,8 @@ hotKeys:
     shortCut: Shift-Q
     description: View Namespaces
     command: namespace
-  ctrl-q:
-    shortCut: Ctrl-Q
+  ctrl-o:
+    shortCut: Ctrl-O
     description: View Context
     override: true
     command: ctx

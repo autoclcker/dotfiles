@@ -1,0 +1,9 @@
+[Unit]
+Description=Keyboard/mouse input simulator
+
+[Service]
+Type=exec
+ExecStart=/usr/bin/dotoold
+
+[Install]
+WantedBy=default.target
