@@ -155,24 +155,6 @@
         },
         {
             "before": [
-                "]",
-                "e"
-            ],
-            "commands": [
-                "editor.action.marker.next"
-            ]
-        },
-        {
-            "before": [
-                "[",
-                "e"
-            ],
-            "commands": [
-                "editor.action.marker.prev"
-            ]
-        },
-        {
-            "before": [
                 "<space>",
                 "C"
             ],

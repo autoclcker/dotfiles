@@ -56,7 +56,7 @@ fastfetch = "latest"
 mc = "latest"
 neovim = "latest"
 starship = "latest"
-tmux = "latest"
+tmux = "3.7b"
 usage = "latest"
 
 [settings]

@@ -82,6 +82,13 @@ return {
       desc = "Buffers",
     },
     {
+      "<M-o>",
+      function()
+        Snacks.picker.git_log_file()
+      end,
+      desc = "File git history",
+    },
+    {
       "<M-e>",
       function()
         Snacks.explorer()

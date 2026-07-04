@@ -493,7 +493,10 @@ bind x kill-session
 bind Delete kill-server
 
 # find session
-bind -n M-o choose-tree -s
+bind -n M-q choose-tree -s
+# find pane
+bind -n M-BSpace display-panes
+bind -n M-Space display-panes
 
 # search text
 bind-key -n M-/ copy-mode \; send-key ?

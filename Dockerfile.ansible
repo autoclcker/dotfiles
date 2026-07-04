@@ -19,18 +19,18 @@ ENV UV_PYTHON_CACHE_DIR=/root/.cache/uv/python
 
 WORKDIR /purgatory
 
-RUN --mount=type=cache,target=/root/.cache/uv \
-    uv venv --python ${PYTHON_VERSION}
-RUN --mount=type=bind,source=${ROLE_PATH},target=role \
-    --mount=type=cache,target=/root/.cache/uv \
-    uv pip install --requirements role/requirements.txt
 RUN --mount=target=/var/lib/apt/lists,type=cache,sharing=locked \
     --mount=target=/var/cache/apt,type=cache,sharing=locked \
     apt-get update && apt-get --yes --no-install-recommends install \
         ca-certificates=20250419
-RUN --mount=type=bind,source=${ROLE_PATH},target=role \
+RUN --mount=type=cache,target=/root/.cache/uv \
+    uv venv --python ${PYTHON_VERSION}
+RUN --mount=type=bind,source=${ROLE_PATH}/requirements.txt,target=requirements.txt \
     --mount=type=cache,target=/root/.cache/uv \
-    uv run ansible-galaxy collection install --requirements-file role/requirements.yml
+    uv pip install --requirements requirements.txt
+RUN --mount=type=bind,source=${ROLE_PATH}/requirements.yml,target=requirements.yml \
+    --mount=type=cache,target=/root/.cache/uv \
+    uv run ansible-galaxy collection install --requirements-file requirements.yml
 
 # Ansible code analysis
 FROM deps AS lint
@@ -42,8 +42,8 @@ RUN --mount=type=bind,source=.ansible,target=.ansible \
 RUN --mount=type=bind,source=.ansible,target=.ansible \
     --mount=type=cache,target=/root/.cache/uv \
     uv run ansible-lint --offline --strict \
-        --config-file ${ROLE_PATH}/.ansible-lint \
         --yamllint-file ${ROLE_PATH}/.yamllint \
+        --config-file ${ROLE_PATH}/.ansible-lint \
         .ansible/*
 
 # Run the molecule scenarios
@@ -56,3 +56,8 @@ COPY --link . dotfiles
 WORKDIR /purgatory/dotfiles/${ROLE_PATH}
 
 ENTRYPOINT [ "uv", "run", "molecule", "test" ]
+
+# Install setup on the target host
+# FROM deps AS provision
+# COPY --link . dotfiles
+# ENTRYPOINT [ "uv", "run", "molecule", "test" ]

@@ -28,9 +28,9 @@
   delegate_to: localhost
 
 - name: Satisfy requirements
-  ansible.builtin.include_tasks:
+  ansible.builtin.import_tasks:
     file: bootstrap.yml
 
 - name: Install Desktop Environment
-  ansible.builtin.include_tasks:
+  ansible.builtin.import_tasks:
     file: install.yml

@@ -34,12 +34,12 @@ ansible/dry-run: docker/build-molecule ### Validate Setup integrity
 # .PHONY: ansible/install
 
 ansible/lint: ### Static analysis of Ansible manifests
-	@docker buildx build --quiet --tag ${BRANCH}/ansible-lint:${REV} --target lint --file Dockerfile.ansible .
+	@docker buildx build --tag ${BRANCH}/ansible-lint:${REV} --target lint --file Dockerfile.ansible .
 .PRONE: ansible/lint
 
 docker%: export GITHUB_TOKEN ?= "STUB"
 
-docker/build-ansible:
+docker/build-ansible: ansible/lint
 	@docker buildx build --quiet --tag ${BRANCH}/ansible:${REV} --file Dockerfile.ansible .
 .PHONY: docker/build-ansible
 
@@ -47,7 +47,7 @@ docker/build-debug:
 	@docker buildx build --quiet --tag ${BRANCH}/debug:${REV} --target debug --file Dockerfile.smoke .
 .PHONY: docker/build-debug
 
-docker/build-molecule:
+docker/build-molecule: ansible/lint
 	@docker buildx build --quiet --tag ${BRANCH}/molecule:${REV} --target dry-run --file Dockerfile.ansible .
 .PHONY: docker/build-molecule
 

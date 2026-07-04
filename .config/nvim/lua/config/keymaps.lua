@@ -35,9 +35,14 @@ vim.keymap.set(
   "<cmd>SudoWrite<cr><cmd>q<cr>",
   { noremap = true, silent = true, desc = "Write with sudo and exit" }
 )
-vim.keymap.set({ "n", "x" }, "<C-p>", '"+p', { noremap = true, silent = true, desc = "Paste from system clipboard" })
 vim.keymap.set(
-  { "n", "v", "i" },
+  { "n", "v", "x" },
+  "<C-p>",
+  '"+p',
+  { noremap = true, silent = true, desc = "Paste from system clipboard" }
+)
+vim.keymap.set(
+  { "c", "i" },
   "<S-Insert>",
   "<C-R>+",
   { noremap = true, silent = true, desc = "Paste from system clipboard" }
@@ -75,6 +80,24 @@ vim.keymap.set("i", "<M-k>", "<Up>", { noremap = true, silent = true, desc = "Mo
 vim.keymap.set("x", "S", function()
   require("mini.surround").add("visual")
 end, { desc = "Add Surrounding in visual mode", silent = true })
+
+-- Operand mode
+-- 'ae' (around entire): Selects the entire buffer contents
+vim.keymap.set({ "o", "x" }, "ae", ":<C-u>normal! ggVG<CR>", { desc = "Select entire buffer" })
+
+-- 'ie' (inner entire): Selects the entire buffer ignoring leading/trailing empty lines
+vim.keymap.set({ "o", "x" }, "ie", function()
+  local buflen = vim.fn.line("$")
+  local first_non_blank = vim.fn.nextnonblank(1)
+  local last_non_blank = vim.fn.prevnonblank(buflen)
+
+  if first_non_blank == 0 or last_non_blank == 0 then
+    -- Buffer is empty or contains only whitespace
+    vim.cmd.normal({ args = { "ggVG" }, bang = true })
+  else
+    vim.cmd.normal({ args = { first_non_blank .. "G0V" .. last_non_blank .. "G$" }, bang = true })
+  end
+end, { desc = "Select inner entire buffer", silent = true })
 
 -- Focus split
 vim.keymap.set("n", "<leader>'", "<C-w>p", { desc = "Switch to the last visited split" })
