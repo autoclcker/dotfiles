@@ -66,7 +66,7 @@ download:
 
 install: download sync ### Install setup
 	@${DE} install_desktop
-	@${DE} install_tools --packages $(shell cat ${PWD}/deps/tools.txt)
+	@${DE} install_tools --packages $(shell cat ${PWD}/deps/common/*)
 	@${DE} set_defaults
 .PHONY: install
 

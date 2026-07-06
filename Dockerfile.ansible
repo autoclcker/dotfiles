@@ -19,8 +19,8 @@ ENV UV_PYTHON_CACHE_DIR=/root/.cache/uv/python
 
 WORKDIR /purgatory
 
-RUN --mount=target=/var/lib/apt/lists,type=cache,sharing=locked \
-    --mount=target=/var/cache/apt,type=cache,sharing=locked \
+RUN --mount=target=/var/cache/apt,type=cache,sharing=locked \
+    --mount=target=/var/lib/apt/lists,type=cache,sharing=locked \
     apt-get update && apt-get --yes --no-install-recommends install \
         ca-certificates=20250419
 RUN --mount=type=cache,target=/root/.cache/uv \

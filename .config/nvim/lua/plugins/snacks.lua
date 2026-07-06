@@ -5,8 +5,8 @@ return {
       win = {
         input = {
           keys = {
-            ["<C-_>"] = { "toggle_hidden", mode = { "i", "n" } },
-            ["<C-/>"] = { "toggle_hidden", mode = { "i", "n" } },
+            ["<M-r>"] = false,
+            ["<C-h>"] = { "toggle_hidden", mode = { "i", "n" } },
             ["<C-o>"] = { "toggle_regex", mode = { "i", "n" } },
             ["<Tab>"] = { "inspect", mode = { "n", "i" } },
           },

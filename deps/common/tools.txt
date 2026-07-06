@@ -1,8 +1,8 @@
 atop
 btop
 clang
-lsof
 lshw
+lsof
 mpv
 nmap
 nvtop

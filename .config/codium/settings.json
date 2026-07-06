@@ -155,6 +155,26 @@
         },
         {
             "before": [
+                "]",
+                "e"
+            ],
+            "commands": [
+                "editor.action.marker.next"
+            ],
+            "silent": true
+        },
+        {
+            "before": [
+                "[",
+                "e"
+            ],
+            "commands": [
+                "editor.action.marker.prev"
+            ],
+            "silent": true
+        },
+        {
+            "before": [
                 "<space>",
                 "C"
             ],

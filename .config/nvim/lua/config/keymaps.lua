@@ -47,6 +47,12 @@ vim.keymap.set(
   "<C-R>+",
   { noremap = true, silent = true, desc = "Paste from system clipboard" }
 )
+vim.keymap.set(
+  "n",
+  "<leader>p",
+  "<cmd>windo set scrollbind!<CR>",
+  { noremap = true, silent = true, desc = "Toggle ScrollLock" }
+)
 if vim.g.neovide then
   vim.keymap.set("n", "<F11>", function()
     vim.g.neovide_fullscreen = not vim.g.neovide_fullscreen
@@ -83,7 +89,7 @@ end, { desc = "Add Surrounding in visual mode", silent = true })
 
 -- Operand mode
 -- 'ae' (around entire): Selects the entire buffer contents
-vim.keymap.set({ "o", "x" }, "ae", ":<C-u>normal! ggVG<CR>", { desc = "Select entire buffer" })
+vim.keymap.set({ "o", "x" }, "ae", "<cmd><C-u>normal! ggVG<CR>", { desc = "Select entire buffer" })
 
 -- 'ie' (inner entire): Selects the entire buffer ignoring leading/trailing empty lines
 vim.keymap.set({ "o", "x" }, "ie", function()

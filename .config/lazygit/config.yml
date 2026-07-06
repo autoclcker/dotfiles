@@ -12,7 +12,7 @@ gui:
   tabWidth: 4
   mouseEvents: true
   skipAmendWarning: false
-  skipDiscardChangeWarning: false
+  skipDiscardChangeWarning: true
   skipStashWarning: false
   skipNoStagedFilesWarning: false
   skipRewordInEditorWarning: false

@@ -17,11 +17,9 @@ ZSH_SYNTAX_HIGHLIGHTING_REPO=${ZSH_SYNTAX_HIGHLIGHTING_REPO:-"https://github.com
 
 TZ=${TZ:-"Europe/Moscow"}
 
-FONTS=("DejaVuSansMono" "FiraCode" "Hack")
 LOCALES=("en_US.UTF-8 UTF-8" "ru_RU.UTF-8 UTF-8")
 TMUX_EASYMOTION_VERSION=${TMUX_EASYMOTION_VERSION:-"v1.2.2"}
 
-FONTS_PATH=${FONTS_PATH:-"$HOME/.local/share/fonts/nerd-fonts"}
 HELM_DIFF_PATH=${HELM_DIFF_PATH:-"$HOME/.local/share/helm/plugins/helm-diff"}
 
 export PATH="$HOME/.local/share/mise/shims:$PATH"
@@ -49,23 +47,17 @@ if [[ "$IS_FULL_INSTALLATION" = true ]]; then
   sudo hwclock --systohc
 fi
 
-# Fonts&Locales
+# Locales&Manuals
 if [[ "$IS_FULL_INSTALLATION" != true ]]; then
   log "${CYAN}" "Fonts&Locales are not needed\n"
-elif [[ ! -d "${FONTS_PATH}" ]]; then
-  git clone --filter=blob:none --sparse "${NERD_FONTS_REPO}" "${FONTS_PATH}"
-  pushd "$_" || exit 1
-  for f in "${FONTS[@]}"; do
-    git sparse-checkout add "patched-fonts/$f"
-    ./install.sh "$f"
-  done
+elif grep --extended-regexp --invert-match --quiet '^(#|$)' /etc/locale.gen; then
   for l in "${LOCALES[@]}"; do
     sudo sed --in-place "s/^#\($l\)/\1/" /etc/locale.gen
   done
   sudo locale-gen
   sudo mandb
 else
-  log "${CYAN}" "Fonts&Locales are already installed\n"
+  log "${CYAN}" "Locales&Manual are already configured\n"
 fi
 
 # Docker
