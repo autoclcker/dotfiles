@@ -49,15 +49,15 @@ fi
 
 # Locales&Manuals
 if [[ "$IS_FULL_INSTALLATION" != true ]]; then
-  log "${CYAN}" "Fonts&Locales are not needed\n"
+  log "${CYAN}" "Locales&Manuals are not needed\n"
 elif grep --extended-regexp --invert-match --quiet '^(#|$)' /etc/locale.gen; then
+  log "${CYAN}" "Locales&Manuals are already configured\n"
+else
   for l in "${LOCALES[@]}"; do
     sudo sed --in-place "s/^#\($l\)/\1/" /etc/locale.gen
   done
   sudo locale-gen
   sudo mandb
-else
-  log "${CYAN}" "Locales&Manual are already configured\n"
 fi
 
 # Docker
