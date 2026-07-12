@@ -25,13 +25,13 @@ RUN --mount=target=/var/cache/apt,type=cache,sharing=locked \
     apt-get update && apt-get --yes --no-install-recommends install \
         ca-certificates=20250419 \
         openssh-client>=10.*
-RUN --mount=type=cache,target=/root/.cache/uv,sharing=locked \
+RUN --mount=type=cache,target=/root/.cache/uv,sharing=shared \
     uv venv --python ${PYTHON_VERSION}
 RUN --mount=type=bind,source=${ROLE_PATH}/requirements.txt,target=requirements.txt \
-    --mount=type=cache,target=/root/.cache/uv,sharing=locked \
+    --mount=type=cache,target=/root/.cache/uv,sharing=shared \
     uv pip install --requirements requirements.txt
 RUN --mount=type=bind,source=${ROLE_PATH}/requirements.yml,target=requirements.yml \
-    --mount=type=cache,target=/root/.cache/uv,sharing=locked \
+    --mount=type=cache,target=/root/.cache/uv,sharing=shared \
     uv run ansible-galaxy collection install --requirements-file requirements.yml
 
 # Download the Molecule dependencies
@@ -47,18 +47,18 @@ EOT
 COPY --link --from=docker-cli /docker /bin/
 
 RUN --mount=type=bind,source=${ROLE_PATH}/molecule,target=molecule \
-    --mount=type=cache,target=/root/.cache/uv,sharing=locked \
+    --mount=type=cache,target=/root/.cache/uv,sharing=shared \
     uv run molecule dependency
 
 # Ansible code analysis
 FROM deps AS lint
 RUN --mount=type=bind,source=.ansible,target=.ansible \
-    --mount=type=cache,target=/root/.cache/uv,sharing=locked \
+    --mount=type=cache,target=/root/.cache/uv,sharing=shared \
     uv run ansible-playbook --syntax-check \
         --inventory .ansible/inventory.ini \
         .ansible/playbook.yml
 RUN --mount=type=bind,source=.ansible,target=.ansible \
-    --mount=type=cache,target=/root/.cache/uv,sharing=locked \
+    --mount=type=cache,target=/root/.cache/uv,sharing=shared \
     uv run ansible-lint --offline --strict \
         --yamllint-file ${ROLE_PATH}/.yamllint \
         --config-file ${ROLE_PATH}/.ansible-lint \
