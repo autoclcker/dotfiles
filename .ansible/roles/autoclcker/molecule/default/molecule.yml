@@ -7,8 +7,7 @@ dependency:
   options:
     ignore-certs: false
     ignore-errors: false
-    role-file: requirements.yml
-    requirements-file: requirements.yml
+    requirements-file: "${MOLECULE_SCENARIO_DIRECTORY}/requirements.yml"
 
 platforms:
   - name: archlinux-latest
@@ -35,7 +34,7 @@ ansible:
     ANSIBLE_DEPRECATION_WARNINGS: "False"
     ANSIBLE_FORCE_COLOR: "1"
     ANSIBLE_LOAD_CALLBACK_PLUGINS: "1"
-    ANSIBLE_ROLES_PATH: ../../../.
+    ANSIBLE_ROLES_PATH: "${MOLECULE_PROJECT_DIRECTORY}/.."
 
   playbooks:
     create: create.yml

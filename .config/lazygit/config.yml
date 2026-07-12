@@ -198,7 +198,7 @@ keybinding:
     moveWordRight: <alt+right>
     backspaceWord: <ctrl+w>
     forwardDeleteWord: <ctrl+delete>
-    optionMenu: '?'
+    optionMenu: "?"
     select: <space>
     goInto: <enter>
     confirm: <enter>
@@ -234,6 +234,7 @@ keybinding:
     increaseRenameSimilarityThreshold: )
     decreaseRenameSimilarityThreshold: (
     openDiffTool: <ctrl+t>
+    newWorktree: w
   status:
     checkForUpdate: u
     recentRepos: <enter>
@@ -276,8 +277,6 @@ keybinding:
     setUpstream: u
     fetchRemote: F
     sortOrder: ","
-  worktrees:
-    viewWorktreeOptions: w
   commits:
     squashDown: s
     renameCommit: r

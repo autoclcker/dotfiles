@@ -13,7 +13,7 @@ This role installs autoclcker' [dotfiles](https://github.com/autoclcker/dotfiles
 Available variables are listed below, along with default values (see [defaults](defaults/main.yml)):
 
 ```yaml
-autoclcker_dotfiles_src: "../../../../../../dotfiles"
+autoclcker_dotfiles_src: "../../../../../."
 ```
 ^^ dotfiles local directory. The source of truth.
 

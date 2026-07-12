@@ -8,56 +8,72 @@ ARG CLIENT_VERSION=29.6.1@sha256:a4efde61a01ecd0ee88b641a14103c52d209c9ecc49453a
 ARG UV_BASE=astral/uv
 ARG UV_VERSION=0.11.26-trixie-slim@sha256:5dbaa15c970f3ea16a15cf6cf2e3d806aabd43e7fff40192d35dd20bab059156
 
-# Download the dependencies
+# Download the core dependencies
 FROM --platform=${BUILDPLATFORM} ${REGISTRY}/${UV_BASE}:${UV_VERSION} AS deps
 
 ARG PYTHON_VERSION=3.14.3
 ARG ROLE_PATH=.ansible/roles/autoclcker
+ARG SRCDIR=/purgatory/dotfiles
 
 ENV UV_LINK_MODE=copy
 ENV UV_PYTHON_CACHE_DIR=/root/.cache/uv/python
 
-WORKDIR /purgatory
+WORKDIR ${SRCDIR}
 
 RUN --mount=target=/var/cache/apt,type=cache,sharing=locked \
     --mount=target=/var/lib/apt/lists,type=cache,sharing=locked \
     apt-get update && apt-get --yes --no-install-recommends install \
-        ca-certificates=20250419
-RUN --mount=type=cache,target=/root/.cache/uv \
+        ca-certificates=20250419 \
+        openssh-client>=10.*
+RUN --mount=type=cache,target=/root/.cache/uv,sharing=locked \
     uv venv --python ${PYTHON_VERSION}
 RUN --mount=type=bind,source=${ROLE_PATH}/requirements.txt,target=requirements.txt \
-    --mount=type=cache,target=/root/.cache/uv \
+    --mount=type=cache,target=/root/.cache/uv,sharing=locked \
     uv pip install --requirements requirements.txt
 RUN --mount=type=bind,source=${ROLE_PATH}/requirements.yml,target=requirements.yml \
-    --mount=type=cache,target=/root/.cache/uv \
+    --mount=type=cache,target=/root/.cache/uv,sharing=locked \
     uv run ansible-galaxy collection install --requirements-file requirements.yml
+
+# Download the Molecule dependencies
+FROM --platform=${BUILDPLATFORM} ${REGISTRY}/${CLIENT_BASE}:${CLIENT_VERSION} AS docker-cli
+FROM deps AS deps-molecule
+
+COPY --chmod=500 --link <<EOT /usr/local/bin/molecule-entrypoint.sh
+#!/bin/sh
+set -o errexit
+cd ${SRCDIR}/${ROLE_PATH}
+exec uv run molecule test
+EOT
+COPY --link --from=docker-cli /docker /bin/
+
+RUN --mount=type=bind,source=${ROLE_PATH}/molecule,target=molecule \
+    --mount=type=cache,target=/root/.cache/uv,sharing=locked \
+    uv run molecule dependency
 
 # Ansible code analysis
 FROM deps AS lint
 RUN --mount=type=bind,source=.ansible,target=.ansible \
-    --mount=type=cache,target=/root/.cache/uv \
+    --mount=type=cache,target=/root/.cache/uv,sharing=locked \
     uv run ansible-playbook --syntax-check \
         --inventory .ansible/inventory.ini \
         .ansible/playbook.yml
 RUN --mount=type=bind,source=.ansible,target=.ansible \
-    --mount=type=cache,target=/root/.cache/uv \
+    --mount=type=cache,target=/root/.cache/uv,sharing=locked \
     uv run ansible-lint --offline --strict \
         --yamllint-file ${ROLE_PATH}/.yamllint \
         --config-file ${ROLE_PATH}/.ansible-lint \
         .ansible/*
 
-# Run the molecule scenarios
-FROM --platform=${BUILDPLATFORM} ${REGISTRY}/${CLIENT_BASE}:${CLIENT_VERSION} AS docker-cli
-FROM deps AS dry-run
+# Molecule test
+FROM deps-molecule AS dry-run
+COPY --link . .
+ENTRYPOINT [ "molecule-entrypoint.sh" ]
 
-COPY --link --from=docker-cli /docker /bin/
-COPY --link . dotfiles
-
-WORKDIR /purgatory/dotfiles/${ROLE_PATH}
-
-ENTRYPOINT [ "uv", "run", "molecule", "test" ]
-
-# Install setup on the target host
-# FROM deps AS provision
-# COPY --link . dotfiles
-# ENTRYPOINT [ "uv", "run", "molecule", "test" ]
+# Ansible
+FROM deps AS provision
+COPY --link . .
+ENTRYPOINT [ "uv", "run" ]
+CMD [ "ansible-playbook", "--ask-become-pass", "--inventory", \
+    ".ansible/inventory.ini", \
+    ".ansible/playbook.yml" \
+]

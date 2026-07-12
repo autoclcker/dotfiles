@@ -1,6 +1,7 @@
-.git
+.git/
+.venv/
+.vscode/
 .gitignore
-.vscode
 Dockerfile.ansible
 Dockerfile.smoke
 README.md

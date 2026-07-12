@@ -89,7 +89,7 @@ end, { desc = "Add Surrounding in visual mode", silent = true })
 
 -- Operand mode
 -- 'ae' (around entire): Selects the entire buffer contents
-vim.keymap.set({ "o", "x" }, "ae", "<cmd><C-u>normal! ggVG<CR>", { desc = "Select entire buffer" })
+vim.keymap.set({ "o", "x" }, "ae", ":<C-u>normal! ggVG<CR>", { desc = "Select entire buffer" })
 
 -- 'ie' (inner entire): Selects the entire buffer ignoring leading/trailing empty lines
 vim.keymap.set({ "o", "x" }, "ie", function()

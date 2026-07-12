@@ -1,7 +1,8 @@
-.ansible/**/.ansible
+.ansible/**/.ansible/
 .ansible/collections/
 .ansible/modules/
-.vscode
+.venv/
+.vscode/
 **/.gitignore
 **/*.bak
 **/community/
@@ -12,7 +13,6 @@
 !copyq-commands.ini
 !copyq.conf
 com.system76.CosmicBackground
-com.system76.CosmicFiles
 com.system76.CosmicSettings
 com.system76.CosmicSettings.Wallpaper
 pinned_workspaces

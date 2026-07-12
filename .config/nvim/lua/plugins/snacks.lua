@@ -6,6 +6,8 @@ return {
         input = {
           keys = {
             ["<M-r>"] = false,
+            ["<C-c>"] = { "focus_list", mode = "i" },
+            ["<Esc>"] = { "focus_list", mode = "i" },
             ["<C-h>"] = { "toggle_hidden", mode = { "i", "n" } },
             ["<C-o>"] = { "toggle_regex", mode = { "i", "n" } },
             ["<Tab>"] = { "inspect", mode = { "n", "i" } },

@@ -1,6 +1,8 @@
 all: help
 .PHONY: all
 
+-include .ansible/Makefile
+
 DE ?= ${PWD}/scripts/installation/driver.sh
 WRAPPERS ?= ${PWD}/scripts/wrappers
 
@@ -22,20 +24,37 @@ BRANCH ?= $(shell git branch --show-current)
 REV ?= $(shell git rev-parse --short HEAD)
 SHELL := /bin/bash
 
+ansible/check-env-vars:
+	@for var in ANSIBLE_SSH_KEY ANSIBLE_HOST ANSIBLE_USER; do \
+		if [ -z "$${!var}" ]; then \
+			printf "=================================================================\n"; \
+			printf "❌ ERROR: Environment variable %s is not set.\n" "$$var"; \
+			printf "💡 Help: You must provide it via your shell:\n\n"; \
+			printf "export $$var=value\n\n"; \
+			printf "=================================================================\n"; \
+			exit 1; \
+		fi; \
+	done
+.PHONY: ansible/check-env-vars
+
 ansible/dry-run: docker/build-molecule ### Validate Setup integrity
 	@docker run --rm --env GITHUB_TOKEN=${GITHUB_TOKEN} \
 		--volume /var/run/docker.sock:/var/run/docker.sock \
 		${BRANCH}/molecule:${REV}
 .PHONY: ansible/dry-run
 
-# TODO: implement
-# ansible/install: docker/build-ansible ### Install setup on the target host
-# 	@docker run --rm ${BRANCH}/ansible:${REV}
-# .PHONY: ansible/install
+ansible/install: ansible/check-env-vars docker/build-ansible ### Install setup on the target hosts
+	@docker run --rm --interactive --tty --volume ${ANSIBLE_SSH_KEY}:/root/.ssh/ansible \
+		${BRANCH}/ansible:${REV} ansible-playbook \
+		--extra-vars "ansible_host=${ANSIBLE_HOST}" \
+		--extra-vars "ansible_user=${ANSIBLE_USER}" \
+		--inventory .ansible/inventory.ini \
+		--ask-become-pass .ansible/playbook.yml
+.PHONY: ansible/install
 
 ansible/lint: ### Static analysis of Ansible manifests
 	@docker buildx build --tag ${BRANCH}/ansible-lint:${REV} --target lint --file Dockerfile.ansible .
-.PRONE: ansible/lint
+.PHONY: ansible/lint
 
 docker%: export GITHUB_TOKEN ?= "STUB"
 
@@ -48,7 +67,7 @@ docker/build-debug:
 .PHONY: docker/build-debug
 
 docker/build-molecule: ansible/lint
-	@docker buildx build --quiet --tag ${BRANCH}/molecule:${REV} --target dry-run --file Dockerfile.ansible .
+	@docker buildx build --tag ${BRANCH}/molecule:${REV} --target dry-run --file Dockerfile.ansible .
 .PHONY: docker/build-molecule
 
 docker/debug: docker/build-debug ### Debug in Docker

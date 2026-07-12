@@ -24,18 +24,18 @@
         dest: "{{ autoclcker_local_temp.path }}/dotfiles.tar.gz"
         mode: "440"
         exclusion_patterns:
-          - ".vscode"
-          - "**/.gitignore"
+          - ".venv/"
+          - ".vscode/"
           - "**/com.system76.CosmicBackground/*"
-          - "**/com.system76.CosmicFiles/*"
           - "**/com.system76.CosmicSettings.Wallpaper/*"
           - "**/com.system76.CosmicSettings/*"
           - "**/community/*"
+          - "**/tmux/plugins/*"
+          - "**/yazi/plugins/*"
+          - "**/.gitignore"
           - "**/copyq/.copyq_s"
           - "**/pinned_workspaces"
-          - "**/tmux/plugins/*"
           - "**/xkb_config"
-          - "**/yazi/plugins/*"
         format: gz
       delegate_to: localhost
       no_log: true
