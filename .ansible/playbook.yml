@@ -3,5 +3,7 @@
   hosts: all
   become: true
   gather_facts: true
+  vars:
+    autoclcker_dotfiles_src: "../."
   roles:
     - role: autoclcker

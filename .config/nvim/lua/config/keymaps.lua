@@ -58,6 +58,7 @@ if vim.g.neovide then
     vim.g.neovide_fullscreen = not vim.g.neovide_fullscreen
   end)
 end
+vim.keymap.set("n", "<leader>=", "<cmd>LazyFormat<cr>", { desc = "Format Buffer" })
 
 -- Command mode
 vim.keymap.set("c", "<C-a>", "<Home>", { desc = "Move cursor to the beginning of the line start in command mode" })

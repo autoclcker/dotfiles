@@ -6,6 +6,8 @@ all: help
 DE ?= ${PWD}/scripts/installation/driver.sh
 WRAPPERS ?= ${PWD}/scripts/wrappers
 
+REMOTE_INSTALL_ENVS := ANSIBLE_HOST ANSIBLE_USER ANSIBLE_SSH_KEY_FILE GITHUB_TOKEN
+
 CONFIG_CLI_APPS := cheat mise mimeapps.list systemd
 CONFIG_GUI_APPS := autostart copyq cosmic ghostty wireshark
 CONFIG_TUI_APPS := bookokrat btop dive k9s lazydocker lazygit nvim procps tmux yazi
@@ -25,12 +27,15 @@ REV ?= $(shell git rev-parse --short HEAD)
 SHELL := /bin/bash
 
 ansible/check-env-vars:
-	@for var in ANSIBLE_SSH_KEY ANSIBLE_HOST ANSIBLE_USER; do \
+	@for var in $(REMOTE_INSTALL_ENVS); do \
 		if [ -z "$${!var}" ]; then \
 			printf "=================================================================\n"; \
 			printf "❌ ERROR: Environment variable %s is not set.\n" "$$var"; \
-			printf "💡 Help: You must provide it via your shell:\n\n"; \
-			printf "export $$var=value\n\n"; \
+			printf "💡 Help: You can provide it via your shell:\n\n"; \
+			printf "export %s=%%%%YOUR_%s%%%%\n\n" "$$var" "$$var"; \
+			printf "=================================================================\n"; \
+			printf "ℹ️  Note: you must define all of the following variables:\n"; \
+			printf "• %s\n" $(REMOTE_INSTALL_ENVS); \
 			printf "=================================================================\n"; \
 			exit 1; \
 		fi; \
@@ -43,13 +48,15 @@ ansible/dry-run: docker/build-molecule ### Validate Setup integrity
 		${BRANCH}/molecule:${REV}
 .PHONY: ansible/dry-run
 
-ansible/install: ansible/check-env-vars docker/build-ansible ### Install setup on the target hosts
-	@docker run --rm --interactive --tty --volume ${ANSIBLE_SSH_KEY}:/root/.ssh/ansible \
-		${BRANCH}/ansible:${REV} ansible-playbook \
-		--extra-vars "ansible_host=${ANSIBLE_HOST}" \
-		--extra-vars "ansible_user=${ANSIBLE_USER}" \
-		--inventory .ansible/inventory.ini \
-		--ask-become-pass .ansible/playbook.yml
+ansible/install: ansible/check-env-vars docker/build-ansible ### Install setup on the target host
+	@docker run --rm --network=host --interactive --tty \
+		--volume ${ANSIBLE_SSH_KEY_FILE}:/root/.ssh/ansible \
+		--env GITHUB_TOKEN=${GITHUB_TOKEN} ${BRANCH}/ansible:${REV} \
+		ansible-playbook --ask-become-pass --inventory .ansible/inventory.ini \
+			--extra-vars "ansible_host=${ANSIBLE_HOST}" \
+			--extra-vars "ansible_user=${ANSIBLE_USER}" \
+			--extra-vars "autoclcker_dotfiles_src=." \
+			.ansible/playbook.yml
 .PHONY: ansible/install
 
 ansible/lint: ### Static analysis of Ansible manifests

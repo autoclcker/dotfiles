@@ -8,6 +8,7 @@ font-family-italic = "Hack Nerd Font"
 font-style-italic = "Italic"
 font-family-bold-italic = "Hack Nerd Font"
 font-style-bold-italic = "BoldItalic"
+font-feature = -calt
 
 quick-terminal-animation-duration = 0
 

@@ -15,6 +15,7 @@ ARG PYTHON_VERSION=3.14.3
 ARG ROLE_PATH=.ansible/roles/autoclcker
 ARG SRCDIR=/purgatory/dotfiles
 
+ENV DEBIAN_FRONTEND=noninteractive
 ENV UV_LINK_MODE=copy
 ENV UV_PYTHON_CACHE_DIR=/root/.cache/uv/python
 
@@ -24,7 +25,7 @@ RUN --mount=target=/var/cache/apt,type=cache,sharing=locked \
     --mount=target=/var/lib/apt/lists,type=cache,sharing=locked \
     apt-get update && apt-get --yes --no-install-recommends install \
         ca-certificates=20250419 \
-        openssh-client>=10.*
+        openssh-client=1:10.*
 RUN --mount=type=cache,target=/root/.cache/uv,sharing=shared \
     uv venv --python ${PYTHON_VERSION}
 RUN --mount=type=bind,source=${ROLE_PATH}/requirements.txt,target=requirements.txt \
