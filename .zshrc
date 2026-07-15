@@ -44,6 +44,7 @@ alias lR='eza --tree --color=always --icons=always'
 alias ls='eza --color=always --icons=always'
 
 PROMPT_EOL_MARK=''
+bindkey '\e[13;5u' push-line
 bindkey '^ ' autosuggest-accept
 bindkey "^U" backward-kill-line
 bindkey -M menuselect 'h' vi-backward-char

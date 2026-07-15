@@ -14,5 +14,10 @@
     appid: "Neovide",
     title: ".*"
   ),
+  (
+    enabled: true,
+    appid: "Cosmic",
+    title: ".*"
+  ),
 ]
 
