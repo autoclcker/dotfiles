@@ -1,5 +1,6 @@
 [Default Applications]
 application/json=neovide.desktop
+application/xml=neovide.desktop
 application/octet-stream=neovide.desktop
 application/vnd.apple.keynote=neovide.desktop
 application/x-shellscript=neovide.desktop
