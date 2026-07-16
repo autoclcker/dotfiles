@@ -9,12 +9,12 @@ NVIDIA=("libva-nvidia-driver" "nvidia-open-dkms" "nvidia-settings" "nvidia-utils
 POWER_MANAGEMENT=("cpupower" "system76-acpi-dkms" "system76-power" "upower")
 PREREQUISITES=("linux-headers" "man-pages" "man-db")
 SOUND=("pipewire" "pipewire-alsa" "pipewire-pulse" "sof-firmware" "wireplumber")
-UX_RESPONSIVENESS=("system76-scheduler" "switcheroo")
+UX_RESPONSIVENESS=("switcheroo" "system76-scheduler")
 WAYLAND_COMPOSITOR=("cosmic-session" "cosmic-wallpapers")
 
 APPS_SVC=("containerd" "docker")
 AUTOSTART_SVC=("dotool" "udiskie")
-DESKTOP_SVC=("system76-scheduler" "cosmic-greeter" "switcheroo-control")
+DESKTOP_SVC=("com.system76.Scheduler.service" "cosmic-greeter" "switcheroo-control")
 NETWORK_SVC=("bluetooth" "NetworkManager")
 POWER_CONTROL_SVC=("com.system76.PowerDaemon" "cpupower")
 
