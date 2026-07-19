@@ -7,6 +7,6 @@ autoclcker_is_passwordless_sudo: false
 
 autoclcker_dotfiles_src: "../../../../../."
 autoclcker_dotfiles_git: https://github.com/autoclcker/dotfiles.git
-autoclcker_dotfiles_dst: "/home/{{ autoclcker_user }}/Desktop/Projects"
+autoclcker_dotfiles_dst: "/home/{{ autoclcker_user }}"
 
 autoclcker_become: true

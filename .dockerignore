@@ -2,6 +2,7 @@
 .venv/
 .vscode/
 .gitignore
+**/*.tar.gz
 Dockerfile.ansible
 Dockerfile.smoke
 README.md
