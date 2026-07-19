@@ -1,6 +1,7 @@
 ---
 autoclcker_group: autoclcker
 autoclcker_user: autoclcker
+autoclcker_password_hash: ""
 autoclcker_comment: ""
 autoclcker_is_passwordless_sudo: false
 

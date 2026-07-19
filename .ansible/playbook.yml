@@ -32,7 +32,7 @@
     - name: Load OS-specific variables
       ansible.builtin.include_vars: "{{ os_family }}.yml"
 
-    - name: Boostrap using raw command
+    - name: Bootstrap using raw command
       ansible.builtin.raw: "{{ bootstrap_command }}"
       changed_when: false
 
