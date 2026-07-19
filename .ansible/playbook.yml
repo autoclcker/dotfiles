@@ -1,9 +1,69 @@
 ---
-- name: Install dotfiles
+- name: Initialize remote hosts
   hosts: all
   become: true
-  gather_facts: true
+  become_user: root
+  become_method: ansible.builtin.su
+  gather_facts: false
+  tags: [never, init]
+
+  tasks:
+    - name: Get OS release details
+      ansible.builtin.raw: cat /etc/os-release
+      register: os_release_raw
+      changed_when: false
+
+    - name: Set OS family dynamically
+      ansible.builtin.set_fact:
+        os_family: |-
+          {%- if 'Alpine' in os_release_raw.stdout -%} Alpine
+          {%- elif 'Ubuntu' in os_release_raw.stdout or 'Debian' in os_release_raw.stdout -%} Debian
+          {%- elif 'Pop!_OS' in os_release_raw.stdout or 'Kali' in os_release_raw.stdout -%} Debian
+          {%- elif 'SLES' in os_release_raw.stdout or 'SUSE' in os_release_raw.stdout -%} Suse
+          {%- elif 'Arch' in os_release_raw.stdout -%} Archlinux
+          {%- else -%} Unknown{%- endif -%}
+
+    - name: Fail if os_family is not recognized
+      ansible.builtin.fail:
+        msg:
+          "The Playbook does not support this OS yet"
+      when: os_family == "Unknown"
+
+    - name: Load OS-specific variables
+      ansible.builtin.include_vars: "{{ os_family }}.yml"
+
+    - name: Boostrap using raw command
+      ansible.builtin.raw: "{{ bootstrap_command }}"
+      changed_when: false
+
+    - name: Configure sudo access
+      ansible.builtin.template:
+        src: templates/sudoers.j2
+        dest: "/etc/sudoers.d/{{ ansible_user }}"
+        owner: root
+        group: root
+        mode: "0440"
+        validate: "/usr/sbin/visudo --check --file %s"
+
+- name: Install dotfiles
+  hosts: all
+
+  vars_prompt:
+    - name: "github_token"
+      prompt: "Enter GITHUB_TOKEN (or leave blank to use OS env var)"
+      private: true
+    - name: "linux_user_password"
+      prompt: "Enter the password for the created Linux user"
+      private: true
+      confirm: true
   vars:
-    autoclcker_dotfiles_src: "../."
+    autoclcker_dotfiles_src: "{{ playbook_dir }}/.."
+    autoclcker_github_token: "{{ github_token }}"
+
+  pre_tasks:
+    - name: Set password hash
+      ansible.builtin.set_fact:
+        autoclcker_password_hash: "{{ linux_user_password | password_hash('sha512') }}"
+      when: linux_user_password | length > 0
   roles:
     - role: autoclcker

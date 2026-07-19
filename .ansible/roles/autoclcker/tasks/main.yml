@@ -12,9 +12,11 @@
 
     - name: Fail if GITHUB_TOKEN is not provided
       ansible.builtin.fail:
-        msg: "The autoclcker Ansible role requires you to specify the 'autoclcker_github_token' variable.
+        msg:
+          "The autoclcker Ansible role requires you to specify the 'autoclcker_github_token' variable.
           The value can be loaded from the GITHUB_TOKEN environment variable."
       when: autoclcker_github_token is not defined or autoclcker_github_token | length == 0
+      tags: [install]
 
 - name: Fail if OS is not supported
   ansible.builtin.fail:
@@ -30,6 +32,7 @@
 - name: Satisfy requirements
   ansible.builtin.import_tasks:
     file: bootstrap.yml
+  become: "{{ autoclcker_become | default('true') }}"
 
 - name: Install Desktop Environment
   ansible.builtin.import_tasks:

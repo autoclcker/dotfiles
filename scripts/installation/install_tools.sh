@@ -33,8 +33,8 @@ if [[ ! $(yay --version) ]] && [[ ${#PACKAGES[@]} -gt 0 ]]; then
   exit 1
 elif [[ ${#PACKAGES[@]} -gt 0 ]]; then
   yay --refresh --sync
-  yay --needed --noconfirm --sync "${PREREQUISITES[@]}"
-  yay --needed --noconfirm --sync "${PACKAGES[@]}"
+  yay --needed --noconfirm --removemake --sync "${PREREQUISITES[@]}"
+  yay --needed --noconfirm --removemake --sync "${PACKAGES[@]}"
 fi
 
 MISE_LOG_LEVEL=error mise install --yes

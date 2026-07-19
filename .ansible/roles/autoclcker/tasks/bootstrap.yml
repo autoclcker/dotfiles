@@ -16,18 +16,16 @@
   ansible.builtin.group:
     name: "{{ autoclcker_group | default('autoclcker') }}"
     state: present
-  become: "{{ autoclcker_become | default('true') }}"
 
 - name: bootstrap | Ensure dotfiles user exists
   ansible.builtin.user:
     name: "{{ autoclcker_user | default('autoclcker') }}"
-    password: ''
+    password: "{{ autoclcker_password_hash | default('', true) }}"
     comment: "{{ autoclcker_comment | default(omit) }}"
     update_password: on_create
     state: present
     group: "{{ autoclcker_group | default('autoclcker') }}"
     createhome: true
-  become: "{{ autoclcker_become | default('true') }}"
   notify: Configure set password prompt
 
 - name: bootstrap | Ensure dotfiles directory exists
@@ -37,4 +35,3 @@
     owner: "{{ autoclcker_user | default('autoclcker') }}"
     group: "{{ autoclcker_group | default('autoclcker') }}"
     mode: "0755"
-  become: "{{ autoclcker_become | default('true') }}"

@@ -14,7 +14,7 @@ WAYLAND_COMPOSITOR=("cosmic-session" "cosmic-wallpapers")
 
 APPS_SVC=("containerd" "docker")
 AUTOSTART_SVC=("dotool" "udiskie")
-DESKTOP_SVC=("com.system76.Scheduler.service" "cosmic-greeter" "switcheroo-control")
+DESKTOP_SVC=("com.system76.Scheduler" "cosmic-greeter" "switcheroo-control")
 NETWORK_SVC=("bluetooth" "NetworkManager")
 POWER_CONTROL_SVC=("com.system76.PowerDaemon" "cpupower")
 
@@ -39,8 +39,8 @@ fi
 
 # Desktop Environment
 yay --refresh --sync
-yay --needed --noconfirm --sync "${PREREQUISITES[@]}"
-yay --needed --noconfirm --sync "${PACKAGES[@]}"
+yay --needed --noconfirm --removemake --sync "${PREREQUISITES[@]}"
+yay --needed --noconfirm --removemake --sync "${PACKAGES[@]}"
 
 # Systemd
 for u in "${UNITS[@]}"; do

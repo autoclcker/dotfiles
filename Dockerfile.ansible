@@ -15,6 +15,7 @@ ARG PYTHON_VERSION=3.14.3
 ARG ROLE_PATH=.ansible/roles/autoclcker
 ARG SRCDIR=/purgatory/dotfiles
 
+ENV ANSIBLE_CONFIG=${SRCDIR}/.ansible/ansible.cfg
 ENV DEBIAN_FRONTEND=noninteractive
 ENV UV_LINK_MODE=copy
 ENV UV_PYTHON_CACHE_DIR=/root/.cache/uv/python
@@ -56,7 +57,6 @@ FROM deps AS lint
 RUN --mount=type=bind,source=.ansible,target=.ansible \
     --mount=type=cache,target=/root/.cache/uv,sharing=shared \
     uv run ansible-playbook --syntax-check \
-        --inventory .ansible/inventory.ini \
         .ansible/playbook.yml
 RUN --mount=type=bind,source=.ansible,target=.ansible \
     --mount=type=cache,target=/root/.cache/uv,sharing=shared \
@@ -74,7 +74,4 @@ ENTRYPOINT [ "molecule-entrypoint.sh" ]
 FROM deps AS provision
 COPY --link . .
 ENTRYPOINT [ "uv", "run" ]
-CMD [ "ansible-playbook", "--ask-become-pass", "--inventory", \
-    ".ansible/inventory.ini", \
-    ".ansible/playbook.yml" \
-]
+CMD [ "ansible-playbook", ".ansible/playbook.yml" ]

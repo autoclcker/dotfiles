@@ -6,7 +6,7 @@ all: help
 DE ?= ${PWD}/scripts/installation/driver.sh
 WRAPPERS ?= ${PWD}/scripts/wrappers
 
-REMOTE_INSTALL_ENVS := ANSIBLE_HOST ANSIBLE_USER ANSIBLE_SSH_KEY_FILE GITHUB_TOKEN
+REMOTE_INSTALL_ENVS := ANSIBLE_HOST ANSIBLE_USER ANSIBLE_PASSWORD GITHUB_TOKEN
 
 CONFIG_CLI_APPS := cheat mise mimeapps.list systemd
 CONFIG_GUI_APPS := autostart copyq cosmic ghostty wireshark
@@ -49,13 +49,11 @@ ansible/dry-run: docker/build-molecule ### Validate Setup integrity
 .PHONY: ansible/dry-run
 
 ansible/install: ansible/check-env-vars docker/build-ansible ### Install setup on the target host
-	@docker run --rm --network=host --interactive --tty \
-		--volume ${ANSIBLE_SSH_KEY_FILE}:/root/.ssh/ansible \
-		--env GITHUB_TOKEN=${GITHUB_TOKEN} ${BRANCH}/ansible:${REV} \
-		ansible-playbook --ask-become-pass --inventory .ansible/inventory.ini \
+	@docker run --rm --network=host --interactive --tty --env GITHUB_TOKEN=${GITHUB_TOKEN} \
+		${BRANCH}/ansible:${REV} ansible-playbook \
 			--extra-vars "ansible_host=${ANSIBLE_HOST}" \
 			--extra-vars "ansible_user=${ANSIBLE_USER}" \
-			--extra-vars "autoclcker_dotfiles_src=." \
+			--extra-vars "ansible_password=${ANSIBLE_PASSWORD}" \
 			.ansible/playbook.yml
 .PHONY: ansible/install
 
