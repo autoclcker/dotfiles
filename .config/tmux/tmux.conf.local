@@ -439,6 +439,8 @@ bind -n M-m run "cut -c3- '#{TMUX_CONF}' | sh -s _maximize_pane '#{session_name}
 bind -n M-s split-window -v
 # split current window vertically
 bind -n M-v split-window -h
+# floating pane
+bind -n M-N new-pane -x 50% -y 50%
 
 # destroy pane
 bind -n M-d kill-pane
@@ -516,7 +518,11 @@ bind -n C-Escape send-keys C-l \; run 'sleep 0.2' \; clear-history
 set -g @easymotion-s  "none"
 set -g @easymotion-s2  "BSpace"
 set -g @easymotion-case-sensitive 'true'
+set -g @easymotion-copy-mode-no-prefix 'true'
+set -g @resurrect-capture-pane-contents 'on'
+set -g @resurrect-processes 'atop btop nodpi nvtop rustnet yazi'
 run-shell $XDG_CONFIG_HOME/tmux/plugins/tmux-easymotion/easymotion.tmux
+run-shell $XDG_CONFIG_HOME/tmux/plugins/tmux-resurrect/resurrect.tmux
 
 # -- tpm -----------------------------------------------------------------------
 

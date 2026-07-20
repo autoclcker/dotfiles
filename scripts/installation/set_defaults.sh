@@ -10,15 +10,15 @@ OH_MY_ZSH_URL=${OH_MY_ZSH_URL:-"https://raw.githubusercontent.com/ohmyzsh/ohmyzs
 
 CHEATSHEETS_REPO=${CHEATSHEETS_REPO:-"https://github.com/cheat/cheatsheets.git"}
 HELM_DIFF_REPO=${HELM_DIFF_REPO:-"https://github.com/databus23/helm-diff"}
-NERD_FONTS_REPO=${NERD_FONTS_REPO:-"https://github.com/ryanoasis/nerd-fonts.git"}
 TMUX_EASYMOTION_REPO=${TMUX_EASYMOTION_REPO:-"https://github.com/ddzero2c/tmux-easymotion.git"}
+TMUX_RESURRECT_REPO=${TMUX_RESURRECT_REPO:-"https://github.com/tmux-plugins/tmux-resurrect.git"}
 ZSH_AUTOSUGGESTIONS_REPO=${ZSH_AUTOSUGGESTIONS_REPO:-"https://github.com/zsh-users/zsh-autosuggestions.git"}
 ZSH_SYNTAX_HIGHLIGHTING_REPO=${ZSH_SYNTAX_HIGHLIGHTING_REPO:-"https://github.com/zsh-users/zsh-syntax-highlighting.git"}
 
 TZ=${TZ:-"Europe/Moscow"}
 
 LOCALES=("en_US.UTF-8 UTF-8" "ru_RU.UTF-8 UTF-8")
-TMUX_EASYMOTION_VERSION=${TMUX_EASYMOTION_VERSION:-"v1.2.2"}
+TMUX_EASYMOTION_VERSION=${TMUX_EASYMOTION_VERSION:-"v1.4.0"}
 
 HELM_DIFF_PATH=${HELM_DIFF_PATH:-"$HOME/.local/share/helm/plugins/helm-diff"}
 
@@ -110,10 +110,11 @@ ya pkg install &>/dev/null || log "${YELLOW}" "Warning: Yazi is not installed\n"
 # Tmux
 if [[ ! $(tmux -V) ]]; then
   log "${YELLOW}" "Warning: Tmux is not installed\n"
-elif [[ ! -d "${TMUX_PLUGINS_HOME}/tmux-easymotion" ]]; then
+elif [[ ! -d "${TMUX_PLUGINS_HOME}" ]]; then
   mkdir --parents "$TMUX_PLUGINS_HOME"
   pushd "$_" || exit 1
   git clone --depth 1 --branch "${TMUX_EASYMOTION_VERSION}" "${TMUX_EASYMOTION_REPO}"
+  git clone --depth 1 "${TMUX_RESURRECT_REPO}"
 else
   log "${CYAN}" "Tmux plugins are already installed\n"
 fi
