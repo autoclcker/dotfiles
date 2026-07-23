@@ -65,5 +65,6 @@
       ansible.builtin.set_fact:
         autoclcker_password_hash: "{{ linux_user_password | password_hash('sha512') }}"
       when: linux_user_password | length > 0
+      no_log: true
   roles:
     - role: autoclcker

@@ -56,8 +56,7 @@ RUN --mount=type=bind,source=${ROLE_PATH}/molecule,target=molecule \
 FROM deps AS lint
 RUN --mount=type=bind,source=.ansible,target=.ansible \
     --mount=type=cache,target=/root/.cache/uv,sharing=shared \
-    uv run ansible-playbook --syntax-check \
-        .ansible/playbook.yml
+    uv run ansible-playbook --syntax-check .ansible/playbook.yml
 RUN --mount=type=bind,source=.ansible,target=.ansible \
     --mount=type=cache,target=/root/.cache/uv,sharing=shared \
     uv run ansible-lint --offline --strict \

@@ -190,7 +190,7 @@ plugins:
     args:
       - -ci
       - >-
-        kubectl logs $NAME --namespace $NAMESPACE --context $CONTEXT --tail=100000 | less
+        kubectl logs $NAME --namespace $NAMESPACE --context $CONTEXT --tail=10000 | less
   previous-logs:
     shortCut: Shift-P
     confirm: false
