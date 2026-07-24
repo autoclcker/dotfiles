@@ -129,7 +129,7 @@ elif [[ ! -d "${ZSH_PLUGINS_HOME}/zsh-autosuggestions" ]]; then
                 --location \
                 --silent \
                 --fail \
-                "$OH_MY_ZSH_URL")" --keep-zshrc --unattended
+                "$OH_MY_ZSH_URL")" "" --keep-zshrc --unattended
   git clone --depth 1 "${ZSH_AUTOSUGGESTIONS_REPO}" "${ZSH_PLUGINS_HOME:-$ZSH_PLUGINS_HOME}/zsh-autosuggestions"
   git clone --depth 1 "${ZSH_SYNTAX_HIGHLIGHTING_REPO}" "${ZSH_PLUGINS_HOME:-$ZSH_PLUGINS_HOME}/zsh-syntax-highlighting"
 else
