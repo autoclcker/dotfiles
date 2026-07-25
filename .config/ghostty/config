@@ -43,6 +43,8 @@ keybind = ctrl+alt+k=goto_split:up
 keybind = ctrl+alt+j=goto_split:down
 keybind = ctrl+alt+l=goto_split:right
 keybind = ctrl+alt+h=goto_split:left
+keybind = ctrl+alt+'=goto_split:previous
+keybind = ctrl+alt+z=toggle_split_zoom
 
 keybind = ctrl+alt+up=resize_split:up,20
 keybind = ctrl+alt+down=resize_split:down,20
