@@ -4,8 +4,6 @@ zstyle ':omz:update' mode disabled
 plugins=(
 	aliases
 	ansible
-	ant
-	bazel
 	command-not-found
 	copyfile
 	dircycle

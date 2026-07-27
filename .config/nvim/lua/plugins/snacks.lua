@@ -101,7 +101,14 @@ return {
       "<M-t>",
       mode = { "n", "t" },
       function()
-        Snacks.terminal.toggle(nil, { auto_insert = true })
+        local terms = Snacks.terminal.list()
+        if #terms > 0 then
+          for _, term in ipairs(terms) do
+            term:toggle()
+          end
+        else
+          Snacks.terminal.open(nil, { auto_insert = true })
+        end
       end,
       desc = "Toggle Terminal",
     },
@@ -117,14 +124,14 @@ return {
       "<C-v>",
       mode = { "t" },
       function()
-        Snacks.terminal.open(nil, { auto_insert = true })
+        Snacks.terminal.open(nil, { auto_insert = true, count = #Snacks.terminal.list() + 1 })
       end,
       desc = "Open Split Terminal",
     },
     {
       "<leader>t",
       function()
-        Snacks.terminal(nil, { cwd = vim.fn.expand("%:p:h"), auto_insert = true })
+        Snacks.terminal.open(nil, { cwd = vim.fn.expand("%:p:h"), auto_insert = true })
       end,
       desc = "Open Terminal in fileDir",
     },

@@ -3,7 +3,7 @@
 BROWSERS=("brave-bin" "google-chrome")
 CLI_APPS=("docker" "docker-compose" "docker-buildx" "dotool" "udiskie")
 GUI_APPS=("${BROWSERS[@]}" "copyq" "ghostty" "vscodium-bin" "wireshark-qt")
-INTEL=("intel-media-driver" "intel-ucode" "mesa" "vulkan-intel")
+INTEL=("intel-media-driver" "intel-ucode" "mesa" "vpl-gpu-rt" "vulkan-intel")
 NETWORK=("bluez" "bluez-utils" "networkmanager")
 NVIDIA=("libva-nvidia-driver" "nvidia-open-dkms" "nvidia-settings" "nvidia-utils")
 POWER_MANAGEMENT=("cpupower" "system76-acpi-dkms" "system76-power" "upower")

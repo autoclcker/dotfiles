@@ -123,6 +123,7 @@ vim.keymap.set("n", "<C-w>t", "<cmd>terminal<cr>i", { noremap = true, silent = t
 vim.keymap.set("t", "<C-]>", "<C-\\><C-n><C-w>l", { desc = "Terminal Right" })
 vim.keymap.set("t", "<C-[>", "<C-\\><C-n><C-w>h", { desc = "Terminal Left" })
 vim.keymap.set("t", "<C-n>", "<C-\\><C-n>", { desc = "Enter Normal mode" })
+vim.keymap.set('t', '<C-l>', '<cmd>redraw!<CR>', { buffer = true })
 
 -- Buffers
 vim.keymap.set("n", "<M-k>", "<cmd>BufferLineCycleNext<cr>", { desc = "Prev Buffer" })
