@@ -7,14 +7,6 @@ vim.api.nvim_create_autocmd("ExitPre", {
   desc = "Set cursor back to beam when leaving Neovim.",
 })
 
-vim.api.nvim_create_autocmd("TermOpen", {
-  pattern = "*",
-  callback = function()
-    pcall(vim.keymap.del, "t", "<C-l>", { buffer = true })
-    pcall(vim.keymap.del, "t", "<C-h>", { buffer = true })
-  end,
-})
-
 vim.api.nvim_create_autocmd("BufWinEnter", {
   group = vim.api.nvim_create_augroup("snacks_explorer_autorefresh", { clear = true }),
   callback = function(event)
