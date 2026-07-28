@@ -1,6 +1,6 @@
 return {
   "lewis6991/satellite.nvim",
-  event = "VeryLazy", -- Load when Neovim starts
+  event = "VeryLazy",
   config = function()
     require("satellite").setup({
       current_only = false,

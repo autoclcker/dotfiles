@@ -82,6 +82,7 @@ vim.keymap.set(
 vim.keymap.set("i", "<C-x>e", "<C-o>:", { noremap = true, silent = true, desc = "Command mode" })
 vim.keymap.set("i", "<M-j>", "<Down>", { noremap = true, silent = true, desc = "Move cursor down in insert mode" })
 vim.keymap.set("i", "<M-k>", "<Up>", { noremap = true, silent = true, desc = "Move cursor up in insert mode" })
+vim.keymap.set('i', '<C-g>', '<C-t>', { noremap = true, silent = true, desc = "Indent forward " })
 
 -- Visual mode
 vim.keymap.set("x", "S", function()
@@ -99,7 +100,6 @@ vim.keymap.set({ "o", "x" }, "ie", function()
   local last_non_blank = vim.fn.prevnonblank(buflen)
 
   if first_non_blank == 0 or last_non_blank == 0 then
-    -- Buffer is empty or contains only whitespace
     vim.cmd.normal({ args = { "ggVG" }, bang = true })
   else
     vim.cmd.normal({ args = { first_non_blank .. "G0V" .. last_non_blank .. "G$" }, bang = true })

@@ -1,5 +1,6 @@
 return {
   "saghen/blink.cmp",
+  event = "LazyFile",
   version = not vim.g.lazyvim_blink_main and "*",
   build = vim.g.lazyvim_blink_main and "cargo build --release",
   opts_extend = {
@@ -17,7 +18,6 @@ return {
       version = not vim.g.lazyvim_blink_main and "*",
     },
   },
-  event = "InsertEnter",
 
   opts = {
     snippets = {

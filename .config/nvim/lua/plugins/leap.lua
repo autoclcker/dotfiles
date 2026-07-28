@@ -1,5 +1,6 @@
 return {
   url = "https://codeberg.org/andyg/leap.nvim",
+  event = "VeryLazy",
   enabled = true,
   keys = false,
   config = function(_, _)

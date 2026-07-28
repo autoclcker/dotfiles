@@ -1,5 +1,6 @@
 return {
   "hedyhli/outline.nvim",
+  event = "LazyFile",
   config = function()
     vim.keymap.set("n", "<BS>", "<cmd>OutlineOpen<CR>", { desc = "Open Outline" })
     require("outline").setup({

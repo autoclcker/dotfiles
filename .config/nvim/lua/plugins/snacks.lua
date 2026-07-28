@@ -16,11 +16,11 @@ return {
         input = {
           keys = {
             ["<M-r>"] = false,
-            ["<C-c>"] = { "focus_list", mode = "i" },
-            ["<Esc>"] = { "focus_list", mode = "i" },
+            ["<C-down>"] = { "focus_list", mode = { "i", "n" } },
             ["<C-h>"] = { "toggle_hidden", mode = { "i", "n" } },
             ["<C-o>"] = { "toggle_regex", mode = { "i", "n" } },
-            ["<Tab>"] = { "inspect", mode = { "n", "i" } },
+            ["<Esc>"] = { "close", mode = { "i", "n" } },
+            ["<Tab>"] = { "inspect", mode = { "i", "n" } },
           },
         },
         list = {
@@ -40,6 +40,12 @@ return {
             layout = { position = "right" },
           },
           win = {
+            input = {
+              keys = {
+                ["<C-c>"] = { "focus_list", mode = "i" },
+                ["<Esc>"] = { "focus_list", mode = "i" },
+              },
+            },
             list = {
               keys = {
                 ["<C-j>"] = false,
