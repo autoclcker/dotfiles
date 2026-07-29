@@ -1,0 +1,6 @@
+---
+collections:
+  - name: ansible.posix
+    version: ">=2.2.1"
+  - name: serverscom.mitogen
+    version: ">=1.4.1"

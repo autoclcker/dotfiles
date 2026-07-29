@@ -1,0 +1,2 @@
+ansible-core[requests]>=2.21
+mitogen>=0.3.51

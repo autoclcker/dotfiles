@@ -29,6 +29,12 @@ RUN --mount=target=/var/cache/apt,type=cache,sharing=locked \
         openssh-client=1:10.*
 RUN --mount=type=cache,target=/root/.cache/uv,sharing=shared \
     uv venv --python ${PYTHON_VERSION}
+RUN --mount=type=bind,source=.ansible/requirements.txt,target=requirements.txt \
+    --mount=type=cache,target=/root/.cache/uv,sharing=shared \
+    uv pip install --requirements requirements.txt
+RUN --mount=type=bind,source=.ansible/requirements.yml,target=requirements.yml \
+    --mount=type=cache,target=/root/.cache/uv,sharing=shared \
+    uv run ansible-galaxy collection install --requirements-file requirements.yml
 RUN --mount=type=bind,source=${ROLE_PATH}/requirements.txt,target=requirements.txt \
     --mount=type=cache,target=/root/.cache/uv,sharing=shared \
     uv pip install --requirements requirements.txt

@@ -45,7 +45,7 @@
 "go:github.com/tomnomnom/gron" = "latest"
 "npm:@angular/cli" = "latest"
 "npm:ts-node" = "latest"
-"pipx:ansible-core" = { version = "latest", uvx_args = "--with requests" }
+"pipx:ansible-core" = { version = "latest", uvx_args = "--with mitogen,requests" }
 "pipx:ansible-creator" = "latest"
 "pipx:httpie" = "latest"
 "pipx:ipython" = "latest"

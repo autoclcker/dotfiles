@@ -33,6 +33,7 @@
           - "**/tmux/plugins/*"
           - "**/yazi/plugins/*"
           - "**/.gitignore"
+          - "**/*.tar.gz"
           - "**/copyq/.copyq_s"
           - "**/pinned_workspaces"
           - "**/xkb_config"

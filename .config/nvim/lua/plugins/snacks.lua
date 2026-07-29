@@ -35,6 +35,14 @@ return {
           enabled = true,
           hidden = true,
           replace_netrw = true,
+          actions = {
+            open_terminal = function(picker)
+              local item = picker:current()
+              if not (item and item.file) then return end
+              local dir = item.dir and item.file or vim.fs.dirname(item.file)
+              Snacks.terminal.open(nil, { cwd = dir, auto_insert = true })
+            end,
+          },
           layout = {
             preset = "sidebar",
             layout = { position = "right" },
@@ -71,6 +79,7 @@ return {
                 ["<S-Up>"] = "select_and_prev",
                 ["<Tab>"] = "Inspect",
                 ["o"] = "toggle_preview",
+                ["t"] = "open_terminal",
                 ["x"] = "explorer_move",
               },
             },

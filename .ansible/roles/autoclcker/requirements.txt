@@ -1,4 +1,4 @@
-ansible-core[requests]>=2.10
+ansible-core[requests]>=2.21
 ansible-lint>=26.0.0
 molecule-plugins[docker]>=25.8.12
 yamllint>=1.38.0
