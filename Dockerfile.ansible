@@ -6,7 +6,7 @@ ARG CLIENT_BASE=dockereng/cli-bin
 ARG CLIENT_VERSION=29.6.1@sha256:a4efde61a01ecd0ee88b641a14103c52d209c9ecc49453a94cf61c18cc7451ac
 
 ARG UV_BASE=astral/uv
-ARG UV_VERSION=0.11.26-trixie-slim@sha256:5dbaa15c970f3ea16a15cf6cf2e3d806aabd43e7fff40192d35dd20bab059156
+ARG UV_VERSION=0.12.0-trixie-slim@sha256:b3781c0d61af34f63032d5221a6bf2e46b2a16225a531d2dea0836f09861c190
 
 # Download the core dependencies
 FROM --platform=${BUILDPLATFORM} ${REGISTRY}/${UV_BASE}:${UV_VERSION} AS deps
@@ -33,12 +33,6 @@ RUN --mount=type=bind,source=.ansible/requirements.txt,target=requirements.txt \
     --mount=type=cache,target=/root/.cache/uv,sharing=shared \
     uv pip install --requirements requirements.txt
 RUN --mount=type=bind,source=.ansible/requirements.yml,target=requirements.yml \
-    --mount=type=cache,target=/root/.cache/uv,sharing=shared \
-    uv run ansible-galaxy collection install --requirements-file requirements.yml
-RUN --mount=type=bind,source=${ROLE_PATH}/requirements.txt,target=requirements.txt \
-    --mount=type=cache,target=/root/.cache/uv,sharing=shared \
-    uv pip install --requirements requirements.txt
-RUN --mount=type=bind,source=${ROLE_PATH}/requirements.yml,target=requirements.yml \
     --mount=type=cache,target=/root/.cache/uv,sharing=shared \
     uv run ansible-galaxy collection install --requirements-file requirements.yml
 
