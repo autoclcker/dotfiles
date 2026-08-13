@@ -94,10 +94,9 @@ gui:
   switchToFilesAfterStashApply: true
   switchTabsWithPanelJumpKeys: false
 git:
-  pagers:
+  diffRenderers:
     - colorArg: always
-      pager: delta --paging=never
-      externalDiffCommand: ""
+      command: delta --paging=never
   commit:
     signOff: false
     autoWrapCommitMessage: true
@@ -153,10 +152,13 @@ os:
   openLink: ""
   copyToClipboardCmd: >
     if [[ "$TERM" =~ ^(screen|tmux) ]]; then
+
       printf "\033Ptmux;\033\033]52;c;$(printf {{text}} | base64 -w 0)\a\033\\" > /dev/tty
     else
+
       printf "\033]52;c;$(printf {{text}} | base64 -w 0)\a" > /dev/tty
     fi
+
   readFromClipboardCmd: ""
   shellFunctionsFile: ""
 disableStartupPopups: false

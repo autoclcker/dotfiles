@@ -3,6 +3,7 @@
   ansible.builtin.assert:
     that:
       - autoclcker_become is boolean
+    quiet: true
   when:
     - autoclcker_become is defined
 
@@ -10,6 +11,7 @@
   ansible.builtin.assert:
     that:
       - autoclcker_comment is string
+    quiet: true
   when:
     - autoclcker_comment is defined
 
@@ -17,6 +19,7 @@
   ansible.builtin.assert:
     that:
       - autoclcker_is_passwordless_sudo is boolean
+    quiet: true
   when:
     - autoclcker_is_passwordless_sudo is defined
 
@@ -26,6 +29,7 @@
       - autoclcker_group is string
       - autoclcker_group is match("^[a-z_][a-z0-9_-]*[$]?$")
     fail_msg: "Please use alphanumeric characters only."
+    quiet: true
   when:
     - autoclcker_group is defined
 
@@ -35,6 +39,7 @@
       - autoclcker_user is string
       - autoclcker_user is match("^[a-z_][a-z0-9_-]*[$]?$")
     fail_msg: "Please use alphanumeric characters only."
+    quiet: true
   when:
     - autoclcker_user is defined
 
@@ -52,6 +57,7 @@
           - autoclcker_src.stat.exists
           - autoclcker_src.stat.isdir
         fail_msg: "Please specify the path to the existing directory."
+        quiet: true
 
 - name: assert | Test autoclcker_dotfiles_git
   ansible.builtin.assert:
@@ -60,6 +66,7 @@
       - autoclcker_dotfiles_git is
         regex("^(https|git|ssh)(:\/\/|@)([\\w\\.-]+)(:|\/)([\\w\\.@\\:\/\\-~]+)(\\.git)?(\/)?$")
     fail_msg: "Please provide a valid Git repository URL."
+    quiet: true
 
 - name: assert | Test autoclcker_dotfiles_dst
   ansible.builtin.assert:
@@ -68,3 +75,4 @@
       - autoclcker_dotfiles_dst is string
       - autoclcker_dotfiles_dst is match("^[a-zA-Z0-9/_-]*$")
     fail_msg: "Please use the correct directory name."
+    quiet: true

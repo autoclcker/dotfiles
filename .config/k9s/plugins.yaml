@@ -161,6 +161,7 @@ plugins:
     description: Destroy resource
     scopes:
       - configmaps
+      - cronjobs
       - deployments
       - ingresses
       - jobs

@@ -7,8 +7,8 @@ nav_panel_width: null
 pdf_enabled: true
 pdf_page_layout_mode: single
 pdf_pan_shift: 0
-pdf_render_mode: scroll
-pdf_scale: 0.6514668
+pdf_render_mode: page
+pdf_scale: 0.7356322
 pdf_settings_configured: true
 synctex_editor: null
 theme: "Moonfly"
