@@ -290,7 +290,7 @@ keymap = [
   { on = [
     "c",
     "a",
-  ], run = "plugin ouch zip", desc = "Compress with ouch" },
+  ], run = "plugin ouch tar.gz", desc = "Compress with ouch" },
   { on = [
     "c",
     "m",
