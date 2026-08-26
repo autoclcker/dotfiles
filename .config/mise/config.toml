@@ -23,8 +23,6 @@
 "cargo:systemctl-tui" = "latest"
 "cargo:tealdeer" = "latest"
 "cargo:timr-tui" = "latest"
-"cargo:yazi-cli" = "latest"
-"cargo:yazi-fm" = "latest"
 "cargo:zoxide" = "latest"
 "github:jgm/pandoc" = "latest"
 "github:jqlang/jq" = "latest"
@@ -56,8 +54,9 @@ fastfetch = "latest"
 mc = "latest"
 neovim = "latest"
 starship = "latest"
-tmux = "3.7b"
+tmux = "3.7c"
 usage = "latest"
+yazi = "latest"
 
 [settings]
 auto_install = false
@@ -69,6 +68,9 @@ prefer_offline = true
 
 [settings.cargo]
 binstall = true
+
+[settings.status]
+missing_tools = "never"
 
 [env]
 BINSTALL_DISABLE_TELEMETRY = true
