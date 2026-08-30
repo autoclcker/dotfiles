@@ -35,12 +35,16 @@ if [[ "$IS_FULL_INSTALLATION" != true ]]; then
 elif [[ ! $(yay --version) ]]; then
   log "${RED}" "Error: yay is not installed\n"
   exit 1
+else
+  log "${CYAN}" "Desktop Environment installation started\n"
+  trap log_completion EXIT
+  trap log_interruption INT
 fi
 
 # Desktop Environment
-yay --refresh --sync
-yay --needed --noconfirm --removemake --sync "${PREREQUISITES[@]}"
-yay --needed --noconfirm --removemake --sync "${PACKAGES[@]}"
+yay --refresh --sync || exit $?
+yay --needed --noconfirm --removemake --sync "${PREREQUISITES[@]}" || exit $?
+yay --needed --noconfirm --removemake --sync "${PACKAGES[@]}" || exit $?
 
 # Systemd
 for u in "${UNITS[@]}"; do

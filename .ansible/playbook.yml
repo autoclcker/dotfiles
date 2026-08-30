@@ -23,6 +23,11 @@
           {%- elif 'Arch' in os_release_raw.stdout -%} Archlinux
           {%- else -%} Unknown{%- endif -%}
 
+    - name: Print os_family
+      ansible.builtin.debug:
+        var: os_family
+        verbosity: 1
+
     - name: Fail if os_family is not recognized
       ansible.builtin.fail:
         msg:

@@ -1,4 +1,9 @@
 ---
+- name: Dump all available variables
+  ansible.builtin.debug:
+    var: vars
+    verbosity: 3
+
 - name: Check for GITHUB_TOKEN
   run_once: true
   block:

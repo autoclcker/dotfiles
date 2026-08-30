@@ -39,6 +39,8 @@ elif [[ -z ${DESTINATION} ]]; then
   exit 1
 else
   log "${CYAN}" "Synchronization started (${SEARCHPATH} -> ${DESTINATION}):\n"
+  trap log_completion EXIT
+  trap log_interruption INT
 fi
 
 mkdir --parents "${DESTINATION}"
@@ -59,7 +61,5 @@ for a in "${POSITIONAL_ARGS[@]}"; do
   ln --symbolic --force "${PWD}/${a}" "${DESTINATION}"
   log "${GREEN}" "${DESTINATION}/${a} updated\n"
 done
-
-log "${CYAN}" "Completed !\n"
 
 exit 0

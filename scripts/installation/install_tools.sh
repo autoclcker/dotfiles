@@ -26,6 +26,10 @@ done
 if [[ ! $(mise --version) ]]; then
   log "${RED}" "Error: mise is not installed\n"
   exit 1
+else
+  log "${CYAN}" "Ensure additional packages are installed\n"
+  trap log_completion EXIT
+  trap log_interruption INT
 fi
 
 if [[ ! $(yay --version) ]] && [[ ${#PACKAGES[@]} -gt 0 ]]; then

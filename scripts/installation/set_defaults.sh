@@ -24,6 +24,10 @@ HELM_DIFF_PATH=${HELM_DIFF_PATH:-"$HOME/.local/share/helm/plugins/helm-diff"}
 
 export PATH="$HOME/.local/share/mise/shims:$PATH"
 
+log "${CYAN}" "Setting defaults...\n"
+trap log_completion EXIT
+trap log_interruption INT
+
 # Cheat
 if [[ ! -d "${XDG_CONFIG_HOME}/cheat/cheatsheets/community" ]]; then
   git clone --depth 1 "${CHEATSHEETS_REPO}" "${XDG_CONFIG_HOME}/cheat/cheatsheets/community"

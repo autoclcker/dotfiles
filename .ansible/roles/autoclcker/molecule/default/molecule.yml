@@ -27,7 +27,6 @@ ansible:
       fact_caching_connection: /tmp/molecule-facts
       fact_caching_timeout: 3600
       host_key_checking: false
-      verbosity: 1
     ssh_connection:
       pipelining: true
   env:

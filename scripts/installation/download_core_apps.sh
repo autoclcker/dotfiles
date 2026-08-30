@@ -26,15 +26,18 @@ while [[ $# -gt 0 ]]; do
   esac
 done
 
-sudo pacman --refresh --sync
+log "${CYAN}" "Ensure essential packages are installed\n"
+trap log_completion EXIT
+trap log_interruption INT
+
+sudo pacman --refresh --sync || exit $?
 if [[ ${#PACKAGES[@]} -gt 0 ]]; then
-  sudo pacman --needed --noconfirm --sync "${PACKAGES[@]}"
+  sudo pacman --needed --noconfirm --sync "${PACKAGES[@]}" || exit $?
   sudo setfacl --recursive --modify "u:$(whoami):rwx" /etc/pacman.d/gnupg
 fi
 
 # Yay
 if [[ ! $(yay --version) ]]; then
-  git clone --depth 1 https://github.com/autoclcker/dotfiles.git
   git clone  --depth 1 "${YAY_REPO}" /tmp/yay || exit 1
   pushd "$_" || exit 1
   makepkg --install --noconfirm --syncdeps

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# shellcheck disable=SC2034
+# shellcheck disable=SC2034,SC2329
 
 set -a          # enable auto-export
 set -o errexit  # abort on nonzero exitstatus
@@ -18,6 +18,20 @@ IS_FULL_INSTALLATION=${IS_FULL_INSTALLATION:-true}
 
 log() {
   printf "%b" "${1}[!]${RESET} ${2}"
+}
+
+log_completion() {
+  local exit_code=$?
+  if [[ "$exit_code" -eq 0 ]]; then
+    log "${GREEN}" "SUCCESS\n"
+  else
+    log "${RED}" "Error: $0 failed with exit code $exit_code\n"
+  fi
+}
+
+log_interruption() {
+  log "${YELLOW}" "Info: $0 was interrupted\n"
+  exit 130
 }
 
 print_usage() {
@@ -67,9 +81,7 @@ main() {
 
   shift # Remove script name from arguments
 
-  "$script_path" "$@"
+  exec "$script_path" "$@"
 }
 
 main "$@"
-
-exit 0
