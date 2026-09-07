@@ -1,0 +1,10 @@
+# Obtain a certificate:
+openssl s_client -connect <dest-host>:443 -showcerts </dev/null | openssl x509 -outform PEM > cert.pem
+
+# Add a certificate in Java:
+keytool -import -trustcacerts \
+  -alias <your-alias> \
+  -file cert.pem \
+  -keystore "$JAVA_HOME/lib/security/cacerts" \
+  -storepass changeit \
+  -noprompt

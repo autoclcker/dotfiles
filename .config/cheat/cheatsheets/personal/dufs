@@ -1,35 +1,35 @@
 # Upload a file
-curl -T path-to-file http://127.0.0.1:5000/new-path/path-to-file
+curl -T path-to-file http://<dest-host>:<port>/new-path/path-to-file
 
 # Download a file
-curl -O http://127.0.0.1:5000/path-to-file           # download the file
-curl http://127.0.0.1:5000/path-to-file?hash      # retrieve the sha256 hash of the file
+curl -O http://<dest-host>:<port>/path-to-file           # download the file
+curl http://<dest-host>:<port>/path-to-file?hash      # retrieve the sha256 hash of the file
 
 # Download a folder as zip file
-curl -o path-to-folder.zip http://127.0.0.1:5000/path-to-folder?zip
+curl -o path-to-folder.zip http://<dest-host>:<port>/path-to-folder?zip
 
 # Delete a file/folder
-curl -X DELETE http://127.0.0.1:5000/path-to-file-or-folder
+curl -X DELETE http://<dest-host>:<port>/path-to-file-or-folder
 
 # Create a directory
-curl -X MKCOL http://127.0.0.1:5000/path-to-folder
+curl -X MKCOL http://<dest-host>:<port>/path-to-folder
 
 # Move the file/folder to the new path
-curl -X MOVE http://127.0.0.1:5000/path -H "Destination: http://127.0.0.1:5000/new-path"
+curl -X MOVE http://<dest-host>:<port>/path -H "Destination: http://<dest-host>:<port>/new-path"
 
 # List/search directory contents
-curl http://127.0.0.1:5000?q=Dockerfile           # search for files, similar to `find -name Dockerfile`
-curl http://127.0.0.1:5000?simple                 # output names only, similar to `ls -1`
-curl http://127.0.0.1:5000?json                   # output paths in json format
+curl http://<dest-host>:<port>?q=Dockerfile           # search for files, similar to `find -name Dockerfile`
+curl http://<dest-host>:<port>?simple                 # output names only, similar to `ls -1`
+curl http://<dest-host>:<port>?json                   # output paths in json format
 
 # With authorization (Both basic or digest auth works)
-curl http://127.0.0.1:5000/file --user user:pass                 # basic auth
-curl http://127.0.0.1:5000/file --user user:pass --digest        # digest auth
+curl http://<dest-host>:<port>/file --user user:pass                 # basic auth
+curl http://<dest-host>:<port>/file --user user:pass --digest        # digest auth
 
 # Resumable downloads
-curl -C- -o file http://127.0.0.1:5000/file
+curl -C- -o file http://<dest-host>:<port>/file
 
 # Resumable uploads
-upload_offset=$(curl -I -s http://127.0.0.1:5000/file | tr -d '\r' | sed -n 's/content-length: //p')
+upload_offset=$(curl -I -s http://<dest-host>:<port>/file | tr -d '\r' | sed -n 's/content-length: //p')
 dd skip=$upload_offset if=file status=none ibs=1 | \
-  curl -X PATCH -H "X-Update-Range: append" --data-binary @- http://127.0.0.1:5000/file
+  curl -X PATCH -H "X-Update-Range: append" --data-binary @- http://<dest-host>:<port>/file
