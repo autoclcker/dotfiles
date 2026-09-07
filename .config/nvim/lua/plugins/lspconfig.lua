@@ -14,6 +14,7 @@ return {
         keys = {
           { "gr", false },
           { "gI", false },
+          { "<leader>cr", false },
           {
             "gs",
             function()
@@ -21,6 +22,14 @@ return {
             end,
             nowait = true,
             desc = "Go to References",
+          },
+          {
+            "<leader>r",
+            function()
+              return vim.lsp.buf.rename()
+            end,
+            desc = "Rename variable occurrences",
+            has = "rename",
           },
           {
             "gk",

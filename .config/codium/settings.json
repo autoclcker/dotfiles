@@ -517,6 +517,16 @@
                 "editor.action.formatDocument"
             ],
             "silent": true
+        },
+        {
+            "before": [
+                "<space>",
+                "r"
+            ],
+            "commands": [
+                "editor.action.rename"
+            ],
+            "silent": true
         }
     ],
     "vim.operatorPendingModeKeyBindingsNonRecursive": [
