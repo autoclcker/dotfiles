@@ -403,10 +403,10 @@ tmux_conf_urlscan_options="--compact --dedupe"
 # this is the place to override or undo settings
 
 set -g allow-passthrough on
-set -g extended-keys always
-set -g extended-keys-format csi-u
 set -ga update-environment TERM
 set -ga update-environment TERM_PROGRAM
+set -g extended-keys always
+set -g extended-keys-format csi-u
 set -g cursor-style blinking-bar
 set -g prompt-cursor-colour $tmux_conf_theme_colour_6
 set -g display-panes-time 3000
@@ -423,6 +423,10 @@ unbind C-b
 unbind C-l
 unbind C-o
 unbind Space
+unbind -n C-m
+bind-key -n C-m if-shell -F '#{m/r:^(yazi|nvim)$,#{pane_current_command}}' \
+    'send-keys -H 1b 5b 31 30 39 3b 35 75' \
+    'send-keys C-m'
 
 # select layout
 bind -nr M-r next-layout
@@ -549,7 +553,7 @@ set -g @easymotion-s2  "BSpace"
 set -g @easymotion-case-sensitive 'true'
 set -g @easymotion-copy-mode-no-prefix 'true'
 set -g @resurrect-capture-pane-contents 'on'
-set -g @resurrect-processes 'atop btop nodpi nvtop rustnet yazi'
+set -g @resurrect-processes 'btop nodpi nvtop rustnet sudo yazi'
 run-shell $XDG_CONFIG_HOME/tmux/plugins/tmux-easymotion/easymotion.tmux
 run-shell $XDG_CONFIG_HOME/tmux/plugins/tmux-resurrect/resurrect.tmux
 

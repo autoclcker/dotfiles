@@ -118,7 +118,7 @@ keymap = [
   { on = [
     "c",
     "d",
-  ], run = "copy dirname", desc = "Copy directory URL" },
+  ], run = "copy dirpath", desc = "Copy directory URL" },
   { on = [
     "c",
     "f",
@@ -260,12 +260,48 @@ keymap = [
 
   # Custom
   { on = "!", run = 'shell "$(which bash)" --block', desc = "Open shell here" },
-  { on = "E", run = 'shell "vim %s" --block', desc = "Jump to a bookmark" },
-
-  { on = "'", run = "plugin bookmarks jump", desc = "Jump to a bookmark" },
+  { on = "E", run = 'shell "vim %s" --block', desc = "Open file in vim" },
+  { on = "'", run = "plugin whoosh jump_by_key", desc = "Jump bookmark by key" },
+  { on = "`", run = "plugin whoosh jump_by_key", desc = "Jump bookmark by key" },
+  { on = "<C-m>", run = "plugin whoosh jump_by_fzf", desc = "Jump bookmark by fzf" },
+  { on = [
+    "m",
+    "M",
+  ], run = "plugin whoosh save_cwd", desc = "currdir bookmark" },
+  { on = [
+    "m",
+    "m",
+  ], run = "plugin whoosh save_cwd_temp", desc = "tmp currdir bookmark" },
+  { on = [
+    "m",
+    "A",
+  ], run = "plugin whoosh save", desc = "hovered bookmark" },
+  { on = [
+    "m",
+    "a",
+  ], run = "plugin whoosh save_temp", desc = "tmp hovered bookmark" },
+  { on = [
+    "m",
+    "q",
+  ], run = "plugin whoosh delete_all", desc = "Delete all bookmarks" },
+  { on = [
+    "m",
+    "d",
+  ], run = "plugin whoosh delete_by_key", desc = "Delete bookmark by key" },
+  { on = [
+    "m",
+    "D",
+  ], run = "plugin whoosh delete_by_fzf", desc = "Delete bookmarks by fzf" },
+  { on = [
+    "m",
+    "r",
+  ], run = "plugin whoosh rename_by_key", desc = "Rename bookmark by key" },
+  { on = [
+    "m",
+    "R",
+  ], run = "plugin whoosh rename_by_fzf", desc = "Rename bookmark by fzf" },
   { on = "F", run = "plugin smart-filter", desc = "Smart filter" },
   { on = "l", run = "plugin smart-enter", desc = "Enter the child directory, or open the file" },
-  { on = "m", run = "plugin bookmarks save", desc = "Save current position as a bookmark" },
   { on = "p", run = "plugin smart-paste", desc = "Paste into the hovered directory or CWD" },
   { on = "s", run = "plugin toggle-pane max-preview", desc = "Show or hide the preview pane" },
   { on = "S", run = "plugin toggle-pane max-parent", desc = "Show or hide the parent pane" },
@@ -277,16 +313,24 @@ keymap = [
   ], run = "plugin sshfs -- add", desc = "Add SSH host" },
   { on = [
     "M",
-    "m",
-  ], run = "plugin sshfs -- mount --jump", desc = "Mount & jump" },
-  { on = [
-    "M",
     "r",
   ], run = "plugin sshfs -- remove", desc = "Remove SSH host" },
   { on = [
     "M",
+    "t",
+  ], run = "plugin sshfs -- terminal", desc = "SSH Terminal" },
+  { on = [
+    "M",
+    "m",
+  ], run = "plugin sshfs -- mount --jump", desc = "Mount & jump" },
+  { on = [
+    "M",
     "u",
   ], run = "plugin sshfs -- unmount", desc = "Unmount SSHFS" },
+  { on = [
+    "g",
+    "m",
+  ], run = "plugin sshfs -- home", desc = "Go to mount home" },
   { on = [
     "c",
     "a",
@@ -295,14 +339,6 @@ keymap = [
     "c",
     "m",
   ], run = "plugin chmod", desc = "Chmod on selected files" },
-  { on = [
-    "b",
-    "D",
-  ], run = "plugin bookmarks delete_all", desc = "Delete all bookmarks" },
-  { on = [
-    "b",
-    "d",
-  ], run = "plugin bookmarks delete", desc = "Delete a bookmark" },
   { on = [
     "c",
     "y",
@@ -315,16 +351,8 @@ keymap = [
   ], run = "plugin lazygit", desc = "run lazygit" },
   { on = [
     "g",
-    "m",
-  ], run = "plugin sshfs -- home", desc = "Go ~/mnt" },
-  { on = [
-    "g",
     "s",
   ], run = "cd ~/.ssh/", desc = "Go ~/.ssh" },
-  { on = [
-    "g",
-    "r",
-  ], run = "shell 'ya emit cd \"$(git rev-parse --show-toplevel)\"'", desc = "Go git project root" },
   { on = [
     "i",
     "d",

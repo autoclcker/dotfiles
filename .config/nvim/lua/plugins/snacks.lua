@@ -38,7 +38,9 @@ return {
           actions = {
             open_terminal = function(picker)
               local item = picker:current()
-              if not (item and item.file) then return end
+              if not (item and item.file) then
+                return
+              end
               local dir = item.dir and item.file or vim.fs.dirname(item.file)
               Snacks.terminal.open(nil, { cwd = dir, auto_insert = true })
             end,
@@ -202,6 +204,7 @@ return {
       desc = "Marks",
     },
     {
+      mode = { "n", "v" },
       "<C-n>",
       function()
         Snacks.picker.resume()

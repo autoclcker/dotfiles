@@ -9,6 +9,7 @@ nmap
 nvtop
 p7zip
 sshfs
+sysstat
 vim
 wl-clipboard
 zsh

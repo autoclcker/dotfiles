@@ -18,20 +18,39 @@ require("smart-enter"):setup({
 	open_multi = true,
 })
 
-require("bookmarks"):setup({
-	last_directory = { enable = true, persist = true },
-	persist = "vim",
-	desc_format = "full",
-	file_pick_mode = "hover",
-	notify = {
-		enable = true,
-		timeout = 1,
-		message = {
-			new = "New bookmark '<key>' -> '<folder>'",
-			delete = "Deleted bookmark in '<key>'",
-			delete_all = "Deleted all bookmarks",
-		},
+require("whoosh"):setup({
+	bookmarks = {
+		{ tag = "Desktop", path = "~/Desktop", key = "E" },
+		{ tag = "Documents", path = "~/Documents", key = "D" },
+		{ tag = "Downloads", path = "~/Downloads", key = "O" },
 	},
+	jump_notify = false,
+	keys = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ",
+	special_keys = {
+		create_temp = false,
+		fuzzy_search = false,
+		history = "<Enter>",
+		previous_dir = "'",
+		project_root = "r",
+	},
+	bookmarks_path = (
+		ya.target_family() == "windows"
+		and os.getenv("APPDATA") .. "\\yazi\\config\\plugins\\whoosh.yazi\\bookmarks"
+	) or (os.getenv("HOME") .. "/.config/yazi/plugins/whoosh.yazi/bookmarks"),
+	home_alias_enabled = true,
+	path_truncate_enabled = true,
+	path_max_depth = 3,
+	fzf_path_truncate_enabled = false,
+	fzf_path_max_depth = 5,
+	path_truncate_long_names_enabled = false,
+	fzf_path_truncate_long_names_enabled = false,
+	path_max_folder_name_length = 20,
+	fzf_path_max_folder_name_length = 20,
+	history_size = 10,
+	history_fzf_path_truncate_enabled = false,
+	history_fzf_path_max_depth = 5,
+	history_fzf_path_truncate_long_names_enabled = false,
+	history_fzf_path_max_folder_name_length = 30,
 })
 
 require("git"):setup()
