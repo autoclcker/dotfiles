@@ -6,7 +6,7 @@ ARG CLIENT_BASE=dockereng/cli-bin
 ARG CLIENT_VERSION=29.6.1@sha256:a4efde61a01ecd0ee88b641a14103c52d209c9ecc49453a94cf61c18cc7451ac
 
 ARG UV_BASE=astral/uv
-ARG UV_VERSION=0.12.0-trixie-slim@sha256:b3781c0d61af34f63032d5221a6bf2e46b2a16225a531d2dea0836f09861c190
+ARG UV_VERSION=0.12.13-trixie-slim@sha256:4298dc3494124b50792f7abbdfe2cae7139c41f4e098f52573f4f6d912cf8bd7
 
 # Download the core dependencies
 FROM --platform=${BUILDPLATFORM} ${REGISTRY}/${UV_BASE}:${UV_VERSION} AS deps

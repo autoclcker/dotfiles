@@ -1,0 +1,14 @@
+# Open readfile as file descriptor 3 for reading:
+exec 3< readfile
+
+# Open writefile as file descriptor 4 for writing:
+exec 4> writefile
+
+# Make file descriptor 5 a copy of file descriptor 0:
+exec 5<&0
+
+# Close file descriptor 3:
+exec 3<&-
+
+# Cat the file maggie by replacing the current shell with the cat utility:
+exec cat maggie

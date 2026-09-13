@@ -68,36 +68,6 @@
             ]
         },
         {
-            "after": [
-                "<leader>",
-                "w"
-            ],
-            "before": [
-                "<space>",
-                "w"
-            ]
-        },
-        {
-            "after": [
-                "<leader>",
-                "b"
-            ],
-            "before": [
-                "<space>",
-                "b"
-            ]
-        },
-        {
-            "after": [
-                "<leader>",
-                "e"
-            ],
-            "before": [
-                "<space>",
-                "e"
-            ]
-        },
-        {
             "before": [
                 "<space>",
                 "s",
@@ -175,6 +145,26 @@
         },
         {
             "before": [
+                "]",
+                "b"
+            ],
+            "commands": [
+                "editor.debug.action.goToNextBreakpoint"
+            ],
+            "silent": true
+        },
+        {
+            "before": [
+                "[",
+                "b"
+            ],
+            "commands": [
+                "editor.debug.action.goToPreviousBreakpoint"
+            ],
+            "silent": true
+        },
+        {
+            "before": [
                 "<space>",
                 "C"
             ],
@@ -206,10 +196,29 @@
         {
             "before": [
                 "<space>",
+                "M"
+            ],
+            "commands": [
+                "bookmarks.toggleLabeled"
+            ],
+            "silent": true
+        },
+        {
+            "before": [
+                "<space>",
                 "'"
             ],
             "commands": [
                 "bookmarks.listFromAllFiles"
+            ]
+        },
+        {
+            "before": [
+                "<space>",
+                "delete"
+            ],
+            "commands": [
+                "bookmarks.clearFromAllFiles"
             ]
         },
         {

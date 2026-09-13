@@ -418,15 +418,12 @@ set -gu prefix2
 
 unbind -n C-f
 unbind -n C-l
+unbind -n C-m
 unbind -n M-f
 unbind C-b
 unbind C-l
 unbind C-o
 unbind Space
-unbind -n C-m
-bind-key -n C-m if-shell -F '#{m/r:^(yazi|nvim)$,#{pane_current_command}}' \
-    'send-keys -H 1b 5b 31 30 39 3b 35 75' \
-    'send-keys C-m'
 
 # select layout
 bind -nr M-r next-layout
@@ -546,6 +543,11 @@ bind v choose-buffer
 
 # clear both screen and history
 bind -n C-Escape send-keys C-l \; run 'sleep 0.2' \; clear-history
+
+# distinguish C-m from Enter
+bind -n C-m if-shell -F '#{m/r:^(yazi|nvim)$,#{pane_current_command}}' \
+    'send-keys -H 1b 5b 31 30 39 3b 35 75' \
+    'send-keys C-m'
 
 # plugins
 set -g @easymotion-s  "none"

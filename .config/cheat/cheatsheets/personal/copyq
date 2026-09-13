@@ -1,2 +1,0 @@
-# To remove window title, press (F5) and run the command:
-copyq config frameless_window true

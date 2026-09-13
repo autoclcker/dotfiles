@@ -1,0 +1,10 @@
+---
+tags: [ orchestration ]
+---
+# To run a command on multiple instances at once - using `servers` group from `inventory.yml`:
+ansible -u ansible -i inventory.yml servers -m shell -a "ls /var"
+
+# Ad-hoc command:
+ansible <host-pattern> -m <module-name> -a "<module-options>" -e "<extra-vars>"
+# OR
+ansible all -i "<dest-host>," --key-file <private-key> -m <module-name>

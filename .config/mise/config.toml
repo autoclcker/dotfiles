@@ -72,5 +72,8 @@ binstall = true
 [settings.status]
 missing_tools = "never"
 
+[settings.npm]
+package_manager = "pnpm"
+
 [env]
 BINSTALL_DISABLE_TELEMETRY = true
