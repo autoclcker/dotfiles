@@ -12,7 +12,7 @@ alias kc='kubectx'
 alias less='bat --plain'
 alias lR='eza --tree --color=always --icons=always'
 alias nc='ncat'
-alias pgadmin='docker run --rm -p 5432:80 \
+alias pgadmin='docker run --rm -p 5432:8080 \
     --env "PGADMIN_CONFIG_MASTER_PASSWORD_REQUIRED=False" \
     --env "PGADMIN_CONFIG_UPGRADE_CHECK_ENABLED=False" \
     --env "PGADMIN_CONFIG_ALLOW_SAVE_PASSWORD=False" \

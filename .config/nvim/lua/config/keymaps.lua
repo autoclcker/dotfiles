@@ -57,6 +57,12 @@ if vim.g.neovide then
   vim.keymap.set("n", "<F11>", function()
     vim.g.neovide_fullscreen = not vim.g.neovide_fullscreen
   end)
+  vim.keymap.set("n", "<C-->", function()
+    vim.g.neovide_scale_factor = math.max(0.1, vim.g.neovide_scale_factor - 0.1)
+  end, { silent = true, desc = "Decrease Neovide font size" })
+  vim.keymap.set("n", "<C-=>", function()
+    vim.g.neovide_scale_factor = vim.g.neovide_scale_factor + 0.1
+  end, { silent = true, desc = "Increase Neovide font size"  })
 end
 vim.keymap.set("n", "<leader>=", "<cmd>LazyFormat<cr>", { desc = "Format Buffer" })
 
@@ -82,7 +88,7 @@ vim.keymap.set(
 vim.keymap.set("i", "<C-x>e", "<C-o>:", { noremap = true, silent = true, desc = "Command mode" })
 vim.keymap.set("i", "<M-j>", "<Down>", { noremap = true, silent = true, desc = "Move cursor down in insert mode" })
 vim.keymap.set("i", "<M-k>", "<Up>", { noremap = true, silent = true, desc = "Move cursor up in insert mode" })
-vim.keymap.set('i', '<C-g>', '<C-t>', { noremap = true, silent = true, desc = "Indent forward " })
+vim.keymap.set("i", "<C-g>", "<C-t>", { noremap = true, silent = true, desc = "Indent forward " })
 
 -- Visual mode
 vim.keymap.set("x", "S", function()
@@ -123,7 +129,7 @@ vim.keymap.set("n", "<C-w>t", "<cmd>terminal<cr>i", { noremap = true, silent = t
 vim.keymap.set("t", "<C-]>", "<C-\\><C-n><C-w>l", { desc = "Terminal Right" })
 vim.keymap.set("t", "<C-[>", "<C-\\><C-n><C-w>h", { desc = "Terminal Left" })
 vim.keymap.set("t", "<C-\\>", "<C-\\><C-n>", { desc = "Enter Normal mode" })
-vim.keymap.set('t', '<C-l>', '<cmd>redraw!<CR>', { buffer = true })
+vim.keymap.set("t", "<C-l>", "<cmd>redraw!<CR>", { buffer = true })
 
 -- Buffers
 vim.keymap.set("n", "<M-k>", "<cmd>BufferLineCycleNext<cr>", { desc = "Prev Buffer" })

@@ -9,6 +9,7 @@ vim.g.neovide_cursor_trail_size = 0
 vim.g.neovide_position_animation_length = 0
 vim.g.neovide_scroll_animation_far_lines = 0
 vim.g.neovide_scroll_animation_length = 0.00
+vim.g.neovide_scale_factor = vim.g.neovide_scale_factor or 1.0
 vim.g.root_spec = { "cwd" }
 vim.g.snacks_animate = false
 vim.opt.guicursor =
