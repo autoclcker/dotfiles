@@ -282,7 +282,7 @@ keymap = [
   ], run = "plugin whoosh save_temp", desc = "tmp hovered bookmark" },
   { on = [
     "m",
-    "q",
+    "\\",
   ], run = "plugin whoosh delete_all", desc = "Delete all bookmarks" },
   { on = [
     "m",

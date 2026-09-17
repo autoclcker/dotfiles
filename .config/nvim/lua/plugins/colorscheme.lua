@@ -27,7 +27,9 @@ return {
           WhichKeyTitle = { fg = colors.vscFront, bg = black },
           SatelliteCursor = { fg = "#00fcd6" },
           SatelliteBar = { bg = "#666666" },
-          SatelliteSearch = { link = 'SearchCurrent' },
+          SnacksDashboardDesc = { fg = colors.vscCursorLight },
+          SnacksDashboardIcon = { fg = vscGreenBorder },
+          SatelliteSearch = { link = "SearchCurrent" },
         },
       })
       require("bufferline").setup({
