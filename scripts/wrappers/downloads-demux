@@ -8,10 +8,12 @@ XDG_DOCUMENTS_DIR=${XDG_DOCUMENTS_DIR:-"$HOME/Documents"}
 XDG_DOWNLOAD_DIR=${XDG_DOWNLOAD_DIR:-"$HOME/Downloads"}
 XDG_PICTURES_DIR=${XDG_PICTURES_DIR:-"$HOME/Pictures"}
 
+ARCHIVE_DIR="${XDG_DOCUMENTS_DIR}/Archive"
 PDF_DIR="${XDG_DOCUMENTS_DIR}/PDF"
 WORD_DIR="${XDG_DOCUMENTS_DIR}/Word"
 
 declare -A extensions=(
+  ["${ARCHIVE_DIR}"]='.*\.(zip|jar|rar|tar(\.gz)?|7z|xar|zstd)$'
   ["${PDF_DIR}"]='.*\.pdf$'
   ["${WORD_DIR}"]='.*\.(doc|docx)$'
   ["${XDG_PICTURES_DIR}"]='.*\.(jpg|jpeg|png)$'
