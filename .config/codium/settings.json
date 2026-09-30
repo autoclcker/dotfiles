@@ -215,7 +215,7 @@
         {
             "before": [
                 "<space>",
-                "delete"
+                "\\"
             ],
             "commands": [
                 "bookmarks.clearFromAllFiles"
@@ -667,7 +667,27 @@
                 "editor.action.selectHighlights"
             ],
             "silent": true
-        }
+        },
+        {
+            "before": [
+                "]",
+                "b"
+            ],
+            "commands": [
+                "editor.debug.action.goToNextBreakpoint"
+            ],
+            "silent": true
+        },
+        {
+            "before": [
+                "[",
+                "b"
+            ],
+            "commands": [
+                "editor.debug.action.goToPreviousBreakpoint"
+            ],
+            "silent": true
+        },
     ],
     "window.customTitleBarVisibility": "windowed",
     "window.enableMenuBarMnemonics": false,
