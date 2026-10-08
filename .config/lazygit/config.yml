@@ -1,7 +1,5 @@
 # origin ref: https://github.com/jesseduffield/lazygit/blob/master/docs/Config.md
 gui:
-  authorColors: {}
-  branchColorPatterns: {}
   customIcons:
     filenames: {}
     extensions: {}
@@ -22,8 +20,8 @@ gui:
   expandedSidePanelWeight: 2
   mainPanelSplitMode: flexible
   enlargedSideViewLocation: left
-  wrapLinesInStagingView: true
-  useHunkModeInStagingView: true
+  wrapLinesInDiffView: true
+  useHunkModeInDiffView: true
   language: auto
   timeFormat: 02 Jan 06
   shortTimeFormat: 3:04PM
@@ -54,6 +52,8 @@ gui:
       - red
     defaultFgColor:
       - default
+    authorColors: {}
+    branchColorPatterns: {}
   commitLength:
     show: true
   showListFooter: true
@@ -153,8 +153,10 @@ os:
   copyToClipboardCmd: >
     if [[ "$TERM" =~ ^(screen|tmux) ]]; then
 
+
       printf "\033Ptmux;\033\033]52;c;$(printf {{text}} | base64 -w 0)\a\033\\" > /dev/tty
     else
+
 
       printf "\033]52;c;$(printf {{text}} | base64 -w 0)\a" > /dev/tty
     fi
