@@ -8,7 +8,7 @@ pdf_enabled: true
 pdf_page_layout_mode: single
 pdf_pan_shift: 0
 pdf_render_mode: scroll
-pdf_scale: 0.8050314
+pdf_scale: 0.549806
 pdf_settings_configured: true
 synctex_editor: null
 theme: "Moonfly"
@@ -17,3 +17,8 @@ version: 3
 
 epub_column_mode: single
 invert_scroll_direction: false
+
+epub_image_size: adaptive
+pdf_show_link_underlines: false
+show_inline_annotations: true
+zen_hide_border: true

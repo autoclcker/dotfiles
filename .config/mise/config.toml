@@ -54,7 +54,7 @@ fastfetch = "latest"
 mc = "latest"
 neovim = "latest"
 starship = "latest"
-tmux = "3.7c"
+tmux = "3.8"
 usage = "latest"
 yazi = "latest"
 
@@ -63,7 +63,6 @@ auto_install = false
 experimental = true
 jobs = 6
 not_found_auto_install = false
-plugin_autoupdate_last_check_duration = '0'
 prefer_offline = true
 
 [settings.cargo]

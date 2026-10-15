@@ -77,6 +77,9 @@ keybind = f11=toggle_fullscreen
 keybind = ctrl+backspace=csi:127;5u
 keybind = ctrl+escape=csi:27;5u
 keybind = ctrl+tab=csi:27;5;9~
+keybind = alt+shift+u=csi:85;3u
+keybind = alt+shift+r=csi:82;3u
+keybind = alt+shift+n=csi:78;3u
 
 keybind = ctrl+1=csi:49;5u
 keybind = ctrl+2=csi:50;5u

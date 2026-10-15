@@ -37,7 +37,6 @@
 [pdf_normal]
 "d" = "nop"
 "<C-c>" = "cancel"
-"a" = "add_comment"
 "i" = "open_highlight_palette"
 
 [popup]
