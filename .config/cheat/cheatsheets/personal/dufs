@@ -1,3 +1,6 @@
+# Serve a catalog for any operations at all ports.
+dufs <serve-path> -A
+
 # Upload a file
 curl -T path-to-file http://<dest-host>:<port>/new-path/path-to-file
 

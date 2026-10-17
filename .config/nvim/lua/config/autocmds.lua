@@ -1,6 +1,4 @@
 -- Default autocmds that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/autocmds.lua
-
--- TODO: find a solution to restore the shape of the cursor when exiting
 vim.api.nvim_create_autocmd("ExitPre", {
   group = vim.api.nvim_create_augroup("Exit", { clear = true }),
   command = "set guicursor=a:ver25-blinkwait700-blinkon250-blinkoff250",
