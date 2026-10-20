@@ -33,7 +33,6 @@ trap log_interruption INT
 sudo pacman --refresh --sync || exit $?
 if [[ ${#PACKAGES[@]} -gt 0 ]]; then
   sudo pacman --needed --noconfirm --sync "${PACKAGES[@]}" || exit $?
-  sudo setfacl --recursive --modify "u:$(whoami):rwx" /etc/pacman.d/gnupg
 fi
 
 # Yay

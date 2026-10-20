@@ -60,9 +60,6 @@ y() {
 # SHELL
 export SHELL=zsh
 
-# GPG keys
-export GNUPGHOME="/etc/pacman.d/gnupg"
-
 # Editor
 export EDITOR="nvim"
 

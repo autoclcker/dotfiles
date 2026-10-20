@@ -3,7 +3,7 @@
 ARG REGISTRY=docker.io
 
 ARG OS_BASE=archlinux
-ARG OS_VERSION=base-20260906.0.587075@sha256:b944cc65c5f28665dfd5fdbf5ed2997c88f5bb4a0aefac7ee8a7ef01893e5ed9
+ARG OS_VERSION=base-20261018.0.612668@sha256:e43f1fd80e073992c5f173efbbbf65144170bf60aeb7369940087d63eacea8f4
 
 # Download the dependencies
 FROM --platform=${BUILDPLATFORM} ${REGISTRY}/${OS_BASE}:${OS_VERSION} AS base

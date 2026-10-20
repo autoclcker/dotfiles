@@ -74,19 +74,16 @@ elif [[ ! $(slim --version) ]]; then
   sudo mkdir --parents /etc/docker && sudo touch "$_/daemon.json"
   sudo tee /etc/docker/daemon.json <<EOF
 {
-  "features": {
-    "live-restore": true,
-    "log-driver": "json-file",
-      "log-opts": {
-        "max-size": "50m",
-        "max-file": "3",
-        "compress": "true"
-    },
-    "no-new-privileges": true,
-    "storage-driver": "overlay2",
-    "exec-opts": ["native.cgroupdriver=systemd"],
-    "userns-remap": "${USER}"
-  }
+  "live-restore": true,
+  "log-driver": "json-file",
+  "log-opts": {
+    "max-size": "50m",
+    "max-file": "3",
+    "compress": "true"
+  },
+  "storage-driver": "overlay2",
+  "exec-opts": ["native.cgroupdriver=systemd"],
+  "userns-remap": "${USER}"
 }
 EOF
   mkdir --parents "$HOME/.docker"

@@ -68,7 +68,7 @@ keybind = "alt+]=text: pstree --show-pids --highlight-all --show-parents --ns-ch
 
 keybind = ctrl+alt+s=new_split:down
 keybind = ctrl+alt+v=new_split:right
-keybind = ctrl+alt+x=close_surface
+keybind = ctrl+alt+d=close_surface
 keybind = shift+insert=paste_from_clipboard
 
 keybind = unconsumed:ctrl+shift+r=reload_config
