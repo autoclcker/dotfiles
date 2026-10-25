@@ -46,6 +46,9 @@ open = [
   { run = 'start "" %s1', desc = "Open", for = "windows", orphan = true },
   { run = "termux-open %s1", desc = "Open", for = "android" },
 ]
+open-cert = [
+  { run = "y509 %s1", desc = "View TLS Certificate", for = "unix", block = true },
+]
 reveal = [
   { run = "xdg-open %d1", desc = "Reveal", for = "linux" },
   { run = "open -R %s1", desc = "Reveal", for = "macos" },
@@ -90,6 +93,10 @@ rules = [
   # Book
   { mime = "application/{epub+zip,pdf}", use = [
     "read",
+  ] },
+  # Certificate
+  { mime = "application/{pkix-cert,pkix-pkipath,x509-ca-cert,x509-user-cert,pem-file,pkcs12,pkcs7-certificates}", use = [
+    "open-cert",
   ] },
   # Archive
   { mime = "application/{zip,java-archive,rar,7z*,tar,gzip,xz,zstd,bzip*,lzma,compress,archive,cpio,arj,xar,ms-cab*}", use = [

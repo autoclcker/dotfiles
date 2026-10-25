@@ -23,6 +23,7 @@
 "cargo:systemctl-tui" = "latest"
 "cargo:tealdeer" = "latest"
 "cargo:timr-tui" = "latest"
+"cargo:tree-sitter-cli" = "latest"
 "cargo:zoxide" = "latest"
 "github:jgm/pandoc" = "latest"
 "github:jqlang/jq" = "latest"
