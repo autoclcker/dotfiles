@@ -3,5 +3,5 @@
 cargo-binstall = "latest"
 helm = "latest"
 pipx = "latest"
-pnpm = "latest"
+pnpm = { version = "latest", postinstall = "pnpm config set global-bin-dir $HOME/.local/bin" }
 yarn = "latest"
