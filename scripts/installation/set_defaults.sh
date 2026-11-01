@@ -83,7 +83,6 @@ elif [[ ! $(slim --version) ]]; then
   },
   "storage-driver": "overlay2",
   "exec-opts": ["native.cgroupdriver=systemd"],
-  "userns-remap": "${USER}"
 }
 EOF
   mkdir --parents "$HOME/.docker"

@@ -3,15 +3,15 @@
 ARG REGISTRY=docker.io
 
 ARG CLIENT_BASE=dockereng/cli-bin
-ARG CLIENT_VERSION=29.6.1@sha256:a4efde61a01ecd0ee88b641a14103c52d209c9ecc49453a94cf61c18cc7451ac
+ARG CLIENT_VERSION=29.9.2@sha256:da0f0ad7addaf959cb57b6eeeb0e58e6c054a96c9bad58a00595d7f67f49cd68
 
 ARG UV_BASE=astral/uv
-ARG UV_VERSION=0.12.13-trixie-slim@sha256:4298dc3494124b50792f7abbdfe2cae7139c41f4e098f52573f4f6d912cf8bd7
+ARG UV_VERSION=0.13.6-trixie-slim@sha256:caa9f629fcb575ba2ed6ee160ec51e82e8444f6bdc3fc05c855b2636a5511eb8
 
 # Download the core dependencies
 FROM --platform=${BUILDPLATFORM} ${REGISTRY}/${UV_BASE}:${UV_VERSION} AS deps
 
-ARG PYTHON_VERSION=3.14.3
+ARG PYTHON_VERSION=3.14.10
 ARG ROLE_PATH=.ansible/roles/autoclcker
 ARG SRCDIR=/purgatory/dotfiles
 
