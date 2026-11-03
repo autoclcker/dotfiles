@@ -1,6 +1,6 @@
 [Desktop Entry]
 Type=Application
-Exec=neovide --wayland_app_id Neovide --frame none --no-vsync %F
+Exec=neovide --wayland_app_id Neovide --no-startup-message-capture --frame none --no-vsync %F
 Icon=preferences-default-applications
 Name=Neovide
 Keywords=Text;Editor;
