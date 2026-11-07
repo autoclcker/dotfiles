@@ -9,7 +9,7 @@ NVIDIA=("libva-nvidia-driver" "nvidia-open-dkms" "nvidia-settings" "nvidia-utils
 POWER_MANAGEMENT=("cpupower" "system76-acpi-dkms" "system76-power" "upower")
 PREREQUISITES=("linux-headers" "man-pages" "man-db")
 SOUND=("pipewire" "pipewire-alsa" "pipewire-pulse" "sof-firmware" "wireplumber")
-UX_RESPONSIVENESS=("switcheroo" "system76-scheduler")
+UX_RESPONSIVENESS=("system76-scheduler")
 WAYLAND_COMPOSITOR=("cosmic-session" "cosmic-wallpapers")
 
 APPS_SVC=("containerd" "docker")

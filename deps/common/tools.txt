@@ -1,15 +1,10 @@
-atop
-btop
 clang
-iotop
-lshw
-lsof
+imagemagick
+libheif
 mpv
 nmap
-nvtop
 p7zip
 sshfs
-sysstat
 vim
 wl-clipboard
 zsh

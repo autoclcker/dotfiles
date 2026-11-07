@@ -1,0 +1,7 @@
+atop
+btop
+iotop
+lshw
+lsof
+nvtop
+sysstat
