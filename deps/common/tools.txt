@@ -2,7 +2,6 @@ clang
 imagemagick
 libheif
 mpv
-nmap
 p7zip
 sshfs
 vim

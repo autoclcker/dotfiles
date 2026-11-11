@@ -3,5 +3,6 @@ btop
 iotop
 lshw
 lsof
+nmap
 nvtop
 sysstat

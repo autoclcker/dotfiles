@@ -1,4 +1,4 @@
-ansible-core[requests]>=2.21
+ansible-core>=2.21
 ansible-lint>=26.0.0
 mitogen>=0.3.51
 molecule-plugins[docker]>=25.8.12

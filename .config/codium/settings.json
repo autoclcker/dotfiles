@@ -12,7 +12,6 @@
             ]
         }
     ],
-    "vim.normalModeKeyBindings": [],
     "vim.normalModeKeyBindingsNonRecursive": [
         {
             "after": [
@@ -519,21 +518,20 @@
         },
         {
             "before": [
-                "<space>",
-                "="
+                "K"
             ],
             "commands": [
-                "editor.action.formatDocument"
+                "editor.action.showHover",
             ],
             "silent": true
         },
         {
             "before": [
                 "<space>",
-                "r"
+                "="
             ],
             "commands": [
-                "editor.action.rename"
+                "editor.action.formatDocument"
             ],
             "silent": true
         }
@@ -688,6 +686,16 @@
             ],
             "silent": true
         },
+        {
+            "before": [
+                "<space>",
+                "r"
+            ],
+            "commands": [
+                "editor.action.rename"
+            ],
+            "silent": true
+        }
     ],
     "window.customTitleBarVisibility": "windowed",
     "window.enableMenuBarMnemonics": false,

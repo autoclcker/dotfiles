@@ -45,20 +45,28 @@
 "go:github.com/tomnomnom/gron" = "latest"
 "npm:@angular/cli" = "latest"
 "npm:ts-node" = "latest"
-"pipx:ansible-core" = { version = "latest", uvx_args = "--with mitogen,requests" }
-"pipx:ansible-creator" = "latest"
 "pipx:httpie" = "latest"
 "pipx:ipython" = "latest"
-"pipx:molecule-plugins" = { version = "latest", uvx = "false", extras = "docker", pipx_args = "--include-deps" }
 "pipx:trash-cli" = "latest"
 cheat = "latest"
 fastfetch = "latest"
-mc = "latest"
 neovim = "latest"
 starship = "latest"
 tmux = "3.8"
 usage = "latest"
 yazi = "latest"
+
+[tasks.setup-ansible]
+description = "Prepare the basic Ansible installation"
+dir = "{{cwd}}"
+run = [
+    '''
+uv venv --python 3.14.10
+for p in "ansible-core" "ansible-lint"; do
+    uv pip install "$p"
+done
+'''
+]
 
 [settings]
 auto_install = false

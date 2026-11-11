@@ -402,6 +402,7 @@ tmux_conf_urlscan_options="--compact --dedupe"
 
 # this is the place to override or undo settings
 
+set -g set-clipboard on
 set -g allow-passthrough on
 set -ga update-environment TERM
 set -ga update-environment TERM_PROGRAM

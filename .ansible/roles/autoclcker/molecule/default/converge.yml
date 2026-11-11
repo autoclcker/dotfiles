@@ -5,4 +5,4 @@
   tasks:
     - name: Test the role
       ansible.builtin.import_role:
-        name: autoclcker
+        name: "{{ lookup('env', 'MOLECULE_PROJECT_DIRECTORY') | basename }}"
