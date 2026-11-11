@@ -105,6 +105,7 @@ upgrade: ### Upgrade setup
 	@${OH_MY_ZSH_HOME}/tools/upgrade.sh
 	@yes | mise self-update
 	@mise upgrade
+	@mise run postinstall
 	@tldr --update
 	@nvim --headless "+Lazy! sync" +qa
 	@ya pkg upgrade
