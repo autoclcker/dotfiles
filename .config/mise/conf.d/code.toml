@@ -1,5 +1,5 @@
 [tools]
-go = { version = "1.27.3", postinstall = "go telemetry off" }
+go = { version = "1.27.4", postinstall = "go telemetry off" }
 java = "openjdk-17.0.2"
 lua = "5.1"
 node = "26.12.1"

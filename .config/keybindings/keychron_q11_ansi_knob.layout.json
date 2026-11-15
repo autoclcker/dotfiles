@@ -5,8 +5,8 @@
     "{KC_LCTL,KC_LGUI,KC_K}",
     "{KC_LCTL,KC_LGUI,KC_J}",
     "{KC_LGUI,KC_LSFT,KC_P}",
-    "",
-    "",
+    "{KC_LCTL,KC_LGUI,KC_H}",
+    "{KC_LCTL,KC_LGUI,KC_L}",
     "",
     "",
     "",
@@ -21,12 +21,12 @@
   ],
   "layers": [
     [
-      "MACRO(2)",
+      "KC_MUTE",
       "KC_CAPS",
-      "KC_BRID",
-      "KC_BRIU",
       "KC_WWW_SEARCH",
       "KC_WWW_FAVORITES",
+      "MACRO(3)",
+      "MACRO(4)",
       "KC_F5",
       "KC_F6",
       "KC_NO",
@@ -83,7 +83,7 @@
       "KC_HELP",
       "KC_MRWD",
       "KC_MFFD",
-      "KC_MUTE",
+      "MACRO(2)",
       "KC_7",
       "KC_8",
       "KC_9",
@@ -194,8 +194,8 @@
       "KC_MRWD",
       "KC_MFFD",
       "RGB_TOG",
-      "KC_TRNS",
-      "KC_TRNS",
+      "KC_BRID",
+      "KC_BRIU",
       "KC_TRNS",
       "KC_TRNS",
       "KC_TRNS",
@@ -463,13 +463,13 @@
   ],
   "encoders": [
     [
-      ["MACRO(0)", "MACRO(1)"],
+      ["KC_VOLD", "KC_VOLU"],
       ["RGB_VAD", "RGB_VAI"],
       ["KC_VOLD", "KC_VOLU"],
       ["RGB_VAD", "RGB_VAI"]
     ],
     [
-      ["KC_VOLD", "KC_VOLU"],
+      ["MACRO(0)", "MACRO(1)"],
       ["RGB_VAD", "RGB_VAI"],
       ["KC_VOLD", "KC_VOLU"],
       ["RGB_VAD", "RGB_VAI"]
