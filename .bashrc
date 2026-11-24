@@ -9,11 +9,14 @@ alias ls='ls --color=auto'
 # shellcheck disable=SC1091
 source "$HOME/.profile"
 
-# Zoxide
-eval "$(zoxide init bash)"
+# Delta
+eval "$(delta --generate-completion bash)"
 
 # Fzf
 eval "$(fzf --bash)"
 
-# Delta
-eval "$(delta --generate-completion bash)"
+# just
+eval "$(just --completions bash)"
+
+# Zoxide
+eval "$(zoxide init bash)"

@@ -55,5 +55,8 @@ precmd() {
     print -n "\a"
 }
 
+# just
+eval "$(just --completions zsh)"
+
 # Delta
 eval "$(delta --generate-completion zsh)"

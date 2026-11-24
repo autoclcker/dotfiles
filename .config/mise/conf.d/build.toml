@@ -1,4 +1,5 @@
 [tools]
+"cargo:just" = "latest"
 "npm:typescript" = "latest"
 cmake = "latest"
 make = "latest"

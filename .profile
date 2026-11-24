@@ -20,6 +20,7 @@ alias pgadmin='docker run --rm -p 5432:8080 \
     --env "PGADMIN_CONFIG_MINIFY_PAGE=True" \
     --env "PGADMIN_DEFAULT_EMAIL=admin@gmail.com" \
     --env "PGADMIN_DEFAULT_PASSWORD=admin" \
+    --env "PGADMIN_LISTEN_PORT=8080" \
     --name pgadmin4 \
     --detach dpage/pgadmin4
 '
